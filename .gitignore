@@ -1,0 +1,10 @@
+data/results.csv
+data/confusion_matrices.png
+ollama-models/
+__pycache__/
+.ipynb_checkpoints/
+/literature/*
+*.slurm
+*.sh
+*.md
+/archive_v1/*

@@ -11,6 +11,7 @@ import argparse
 import csv
 import json
 import re
+import socket
 import time
 import urllib.request
 import urllib.error
@@ -85,11 +86,11 @@ def call_ollama(host: str, model: str, prompt: str, retries: int = 1) -> tuple[s
                 headers={"Content-Type": "application/json"},
                 method="POST",
             )
-            with urllib.request.urlopen(req, timeout=120) as resp:
+            with urllib.request.urlopen(req, timeout=300) as resp:
                 latency = time.time() - t0
                 body = json.loads(resp.read().decode("utf-8"))
                 return body.get("response", ""), latency
-        except (urllib.error.URLError, json.JSONDecodeError, TimeoutError) as exc:
+        except (urllib.error.URLError, json.JSONDecodeError, TimeoutError, socket.timeout) as exc:
             latency = time.time() - t0
             if attempt < retries:
                 time.sleep(3)
@@ -104,6 +105,19 @@ def read_csv(path: str) -> list[dict]:
         for row in reader:
             rows.append(row)
     return rows
+
+
+def load_done_indices(path: str) -> set:
+    """Yarım kalmış çıktı dosyasındaki tamamlanmış index'leri okur."""
+    done = set()
+    try:
+        with open(path, newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                done.add(row["index"])
+    except FileNotFoundError:
+        pass
+    return done
 
 
 def main():
@@ -122,56 +136,62 @@ def main():
     total = len(rows)
     print(f"Model: {args.model}  |  Satır: {total}  |  Sunucu: {args.host}")
 
-    results = []
-    errors = 0
+    # Kaldığı yerden devam: daha önce işlenmiş satırları atla
+    done_indices = load_done_indices(args.output)
+    if done_indices:
+        print(f"  Kaldığı yerden devam: {len(done_indices)} satır zaten tamamlanmış, atlanıyor.")
 
-    for i, row in enumerate(rows):
-        idx = row.get("", row.get("Unnamed: 0", i))
-        narrative = row["narrative"]
-        true_label = row["true_label"]
-
-        prompt = build_prompt(narrative)
-        raw, latency = call_ollama(args.host, args.model, prompt)
-
-        if raw.startswith("ERROR:"):
-            predicted, status = "error", "error"
-            errors += 1
-        else:
-            predicted, status = extract_label(raw)
-
-        results.append({
-            "index": idx,
-            "true_label": true_label,
-            "predicted_label": predicted,
-            "status": status,
-            "latency_seconds": f"{latency:.3f}",
-            "raw_response": raw.replace("\n", " ")[:2000],  # CSV'yi okunabilir tut
-        })
-
-        if (i + 1) % 50 == 0 or (i + 1) == total:
-            correct = sum(
-                1 for r in results
-                if r["true_label"] == r["predicted_label"]
-            )
-            print(
-                f"  [{i+1:>4}/{total}]  anlık doğruluk={correct/(i+1):.3f}"
-                f"  hatalar={errors}  son_gecikme={latency:.1f}s"
-            )
-
-    # Sonuçları yaz
     fieldnames = ["index", "true_label", "predicted_label", "status",
                   "latency_seconds", "raw_response"]
-    with open(args.output, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+    import os
+    write_header = not os.path.exists(args.output) or os.path.getsize(args.output) == 0
+    out_file = open(args.output, "a", newline="", encoding="utf-8")
+    writer = csv.DictWriter(out_file, fieldnames=fieldnames)
+    if write_header:
         writer.writeheader()
-        writer.writerows(results)
 
-    correct = sum(1 for r in results if r["true_label"] == r["predicted_label"])
-    off_label = sum(1 for r in results if r["status"] == "off_label")
+    processed = len(done_indices)
+    errors = 0
+
+    try:
+        for i, row in enumerate(rows):
+            idx = str(row.get("", row.get("Unnamed: 0", i)))
+            if idx in done_indices:
+                continue
+
+            narrative = row["narrative"]
+            true_label = row["true_label"]
+
+            prompt = build_prompt(narrative)
+            raw, latency = call_ollama(args.host, args.model, prompt)
+
+            if raw.startswith("ERROR:"):
+                predicted, status = "error", "error"
+                errors += 1
+            else:
+                predicted, status = extract_label(raw)
+
+            writer.writerow({
+                "index": idx,
+                "true_label": true_label,
+                "predicted_label": predicted,
+                "status": status,
+                "latency_seconds": f"{latency:.3f}",
+                "raw_response": raw.replace("\n", " ")[:2000],
+            })
+            out_file.flush()
+            processed += 1
+
+            if processed % 50 == 0 or processed == total:
+                print(
+                    f"  [{processed:>4}/{total}]  hatalar={errors}  son_gecikme={latency:.1f}s"
+                )
+    finally:
+        out_file.close()
+
     print(f"\nTamamlandı → {args.output}")
-    print(f"  Doğruluk   : {correct}/{total} = {correct/total:.4f}")
-    print(f"  Off-label  : {off_label}")
-    print(f"  Hata       : {errors}")
+    print(f"  İşlenen : {processed}/{total}")
+    print(f"  Hata    : {errors}")
 
 
 if __name__ == "__main__":
