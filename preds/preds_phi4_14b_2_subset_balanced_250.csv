@@ -998,3 +998,4 @@ index,true_label,predicted_label,status,latency_seconds,raw_response
 996,debt_collection,debt_collection,ok,0.861,"```json {""product"": ""debt_collection""} ```"
 997,credit_reporting,credit_reporting,ok,0.866,"```json {""product"": ""credit_reporting""} ```"
 998,credit_reporting,credit_reporting,ok,0.888,"```json {""product"": ""credit_reporting""} ```"
+999,debt_collection,debt_collection,ok,8.807,"```json {""product"": ""debt_collection""} ```"

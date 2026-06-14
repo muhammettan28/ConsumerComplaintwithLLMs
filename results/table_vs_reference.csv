@@ -1,0 +1,17 @@
+Model,Source,Acc,Acc std,F1w,F1w std,Cost/1k
+o1 (paid API),Reference (paid API),0.777,—,0.7764,—,$24.24
+GPT-4.5 (paid API),Reference (paid API),0.774,—,0.7763,—,$12.32
+gemma4_12b,Ours (open-source),0.7733,0.017,0.7737,0.0162,$0.00
+Claude 3.7 Sonnet (paid API),Reference (paid API),0.765,—,0.7626,—,$0.64
+Gemini 2.0 Flash (paid API),Reference (paid API),0.758,—,0.7586,—,$0.04
+qwen3_14b,Ours (open-source),0.7507,0.011,0.7496,0.0107,$0.00
+gpt-oss_20b,Ours (open-source),0.7483,0.0199,0.7494,0.0185,$0.00
+GPT-4o (paid API),Reference (paid API),0.736,—,0.7358,—,$0.45
+deepseek-r1_14b,Ours (open-source),0.7237,0.0064,0.724,0.0068,$0.00
+qwen3_8b,Ours (open-source),0.7167,0.0032,0.7172,0.0023,$0.00
+phi4_14b,Ours (open-source),0.705,0.0115,0.7056,0.0107,$0.00
+deepseek-r1_8b,Ours (open-source),0.6843,0.0129,0.6829,0.0119,$0.00
+gemma2_9b,Ours (open-source),0.6797,0.0064,0.6763,0.0085,$0.00
+mistral_7b,Ours (open-source),0.5933,0.0023,0.5868,0.0039,$0.00
+llama3.1_8b,Ours (open-source),0.5777,0.0046,0.5866,0.0029,$0.00
+mistral-nemo_12b,Ours (open-source),0.5593,0.0194,0.5399,0.0245,$0.00

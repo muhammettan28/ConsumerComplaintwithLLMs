@@ -1,0 +1,12 @@
+Model,Type,retail_banking,credit_reporting,credit_card,mortgages_and_loans,debt_collection
+gemma4_12b,Standard,0.8247,0.7432,0.7634,0.8194,0.7178
+qwen3_14b,Reasoning,0.7855,0.7212,0.7296,0.8097,0.7019
+gpt-oss_20b,Reasoning,0.7939,0.7137,0.7394,0.7953,0.7045
+deepseek-r1_14b,Reasoning,0.783,0.6968,0.7101,0.7535,0.6764
+qwen3_8b,Reasoning,0.7802,0.6773,0.7156,0.7694,0.6437
+phi4_14b,Standard,0.7108,0.7057,0.7041,0.737,0.6702
+deepseek-r1_8b,Reasoning,0.748,0.6602,0.6695,0.7574,0.5793
+gemma2_9b,Standard,0.6753,0.6911,0.6614,0.7851,0.5685
+mistral_7b,Standard,0.2959,0.6907,0.6179,0.7114,0.6182
+llama3.1_8b,Standard,0.6265,0.6434,0.6049,0.5925,0.4659
+mistral-nemo_12b,Standard,0.4254,0.6388,0.5567,0.6764,0.4025

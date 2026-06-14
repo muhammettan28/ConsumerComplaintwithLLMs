@@ -998,3 +998,4 @@ index,true_label,predicted_label,status,latency_seconds,raw_response
 996,credit_reporting,credit_reporting,ok,3.489,"{""product"": ""credit_reporting""}"
 997,debt_collection,debt_collection,ok,5.657,"{""product"": ""debt_collection""}"
 998,credit_card,credit_card,ok,10.057,"{""product"": ""credit_card""}"
+999,retail_banking,retail_banking,ok,14.873,"{""product"": ""retail_banking""}"

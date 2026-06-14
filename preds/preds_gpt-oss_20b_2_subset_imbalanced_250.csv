@@ -998,3 +998,4 @@ index,true_label,predicted_label,status,latency_seconds,raw_response
 996,credit_reporting,credit_reporting,ok,3.926,"{""product"": ""credit_reporting""}"
 997,debt_collection,debt_collection,ok,3.957,"{""product"":""debt_collection""}"
 998,mortgages_and_loans,mortgages_and_loans,ok,3.442,"{""product"":""mortgages_and_loans""}"
+999,credit_reporting,credit_reporting,ok,18.467,"{""product"":""credit_reporting""}"
