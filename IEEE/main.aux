@@ -3,6 +3,7 @@
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \citation{das2024explainable,liu2024framework,jondhale2024cfpb}
+\citation{di2023complaint}
 \citation{devlin2019bert}
 \citation{vairetti2024bert}
 \citation{brown2020gpt3}
@@ -12,6 +13,7 @@
 \newlabel{sec:intro}{{I}{1}{Introduction}{section.1}{}}
 \citation{roumeliotis2025think}
 \citation{raju2022bertopic,jondhale2024cfpb}
+\citation{lilleberg2015word2vec}
 \citation{devlin2019bert}
 \citation{raju2022bertopic}
 \citation{grootendorst2020bertopic}
@@ -22,6 +24,7 @@
 \citation{zhao2023survey}
 \citation{correa2024genai}
 \citation{roumeliotis2024tourism}
+\citation{roumeliotis2024ecommerce}
 \citation{li2024customerservice}
 \@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{2}{section.2}\protected@file@percent }
 \newlabel{sec:related}{{II}{2}{Related Work}{section.2}{}}
@@ -40,14 +43,14 @@
 \citation{roumeliotis2025think}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Reasoning Models and the State of the Art}{3}{subsection.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-D}}The Open-Source Gap}{3}{subsection.2.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Class proportions (\%) in the full post-filter dataset ($N{=}103{,}915$), the imbalanced experimental subset ($N{=}1{,}000$), and the balanced subset ($N{=}1{,}000$). In the imbalanced condition, \texttt  {credit\_reporting} is still the dominant class at 51.1\,\%, confirming that balanced evaluation is essential to avoid majority-class inflation.}}{3}{figure.1}\protected@file@percent }
-\newlabel{fig:class_dist}{{1}{3}{Class proportions (\%) in the full post-filter dataset ($N{=}103{,}915$), the imbalanced experimental subset ($N{=}1{,}000$), and the balanced subset ($N{=}1{,}000$). In the imbalanced condition, \texttt {credit\_reporting} is still the dominant class at 51.1\,\%, confirming that balanced evaluation is essential to avoid majority-class inflation}{figure.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {III}Dataset and Preprocessing}{3}{section.3}\protected@file@percent }
 \newlabel{sec:data}{{III}{3}{Dataset and Preprocessing}{section.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Data Source}{3}{subsection.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Class Distribution}{3}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Preprocessing Pipeline}{3}{subsection.3.3}\protected@file@percent }
 \citation{roumeliotis2025think}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Preprocessing Pipeline}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Class proportions (\%) in the full post-filter dataset ($N{=}103{,}915$), the imbalanced experimental subset ($N{=}1{,}000$), and the balanced subset ($N{=}1{,}000$). In the imbalanced condition, \texttt  {credit\_reporting} is still the dominant class at 51.1\,\%, confirming that balanced evaluation is essential to avoid majority-class inflation.}}{4}{figure.1}\protected@file@percent }
+\newlabel{fig:class_dist}{{1}{4}{Class proportions (\%) in the full post-filter dataset ($N{=}103{,}915$), the imbalanced experimental subset ($N{=}1{,}000$), and the balanced subset ($N{=}1{,}000$). In the imbalanced condition, \texttt {credit\_reporting} is still the dominant class at 51.1\,\%, confirming that balanced evaluation is essential to avoid majority-class inflation}{figure.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Experimental Subsets}{4}{subsection.3.4}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Narrative character-length distribution across three balanced $N{=}1{,}000$ subsets (seeds 1--3, different colours). The dashed line marks the 250-character evaluation limit; the solid line marks 500 characters. Distributions are consistent across seeds, confirming reproducible sampling. Most narratives fall below 300 characters, justifying 250 as a meaningful short-text evaluation point and 500 as the full-length cutoff.}}{4}{figure.2}\protected@file@percent }
 \newlabel{fig:char_hist}{{2}{4}{Narrative character-length distribution across three balanced $N{=}1{,}000$ subsets (seeds 1--3, different colours). The dashed line marks the 250-character evaluation limit; the solid line marks 500 characters. Distributions are consistent across seeds, confirming reproducible sampling. Most narratives fall below 300 characters, justifying 250 as a meaningful short-text evaluation point and 500 as the full-length cutoff}{figure.2}{}}
@@ -108,36 +111,38 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}Latency–Accuracy Trade-off}{10}{subsection.6.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-E}}Deployment Recommendations}{10}{subsection.6.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-F}}Interpreting the Imbalanced Results}{10}{subsection.6.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-G}}Comparison with the Reference Paper}{10}{subsection.6.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-H}}Limitations}{10}{subsection.6.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-G}}Limitations}{10}{subsection.6.7}\protected@file@percent }
 \bibstyle{IEEEtran}
 \bibdata{references}
 \bibcite{das2024explainable}{1}
 \bibcite{liu2024framework}{2}
-\bibcite{jondhale2024cfpb}{3}
-\bibcite{devlin2019bert}{4}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-I}}Infrastructure Contribution}{11}{subsection.6.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-H}}Infrastructure Contribution}{11}{subsection.6.8}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{11}{section.7}\protected@file@percent }
 \newlabel{sec:conclusion}{{VII}{11}{Conclusion}{section.7}{}}
-\@writefile{toc}{\contentsline {section}{References}{11}{section*.5}\protected@file@percent }
-\bibcite{vairetti2024bert}{5}
-\bibcite{brown2020gpt3}{6}
-\bibcite{kojima2022zeroshotcot}{7}
-\bibcite{madanchian2024genai}{8}
-\bibcite{roumeliotis2025think}{9}
-\bibcite{raju2022bertopic}{10}
-\bibcite{grootendorst2020bertopic}{11}
-\bibcite{zhao2023survey}{12}
-\bibcite{correa2024genai}{13}
-\bibcite{roumeliotis2024tourism}{14}
-\bibcite{li2024customerservice}{15}
-\bibcite{shin2025llmwritten}{16}
-\bibcite{liang2025cfpb}{17}
-\bibcite{wei2022chainofthought}{18}
-\bibcite{deepseekllm2024}{19}
-\bibcite{guo2025deepseekr1}{20}
-\bibcite{qwen2025qwen3}{21}
-\bibcite{bulgakov2026deepseek}{22}
-\bibcite{gullu2025llama}{23}
-\bibcite{tiwari2021cfpb}{24}
+\bibcite{jondhale2024cfpb}{3}
+\bibcite{di2023complaint}{4}
+\bibcite{devlin2019bert}{5}
+\bibcite{vairetti2024bert}{6}
+\bibcite{brown2020gpt3}{7}
+\bibcite{kojima2022zeroshotcot}{8}
+\bibcite{madanchian2024genai}{9}
+\bibcite{roumeliotis2025think}{10}
+\bibcite{raju2022bertopic}{11}
+\bibcite{lilleberg2015word2vec}{12}
+\bibcite{grootendorst2020bertopic}{13}
+\bibcite{zhao2023survey}{14}
+\bibcite{correa2024genai}{15}
+\bibcite{roumeliotis2024tourism}{16}
+\bibcite{roumeliotis2024ecommerce}{17}
+\bibcite{li2024customerservice}{18}
+\bibcite{shin2025llmwritten}{19}
+\bibcite{liang2025cfpb}{20}
+\bibcite{wei2022chainofthought}{21}
+\bibcite{deepseekllm2024}{22}
+\bibcite{guo2025deepseekr1}{23}
+\bibcite{qwen2025qwen3}{24}
+\bibcite{bulgakov2026deepseek}{25}
+\bibcite{gullu2025llama}{26}
+\bibcite{tiwari2021cfpb}{27}
+\@writefile{toc}{\contentsline {section}{References}{12}{section*.5}\protected@file@percent }
 \gdef \@abspage@last{12}

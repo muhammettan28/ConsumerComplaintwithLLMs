@@ -1,0 +1,228 @@
+\begin{thebibliography}{30}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Das et~al.(2024)]{das2024explainable}
+Soumyadip Das et~al.
+\newblock Explainable {AI} for financial consumer complaint classification.
+\newblock \emph{IEEE Transactions on Computational Social Systems},
+  11:\penalty0 3606--3615, 2024.
+
+\bibitem[Liu et~al.(2024)Liu, Ouyang, Bai, Zhu, Zhou, Zhang, and
+  Liu]{liu2024framework}
+Yuan Liu, Xiaoye Ouyang, Ran Bai, Xiaoling Zhu, Yanguo Zhou, Yi~Zhang, and
+  Chenyu Liu.
+\newblock A framework for categorizing complaint text via large language model.
+\newblock In \emph{Proceedings of the 7th International Conference on Advanced
+  Algorithms and Control Engineering (ICAACE)}. IEEE, 2024.
+
+\bibitem[Jondhale et~al.(2024)Jondhale, Patil, Shinde, Ajalkar, and
+  Biradar]{jondhale2024cfpb}
+Rohidas Jondhale, Shilok Patil, Akash Shinde, Deepika Ajalkar, and Santoshkumar
+  Biradar.
+\newblock Predicting consumer complaint disputes in finance using machine
+  learning.
+\newblock In \emph{Proceedings of the Second International Conference on
+  Advances in Information Technology (ICAIT)}. IEEE, 2024.
+
+\bibitem[Di et~al.(2023)Di, Xiao, Li, Peng, Li, Cheng, Xu, Zhu, and
+  Zheng]{di2023complaint}
+Zixiang Di, Tian Xiao, Bei Li, Yunfeng Peng, Jianfei Li, Xinzhou Cheng, Lexi
+  Xu, Xiaomeng Zhu, and Hangbo Zheng.
+\newblock Research on mobile network user complaint warning method based on
+  multimodal data.
+\newblock In \emph{2023 International Conference on Information and
+  Communication Technologies for Disaster Management (ICT-DM)}, pages 1--6.
+  IEEE, 2023.
+\newblock \doi{10.1109/ICT-DM58371.2023.10286947}.
+
+\bibitem[{European Parliament and Council of the European
+  Union}(2016)]{gdpr2016}
+{European Parliament and Council of the European Union}.
+\newblock Regulation ({EU}) 2016/679 on the protection of natural persons with
+  regard to the processing of personal data ({General Data Protection
+  Regulation}).
+\newblock Official Journal of the European Union, L~119, pp.~1--88, 2016.
+\newblock OJ L 119, 4.5.2016.
+
+\bibitem[{European Parliament and Council of the European
+  Union}(2024)]{euaiact2024}
+{European Parliament and Council of the European Union}.
+\newblock Regulation ({EU}) 2024/1689 laying down harmonised rules on
+  artificial intelligence ({Artificial Intelligence Act}).
+\newblock Official Journal of the European Union, L~2024/1689, 2024.
+\newblock OJ L, 12.7.2024.
+
+\bibitem[{European Banking Authority}(2019)]{eba2019outsourcing}
+{European Banking Authority}.
+\newblock Guidelines on outsourcing arrangements.
+\newblock Technical Report EBA/GL/2019/02, European Banking Authority, 2019.
+\newblock Includes requirements on data localisation and third-party cloud
+  services for financial institutions.
+
+\bibitem[Devlin et~al.(2019)Devlin, Chang, Lee, and Toutanova]{devlin2019bert}
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
+\newblock {BERT}: Pre-training of deep bidirectional transformers for language
+  understanding.
+\newblock In \emph{Proceedings of the 2019 Conference of the North {American}
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies (NAACL-HLT)}, pages 4171--4186. Association for Computational
+  Linguistics, 2019.
+
+\bibitem[Vairetti et~al.(2024)]{vairetti2024bert}
+Carla Vairetti et~al.
+\newblock {BETO}-based prioritization of consumer complaints.
+\newblock \emph{European Journal of Operational Research}, 312:\penalty0
+  1108--1118, 2024.
+
+\bibitem[Brown et~al.(2020)]{brown2020gpt3}
+Tom~B. Brown et~al.
+\newblock Language models are few-shot learners.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, volume~33, pages 1877--1901, 2020.
+
+\bibitem[Kojima et~al.(2022)Kojima, Gu, Reid, Matsuo, and
+  Iwasawa]{kojima2022zeroshotcot}
+Takeshi Kojima, Shixiang~Shane Gu, Machel Reid, Yutaka Matsuo, and Yusuke
+  Iwasawa.
+\newblock Large language models are zero-shot reasoners.
+\newblock \emph{Advances in Neural Information Processing Systems (NeurIPS)},
+  35, 2022.
+
+\bibitem[Madanchian(2024)]{madanchian2024genai}
+Mitra Madanchian.
+\newblock Generative {AI} for consumer behavior prediction: Techniques and
+  applications.
+\newblock \emph{Sustainability}, 16, 2024.
+
+\bibitem[Roumeliotis et~al.(2025)Roumeliotis, Tselikas, and
+  Nasiopoulos]{roumeliotis2025think}
+Konstantinos~I. Roumeliotis, Nikolaos~D. Tselikas, and Dimitrios~K.
+  Nasiopoulos.
+\newblock Think before you classify: {The Rise of Reasoning Large Language
+  Models for Consumer Complaint Detection and Classification}.
+\newblock \emph{Electronics}, 14\penalty0 (6):\penalty0 1070, 2025.
+\newblock \doi{10.3390/electronics14061070}.
+
+\bibitem[Raju et~al.(2022)]{raju2022bertopic}
+Anand Raju et~al.
+\newblock Topic modeling and classification of {CFPB} consumer complaints using
+  transformer models.
+\newblock In \emph{Proceedings of IEEE International Conference on Machine
+  Learning and Applications}. IEEE, 2022.
+
+\bibitem[Lilleberg et~al.(2015)Lilleberg, Zhu, and
+  Zhang]{lilleberg2015word2vec}
+Joseph Lilleberg, Yun Zhu, and Yanqing Zhang.
+\newblock Support vector machines and {Word2vec} for text classification with
+  semantic features.
+\newblock In \emph{2015 {IEEE} 14th International Conference on Cognitive
+  Informatics \& Cognitive Computing (ICCI*CC)}, pages 136--140. IEEE, 2015.
+\newblock \doi{10.1109/ICCI-CC.2015.7259377}.
+
+\bibitem[Grootendorst(2020)]{grootendorst2020bertopic}
+Maarten Grootendorst.
+\newblock {BERTopic}: Leveraging {BERT} and c-{TF-IDF} to create easily
+  interpretable topics.
+\newblock Zenodo, 2020.
+
+\bibitem[Zhao et~al.(2023)]{zhao2023survey}
+Wayne~Xin Zhao et~al.
+\newblock A survey of large language models.
+\newblock \emph{arXiv preprint arXiv:2303.18223}, 2023.
+
+\bibitem[Correa et~al.(2024)]{correa2024genai}
+Diego Correa et~al.
+\newblock Generative {AI} for consumer complaint analysis: Classification,
+  summarization, and response generation.
+\newblock In \emph{Proceedings of the IEEE Andescon}. IEEE, 2024.
+
+\bibitem[Roumeliotis et~al.(2024{\natexlab{a}})Roumeliotis, Tselikas, and
+  Nasiopoulos]{roumeliotis2024tourism}
+Konstantinos~I. Roumeliotis, Nikolaos~D. Tselikas, and Dimitrios~K.
+  Nasiopoulos.
+\newblock Leveraging large language models in tourism: {A} comparative study of
+  the latest {GPT} omni models and {BERT NLP} for customer review
+  classification and sentiment analysis.
+\newblock \emph{Information}, 15, 2024{\natexlab{a}}.
+
+\bibitem[Roumeliotis et~al.(2024{\natexlab{b}})Roumeliotis, Tselikas, and
+  Nasiopoulos]{roumeliotis2024ecommerce}
+Konstantinos~I. Roumeliotis, Nikolaos~D. Tselikas, and Dimitrios~K.
+  Nasiopoulos.
+\newblock {LLMs} in e-commerce: A comparative analysis of {GPT} and {LLaMA}
+  models in product review evaluation.
+\newblock \emph{Natural Language Processing Journal}, 6:\penalty0 100056,
+  2024{\natexlab{b}}.
+\newblock ISSN 2949-7191.
+\newblock \doi{10.1016/j.nlp.2024.100056}.
+
+\bibitem[Li et~al.(2024)Li, Wang, Xu, Wang, Liang, Chen, Liu, Feng, Duan,
+  Huang, Song, and Li]{li2024customerservice}
+Fei Li, Yanyan Wang, Xin Xu, Shiling Wang, Junli Liang, Zhengyi Chen, Wenrui
+  Liu, Qiangzhong Feng, Ticheng Duan, Youzhi Huang, Qi~Song, and Xiangyang Li.
+\newblock Performance evaluations of large language models for customer
+  service.
+\newblock \emph{International Journal of Machine Learning and Cybernetics},
+  2024.
+
+\bibitem[Shin et~al.(2025)]{shin2025llmwritten}
+Jaeho Shin et~al.
+\newblock Detecting {LLM}-written consumer complaints at scale.
+\newblock \emph{arXiv preprint arXiv:2311.16466}, 2025.
+
+\bibitem[Liang et~al.(2025)]{liang2025cfpb}
+Percy Liang et~al.
+\newblock {LLM}-assisted consumer complaint writing: Evidence from {CFPB} data.
+\newblock \emph{arXiv preprint arXiv:2502.09747}, 2025.
+
+\bibitem[Wei et~al.(2022)]{wei2022chainofthought}
+Jason Wei et~al.
+\newblock Chain-of-thought prompting elicits reasoning in large language
+  models.
+\newblock \emph{Advances in Neural Information Processing Systems (NeurIPS)},
+  35, 2022.
+
+\bibitem[{DeepSeek-AI} et~al.(2024){DeepSeek-AI}, Bi, Chen, Chen, Chen, Dai,
+  Deng, Ding, Dong, et~al.]{deepseekllm2024}
+{DeepSeek-AI}, Xiao Bi, Deli Chen, Guanting Chen, Shanhuang Chen, Damai Dai,
+  Chengqi Deng, Honghui Ding, Kai Dong, et~al.
+\newblock {DeepSeek LLM}: Scaling open-source language models with longtermism.
+\newblock \emph{arXiv preprint arXiv:2401.02954}, 2024.
+
+\bibitem[Guo et~al.(2025)]{guo2025deepseekr1}
+Daya Guo et~al.
+\newblock {DeepSeek-R1}: Incentivizing reasoning capability in {LLMs} via
+  reinforcement learning.
+\newblock \emph{arXiv preprint arXiv:2501.12948}, 2025.
+
+\bibitem[{Qwen Team}(2025)]{qwen2025qwen3}
+{Qwen Team}.
+\newblock Qwen3 technical report.
+\newblock \emph{arXiv preprint arXiv:2505.09388}, 2025.
+
+\bibitem[Bulgakov and Turchin(2026)]{bulgakov2026deepseek}
+Vitaly Bulgakov and Alexander Turchin.
+\newblock Reasoning-enhanced rare-event prediction with balanced outcome
+  correction.
+\newblock \emph{arXiv preprint arXiv:2601.16406}, 2026.
+
+\bibitem[G{\"u}ll{\"u} et~al.(2025)]{gullu2025llama}
+Bilge G{\"u}ll{\"u} et~al.
+\newblock Fine-tuning {LLaMA-3.1-8B} for consumer complaint classification.
+\newblock In \emph{Proceedings of the IEEE International Conference on
+  Artificial Intelligence and Computer Science (ACDSA)}, Antalya, Turkey, 2025.
+  IEEE.
+
+\bibitem[Tiwari(2021)]{tiwari2021cfpb}
+Shashwat Tiwari.
+\newblock Consumer complaints dataset for {NLP}.
+\newblock Kaggle, 2021.
+\newblock URL
+  \url{https://www.kaggle.com/datasets/shashwatwork/consume-complaints-dataset-fo-nlp}.
+\newblock Accessed: 15 June 2026.
+
+\end{thebibliography}

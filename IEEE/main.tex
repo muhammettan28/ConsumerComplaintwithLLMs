@@ -83,8 +83,7 @@ trade-off observed across all eleven models.
 % ---- IEEE Keywords ------------------------------------------
 \begin{IEEEkeywords}
 consumer complaint classification, large language models, zero-shot
-learning, open-source LLMs, high-performance computing, CFPB,
-reasoning models, Ollama, SLURM, natural language processing
+learning, open-source LLMs, CFPB, reasoning models, natural language processing
 \end{IEEEkeywords}
 
 % =============================================================
@@ -118,7 +117,8 @@ taxonomy without inventing new labels.
 The practical motivation is equally strong. Complaint triage is a
 high-volume activity in which automation can reduce manual screening
 time, support earlier detection of recurring institutional problems,
-and provide consistent first-pass routing. At the same time, financial
+and provide consistent first-pass routing \cite{di2023complaint}.
+At the same time, financial
 complaint text is sensitive. Even when datasets are public, a deployable
 classification workflow for banks, regulators, or research laboratories
 may need to operate without sending narratives to third-party services.
@@ -230,6 +230,10 @@ na{\"i}ve Bayes. While effective for narrow, well-defined complaint
 taxonomies, these approaches proved brittle in the face of the
 linguistic diversity found in real-world financial complaint corpora
 \cite{raju2022bertopic,jondhale2024cfpb}.
+Lilleberg~et~al.\ \cite{lilleberg2015word2vec} demonstrated that pairing
+support vector machines with Word2Vec embeddings improves text classification
+over purely bag-of-words features, yet even these enriched representations
+required domain-specific engineering and large labelled corpora.
 
 The introduction of BERT \cite{devlin2019bert} triggered a significant
 paradigm shift. Contextual word embeddings, obtained by pre-training on
@@ -276,7 +280,12 @@ Roumeliotis~et~al.\ \cite{roumeliotis2024tourism} compared GPT-4 Omni
 and BERT for customer review classification in tourism, finding that
 GPT-4o achieved 67\,\% accuracy in a zero-shot setting versus 60.6\,\%
 for fine-tuned BERT — an early indication that zero-shot LLMs can
-challenge fine-tuned specialised models. Li~et~al.\
+challenge fine-tuned specialised models.
+In a related e-commerce study, Roumeliotis~et~al.\ \cite{roumeliotis2024ecommerce}
+compared GPT-3.5 and LLaMA-2 alongside BERT and RoBERTa for product review
+sentiment classification, confirming that LLMs achieve competitive performance
+across diverse consumer feedback domains both before and after fine-tuning.
+Li~et~al.\
 \cite{li2024customerservice} further showed, through a comprehensive
 customer service benchmark (TeleEval-CS), that fine-tuned open-source
 LLMs can match proprietary counterparts when evaluated on
@@ -633,12 +642,12 @@ a reasoning model, followed by \texttt{gpt-oss:20b} in third.
 \texttt{qwen3:8b} (F1~$0.717 \pm 0.002$) complete the top five.
 The standard \texttt{phi4:14b} (F1~$0.706 \pm 0.011$) ranks sixth.
 Notably, \texttt{deepseek-r1:8b} (rank~7, F1~$0.683 \pm 0.012$)
-falls below the standard \texttt{gemma2:9b} (rank~8), confirming
-that 8B reasoning models do not consistently outperform larger
-standard models. The weakest model is \texttt{mistral-nemo:12b}
+only narrowly exceeds the standard \texttt{gemma2:9b} (rank~8,
+F1~$0.676 \pm 0.009$), confirming that 8B reasoning models do not
+automatically dominate similarly sized standard models. The weakest model is \texttt{mistral-nemo:12b}
 (F1~$0.540 \pm 0.025$, rank~11), which despite being a 12B model
 scores below both \texttt{mistral:7b} (F1~$0.587$) and
-\texttt{llama3.1:8b} (F1~$0.598$), suggesting that the Mistral Nemo
+\texttt{llama3.1:8b} (F1~$0.587$), suggesting that the Mistral Nemo
 architecture is not well-suited to strict JSON output tasks in the zero-shot
 setting. The low standard deviations across most models —
 notably \texttt{qwen3:8b} ($\pm$0.002) and \texttt{mistral:7b}
@@ -666,7 +675,7 @@ samples.
     \texttt{deepseek-r1:8b}   & R & 0.684\scriptsize{(±.013)} & 0.683\scriptsize{(±.012)} & 0.683 &  5.14 & 2.0 \\
     \texttt{gemma2:9b}        & S & 0.680\scriptsize{(±.006)} & 0.676\scriptsize{(±.009)} & 0.676 &  0.67 & 0.3 \\
     \texttt{mistral:7b}       & S & 0.593\scriptsize{(±.002)} & 0.587\scriptsize{(±.004)} & 0.587 &  0.23 & 58.7 \\
-    \texttt{llama3.1:8b}      & S & 0.590\scriptsize{(±.019)} & 0.598\scriptsize{(±.018)} & 0.597 &  5.78 & 56.0 \\
+    \texttt{llama3.1:8b}      & S & 0.578\scriptsize{(±.005)} & 0.587\scriptsize{(±.003)} & 0.587 &  2.97 & 66.7 \\
     \texttt{mistral-nemo:12b} & S & 0.559\scriptsize{(±.019)} & 0.540\scriptsize{(±.025)} & 0.540 &  0.59 & 0.7 \\
     \bottomrule
     \multicolumn{7}{l}{\footnotesize T: R=Reasoning, S=Standard. OL=Off-label mean. Lat.=Mean latency.}
@@ -679,7 +688,7 @@ particularly informative. The three zero-off-label models among
 the top-five (\texttt{qwen3:14b}, \texttt{gpt-oss:20b}, and
 \texttt{qwen3:8b}) are all reasoning models. The two models
 with severe format-following failures are standard models:
-\texttt{llama3.1:8b} produces 56 off-label predictions and
+\texttt{llama3.1:8b} produces 67 off-label predictions and
 \texttt{mistral:7b} produces 59. Importantly, \texttt{gemma4:12b}
 (rank~1, standard) produces only 3.7 off-label predictions on average
 — nearly as low as the best reasoning models — demonstrating
@@ -731,7 +740,7 @@ Fig.~\ref{fig:conf_worst} shows the confusion matrix for
 models): its near-zero off-label rate confirms that the
 reasoning trace enforces strict output format, and main confusions
 occur between \texttt{credit\_card} and \texttt{mortgages\_and\_loans}.
-In contrast, \texttt{llama3.1:8b} (rank~10) produces 56~off-label
+In contrast, \texttt{llama3.1:8b} (rank~10) produces 67~off-label
 predictions on average per seed — a large fraction of its samples
 are assigned invented categories, which directly degrades accuracy
 and recall across all five classes.
@@ -787,7 +796,7 @@ with mean accuracy $0.782 \pm 0.017$ and F1 $0.783 \pm 0.016$.
 \texttt{qwen3:14b} ranks third (F1~$0.772 \pm 0.013$).
 The top five models (\texttt{gpt-oss:20b}, \texttt{gemma4:12b},
 \texttt{qwen3:14b}, \texttt{qwen3:8b}, \texttt{phi4:14b}) all achieve
-weighted F1 $\geq 0.757$. The imbalanced setting changes the absolute
+weighted F1 $\geq 0.754$. The imbalanced setting changes the absolute
 score level more than the identity of the leading models. However,
 the gains for \texttt{llama3.1:8b} and \texttt{mistral:7b} should not
 be interpreted as genuine robustness improvements, because both models
@@ -810,8 +819,8 @@ still produce many off-label outputs and benefit from the dominant
     \texttt{gemma4:12b}       & S & 0.776\scriptsize{(±.015)} & 0.779\scriptsize{(±.014)} & 0.741 & 10.61 & 2.7 \\
     \texttt{qwen3:14b}        & R & 0.772\scriptsize{(±.012)} & 0.772\scriptsize{(±.013)} & 0.730 &  5.53 & 0.0 \\
     \texttt{qwen3:8b}         & R & 0.766\scriptsize{(±.008)} & 0.762\scriptsize{(±.007)} & 0.719 &  6.97 & 0.3 \\
-    \texttt{phi4:14b}         & S & 0.757\scriptsize{(±.009)} & 0.757\scriptsize{(±.006)} & 0.709 &  0.58 & 0.0 \\
-    \texttt{deepseek-r1:14b}  & R & 0.748\scriptsize{(±.019)} & 0.749\scriptsize{(±.017)} & 0.706 &  8.17 & 0.3 \\
+    \texttt{phi4:14b}         & S & 0.753\scriptsize{(±.004)} & 0.754\scriptsize{(±.002)} & 0.696 &  0.58 & 0.0 \\
+    \texttt{deepseek-r1:14b}  & R & 0.746\scriptsize{(±.017)} & 0.748\scriptsize{(±.015)} & 0.700 &  7.32 & 0.3 \\
     \texttt{deepseek-r1:8b}   & R & 0.738\scriptsize{(±.012)} & 0.731\scriptsize{(±.011)} & 0.677 &  4.46 & 2.3 \\
     \texttt{gemma2:9b}        & S & 0.720\scriptsize{(±.012)} & 0.719\scriptsize{(±.014)} & 0.656 &  0.67 & 0.3 \\
     \texttt{mistral-nemo:12b} & S & 0.653\scriptsize{(±.011)} & 0.641\scriptsize{(±.013)} & 0.538 &  0.59 & 0.7 \\
@@ -841,7 +850,7 @@ Fig.~\ref{fig:comparison_ab} provides a side-by-side view of accuracy
 across both experiments. All models improve numerically from
 Experiment~A to Experiment~B; the shift is most pronounced for
 \texttt{mistral:7b} ($\Delta$acc~$= +0.055$)
-and \texttt{llama3.1:8b} ($\Delta$acc~$= +0.042$), the two models with the
+and \texttt{llama3.1:8b} ($\Delta$acc~$= +0.054$), the two models with the
 highest off-label counts. This pattern suggests that under imbalanced
 conditions, a model defaulting to the majority class can still achieve
 a deceptively high aggregate score. \texttt{mistral-nemo:12b} improves
@@ -875,8 +884,8 @@ zero API cost. This is the headline finding: a freely available,
 locally-deployed 12B standard model matches the performance of the
 two most capable paid reasoning models in the literature.
 \texttt{qwen3:14b} (F1~$0.750$) and \texttt{gpt-oss:20b} (F1~$0.749$)
-both exceed the paid GPT-4o baseline (0.7358) and outperform Claude~3.7
-Sonnet (0.7626) in accuracy terms. Because the reference paper does not
+both exceed the paid GPT-4o baseline (0.7358), although they remain
+below Claude~3.7 Sonnet (F1~0.7626). Because the reference paper does not
 publish the exact sampled complaint identifiers, this comparison should be
 read as protocol-matched rather than paired on identical instances.
 The cost differential is stark: the reference paper reported o1 costs of
@@ -934,8 +943,8 @@ Fig.~\ref{fig:size_sensitivity} compares mean accuracy on
 balanced condition (both at $N{=}1{,}000$). The overall ranking
 is highly stable: no model changes its relative rank by more than
 one position between the two length limits. Most models improve by
-1--4 percentage points moving from shorter to longer narratives, with
-\texttt{deepseek-r1:14b} (+1.6~pp) and \texttt{llama3.1:8b} (+4.0~pp)
+0--3 percentage points moving from shorter to longer narratives, with
+\texttt{deepseek-r1:14b} (+1.6~pp) and \texttt{llama3.1:8b} (+2.8~pp)
 showing the largest gains, suggesting these models benefit from the
 additional context available in longer narratives.
 \texttt{gpt-oss:20b} and \texttt{mistral-nemo:12b} show virtually no
@@ -988,8 +997,8 @@ to Table~\ref{tab:results_imbalanced}.
 Table~\ref{tab:per_class} reports per-class F1 for the three leading
 models in each experiment, confirming that aggregate weighted F1 masks
 important minority-class variation. In Experiment~B all three models
-jump to ${\geq}0.87$ F1 on \texttt{credit\_reporting} while minority
-classes remain in the 0.57–0.76 range, confirming the majority-class
+jump to ${\geq}0.84$ F1 on \texttt{credit\_reporting} while minority
+classes remain in the 0.65--0.77 range, confirming the majority-class
 bias effect discussed in Section~\ref{sec:discussion}.
 
 \begin{table}[tb]
@@ -1008,7 +1017,7 @@ bias effect discussed in Section~\ref{sec:discussion}.
     \textbf{Mortg.} &
     \textbf{Debt} \\
     \midrule
-    A & \texttt{gemma4:12b}      & 0.8247 & 0.7432 & 0.7634 & 0.8201 & 0.7184 \\
+    A & \texttt{gemma4:12b}      & 0.8247 & 0.7432 & 0.7634 & 0.8194 & 0.7178 \\
     A & \texttt{qwen3:14b}       & 0.7855 & 0.7212 & 0.7296 & 0.8097 & 0.7019 \\
     A & \texttt{gpt-oss:20b}     & 0.7939 & 0.7137 & 0.7394 & 0.7953 & 0.7045 \\
     \midrule
@@ -1076,8 +1085,7 @@ outweigh raw scale.
 
 \textbf{Mistral family (Mistral AI):} \texttt{mistral-nemo:12b}
 (F1~0.540) performs \emph{worse} than \texttt{mistral:7b} (F1~0.587)
-in Experiment~A, despite having 71\,\% more parameters. Both models
-exhibit low off-label counts (0.7 and 58.7 respectively), but the
+in Experiment~A, despite having 71\,\% more parameters. Their
 error modes are opposite: \texttt{mistral:7b} frequently produces
 off-label outputs (58.7 per run), whereas \texttt{mistral-nemo:12b}
 commits to valid categories but assigns them incorrectly.
@@ -1107,13 +1115,15 @@ that scale reliably improves the DeepSeek-R1 distillation quality.
 Off-label predictions — responses where the model returned a label
 not in the prescribed five categories — are a direct measure of
 instruction-following reliability. The two models with the highest off-label counts in Experiment~A
-(\texttt{llama3.1:8b}:~56; \texttt{mistral:7b}:~59)
+(\texttt{llama3.1:8b}:~67; \texttt{mistral:7b}:~59)
 also rank among the lowest in F1. This is
 not coincidental: off-label responses are counted as prediction
-errors, directly reducing accuracy and recall. In Experiment~A, all four
-reasoning models produce at most one off-label prediction each, and
-\texttt{gpt-oss:20b}, \texttt{deepseek-r1:14b}, and
-\texttt{qwen3:8b} produce zero.
+errors, directly reducing accuracy and recall. In Experiment~A, the
+reasoning models are generally more disciplined than the weakest
+standard models: \texttt{qwen3:14b}, \texttt{gpt-oss:20b}, and
+\texttt{qwen3:8b} produce zero off-label predictions, while
+\texttt{deepseek-r1:14b} and \texttt{deepseek-r1:8b} remain low at
+1.3 and 2.0 off-label predictions per run, respectively.
 The better instruction-following of reasoning models reflects the
 structured nature of chain-of-thought: the model explicitly reasons
 about which label is appropriate before formatting its output,
@@ -1121,7 +1131,7 @@ reducing the likelihood of hallucinating a novel category.
 
 The raw status logs show that off-label behaviour has two distinct
 forms. \texttt{llama3.1:8b} primarily fails at the formatting/parsing
-level, producing a mean of 56 parse errors in Experiment~A and 57 in
+level, producing a mean of 67 parse errors in Experiment~A and 57 in
 Experiment~B. In contrast, \texttt{mistral:7b} usually returns
 parseable JSON but invents labels outside the allowed taxonomy,
 producing a mean of 59 valid-but-out-of-vocabulary labels in
@@ -1132,19 +1142,32 @@ valid-but-out-of-vocabulary labels such as \texttt{unknown} or
 parse errors indicate output-format failure, whereas out-of-vocabulary
 labels indicate failure to stay within the regulatory taxonomy.
 
+Off-label behaviour should therefore be interpreted not only as an
+accuracy penalty but also as an operational reliability signal. In a
+regulated complaint-routing pipeline, an invented category such as
+\texttt{unknown}, \texttt{loan}, or \texttt{credit\_dispute} may be
+more disruptive than an ordinary within-taxonomy misclassification,
+because downstream systems typically assume that every prediction
+belongs to the fixed regulatory label set. The observed difference
+between parse errors and valid-but-out-of-taxonomy labels suggests
+that local LLM evaluations should report output discipline separately
+from classification quality, especially when models are intended for
+semi-automated banking, compliance, or regulator-facing workflows.
+
 Notably, the off-label count for \texttt{mistral:7b} improves
 substantially in Experiment~B (from 59 to 42), suggesting that the
 dominant \texttt{credit\_reporting} class provides an easier default
 that is more likely to receive a correctly-formatted taxonomy label.
-By contrast, \texttt{llama3.1:8b} shows no meaningful improvement
-(56 in Experiment~A vs 57 in Experiment~B), indicating that its
+By contrast, \texttt{llama3.1:8b} remains unreliable
+(67 in Experiment~A vs 57 in Experiment~B), indicating that its
 parsing failures are not resolved by class imbalance alone.
 
 \subsection{Latency–Accuracy Trade-off}
 
 From a practical deployment perspective, the latency results present
 an important consideration. The fastest model, \texttt{mistral:7b}
-(0.23~s), achieves only F1~0.587 — the worst result in Experiment~A.
+(0.23~s), achieves only F1~0.587 — far below the leading models in
+Experiment~A.
 \texttt{phi4:14b}, at 0.54~s per prediction and F1~0.706, offers
 the most favourable accuracy-to-latency ratio of any model tested.
 For applications requiring both real-time response and reasonable
@@ -1177,8 +1200,8 @@ large complaint archives.
 \textbf{Real-time deployment ($<$1\,s latency required):}
 Use \texttt{phi4:14b}. It offers F1~0.706 at just 0.54~s per
 prediction — the best accuracy-to-latency ratio among all eleven models.
-At 500~predictions per minute throughput, it can serve a moderate
-complaint routing queue in real-time on a single V100.
+At roughly 110~predictions per minute throughput, it can serve a
+moderate complaint routing queue in real-time on a single V100.
 
 \textbf{Constrained VRAM ($\leq$5.5\,GB):}
 Use \texttt{qwen3:8b} (5.2~GB, F1~0.717, 5.19~s). It produces zero
@@ -1190,6 +1213,17 @@ zero-shot settings: both produce $>$50 off-label predictions per
 without post-processing.
 \texttt{mistral-nemo:12b} is also not recommended for this task
 despite its size advantage.
+
+Taken together, these recommendations translate into a concrete cost
+advantage. At moderate scale (one million complaints per year),
+deploying \texttt{gemma4:12b} instead of the best-performing paid API
+model would avoid roughly \$12,320 in API fees with no measurable
+quality loss. \texttt{qwen3:14b} and \texttt{gpt-oss:20b} similarly
+exceed the paid GPT-4o baseline (F1~0.7358) at zero API cost. This
+should not be read as computation being free: local inference still
+consumes GPU time, electricity, and institutional HPC capacity. The
+practical gain is the elimination of recurring third-party API charges
+and the need to transfer sensitive complaint text to external services.
 
 \subsection{Interpreting the Imbalanced Results}
 
@@ -1212,28 +1246,6 @@ benefits disproportionately from majority-class guesses. We therefore
 caution against using Experiment~B accuracy as a simple indicator of
 model quality and recommend that future evaluations report per-class
 precision and recall alongside aggregate metrics.
-
-\subsection{Comparison with the Reference Paper}
-
-Our results demonstrate that competitive zero-shot classification is
-achievable with open-source, locally deployed models — and for the
-first time show that a local model can match the very best paid
-API results. \texttt{gemma4:12b} (F1~$0.774$) is statistically
-indistinguishable from GPT-4.5 (F1~$0.7763$) and o1 (F1~$0.7764$),
-while incurring \$0.00 API cost. At moderate scale (one million
-complaints per year), using \texttt{gemma4:12b} instead of GPT-4.5
-would avoid roughly \$12,320 in API fees with no measurable quality
-loss. This should not be read as computation being free: local
-inference still consumes GPU time, electricity, and institutional HPC
-capacity. The practical claim is about eliminating recurring third-party
-API charges and data transfer, not all operational cost.
-
-The \texttt{qwen3:14b} and \texttt{gpt-oss:20b} results further confirm
-that multiple open-weight models now exceed the GPT-4o benchmark
-(F1~0.7358) under this protocol. For applications requiring real-time
-response, \texttt{phi4:14b} remains the recommended choice: F1~0.706
-at 0.54~s per prediction is the strongest latency-accuracy trade-off
-among all eleven models.
 
 \subsection{Limitations}
 

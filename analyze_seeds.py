@@ -199,7 +199,7 @@ def plot_comparison_ab(agg_a: pd.DataFrame, agg_b: pd.DataFrame, fname: str) -> 
     ax.set_xticks(x)
     ax.set_xticklabels(models, rotation=25, ha="right", fontsize=8.5)
     ax.set_ylabel("Accuracy (mean ± std, 3 seeds)", fontsize=10)
-    ax.set_title("Experiment A vs. B — Balanced vs. Imbalanced (N=500)", fontsize=11)
+    ax.set_title("Experiment A vs. B — Balanced vs. Imbalanced (500-char limit, N=1,000)", fontsize=11)
     ax.axhline(0.777, color="gray", linestyle="--", linewidth=1.2,
                label="Reference best — o1 (0.777, paid API)")
     ax.set_ylim(0.40, 0.95)
@@ -230,7 +230,7 @@ def plot_size_sensitivity(raw: pd.DataFrame, condition: str, fname: str) -> None
     ax.grid(axis="y", linestyle="--", alpha=0.4)
     leg_size = [
         mpatches.Patch(color="gray", label="N=250 (●)"),
-        mpatches.Patch(color="gray", label="N=500 (■)"),
+        mpatches.Patch(color="gray", label="500-char (■)"),
         mpatches.Patch(color=COLOR_R, label="Reasoning"),
         mpatches.Patch(color=COLOR_S, label="Standard"),
     ]
@@ -408,7 +408,7 @@ def main():
 
     # ── Aggregated tables ──────────────────────────────────────────────────
     print("\n" + "="*60)
-    print("  Experiment A — Balanced, N=500")
+    print("  Experiment A — Balanced, 500-char limit")
     print("="*60)
     agg_a500 = aggregate(raw, "balanced", 500)
     tbl_a = build_summary_table(agg_a500)
@@ -416,7 +416,7 @@ def main():
     tbl_a.to_csv(os.path.join(RESULTS_DIR, "table_balanced_500.csv"), index=False)
 
     print("\n" + "="*60)
-    print("  Experiment B — Imbalanced, N=500")
+    print("  Experiment B — Imbalanced, 500-char limit")
     print("="*60)
     agg_b500 = aggregate(raw, "imbalanced", 500)
     tbl_b = build_summary_table(agg_b500)
@@ -424,7 +424,7 @@ def main():
     tbl_b.to_csv(os.path.join(RESULTS_DIR, "table_imbalanced_500.csv"), index=False)
 
     print("\n" + "="*60)
-    print("  Per-Class F1 — Balanced N=500")
+    print("  Per-Class F1 — Balanced, 500-char limit")
     print("="*60)
     pc_a = build_per_class_table(agg_a500)
     print(pc_a.to_string(index=False))
@@ -448,12 +448,12 @@ def main():
     print("\nGenerating figures...")
     plot_f1_errbar(
         agg_a500,
-        title="Weighted F1-Score — Balanced Experiment (N=500, mean ± std, 3 seeds)",
+        title="Weighted F1-Score — Balanced Experiment (500-char limit, N=1,000, mean ± std, 3 seeds)",
         fname=os.path.join(FIGS_DIR, "f1_balanced_errbar.png"),
     )
     plot_f1_errbar(
         agg_b500,
-        title="Weighted F1-Score — Imbalanced Experiment (N=500, mean ± std, 3 seeds)",
+        title="Weighted F1-Score — Imbalanced Experiment (500-char limit, N=1,000, mean ± std, 3 seeds)",
         fname=os.path.join(FIGS_DIR, "f1_imbalanced_errbar.png"),
     )
     plot_comparison_ab(

@@ -1,0 +1,262 @@
+\begin{thebibliography}{30}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Inproceedings
+\bibitem[{Brown et~al.(2020)}]{brown2020gpt3}
+\bibinfo{author}{Brown, T.B.}, et~al., \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Language models are few-shot learners}, in:
+  \bibinfo{booktitle}{Advances in Neural Information Processing Systems
+  (NeurIPS)}, pp. \bibinfo{pages}{1877--1901}.
+%Type = Article
+\bibitem[{Bulgakov and Turchin(2026)}]{bulgakov2026deepseek}
+\bibinfo{author}{Bulgakov, V.}, \bibinfo{author}{Turchin, A.},
+  \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Reasoning-enhanced rare-event prediction with
+  balanced outcome correction}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:2601.16406} .
+%Type = Inproceedings
+\bibitem[{Correa et~al.(2024)}]{correa2024genai}
+\bibinfo{author}{Correa, D.}, et~al., \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Generative {AI} for consumer complaint analysis:
+  Classification, summarization, and response generation}, in:
+  \bibinfo{booktitle}{Proceedings of the IEEE Andescon},
+  \bibinfo{organization}{IEEE}.
+%Type = Article
+\bibitem[{Das et~al.(2024)}]{das2024explainable}
+\bibinfo{author}{Das, S.}, et~al., \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Explainable {AI} for financial consumer complaint
+  classification}.
+\newblock \bibinfo{journal}{IEEE Transactions on Computational Social Systems}
+  \bibinfo{volume}{11}, \bibinfo{pages}{3606--3615}.
+%Type = Article
+\bibitem[{{DeepSeek-AI} et~al.(2024){DeepSeek-AI}, Bi, Chen, Chen, Chen, Dai,
+  Deng, Ding, Dong et~al.}]{deepseekllm2024}
+\bibinfo{author}{{DeepSeek-AI}}, \bibinfo{author}{Bi, X.},
+  \bibinfo{author}{Chen, D.}, \bibinfo{author}{Chen, G.},
+  \bibinfo{author}{Chen, S.}, \bibinfo{author}{Dai, D.}, \bibinfo{author}{Deng,
+  C.}, \bibinfo{author}{Ding, H.}, \bibinfo{author}{Dong, K.}, et~al.,
+  \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{{DeepSeek LLM}: Scaling open-source language models
+  with longtermism}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:2401.02954} .
+%Type = Inproceedings
+\bibitem[{Devlin et~al.(2019)Devlin, Chang, Lee and Toutanova}]{devlin2019bert}
+\bibinfo{author}{Devlin, J.}, \bibinfo{author}{Chang, M.W.},
+  \bibinfo{author}{Lee, K.}, \bibinfo{author}{Toutanova, K.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{{BERT}: Pre-training of deep bidirectional
+  transformers for language understanding}, in: \bibinfo{booktitle}{Proceedings
+  of the 2019 Conference of the North {American} Chapter of the Association for
+  Computational Linguistics: Human Language Technologies (NAACL-HLT)},
+  \bibinfo{organization}{Association for Computational Linguistics}. pp.
+  \bibinfo{pages}{4171--4186}.
+%Type = Inproceedings
+\bibitem[{Di et~al.(2023)Di, Xiao, Li, Peng, Li, Cheng, Xu, Zhu and
+  Zheng}]{di2023complaint}
+\bibinfo{author}{Di, Z.}, \bibinfo{author}{Xiao, T.}, \bibinfo{author}{Li, B.},
+  \bibinfo{author}{Peng, Y.}, \bibinfo{author}{Li, J.}, \bibinfo{author}{Cheng,
+  X.}, \bibinfo{author}{Xu, L.}, \bibinfo{author}{Zhu, X.},
+  \bibinfo{author}{Zheng, H.}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Research on mobile network user complaint warning
+  method based on multimodal data}, in: \bibinfo{booktitle}{2023 International
+  Conference on Information and Communication Technologies for Disaster
+  Management (ICT-DM)}, \bibinfo{organization}{IEEE}. pp.
+  \bibinfo{pages}{1--6}.
+\newblock \DOIprefix\doi{10.1109/ICT-DM58371.2023.10286947}.
+%Type = Techreport
+\bibitem[{{European Banking Authority}(2019)}]{eba2019outsourcing}
+\bibinfo{author}{{European Banking Authority}}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Guidelines on Outsourcing Arrangements}.
+\newblock \bibinfo{type}{Technical Report} \bibinfo{number}{EBA/GL/2019/02}.
+  European Banking Authority.
+\newblock \bibinfo{note}{Includes requirements on data localisation and
+  third-party cloud services for financial institutions}.
+%Type = Misc
+\bibitem[{{European Parliament and Council of the European
+  Union}(2016)}]{gdpr2016}
+\bibinfo{author}{{European Parliament and Council of the European Union}},
+  \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Regulation ({EU}) 2016/679 on the protection of
+  natural persons with regard to the processing of personal data ({General Data
+  Protection Regulation})}.
+\newblock \bibinfo{howpublished}{Official Journal of the European Union, L~119,
+  pp.~1--88}.
+\newblock \bibinfo{note}{OJ L 119, 4.5.2016}.
+%Type = Misc
+\bibitem[{{European Parliament and Council of the European
+  Union}(2024)}]{euaiact2024}
+\bibinfo{author}{{European Parliament and Council of the European Union}},
+  \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Regulation ({EU}) 2024/1689 laying down harmonised
+  rules on artificial intelligence ({Artificial Intelligence Act})}.
+\newblock \bibinfo{howpublished}{Official Journal of the European Union,
+  L~2024/1689}.
+\newblock \bibinfo{note}{OJ L, 12.7.2024}.
+%Type = Misc
+\bibitem[{Grootendorst(2020)}]{grootendorst2020bertopic}
+\bibinfo{author}{Grootendorst, M.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{{BERTopic}: Leveraging {BERT} and c-{TF-IDF} to
+  create easily interpretable topics}.
+\newblock \bibinfo{howpublished}{Zenodo}.
+\newblock \DOIprefix\doi{10.5281/zenodo.4381785}.
+%Type = Inproceedings
+\bibitem[{G{\"u}ll{\"u} et~al.(2025)}]{gullu2025llama}
+\bibinfo{author}{G{\"u}ll{\"u}, B.}, et~al., \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Fine-tuning {LLaMA-3.1-8B} for consumer complaint
+  classification}, in: \bibinfo{booktitle}{Proceedings of the IEEE
+  International Conference on Artificial Intelligence and Computer Science
+  (ACDSA)}, \bibinfo{organization}{IEEE}, \bibinfo{address}{Antalya, Turkey}.
+%Type = Article
+\bibitem[{Guo et~al.(2025)}]{guo2025deepseekr1}
+\bibinfo{author}{Guo, D.}, et~al., \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{{DeepSeek-R1}: Incentivizing reasoning capability in
+  {LLMs} via reinforcement learning}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:2501.12948} .
+%Type = Inproceedings
+\bibitem[{Jondhale et~al.(2024)Jondhale, Patil, Shinde, Ajalkar and
+  Biradar}]{jondhale2024cfpb}
+\bibinfo{author}{Jondhale, R.}, \bibinfo{author}{Patil, S.},
+  \bibinfo{author}{Shinde, A.}, \bibinfo{author}{Ajalkar, D.},
+  \bibinfo{author}{Biradar, S.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Predicting consumer complaint disputes in finance
+  using machine learning}, in: \bibinfo{booktitle}{Proceedings of the Second
+  International Conference on Advances in Information Technology (ICAIT)},
+  \bibinfo{organization}{IEEE}.
+%Type = Article
+\bibitem[{Kojima et~al.(2022)Kojima, Gu, Reid, Matsuo and
+  Iwasawa}]{kojima2022zeroshotcot}
+\bibinfo{author}{Kojima, T.}, \bibinfo{author}{Gu, S.S.},
+  \bibinfo{author}{Reid, M.}, \bibinfo{author}{Matsuo, Y.},
+  \bibinfo{author}{Iwasawa, Y.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Large language models are zero-shot reasoners}.
+\newblock \bibinfo{journal}{Advances in Neural Information Processing Systems
+  (NeurIPS)} \bibinfo{volume}{35}.
+%Type = Article
+\bibitem[{Li et~al.(2024)Li, Wang, Xu, Wang, Liang, Chen, Liu, Feng, Duan,
+  Huang, Song and Li}]{li2024customerservice}
+\bibinfo{author}{Li, F.}, \bibinfo{author}{Wang, Y.}, \bibinfo{author}{Xu, X.},
+  \bibinfo{author}{Wang, S.}, \bibinfo{author}{Liang, J.},
+  \bibinfo{author}{Chen, Z.}, \bibinfo{author}{Liu, W.}, \bibinfo{author}{Feng,
+  Q.}, \bibinfo{author}{Duan, T.}, \bibinfo{author}{Huang, Y.},
+  \bibinfo{author}{Song, Q.}, \bibinfo{author}{Li, X.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Performance evaluations of large language models for
+  customer service}.
+\newblock \bibinfo{journal}{International Journal of Machine Learning and
+  Cybernetics} .
+%Type = Article
+\bibitem[{Liang et~al.(2025)}]{liang2025cfpb}
+\bibinfo{author}{Liang, P.}, et~al., \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{{LLM}-assisted consumer complaint writing: Evidence
+  from {CFPB} data}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:2502.09747} .
+%Type = Inproceedings
+\bibitem[{Lilleberg et~al.(2015)Lilleberg, Zhu and
+  Zhang}]{lilleberg2015word2vec}
+\bibinfo{author}{Lilleberg, J.}, \bibinfo{author}{Zhu, Y.},
+  \bibinfo{author}{Zhang, Y.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Support vector machines and {Word2vec} for text
+  classification with semantic features}, in: \bibinfo{booktitle}{2015 {IEEE}
+  14th International Conference on Cognitive Informatics \& Cognitive Computing
+  (ICCI*CC)}, \bibinfo{organization}{IEEE}. pp. \bibinfo{pages}{136--140}.
+\newblock \DOIprefix\doi{10.1109/ICCI-CC.2015.7259377}.
+%Type = Inproceedings
+\bibitem[{Liu et~al.(2024)Liu, Ouyang, Bai, Zhu, Zhou, Zhang and
+  Liu}]{liu2024framework}
+\bibinfo{author}{Liu, Y.}, \bibinfo{author}{Ouyang, X.}, \bibinfo{author}{Bai,
+  R.}, \bibinfo{author}{Zhu, X.}, \bibinfo{author}{Zhou, Y.},
+  \bibinfo{author}{Zhang, Y.}, \bibinfo{author}{Liu, C.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{A framework for categorizing complaint text via large
+  language model}, in: \bibinfo{booktitle}{Proceedings of the 7th International
+  Conference on Advanced Algorithms and Control Engineering (ICAACE)},
+  \bibinfo{organization}{IEEE}.
+%Type = Article
+\bibitem[{Madanchian(2024)}]{madanchian2024genai}
+\bibinfo{author}{Madanchian, M.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Generative {AI} for consumer behavior prediction:
+  Techniques and applications}.
+\newblock \bibinfo{journal}{Sustainability} \bibinfo{volume}{16}.
+%Type = Article
+\bibitem[{{Qwen Team}(2025)}]{qwen2025qwen3}
+\bibinfo{author}{{Qwen Team}}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Qwen3 technical report}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:2505.09388} .
+%Type = Inproceedings
+\bibitem[{Raju et~al.(2022)}]{raju2022bertopic}
+\bibinfo{author}{Raju, A.}, et~al., \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Topic modeling and classification of {CFPB} consumer
+  complaints using transformer models}, in: \bibinfo{booktitle}{Proceedings of
+  IEEE International Conference on Machine Learning and Applications},
+  \bibinfo{organization}{IEEE}.
+%Type = Article
+\bibitem[{Roumeliotis et~al.(2024a)Roumeliotis, Tselikas and
+  Nasiopoulos}]{roumeliotis2024tourism}
+\bibinfo{author}{Roumeliotis, K.I.}, \bibinfo{author}{Tselikas, N.D.},
+  \bibinfo{author}{Nasiopoulos, D.K.}, \bibinfo{year}{2024}a.
+\newblock \bibinfo{title}{Leveraging large language models in tourism: {A}
+  comparative study of the latest {GPT} omni models and {BERT NLP} for customer
+  review classification and sentiment analysis}.
+\newblock \bibinfo{journal}{Information} \bibinfo{volume}{15}.
+%Type = Article
+\bibitem[{Roumeliotis et~al.(2024b)Roumeliotis, Tselikas and
+  Nasiopoulos}]{roumeliotis2024ecommerce}
+\bibinfo{author}{Roumeliotis, K.I.}, \bibinfo{author}{Tselikas, N.D.},
+  \bibinfo{author}{Nasiopoulos, D.K.}, \bibinfo{year}{2024}b.
+\newblock \bibinfo{title}{{LLMs} in e-commerce: A comparative analysis of {GPT}
+  and {LLaMA} models in product review evaluation}.
+\newblock \bibinfo{journal}{Natural Language Processing Journal}
+  \bibinfo{volume}{6}, \bibinfo{pages}{100056}.
+\newblock \DOIprefix\doi{10.1016/j.nlp.2024.100056}.
+%Type = Article
+\bibitem[{Roumeliotis et~al.(2025)Roumeliotis, Tselikas and
+  Nasiopoulos}]{roumeliotis2025think}
+\bibinfo{author}{Roumeliotis, K.I.}, \bibinfo{author}{Tselikas, N.D.},
+  \bibinfo{author}{Nasiopoulos, D.K.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Think before you classify: {The Rise of Reasoning
+  Large Language Models for Consumer Complaint Detection and Classification}}.
+\newblock \bibinfo{journal}{Electronics} \bibinfo{volume}{14},
+  \bibinfo{pages}{1070}.
+\newblock \DOIprefix\doi{10.3390/electronics14061070}.
+%Type = Article
+\bibitem[{Shin et~al.(2025)}]{shin2025llmwritten}
+\bibinfo{author}{Shin, J.}, et~al., \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Detecting {LLM}-written consumer complaints at
+  scale}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:2311.16466} .
+%Type = Misc
+\bibitem[{Tiwari(2021)}]{tiwari2021cfpb}
+\bibinfo{author}{Tiwari, S.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Consumer complaints dataset for {NLP}}.
+\newblock \bibinfo{howpublished}{Kaggle}.
+\newblock \URLprefix
+  \url{https://www.kaggle.com/datasets/shashwatwork/consume-complaints-dataset-fo-nlp}.
+  \bibinfo{note}{accessed: 15 June 2026}.
+%Type = Article
+\bibitem[{Vairetti et~al.(2024)}]{vairetti2024bert}
+\bibinfo{author}{Vairetti, C.}, et~al., \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{{BETO}-based prioritization of consumer complaints}.
+\newblock \bibinfo{journal}{European Journal of Operational Research}
+  \bibinfo{volume}{312}, \bibinfo{pages}{1108--1118}.
+%Type = Article
+\bibitem[{Wei et~al.(2022)}]{wei2022chainofthought}
+\bibinfo{author}{Wei, J.}, et~al., \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Chain-of-thought prompting elicits reasoning in large
+  language models}.
+\newblock \bibinfo{journal}{Advances in Neural Information Processing Systems
+  (NeurIPS)} \bibinfo{volume}{35}.
+%Type = Article
+\bibitem[{Zhao et~al.(2023)}]{zhao2023survey}
+\bibinfo{author}{Zhao, W.X.}, et~al., \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{A survey of large language models}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:2303.18223} .
+
+\end{thebibliography}

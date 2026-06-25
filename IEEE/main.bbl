@@ -40,6 +40,13 @@ R.~Jondhale, S.~Patil, A.~Shinde, D.~Ajalkar, and S.~Biradar, ``Predicting
   Information Technology (ICAIT)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE,
   2024.
 
+\bibitem{di2023complaint}
+Z.~Di, T.~Xiao, B.~Li, Y.~Peng, J.~Li, X.~Cheng, L.~Xu, X.~Zhu, and H.~Zheng,
+  ``Research on mobile network user complaint warning method based on
+  multimodal data,'' in \emph{2023 International Conference on Information and
+  Communication Technologies for Disaster Management (ICT-DM)}.\hskip 1em plus
+  0.5em minus 0.4em\relax IEEE, 2023, pp. 1--6.
+
 \bibitem{devlin2019bert}
 J.~Devlin, M.-W. Chang, K.~Lee, and K.~Toutanova, ``{BERT}: Pre-training of
   deep bidirectional transformers for language understanding,'' in
@@ -79,6 +86,12 @@ A.~Raju \emph{et~al.}, ``Topic modeling and classification of {CFPB} consumer
   International Conference on Machine Learning and Applications}.\hskip 1em
   plus 0.5em minus 0.4em\relax IEEE, 2022.
 
+\bibitem{lilleberg2015word2vec}
+J.~Lilleberg, Y.~Zhu, and Y.~Zhang, ``Support vector machines and {Word2vec}
+  for text classification with semantic features,'' in \emph{2015 {IEEE} 14th
+  International Conference on Cognitive Informatics \& Cognitive Computing
+  (ICCI*CC)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2015, pp. 136--140.
+
 \bibitem{grootendorst2020bertopic}
 M.~Grootendorst, ``{BERTopic}: Leveraging {BERT} and c-{TF-IDF} to create
   easily interpretable topics,'' Zenodo, 2020.
@@ -98,6 +111,11 @@ K.~I. Roumeliotis, N.~D. Tselikas, and D.~K. Nasiopoulos, ``Leveraging large
   language models in tourism: {A} comparative study of the latest {GPT} omni
   models and {BERT NLP} for customer review classification and sentiment
   analysis,'' \emph{Information}, vol.~15, 2024.
+
+\bibitem{roumeliotis2024ecommerce}
+------, ``{LLMs} in e-commerce: A comparative analysis of {GPT} and {LLaMA}
+  models in product review evaluation,'' \emph{Natural Language Processing
+  Journal}, vol.~6, p. 100056, 2024.
 
 \bibitem{li2024customerservice}
 F.~Li, Y.~Wang, X.~Xu, S.~Wang, J.~Liang, Z.~Chen, W.~Liu, Q.~Feng, T.~Duan,

@@ -1,0 +1,20 @@
+Automated classification of consumer financial complaints has significant
+implications for regulatory oversight and customer service prioritisation.
+While recent studies have demonstrated strong zero-shot performance using
+large proprietary language model (LLM) APIs, those approaches incur
+substantial and recurring monetary costs. In this paper we investigate
+whether open-source, locally deployed LLMs can match the classification
+quality of their paid-API counterparts with no commercial API expenditure. We benchmark
+eleven open-weight models (six standard and five reasoning) on the
+Consumer Financial Protection Bureau (CFPB) five-category zero-shot
+task, across two experimental conditions (balanced and imbalanced),
+three random seeds, and two narrative length limits (250 and 500
+characters). Our best model, \texttt{gemma4:12b}, achieves a mean
+weighted F1 of $0.774 \pm 0.016$ on the balanced evaluation ---
+performance competitive with paid GPT-4.5 (F1~0.7763) and o1
+(F1~0.7764) under a protocol-matched evaluation setting,
+with no commercial API expenditure. Notably, this top result comes from a 12B standard
+(non-reasoning) model, challenging the view that reasoning models are
+necessary for structured classification tasks. We analyse off-label
+prediction behaviour and provide deployment recommendations based on
+the latency--accuracy trade-off observed across all eleven models.
