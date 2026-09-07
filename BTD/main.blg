@@ -5,42 +5,42 @@ The style file: unsrtnat.bst
 Database file #1: references.bib
 You've used 30 entries,
             2481 wiz_defined-function locations,
-            710 strings with 10654 characters,
-and the built_in function-call counts, 11243 in all, are:
-= -- 927
-> -- 646
-< -- 25
-+ -- 251
-- -- 190
-* -- 747
-:= -- 1834
-add.period$ -- 108
+            723 strings with 11544 characters,
+and the built_in function-call counts, 11976 in all, are:
+= -- 950
+> -- 766
+< -- 20
++ -- 291
+- -- 230
+* -- 898
+:= -- 1987
+add.period$ -- 117
 call.type$ -- 30
 change.case$ -- 60
 chr.to.int$ -- 29
 cite$ -- 30
-duplicate$ -- 597
-empty$ -- 1019
-format.name$ -- 233
-if$ -- 2428
+duplicate$ -- 590
+empty$ -- 1030
+format.name$ -- 266
+if$ -- 2550
 int.to.chr$ -- 2
 int.to.str$ -- 31
-missing$ -- 25
-newline$ -- 168
+missing$ -- 23
+newline$ -- 180
 num.names$ -- 90
-pop$ -- 286
+pop$ -- 274
 preamble$ -- 1
 purify$ -- 30
 quote$ -- 0
-skip$ -- 365
+skip$ -- 364
 stack$ -- 0
-substring$ -- 280
-swap$ -- 107
-text.length$ -- 6
+substring$ -- 294
+swap$ -- 111
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 210
 warning$ -- 0
-while$ -- 78
+while$ -- 82
 width$ -- 0
-write$ -- 410
+write$ -- 432
