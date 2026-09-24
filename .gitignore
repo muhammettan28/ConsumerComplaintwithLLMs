@@ -8,3 +8,8 @@ __pycache__/
 *.sh
 *.md
 /archive_v1/*
+*.lzma
+*.zip
+*.exe
+*.cab
+/tmp
