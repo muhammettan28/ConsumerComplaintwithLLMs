@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{27}
+\begin{thebibliography}{31}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -423,6 +423,47 @@ Kaggle.
 Accessed: 15 June 2026
 (2021).
 \url{https://www.kaggle.com/datasets/shashwatwork/consume-complaints-dataset-fo-nlp}
+\end{botherref}
+\endbibitem
+
+%%% 28
+\bibitem[\protect\citeauthoryear{Touvron et~al.}{2023}]{touvron2023llama2}
+\begin{botherref}
+\oauthor{\bsnm{Touvron}, \binits{H.}}, et al.:
+{Llama 2}: Open foundation and fine-tuned chat models.
+arXiv preprint arXiv:2307.09288
+(2023)
+\end{botherref}
+\endbibitem
+
+%%% 29
+\bibitem[\protect\citeauthoryear{Jiang et~al.}{2023}]{jiang2023mistral}
+\begin{botherref}
+\oauthor{\bsnm{Jiang}, \binits{A.Q.}}, et al.:
+Mistral {7B}.
+arXiv preprint arXiv:2310.06825
+(2023)
+\end{botherref}
+\endbibitem
+
+%%% 30
+\bibitem[\protect\citeauthoryear{{Google DeepMind Gemma
+  Team}}{2024}]{team2024gemma2}
+\begin{botherref}
+\oauthor{\bsnm{{Google DeepMind Gemma Team}}}:
+Gemma 2: Improving open language models at a practical size.
+arXiv preprint arXiv:2408.00118
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 31
+\bibitem[\protect\citeauthoryear{Abdin et~al.}{2024}]{abdin2024phi4}
+\begin{botherref}
+\oauthor{\bsnm{Abdin}, \binits{M.}}, et al.:
+Phi-4 technical report.
+arXiv preprint arXiv:2412.08905
+(2024)
 \end{botherref}
 \endbibitem
 

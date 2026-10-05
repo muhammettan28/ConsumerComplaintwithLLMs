@@ -168,9 +168,9 @@ The present paper addresses this gap directly. Our contributions are:
         12--14B variants for each architecture family, enabling a fair
         cross-scale comparison.
 
-  \item We document a complete, reproducible inference pipeline on the
-        TRUBA ARF HPC cluster using Ollama and SLURM, including
-        all deployment parameters needed to replicate our results.
+  \item We document a complete, reproducible local inference pipeline
+        using Ollama on an Ubuntu workstation, including the hardware
+        and software parameters needed to replicate our results.
 
   \item We conduct a second experiment using the natural (imbalanced)
         class distribution, evaluating whether performance patterns
@@ -328,7 +328,7 @@ substantial labelled training data. Neither approach is accessible to
 practitioners operating under strict data-governance constraints,
 limited budgets, or air-gapped computing environments. The present
 paper fills this gap by restricting itself entirely to open-weight
-models deployed locally on shared HPC infrastructure, thereby
+models deployed locally on commodity workstation hardware, thereby
 demonstrating that competitive zero-shot complaint classification is
 achievable without any API cost or proprietary model access.
 
@@ -472,23 +472,21 @@ range of narratives up to the preprocessing cutoff.
 
 \subsection{Infrastructure}
 
-All inference experiments are conducted on the TRUBA ARF cluster,
-the Turkish national high-performance computing facility. Jobs are
-submitted via the SLURM scheduler to the \texttt{akya-cuda} partition.
-Each job is allocated a single NVIDIA Tesla V100-SXM2-16\,GB GPU
-(16\,GB VRAM), 10~CPU cores, and a 24-hour wall-clock time limit.
-All models are pre-downloaded to the shared storage before job submission,
-ensuring fully offline inference on compute nodes — a configuration
-that mirrors regulated or air-gapped deployment environments.
+All inference experiments are conducted on a local Ubuntu~24.04
+workstation equipped with an Intel Core i7-14700 processor, 32\,GB RAM,
+and an NVIDIA GeForce RTX 5060 Ti GPU with 16\,GB VRAM. The software
+environment uses Python~3.12, Ollama for local LLM serving, and
+TensorFlow~2.18 for supporting machine-learning utilities. All models
+are pre-downloaded before inference, ensuring fully local execution
+without third-party API calls or transfer of complaint narratives to
+external services.
 
-Model inference is handled by Ollama~v0.30.6, a self-contained
-serving binary that manages model loading, KV-cache management,
-and the REST API. The Ollama server is started within each SLURM
-job and the Python inference script communicates with it via
-the local REST endpoint. Each job is allocated a single NVIDIA
-Tesla V100-SXM2-16\,GB GPU; up to eight jobs run concurrently
-across the \texttt{akya-cuda} partition, allowing parallel
-evaluation of different model--dataset combinations.
+Model inference is handled by Ollama, a self-contained serving runtime
+that manages model loading, KV-cache management, and the local REST API.
+The Python inference script communicates with Ollama through the local
+endpoint, while evaluation scripts run in the same workstation environment.
+This configuration mirrors privacy-preserving deployments in which
+financial text remains on institution-controlled hardware.
 
 \subsection{Models}
 
@@ -501,7 +499,11 @@ cross-architecture comparison. The evaluated Ollama builds use 4-bit
 quantisation (Q4\_K\_M GGUF format, Ollama default), which reduces
 VRAM requirements significantly while maintaining competitive quality.
 The largest model, \texttt{gpt-oss:20b}, requires 13.0\,GB VRAM and
-fits within a single V100.
+fits within the 16\,GB local GPU memory budget.
+The evaluated model families build on recent open-weight model lines,
+including LLaMA \cite{touvron2023llama2}, Mistral \cite{jiang2023mistral},
+Gemma \cite{team2024gemma2}, Phi \cite{abdin2024phi4}, Qwen
+\cite{qwen2025qwen3}, and DeepSeek \cite{deepseekllm2024,guo2025deepseekr1}.
 Model names in Table~\ref{tab:models} are the exact Ollama tags used
 in the experiments. The family column records the upstream lineage or
 registry metadata associated with each tag and should not be interpreted
@@ -539,7 +541,7 @@ commercial service.
     \texttt{qwen3:8b}          & Alibaba    & Reasoning & 8B   & 5.2\,GB \\
     \texttt{qwen3:14b}         & Alibaba    & Reasoning & 14B  & 9.3\,GB \\
     \texttt{gpt-oss:20b}       & OpenAI     & Reasoning & 20B  & 13.0\,GB \\
-    \bottomrule
+    \botrule
   \end{tabular}
 \end{table}
 
@@ -580,9 +582,9 @@ HTTP failure before being recorded as an error; errors are included in
 the final count and do not silently inflate accuracy. The raw model
 response is retained alongside the parsed label in the output CSV to
 allow post-hoc auditing of all parsing decisions.
-The full experiment was orchestrated as two SLURM arrays totalling
-132 tasks (11~models~$\times$~12~datasets), with up to 8 jobs running
-concurrently.
+The full experiment was orchestrated as local batch runs totalling
+132 tasks (11~models~$\times$~12~datasets), with runs scheduled
+sequentially or in controlled parallel groups according to GPU memory availability.
 
 \subsection{Evaluation Metrics}
 
@@ -600,7 +602,7 @@ of \emph{off-label} predictions — responses where the model returned
 a category name not in the prescribed five, or failed to return
 valid JSON entirely. Off-label predictions are counted as errors.
 The API cost for all experiments is \$0. Compute time is supplied by
-an institutional HPC allocation rather than a commercial LLM API.
+the local workstation rather than a commercial LLM API.
 
 
 % =============================================================
@@ -657,7 +659,7 @@ samples.
     \texttt{mistral:7b}       & S & 0.593{\scriptsize($\pm$.002)} & 0.587{\scriptsize($\pm$.004)} & 0.587 &  0.23 & 58.7 \\
     \texttt{llama3.1:8b}      & S & 0.578{\scriptsize($\pm$.005)} & 0.587{\scriptsize($\pm$.003)} & 0.587 &  2.97 & 66.7 \\
     \texttt{mistral-nemo:12b} & S & 0.559{\scriptsize($\pm$.019)} & 0.540{\scriptsize($\pm$.025)} & 0.540 &  0.59 & 0.7 \\
-    \bottomrule
+    \botrule
     \multicolumn{7}{l}{\footnotesize T: R=Reasoning, S=Standard. OL=Off-label mean. Lat.=Mean latency.}
   \end{tabular}
 \end{table}
@@ -804,7 +806,7 @@ still produce many off-label outputs and benefit from the dominant
     \texttt{mistral-nemo:12b} & S & 0.653{\scriptsize($\pm$.011)} & 0.641{\scriptsize($\pm$.013)} & 0.538 &  0.59 & 0.7 \\
     \texttt{mistral:7b}       & S & 0.649{\scriptsize($\pm$.010)} & 0.661{\scriptsize($\pm$.010)} & 0.566 &  0.23 & 42.3 \\
     \texttt{llama3.1:8b}      & S & 0.632{\scriptsize($\pm$.006)} & 0.647{\scriptsize($\pm$.012)} & 0.564 &  0.56 & 57.3 \\
-    \bottomrule
+    \botrule
     \multicolumn{7}{l}{\footnotesize T: R=Reasoning, S=Standard. OL=Off-label mean. Lat.=Mean latency.}
   \end{tabular}
 \end{table}
@@ -894,7 +896,7 @@ transfer to third parties.
     \texttt{deepseek-r1:14b}    & Open-source & $0.724{\pm}.006$ & $0.724{\pm}.007$ & \$0.00 \\
     \texttt{qwen3:8b}           & Open-source & $0.717{\pm}.003$ & $0.717{\pm}.002$ & \$0.00 \\
     \texttt{phi4:14b}           & Open-source & $0.705{\pm}.012$ & $0.706{\pm}.011$ & \$0.00 \\
-    \bottomrule
+    \botrule
   \end{tabular}
 \end{table}
 
@@ -999,7 +1001,7 @@ bias effect discussed in Section~\ref{sec:discussion}.
     B & \texttt{gpt-oss:20b}     & 0.7508 & 0.8527 & 0.6657 & 0.7404 & 0.6919 \\
     B & \texttt{gemma4:12b}      & 0.7676 & 0.8453 & 0.6719 & 0.7442 & 0.6769 \\
     B & \texttt{qwen3:14b}       & 0.7353 & 0.8437 & 0.6544 & 0.7427 & 0.6727 \\
-    \bottomrule
+    \botrule
     \multicolumn{7}{l}{\footnotesize E = Experiment; Mortg. = Mortgages \& Loans.}
   \end{tabular}
 \end{table}
@@ -1149,11 +1151,11 @@ For applications requiring both real-time response and reasonable
 accuracy, \texttt{phi4:14b} is the recommended choice.
 
 Reasoning models are consistently slower: \texttt{deepseek-r1:14b}
-takes 9.33~s per prediction on average across seeds and nodes.
-At 500 predictions, this translates to roughly 1.3~hours of total
-inference time on a single V100. For
-large-scale regulatory applications processing millions of complaints,
-the time budget would need to be considered alongside model quality.
+takes 9.33~s per prediction on average across seeds on the local
+workstation. At 500 predictions, this translates to roughly 1.3~hours
+of total inference time on the RTX 5060 Ti. For large-scale regulatory
+applications processing millions of complaints, the time budget would
+need to be considered alongside model quality.
 All reported latency figures for reasoning models include the full
 chain-of-thought generation trace; the final JSON label is extracted
 from the end of this trace via the regex described in
@@ -1176,7 +1178,7 @@ large complaint archives.
 Use \texttt{phi4:14b}. It offers F1~0.706 at just 0.54~s per
 prediction — the best accuracy-to-latency ratio among all eleven models.
 At roughly 110~predictions per minute throughput, it can serve a
-moderate complaint routing queue in real-time on a single V100.
+moderate complaint routing queue in real time on the local GPU.
 
 \textbf{Constrained VRAM ($\leq$5.5\,GB):}
 Use \texttt{qwen3:8b} (5.2~GB, F1~0.717, 5.19~s). It produces zero
@@ -1196,7 +1198,7 @@ model would avoid roughly \$12,320 in API fees with no measurable
 quality loss. \texttt{qwen3:14b} and \texttt{gpt-oss:20b} similarly
 exceed the paid GPT-4o baseline (F1~0.7358) at zero API cost. This
 should not be read as computation being free: local inference still
-consumes GPU time, electricity, and institutional HPC capacity. The
+consumes GPU time, electricity, and local hardware resources. The
 practical gain is the elimination of recurring third-party API charges
 and the need to transfer sensitive complaint text to external services.
 
@@ -1249,21 +1251,10 @@ contamination: open-weight models may have encountered CFPB complaints
 or derivative datasets during pre-training, although no task-specific
 fine-tuning is used in our experiments. Eighth, the reported \$0 cost
 refers to API expenditure, not to the full economic cost of GPU
-hardware, electricity, or HPC operation. Finally, the main tables
+hardware, electricity, or local workstation operation. Finally, the main tables
 report weighted aggregate metrics; for operational deployment,
 macro-F1 and per-class precision/recall should be inspected to avoid
 masking poor minority-class performance.
-
-\subsection{Infrastructure Contribution}
-
-A secondary contribution of this work is the documented HPC
-deployment pipeline. The combination of SLURM job scheduling,
-offline Ollama serving, and a standard-library-only Python inference
-script provides a template that can be applied to other NLP
-classification tasks on shared research clusters without requiring
-pip-installed dependencies on the compute node. This reproducibility
-infrastructure lowers the barrier for other researchers to benchmark
-local LLMs on domain-specific tasks.
 
 % =============================================================
 \section{Conclusion}
@@ -1271,8 +1262,8 @@ local LLMs on domain-specific tasks.
 
 We have presented a comprehensive zero-shot benchmark of eleven
 open-source large language models on the CFPB consumer financial
-complaint classification task, conducted entirely at zero API cost
-on the TRUBA ARF HPC cluster. Our results demonstrate that the
+complaint classification task, conducted through local self-hosted
+inference at zero API cost. Our results demonstrate that the
 best open-source model, \texttt{gemma4:12b}, achieves a mean weighted
 F1 of $0.774 \pm 0.016$ across three independent seeds on the balanced
 evaluation — matching the paid GPT-4.5 (F1~0.7763) and approaching
@@ -1324,27 +1315,43 @@ Fifth, the benchmark will be \emph{extended to the full multi-year
 CFPB corpus} with a richer category taxonomy to assess scalability
 and temporal robustness of the open-source inference pipeline.
 
-% ---- Acknowledgements ----------------------------------------
-\bmhead{Acknowledgment}
-The numerical calculations reported in this paper were fully performed
-at T{\"U}B\.{I}TAK ULAKB\.{I}M, High Performance and Grid Computing
-Center (TRUBA resources). The authors gratefully acknowledge
-T{\"U}B\.{I}TAK ULAKB\.{I}M for providing access to the TRUBA ARF
-cluster and the \texttt{akya-cuda} GPU partition used in this study.
-
-% ---- Conflict of Interest ------------------------------------
-\bmhead{Conflict of Interest}
-The authors declare that they have no conflict of interest.
+\section*{Declarations}
 
 % ---- Funding Statement ---------------------------------------
 \bmhead{Funding}
 This research received no external funding.
 
+% ---- Conflict of Interest ------------------------------------
+\bmhead{Conflict of interest}
+The authors declare that they have no conflict of interest.
+
+% ---- Ethics Approval -----------------------------------------
+\bmhead{Ethics approval and consent to participate}
+Not applicable.
+
+% ---- Consent for Publication ---------------------------------
+\bmhead{Consent for publication}
+Not applicable.
+
+% ---- Data Availability ---------------------------------------
+\bmhead{Data availability}
+The study uses the publicly available CFPB Consumer Complaints dataset
+published on Kaggle \cite{tiwari2021cfpb}.
+
+% ---- Materials Availability ----------------------------------
+\bmhead{Materials availability}
+Not applicable.
+
 % ---- Code Availability ---------------------------------------
-\bmhead{Code Availability}
-All source code, preprocessing scripts, and SLURM job files used in
+\bmhead{Code availability}
+All source code, preprocessing scripts, and local experiment files used in
 this study are publicly available at:
 \url{https://github.com/muhammettan28/ConsumerComplaint}
+
+% ---- Author Contributions ------------------------------------
+\bmhead{Author contributions}
+Muhammet Tan and Halit Bak{\i}r contributed to the study conception,
+experimental design, implementation, analysis, and manuscript preparation.
 
 % ---- References ---------------------------------------------
 \bibliography{references}

@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1791231106.68394 "main.aux" "main.bbl" "main" 1791231109.44893 0
-  "./references.bib" 1781519322.37598 11698 a05f424b85fbf212a434f481a3c59b91 ""
+["bibtex main"] 1791231930.27742 "main.aux" "main.bbl" "main" 1791231968.89688 0
+  "./references.bib" 1791231909.68424 11302 49ffbea92f7652e5f28f5ecd21b5ddee ""
   "./sn-mathphys-num.bst" 1791230969.00267 64164 943df446db725f71d6bb625fc0d6f4fc ""
-  "main.aux" 1791231108.85427 17546 1f2fad50042daa1d38e76f6e0fcd96a5 "pdflatex"
+  "main.aux" 1791231968.28258 18332 f6c803ad0d40d0f4b6fdce197d18d458 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1791231106.88844 "main.tex" "main.pdf" "main" 1791231109.44915 0
+["pdflatex"] 1791231965.78167 "main.tex" "main.pdf" "main" 1791231968.89717 0
   "/etc/texmf/web2c/texmf.cnf" 1777045411.6785 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx0700.tfm" 1136768653 3584 ca0c423beaacd28d53ddce5a826cd558 ""
@@ -193,10 +193,10 @@
   "figures/v2/f1_imbalanced_errbar.png" 1781432555.01915 102735 9d664d948533997cbfcbb495623a6443 ""
   "figures/v2/size_sensitivity_balanced.png" 1781432555.01945 89782 f1324f3ac05e33546144f2a3a14eb7df ""
   "figures/v2/vs_reference.png" 1781432555.02 136839 d089ef261258a05e10a1de9c8bb38051 ""
-  "main.aux" 1791231108.85427 17546 1f2fad50042daa1d38e76f6e0fcd96a5 "pdflatex"
-  "main.bbl" 1791231106.88126 13692 6567b5017ccec3d3d56bff9573e67f8f "bibtex main"
-  "main.out" 1791231108.85627 6453 d3c6997bd9bc492ff433569d32eaf4c4 "pdflatex"
-  "main.tex" 1791231091.49857 72027 c0bcfe55871f2697b12df4d6b8a60182 ""
+  "main.aux" 1791231968.28258 18332 f6c803ad0d40d0f4b6fdce197d18d458 "pdflatex"
+  "main.bbl" 1791231930.5192 14708 7831e85e2ef7eb0f42e4fa6c119e7543 "bibtex main"
+  "main.out" 1791231968.28458 7055 728b5da842dca2169b779de4dd28c0a4 "pdflatex"
+  "main.tex" 1791231965.65802 72165 a520bf3f91fad4c32adfeb3e4855ae91 ""
   "sn-jnl.cls" 1734062471 55857 c14ef9d34b3d95356940eaf177aff85f ""
   (generated)
   "main.aux"
