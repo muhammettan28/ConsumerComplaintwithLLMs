@@ -1,0 +1,429 @@
+%% BioMed_Central_Bib_Style_v1.01
+
+\begin{thebibliography}{27}
+% BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
+\ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
+\ifx \binits  \undefined \def \binits#1{#1}\fi
+\ifx \bauthor  \undefined \def \bauthor#1{#1}\fi
+\ifx \batitle  \undefined \def \batitle#1{#1}\fi
+\ifx \bjtitle  \undefined \def \bjtitle#1{#1}\fi
+\ifx \bvolume  \undefined \def \bvolume#1{\textbf{#1}}\fi
+\ifx \byear  \undefined \def \byear#1{#1}\fi
+\ifx \bissue  \undefined \def \bissue#1{#1}\fi
+\ifx \bfpage  \undefined \def \bfpage#1{#1}\fi
+\ifx \blpage  \undefined \def \blpage #1{#1}\fi
+\ifx \burl  \undefined \def \burl#1{\textsf{#1}}\fi
+\ifx \doiurl  \undefined \def \doiurl#1{\url{https://doi.org/#1}}\fi
+\ifx \betal  \undefined \def \betal{\textit{et al.}}\fi
+\ifx \binstitute  \undefined \def \binstitute#1{#1}\fi
+\ifx \binstitutionaled  \undefined \def \binstitutionaled#1{#1}\fi
+\ifx \bctitle  \undefined \def \bctitle#1{#1}\fi
+\ifx \beditor  \undefined \def \beditor#1{#1}\fi
+\ifx \bpublisher  \undefined \def \bpublisher#1{#1}\fi
+\ifx \bbtitle  \undefined \def \bbtitle#1{#1}\fi
+\ifx \bedition  \undefined \def \bedition#1{#1}\fi
+\ifx \bseriesno  \undefined \def \bseriesno#1{#1}\fi
+\ifx \blocation  \undefined \def \blocation#1{#1}\fi
+\ifx \bsertitle  \undefined \def \bsertitle#1{#1}\fi
+\ifx \bsnm \undefined \def \bsnm#1{#1}\fi
+\ifx \bsuffix \undefined \def \bsuffix#1{#1}\fi
+\ifx \bparticle \undefined \def \bparticle#1{#1}\fi
+\ifx \barticle \undefined \def \barticle#1{#1}\fi
+\bibcommenthead
+\ifx \bconfdate \undefined \def \bconfdate #1{#1}\fi
+\ifx \botherref \undefined \def \botherref #1{#1}\fi
+\ifx \url \undefined \def \url#1{\textsf{#1}}\fi
+\ifx \bchapter \undefined \def \bchapter#1{#1}\fi
+\ifx \bbook \undefined \def \bbook#1{#1}\fi
+\ifx \bcomment \undefined \def \bcomment#1{#1}\fi
+\ifx \oauthor \undefined \def \oauthor#1{#1}\fi
+\ifx \citeauthoryear \undefined \def \citeauthoryear#1{#1}\fi
+\ifx \endbibitem  \undefined \def \endbibitem {}\fi
+\ifx \bconflocation  \undefined \def \bconflocation#1{#1}\fi
+\ifx \arxivurl  \undefined \def \arxivurl#1{\textsf{#1}}\fi
+\csname PreBibitemsHook\endcsname
+
+%%% 1
+\bibitem[\protect\citeauthoryear{Das et~al.}{2024}]{das2024explainable}
+\begin{barticle}
+\bauthor{\bsnm{Das}, \binits{S.}}, \betal:
+\batitle{Explainable {AI} for financial consumer complaint classification}.
+\bjtitle{IEEE Transactions on Computational Social Systems}
+\bvolume{11},
+\bfpage{3606}--\blpage{3615}
+(\byear{2024})
+\end{barticle}
+\endbibitem
+
+%%% 2
+\bibitem[\protect\citeauthoryear{Liu et~al.}{2024}]{liu2024framework}
+\begin{bchapter}
+\bauthor{\bsnm{Liu}, \binits{Y.}},
+\bauthor{\bsnm{Ouyang}, \binits{X.}},
+\bauthor{\bsnm{Bai}, \binits{R.}},
+\bauthor{\bsnm{Zhu}, \binits{X.}},
+\bauthor{\bsnm{Zhou}, \binits{Y.}},
+\bauthor{\bsnm{Zhang}, \binits{Y.}},
+\bauthor{\bsnm{Liu}, \binits{C.}}:
+\bctitle{A framework for categorizing complaint text via large language model}.
+In: \bbtitle{Proceedings of the 7th International Conference on Advanced
+  Algorithms and Control Engineering (ICAACE)}
+(\byear{2024}).
+\bcomment{IEEE}
+\end{bchapter}
+\endbibitem
+
+%%% 3
+\bibitem[\protect\citeauthoryear{Jondhale et~al.}{2024}]{jondhale2024cfpb}
+\begin{bchapter}
+\bauthor{\bsnm{Jondhale}, \binits{R.}},
+\bauthor{\bsnm{Patil}, \binits{S.}},
+\bauthor{\bsnm{Shinde}, \binits{A.}},
+\bauthor{\bsnm{Ajalkar}, \binits{D.}},
+\bauthor{\bsnm{Biradar}, \binits{S.}}:
+\bctitle{Predicting consumer complaint disputes in finance using machine
+  learning}.
+In: \bbtitle{Proceedings of the Second International Conference on Advances in
+  Information Technology (ICAIT)}
+(\byear{2024}).
+\bcomment{IEEE}
+\end{bchapter}
+\endbibitem
+
+%%% 4
+\bibitem[\protect\citeauthoryear{Di et~al.}{2023}]{di2023complaint}
+\begin{bchapter}
+\bauthor{\bsnm{Di}, \binits{Z.}},
+\bauthor{\bsnm{Xiao}, \binits{T.}},
+\bauthor{\bsnm{Li}, \binits{B.}},
+\bauthor{\bsnm{Peng}, \binits{Y.}},
+\bauthor{\bsnm{Li}, \binits{J.}},
+\bauthor{\bsnm{Cheng}, \binits{X.}},
+\bauthor{\bsnm{Xu}, \binits{L.}},
+\bauthor{\bsnm{Zhu}, \binits{X.}},
+\bauthor{\bsnm{Zheng}, \binits{H.}}:
+\bctitle{Research on mobile network user complaint warning method based on
+  multimodal data}.
+In: \bbtitle{2023 International Conference on Information and Communication
+  Technologies for Disaster Management (ICT-DM)},
+pp. \bfpage{1}--\blpage{6}
+(\byear{2023}).
+\doiurl{10.1109/ICT-DM58371.2023.10286947} .
+\bcomment{IEEE}
+\end{bchapter}
+\endbibitem
+
+%%% 5
+\bibitem[\protect\citeauthoryear{Devlin et~al.}{2019}]{devlin2019bert}
+\begin{bchapter}
+\bauthor{\bsnm{Devlin}, \binits{J.}},
+\bauthor{\bsnm{Chang}, \binits{M.-W.}},
+\bauthor{\bsnm{Lee}, \binits{K.}},
+\bauthor{\bsnm{Toutanova}, \binits{K.}}:
+\bctitle{{BERT}: Pre-training of deep bidirectional transformers for language
+  understanding}.
+In: \bbtitle{Proceedings of the 2019 Conference of the North {American} Chapter
+  of the Association for Computational Linguistics: Human Language Technologies
+  (NAACL-HLT)},
+pp. \bfpage{4171}--\blpage{4186}
+(\byear{2019}).
+\bcomment{Association for Computational Linguistics}
+\end{bchapter}
+\endbibitem
+
+%%% 6
+\bibitem[\protect\citeauthoryear{Vairetti et~al.}{2024}]{vairetti2024bert}
+\begin{barticle}
+\bauthor{\bsnm{Vairetti}, \binits{C.}}, \betal:
+\batitle{{BETO}-based prioritization of consumer complaints}.
+\bjtitle{European Journal of Operational Research}
+\bvolume{312},
+\bfpage{1108}--\blpage{1118}
+(\byear{2024})
+\end{barticle}
+\endbibitem
+
+%%% 7
+\bibitem[\protect\citeauthoryear{Brown et~al.}{2020}]{brown2020gpt3}
+\begin{bchapter}
+\bauthor{\bsnm{Brown}, \binits{T.B.}}, \betal:
+\bctitle{Language models are few-shot learners}.
+In: \bbtitle{Advances in Neural Information Processing Systems (NeurIPS)},
+vol. \bseriesno{33},
+pp. \bfpage{1877}--\blpage{1901}
+(\byear{2020})
+\end{bchapter}
+\endbibitem
+
+%%% 8
+\bibitem[\protect\citeauthoryear{Kojima et~al.}{2022}]{kojima2022zeroshotcot}
+\begin{botherref}
+\oauthor{\bsnm{Kojima}, \binits{T.}},
+\oauthor{\bsnm{Gu}, \binits{S.S.}},
+\oauthor{\bsnm{Reid}, \binits{M.}},
+\oauthor{\bsnm{Matsuo}, \binits{Y.}},
+\oauthor{\bsnm{Iwasawa}, \binits{Y.}}:
+Large language models are zero-shot reasoners.
+Advances in Neural Information Processing Systems (NeurIPS)
+\textbf{35}
+(2022)
+\end{botherref}
+\endbibitem
+
+%%% 9
+\bibitem[\protect\citeauthoryear{Madanchian}{2024}]{madanchian2024genai}
+\begin{botherref}
+\oauthor{\bsnm{Madanchian}, \binits{M.}}:
+Generative {AI} for consumer behavior prediction: Techniques and applications.
+Sustainability
+\textbf{16}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 10
+\bibitem[\protect\citeauthoryear{Roumeliotis
+  et~al.}{2025}]{roumeliotis2025think}
+\begin{barticle}
+\bauthor{\bsnm{Roumeliotis}, \binits{K.I.}},
+\bauthor{\bsnm{Tselikas}, \binits{N.D.}},
+\bauthor{\bsnm{Nasiopoulos}, \binits{D.K.}}:
+\batitle{Think before you classify: {The Rise of Reasoning Large Language
+  Models for Consumer Complaint Detection and Classification}}.
+\bjtitle{Electronics}
+\bvolume{14}(\bissue{6}),
+\bfpage{1070}
+(\byear{2025})
+\doiurl{10.3390/electronics14061070}
+\end{barticle}
+\endbibitem
+
+%%% 11
+\bibitem[\protect\citeauthoryear{Raju et~al.}{2022}]{raju2022bertopic}
+\begin{bchapter}
+\bauthor{\bsnm{Raju}, \binits{A.}}, \betal:
+\bctitle{Topic modeling and classification of {CFPB} consumer complaints using
+  transformer models}.
+In: \bbtitle{Proceedings of IEEE International Conference on Machine Learning
+  and Applications}
+(\byear{2022}).
+\bcomment{IEEE}
+\end{bchapter}
+\endbibitem
+
+%%% 12
+\bibitem[\protect\citeauthoryear{Lilleberg
+  et~al.}{2015}]{lilleberg2015word2vec}
+\begin{bchapter}
+\bauthor{\bsnm{Lilleberg}, \binits{J.}},
+\bauthor{\bsnm{Zhu}, \binits{Y.}},
+\bauthor{\bsnm{Zhang}, \binits{Y.}}:
+\bctitle{Support vector machines and {Word2vec} for text classification with
+  semantic features}.
+In: \bbtitle{2015 {IEEE} 14th International Conference on Cognitive Informatics
+  \& Cognitive Computing (ICCI*CC)},
+pp. \bfpage{136}--\blpage{140}
+(\byear{2015}).
+\doiurl{10.1109/ICCI-CC.2015.7259377} .
+\bcomment{IEEE}
+\end{bchapter}
+\endbibitem
+
+%%% 13
+\bibitem[\protect\citeauthoryear{Grootendorst}{2020}]{grootendorst2020bertopic}
+\begin{botherref}
+\oauthor{\bsnm{Grootendorst}, \binits{M.}}:
+{BERTopic}: Leveraging {BERT} and c-{TF-IDF} to Create Easily Interpretable
+  Topics.
+Zenodo
+(2020).
+\doiurl{10.5281/zenodo.4381785}
+\end{botherref}
+\endbibitem
+
+%%% 14
+\bibitem[\protect\citeauthoryear{Zhao et~al.}{2023}]{zhao2023survey}
+\begin{botherref}
+\oauthor{\bsnm{Zhao}, \binits{W.X.}}, et al.:
+A survey of large language models.
+arXiv preprint arXiv:2303.18223
+(2023)
+\end{botherref}
+\endbibitem
+
+%%% 15
+\bibitem[\protect\citeauthoryear{Correa et~al.}{2024}]{correa2024genai}
+\begin{bchapter}
+\bauthor{\bsnm{Correa}, \binits{D.}}, \betal:
+\bctitle{Generative {AI} for consumer complaint analysis: Classification,
+  summarization, and response generation}.
+In: \bbtitle{Proceedings of the IEEE Andescon}
+(\byear{2024}).
+\bcomment{IEEE}
+\end{bchapter}
+\endbibitem
+
+%%% 16
+\bibitem[\protect\citeauthoryear{Roumeliotis
+  et~al.}{2024a}]{roumeliotis2024tourism}
+\begin{botherref}
+\oauthor{\bsnm{Roumeliotis}, \binits{K.I.}},
+\oauthor{\bsnm{Tselikas}, \binits{N.D.}},
+\oauthor{\bsnm{Nasiopoulos}, \binits{D.K.}}:
+Leveraging large language models in tourism: {A} comparative study of the
+  latest {GPT} omni models and {BERT NLP} for customer review classification
+  and sentiment analysis.
+Information
+\textbf{15}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 17
+\bibitem[\protect\citeauthoryear{Roumeliotis
+  et~al.}{2024b}]{roumeliotis2024ecommerce}
+\begin{barticle}
+\bauthor{\bsnm{Roumeliotis}, \binits{K.I.}},
+\bauthor{\bsnm{Tselikas}, \binits{N.D.}},
+\bauthor{\bsnm{Nasiopoulos}, \binits{D.K.}}:
+\batitle{{LLMs} in e-commerce: A comparative analysis of {GPT} and {LLaMA}
+  models in product review evaluation}.
+\bjtitle{Natural Language Processing Journal}
+\bvolume{6},
+\bfpage{100056}
+(\byear{2024})
+\doiurl{10.1016/j.nlp.2024.100056}
+\end{barticle}
+\endbibitem
+
+%%% 18
+\bibitem[\protect\citeauthoryear{Li et~al.}{2024}]{li2024customerservice}
+\begin{botherref}
+\oauthor{\bsnm{Li}, \binits{F.}},
+\oauthor{\bsnm{Wang}, \binits{Y.}},
+\oauthor{\bsnm{Xu}, \binits{X.}},
+\oauthor{\bsnm{Wang}, \binits{S.}},
+\oauthor{\bsnm{Liang}, \binits{J.}},
+\oauthor{\bsnm{Chen}, \binits{Z.}},
+\oauthor{\bsnm{Liu}, \binits{W.}},
+\oauthor{\bsnm{Feng}, \binits{Q.}},
+\oauthor{\bsnm{Duan}, \binits{T.}},
+\oauthor{\bsnm{Huang}, \binits{Y.}},
+\oauthor{\bsnm{Song}, \binits{Q.}},
+\oauthor{\bsnm{Li}, \binits{X.}}:
+Performance evaluations of large language models for customer service.
+International Journal of Machine Learning and Cybernetics
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 19
+\bibitem[\protect\citeauthoryear{Shin et~al.}{2025}]{shin2025llmwritten}
+\begin{botherref}
+\oauthor{\bsnm{Shin}, \binits{J.}}, et al.:
+Detecting {LLM}-written consumer complaints at scale.
+arXiv preprint arXiv:2311.16466
+(2025).
+arXiv:2311.16466v4
+\end{botherref}
+\endbibitem
+
+%%% 20
+\bibitem[\protect\citeauthoryear{Liang et~al.}{2025}]{liang2025cfpb}
+\begin{botherref}
+\oauthor{\bsnm{Liang}, \binits{P.}}, et al.:
+{LLM}-assisted consumer complaint writing: Evidence from {CFPB} data.
+arXiv preprint arXiv:2502.09747
+(2025)
+\end{botherref}
+\endbibitem
+
+%%% 21
+\bibitem[\protect\citeauthoryear{Wei et~al.}{2022}]{wei2022chainofthought}
+\begin{botherref}
+\oauthor{\bsnm{Wei}, \binits{J.}}, et al.:
+Chain-of-thought prompting elicits reasoning in large language models.
+Advances in Neural Information Processing Systems (NeurIPS)
+\textbf{35}
+(2022)
+\end{botherref}
+\endbibitem
+
+%%% 22
+\bibitem[\protect\citeauthoryear{{DeepSeek-AI} et~al.}{2024}]{deepseekllm2024}
+\begin{botherref}
+\oauthor{\bsnm{{DeepSeek-AI}}},
+\oauthor{\bsnm{Bi}, \binits{X.}},
+\oauthor{\bsnm{Chen}, \binits{D.}},
+\oauthor{\bsnm{Chen}, \binits{G.}},
+\oauthor{\bsnm{Chen}, \binits{S.}},
+\oauthor{\bsnm{Dai}, \binits{D.}},
+\oauthor{\bsnm{Deng}, \binits{C.}},
+\oauthor{\bsnm{Ding}, \binits{H.}},
+\oauthor{\bsnm{Dong}, \binits{K.}}, et al.:
+{DeepSeek LLM}: Scaling open-source language models with longtermism.
+arXiv preprint arXiv:2401.02954
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 23
+\bibitem[\protect\citeauthoryear{Guo et~al.}{2025}]{guo2025deepseekr1}
+\begin{botherref}
+\oauthor{\bsnm{Guo}, \binits{D.}}, et al.:
+{DeepSeek-R1}: Incentivizing reasoning capability in {LLMs} via reinforcement
+  learning.
+arXiv preprint arXiv:2501.12948
+(2025)
+\end{botherref}
+\endbibitem
+
+%%% 24
+\bibitem[\protect\citeauthoryear{{Qwen Team}}{2025}]{qwen2025qwen3}
+\begin{botherref}
+\oauthor{\bsnm{{Qwen Team}}}:
+Qwen3 technical report.
+arXiv preprint arXiv:2505.09388
+(2025)
+\end{botherref}
+\endbibitem
+
+%%% 25
+\bibitem[\protect\citeauthoryear{Bulgakov and
+  Turchin}{2026}]{bulgakov2026deepseek}
+\begin{botherref}
+\oauthor{\bsnm{Bulgakov}, \binits{A.}},
+\oauthor{\bsnm{Turchin}, \binits{A.}}:
+Zero-shot reasoning for consumer complaint outcome prediction with
+  {DeepSeek-R1}.
+arXiv preprint arXiv:2601.16406
+(2026)
+\end{botherref}
+\endbibitem
+
+%%% 26
+\bibitem[\protect\citeauthoryear{G{\"u}ll{\"u} et~al.}{2025}]{gullu2025llama}
+\begin{bchapter}
+\bauthor{\bsnm{G{\"u}ll{\"u}}, \binits{B.}}, \betal:
+\bctitle{Fine-tuning {LLaMA-3.1-8B} for consumer complaint classification}.
+In: \bbtitle{Proceedings of the IEEE International Conference on Artificial
+  Intelligence and Computer Science (ACDSA)},
+\bconflocation{Antalya, Turkey}
+(\byear{2025}).
+\bcomment{IEEE}
+\end{bchapter}
+\endbibitem
+
+%%% 27
+\bibitem[\protect\citeauthoryear{Tiwari}{2021}]{tiwari2021cfpb}
+\begin{botherref}
+\oauthor{\bsnm{Tiwari}, \binits{S.}}:
+Consumer Complaints Dataset for {NLP}.
+Kaggle.
+Accessed: 15 June 2026
+(2021).
+\url{https://www.kaggle.com/datasets/shashwatwork/consume-complaints-dataset-fo-nlp}
+\end{botherref}
+\endbibitem
+
+\end{thebibliography}
