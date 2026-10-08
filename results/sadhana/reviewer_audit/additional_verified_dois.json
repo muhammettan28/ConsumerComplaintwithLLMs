@@ -1,0 +1,407 @@
+{
+  "liu2024framework": {
+    "title": [
+      "A Framework for Categorizing Complaint Text via Large Language Model"
+    ],
+    "author": [
+      {
+        "given": "Liu",
+        "family": "Yuan",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "China Academy of Electronic and Information Technology,Beijing,China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Xiaoye",
+        "family": "Ouyang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "China Academy of Electronic and Information Technology,Beijing,China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Ran",
+        "family": "Bai",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "China Academy of Electronic and Information Technology,Beijing,China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Xiaoling",
+        "family": "Zhu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "China Academy of Electronic and Information Technology,Beijing,China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yanguo",
+        "family": "Zhou",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "China Academy of Electronic and Information Technology,Beijing,China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yi",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "China Academy of Electronic and Information Technology,Beijing,China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Chenyu",
+        "family": "Liu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "China Academy of Electronic and Information Technology,Beijing,China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          3,
+          1
+        ]
+      ]
+    },
+    "container-title": [
+      "2024 7th International Conference on Advanced Algorithms and Control Engineering (ICAACE)"
+    ],
+    "page": "519-523",
+    "volume": null,
+    "issue": null,
+    "DOI": "10.1109/icaace61206.2024.10549750"
+  },
+  "jondhale2024cfpb": {
+    "title": [
+      "Predicting Consumer Complaint Disputes in Finance Using Machine Learning (AIOPS)"
+    ],
+    "author": [
+      {
+        "given": "Rohidas",
+        "family": "Jondhale",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "G H Raisoni College of Engineering and Management(Affiliated to SPPU),Data Science Department,Pune,India"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Shlok",
+        "family": "Patil",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "G H Raisoni College of Engineering and Management(Affiliated to SPPU),Data Science Department,Pune,India"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Akash",
+        "family": "Shinde",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "G H Raisoni College of Engineering and Management(Affiliated to SPPU),Data Science Department,Pune,India"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Deepika",
+        "family": "Ajalkar",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "G H Raisoni College of Engineering and Management(Affiliated to SPPU),Data Science Department,Pune,India"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Santoshkumar",
+        "family": "Biradar",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "G H Raisoni College of Engineering and Management(Affiliated to SPPU),Data Science Department,Pune,India"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          7,
+          24
+        ]
+      ]
+    },
+    "container-title": [
+      "2024 Second International Conference on Advances in Information Technology (ICAIT)"
+    ],
+    "page": "1-7",
+    "volume": null,
+    "issue": null,
+    "DOI": "10.1109/icait61638.2024.10690778"
+  },
+  "roumeliotis2024tourism": {
+    "title": [
+      "Leveraging Large Language Models in Tourism: A Comparative Study of the Latest GPT Omni Models and BERT NLP for Customer Review Classification and Sentiment Analysis"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-8098-1616",
+        "authenticated-orcid": false,
+        "given": "Konstantinos I.",
+        "family": "Roumeliotis",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Department of Digital Systems, University of the Peloponnese, 23100 Sparta, Greece"
+          },
+          {
+            "name": "Department of Informatics and Telecommunications, University of the Peloponnese, 22131 Tripoli, Greece"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-5799-3558",
+        "authenticated-orcid": false,
+        "given": "Nikolaos D.",
+        "family": "Tselikas",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Informatics and Telecommunications, University of the Peloponnese, 22131 Tripoli, Greece"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-7386-1029",
+        "authenticated-orcid": false,
+        "given": "Dimitrios K.",
+        "family": "Nasiopoulos",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Agribusiness and Supply Chain Management, School of Applied Economics and Social Sciences, Agricultural University of Athens, 11855 Athens, Greece"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          12,
+          10
+        ]
+      ]
+    },
+    "container-title": [
+      "Information"
+    ],
+    "page": "792",
+    "volume": "15",
+    "issue": "12",
+    "DOI": "10.3390/info15120792"
+  },
+  "raju2022bertopic": {
+    "title": [
+      "Topic Modelling on Consumer Financial Protection Bureau Data: An Approach Using BERT Based Embeddings"
+    ],
+    "author": [
+      {
+        "given": "S.",
+        "family": "Vasudeva Raju",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "UpGrad Education,Mumbai,India"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Bharath",
+        "family": "Kumar Bolla",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Salesforce India,Hyderabad,India"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Deepak Kumar",
+        "family": "Nayak",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Brane Enterprises,Hyderabad,India"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jyothsna",
+        "family": "Kh",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Global Logic,Hyderabad,India"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2022,
+          4,
+          7
+        ]
+      ]
+    },
+    "container-title": [
+      "2022 IEEE 7th International conference for Convergence in Technology (I2CT)"
+    ],
+    "page": "1-6",
+    "volume": null,
+    "issue": null,
+    "DOI": "10.1109/i2ct54291.2022.9824873"
+  }
+}

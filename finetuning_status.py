@@ -8,6 +8,54 @@ ROOT = Path(__file__).resolve().parent
 RUN = ROOT / "results/sadhana/finetuning_run"
 
 
+def show_replication_status():
+    path = ROOT/'results/sadhana/replication_20261008/status.json'
+    if not path.exists():
+        return
+    status = json.loads(path.read_text())
+    jobs = status['jobs']
+    complete = sum(j.get('phase') == 'complete' for j in jobs.values())
+    print(f"Reviewer replications: {status['phase']} | {complete}/{status['n_jobs']} jobs complete")
+    print('  Training: 500 fixed records; validation: 2,000; training seeds: 1, 2, 3')
+    print('  DistilBERT: three-epoch and validation-stopped controls; LLMs: two additional fits each')
+    if status.get('active_job'):
+        key = status['active_job']; job = jobs[key]
+        progress = job.get('progress', {})
+        if job.get('live_status') and Path(job['live_status']).exists():
+            progress = json.loads(Path(job['live_status']).read_text())
+        heading = 'Active' if status['phase']=='running' else 'Last job'
+        print(f"  {heading}: {key} | {progress.get('phase', 'initializing')}", end='')
+        if progress.get('max_steps'):
+            print(f" | step {progress.get('global_step', 0)}/{progress['max_steps']}", end='')
+        if progress.get('total_rows'):
+            print(f" | predictions {progress.get('done_rows', 0)}/{progress['total_rows']}", end='')
+        if progress.get('total_datasets'):
+            print(f" | test files {progress.get('done_datasets', 0)}/{progress['total_datasets']}", end='')
+        print()
+        if progress.get('dataset'):
+            print(f"    {progress['dataset']}")
+        values = progress.get('latest_metrics', {})
+        chosen = ['loss', 'eval_loss', 'eval_f1_weighted']
+        print('    '+', '.join(f'{k}={values[k]:.5g}' for k in chosen if k in values))
+        print(f"    Log: {job['log']}")
+    for key, job in jobs.items():
+        if job.get('phase') in ['failed', 'blocked_by_failed_job']:
+            print(f"  {key}: {job['phase']} | {job.get('log', '')}")
+    print('  Run: results/sadhana/replication_20261008/')
+    summary = path.parent/'qlora_seed_summary.csv'
+    if summary.exists():
+        with summary.open() as stream:
+            rows = [r for r in csv.DictReader(stream) if r['condition']=='balanced' and r['size']=='500']
+        print('  Verified balanced 500-character results (available training fits):')
+        for row in rows:
+            deviation = row['adapter_f1_weighted_std'] or '--'
+            if deviation != '--':
+                deviation = f'{float(deviation):.4f}'
+            print(f"    {row['model']}: {row['training_seeds_available']} fit(s), F1={float(row['adapter_f1_weighted_mean']):.4f}, std={deviation}")
+    print()
+    return True
+
+
 def show_evaluation_status():
     path = ROOT / 'results/sadhana/evaluation_run/status.json'
     if not path.exists():
@@ -63,6 +111,8 @@ def download_lines(path):
 
 
 def main():
+    if show_replication_status():
+        return
     if not (RUN / "status.json").exists():
         print("No run status yet.")
         show_evaluation_status()

@@ -1,0 +1,84 @@
+{
+  "verified_local": "2026-10-08T13:15:16.785044+03:00",
+  "result": "pass",
+  "last_job": "gemma4_n500_s3_evaluate",
+  "saved_predictions": 8640,
+  "matched_predictions": 8640,
+  "source_label_indices_verified": true,
+  "datasets": [
+    {
+      "dataset": "1_subset_balanced_250",
+      "base_rows": 1000,
+      "adapter_rows": 1000,
+      "matched_pairs": 1000
+    },
+    {
+      "dataset": "1_subset_balanced_500",
+      "base_rows": 1000,
+      "adapter_rows": 1000,
+      "matched_pairs": 1000
+    },
+    {
+      "dataset": "1_subset_imbalanced_250",
+      "base_rows": 320,
+      "adapter_rows": 320,
+      "matched_pairs": 320
+    },
+    {
+      "dataset": "1_subset_imbalanced_500",
+      "base_rows": 0,
+      "adapter_rows": 0,
+      "matched_pairs": 0
+    },
+    {
+      "dataset": "2_subset_balanced_250",
+      "base_rows": 0,
+      "adapter_rows": 0,
+      "matched_pairs": 0
+    },
+    {
+      "dataset": "2_subset_balanced_500",
+      "base_rows": 1000,
+      "adapter_rows": 1000,
+      "matched_pairs": 1000
+    },
+    {
+      "dataset": "2_subset_imbalanced_250",
+      "base_rows": 0,
+      "adapter_rows": 0,
+      "matched_pairs": 0
+    },
+    {
+      "dataset": "2_subset_imbalanced_500",
+      "base_rows": 0,
+      "adapter_rows": 0,
+      "matched_pairs": 0
+    },
+    {
+      "dataset": "3_subset_balanced_250",
+      "base_rows": 0,
+      "adapter_rows": 0,
+      "matched_pairs": 0
+    },
+    {
+      "dataset": "3_subset_balanced_500",
+      "base_rows": 1000,
+      "adapter_rows": 1000,
+      "matched_pairs": 1000
+    },
+    {
+      "dataset": "3_subset_imbalanced_250",
+      "base_rows": 0,
+      "adapter_rows": 0,
+      "matched_pairs": 0
+    },
+    {
+      "dataset": "3_subset_imbalanced_500",
+      "base_rows": 0,
+      "adapter_rows": 0,
+      "matched_pairs": 0
+    }
+  ],
+  "gemma_seed2_and_seed3_training": "Complete adapters and reports preserved",
+  "gemma_seed2_evaluation": "Complete adapted prediction hashes verified"
+}

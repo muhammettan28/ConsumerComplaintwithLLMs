@@ -12,7 +12,9 @@
 \usepackage{array}
 \usepackage{tabularx}
 \usepackage{url}
+\usepackage{xr-hyper}
 \usepackage{hyperref}
+\externaldocument[S-]{supplementary_material}
 \usepackage{multirow}
 \usepackage{xcolor}
 \usepackage{microtype}
@@ -42,30 +44,25 @@
 
 \affil*[1]{\orgdiv{Department of Computer Engineering}, \orgname{Sivas University of Science and Technology}, \orgaddress{\city{Sivas}, \postcode{58010}, \country{Turkey}}}
 
-\abstract{Local classification of consumer financial complaints must balance
-accuracy, label availability, inference latency and GPU memory. We study
-these engineering constraints on a five-category Consumer Financial
-Protection Bureau task using an archived zero-shot benchmark of eleven
-open-weight models, supervised classifiers and controlled lightweight adaptation.
-The preserved protocol comprises balanced and reduced-imbalance conditions,
-three test subsets and paired 250/500-character narratives. We adapt
-Gemma~4~12B, Qwen3~14B and Phi-4~14B with QLoRA using 500 balanced
-training records and 2,000 separate validation records. Each adapter is compared
-with its own base model under the same Hugging Face revision, NF4
-quantisation, chat template and thinking-disabled configuration. On the
-pooled 3,000 balanced 500-character records, weighted F1 increases from
-0.7520 to 0.7803, 0.7099 to 0.7891 and 0.6883 to 0.7845, respectively.
-Paired bootstrap intervals are positive in all twelve model--condition--length
-comparisons, and no adapted prediction is outside the taxonomy.
-Training takes approximately 35--41 minutes with 7.77--10.04~GiB peak
-allocated memory on a 16~GB RTX~5060~Ti. Warm serial mean latency ranges
-from 0.435 to 0.647~s for adapted models; adaptation does not uniformly
-reduce latency. TF-IDF/SVM reaches F1~0.7546 with 500 training records
-and 0.8291 with 20,000, while three DistilBERT fits average 0.8244 at
-20,000. These unequal label budgets support conditional deployment
-choices rather than a universal model ranking. Historical API comparisons
-remain contextual, and the single adaptation training seed limits
-generalisability.}
+\abstract{Consumer complaint classification supports financial-service routing
+and regulatory oversight, but the choice between general-purpose language
+models and supervised classifiers depends on available labels and inference
+cost. We compare eleven open-weight models in a zero-shot benchmark and
+study lightweight adaptation of Gemma~4, Qwen3 and Phi-4 on a five-category
+Consumer Financial Protection Bureau task. The evaluation preserves three
+test subsets under balanced and imbalanced conditions, with paired short
+and longer narrative variants. Adaptation uses 500 balanced training
+records and a separate 2,000-record validation set. On the same 3,000
+balanced test records, adaptation improves weighted F1 by 2.83--9.62
+percentage points, with Qwen3 reaching 0.7891. Paired confidence intervals
+are positive across all evaluated conditions, and no adapted prediction
+falls outside the prescribed label set. Adaptation does not consistently
+reduce inference latency. A supervised support vector machine reaches
+weighted F1 of 0.7546 with 500 training records and 0.8291 with 20,000,
+while DistilBERT averages 0.8244 at the larger training budget. These
+results show how label availability and response-time requirements shape
+local deployment choices. Findings for adaptation are exploratory because
+only one training seed was evaluated.}
 
 \keywords{consumer complaint classification, large language models, QLoRA, label budgets, CFPB, local deployment}
 
@@ -115,7 +112,7 @@ loss, keeping test outcomes outside model selection.
 Our contributions are:
 
 \begin{enumerate}
-  \item We benchmark eleven open-source, open-weight LLMs —
+  \item We benchmark eleven open-weight LLMs —
         \texttt{gemma2:9b}, \texttt{gemma4:12b}, \texttt{mistral:7b},
         \texttt{mistral-nemo:12b}, \texttt{llama3.1:8b}, \texttt{phi4:14b},
         \texttt{deepseek-r1:8b}, \texttt{deepseek-r1:14b},
@@ -170,7 +167,7 @@ supervised learners. Word embeddings and contextual transformers
 extend these representations \cite{lilleberg2015word2vec,devlin2019bert}.
 Prior CFPB work applies topic models and transformer classifiers,
 while complaint prioritisation and explainability studies address
-operational deployment \cite{raju2022bertopic,grootendorst2020bertopic,
+operational deployment \cite{raju2022bertopic,grootendorst2022bertopic,
 vairetti2024bert,das2024explainable,liu2024framework}.
 
 Instruction-following LLMs enable zero-shot classification alongside
@@ -187,11 +184,13 @@ Reasoning-oriented models generate intermediate text before an answer
 \cite{wei2022chainofthought,deepseekllm2024,guo2025deepseekr1,qwen2025qwen3}.
 Roumeliotis~et~al.\ \cite{roumeliotis2025think} provide our closest
 five-category zero-shot reference. Bulgakov and Turchin
-\cite{bulgakov2026deepseek} instead study binary monetary-relief
-prediction with a distilled local model. G{\"u}ll{\"u}~et~al.\
-\cite{gullu2025llama} report 89.99\,\% accuracy for supervised
-LLaMA~3.1~8B; their different split and training procedure make this
-context rather than a target or directly comparable ceiling.
+\cite{bulgakov2026deepseek} study a reasoning-enhanced rare-event
+prediction and correction framework on medical and consumer-service
+narratives, a different task from product classification.
+G{\"u}ll{\"u}~et~al.\ \cite{gullu2025llama} also investigate
+LLMs for customer complaint classification. Results from different
+splits and training procedures provide background rather than
+instance-matched performance targets.
 
 Low-rank adaptation freezes base parameters and learns small task-specific
 updates \cite{hu2021lora}; QLoRA combines these updates with NF4,
@@ -212,16 +211,18 @@ The extended background discussion is supplied in the supplementary material.
 
 We use the CFPB Consumer Complaints dataset originally published by
 Tiwari \cite{tiwari2021cfpb} on Kaggle, which is a processed subset
-of the public CFPB Consumer Complaint Database. The dataset covers
-complaints submitted between March~2020 and March~2021 and contains
+of the public CFPB Consumer Complaint Database. The source study describes the coverage as March~2020 to March~2021
+\cite{roumeliotis2025think}; the local processed CSV does not retain
+submission dates or complaint identifiers to independently verify this
+interval. It contains
 three columns: an unnamed index, \texttt{product} (the category label),
 and \texttt{narrative} (the free-text complaint). The raw file
 comprises 162,421 records consolidated to five target product categories:
 \texttt{retail\_banking}, \texttt{credit\_reporting},
 \texttt{credit\_card}, \texttt{mortgages\_and\_loans}, and
 \texttt{debt\_collection}. This is the same dataset and label set used
-by Roumeliotis~et~al.\ \cite{roumeliotis2025think}, ensuring
-direct comparability.
+by Roumeliotis~et~al.\ \cite{roumeliotis2025think}; exact commercial
+test identifiers are unavailable, so comparability is at the protocol level.
 
 \subsection{Class Distribution}
 
@@ -237,7 +238,12 @@ to: \texttt{credit\_reporting}~63.6\,\%,
 five-category corpus contains 162,411 records with
 \texttt{credit\_reporting} accounting for 56.1\,\% of the data.
 Fig.~\ref{fig:class_dist} illustrates how this skew propagates into
-the experimental subsets: the imbalanced condition retains the
+the experimental subsets. Exact narrative deduplication then removes
+31,304 records, leaving 72,611 unique narratives. In this sampling pool,
+\texttt{credit\_reporting} falls to 51.15\,\%, debt collection is
+18.17\,\%, mortgages/loans 10.70\,\%, retail banking 10.02\,\% and
+credit cards 9.97\,\%. Experiment~B rounds these deduplicated-pool
+proportions to a 1,000-record sample, retaining the
 dominant \texttt{credit\_reporting} class at 51.1\,\%, while the
 balanced condition enforces equal class sizes of 200~samples each.
 At $N{=}1{,}000$, a model that defaults to the majority class in the
@@ -248,13 +254,12 @@ side by side.
 \begin{figure}[tb]
   \centering
   \includegraphics[width=\textwidth]{figures/v2/class_distribution.png}
-  \caption{Class proportions (\%) in the full post-filter dataset
-           ($N{=}103{,}915$), the imbalanced experimental subset
+  \caption{Class proportions (\%) in the length-filtered dataset before
+           deduplication ($N{=}103{,}915$), the imbalanced experimental subset
            ($N{=}1{,}000$), and the balanced subset ($N{=}1{,}000$).
-           In the imbalanced condition, \texttt{credit\_reporting}
-           is still the dominant class at 51.1\,\%, confirming
-           that balanced evaluation is essential to avoid
-           majority-class inflation.}
+           Experiment~B rounds the proportions of the deduplicated
+           $N{=}72{,}611$ pool, where credit reporting accounts for
+           51.15\,\%; the first bars describe the earlier preprocessing stage.}
   \label{fig:class_dist}
 \end{figure}
 
@@ -277,7 +282,7 @@ in the following order to every record:
 \subsection{Experimental Subsets}
 
 Two experimental conditions are defined, each evaluated under a
-multi-seed, multi-size design to ensure statistically reliable estimates.
+three-subset, two-length design to describe sampling variation.
 
 \textbf{Experiment~A (Balanced):} 200~records are sampled uniformly at
 random from each of the five categories (N=1,000 total) using
@@ -287,10 +292,10 @@ Roumeliotis~et~al.\ \cite{roumeliotis2025think}; because the original
 sample identifiers are not publicly released, the comparison should be
 interpreted as protocol-matched rather than instance-identical.
 
-\textbf{Experiment~B (Reduced imbalance):} The saved subsets have a
-less skewed distribution than the post-filter corpus, with at least
-100~samples per class. They do not sample the unaltered natural
-distribution. Each contains $N{=}1{,}000$ with
+\textbf{Experiment~B (Reduced imbalance):} The saved subsets use rounded
+class proportions of the deduplicated 72,611-record sampling pool.
+This pool is less skewed than the pre-deduplication length-filtered
+corpus, and differs from the original corpus distribution. Each contains $N{=}1{,}000$ with
 \texttt{credit\_reporting}~51.1\,\%,
 \texttt{debt\_collection}~18.2\,\%,
 \texttt{mortgages\_and\_loans}~10.7\,\%,
@@ -310,7 +315,9 @@ total (11~models $\times$~3~seeds~$\times$~2~conditions~$\times$~2~length
 limits). The 250-character subsets contain exactly the same records in
 the same order as their 500-character counterparts, with narratives
 truncated to 250 characters. Balanced and reduced-imbalance subsets
-share records and are therefore not independent replications.
+share 2,067 of their 3,000 records per condition at 500 characters,
+yielding 3,933 unique full-text inputs across both conditions. They
+are therefore not independent replications.
 The archived Ollama result tables use the 500-character variant and
 mean~$\pm$~standard deviation across the three test subsets. New HF
 adaptation comparisons instead pool 3,000 predictions per mode and
@@ -318,13 +325,12 @@ condition, with paired cluster-bootstrap intervals. The three test
 identifiers are distinct from the single LLM adaptation training seed.
 The 250-character runs provide a narrative-length
 sensitivity check discussed in Section~\ref{sec:sensitivity}.
-This design addresses the single-seed limitation common in prior
-zero-shot LLM benchmarks and allows us to distinguish robust ranking
-patterns from seed-specific artefacts.
+These subsets describe variation within this short-narrative population;
+they do not establish stability across training seeds, prompts or future data.
 
 The two length variants compare truncated and retained text from the
 same short-narrative population. The narrative-length histogram is
-provided in Supplementary Fig.~S1.
+provided in Supplementary Fig.~\ref{S-fig:char_hist}.
 
 
 % =============================================================
@@ -364,10 +370,11 @@ identifies \texttt{qwen3:8b} as Q4\_K\_M and
 \texttt{gpt-oss:20b} as MXFP4, so a uniform Q4\_K\_M claim is
 inappropriate. Current metadata does not establish the identity of
 every historical artifact; missing digests remain a reproducibility limitation.
-The largest model, \texttt{gpt-oss:20b}, requires 13.0\,GB VRAM and
-fits within the 16\,GB local GPU memory budget.
+The reported 13.0\,GB size for \texttt{gpt-oss:20b} is an artifact size,
+not a measurement of total runtime VRAM. Memory feasibility of the new
+three-model adaptation experiment is measured separately.
 The evaluated model families build on recent open-weight model lines,
-including LLaMA \cite{touvron2023llama2}, Mistral \cite{jiang2023mistral},
+including LLaMA \cite{grattafiori2024llama3}, Mistral \cite{jiang2023mistral},
 Gemma \cite{team2024gemma2}, Phi \cite{abdin2024phi4}, Qwen
 \cite{qwen2025qwen3}, and DeepSeek \cite{deepseekllm2024,guo2025deepseekr1}.
 Model names in Table~\ref{tab:models} are the exact Ollama tags used
@@ -487,7 +494,7 @@ the local workstation rather than a commercial LLM API.
 Table~\ref{tab:results_balanced} presents the full results for
 Experiment~A, reported as means over three test subsets.
 The \texttt{gemma4:12b} model achieves the
-highest accuracy ($0.774 \pm 0.017$) and weighted F1 ($0.774 \pm 0.016$),
+highest accuracy ($0.773 \pm 0.017$) and weighted F1 ($0.774 \pm 0.016$),
 numerically exceeding the larger
 \texttt{gpt-oss:20b} (F1~$0.749 \pm 0.019$) and ranking first among
 all eleven saved model runs. Its unrecorded thinking mode prevents
@@ -499,20 +506,20 @@ a reasoning model, followed by \texttt{gpt-oss:20b} in third.
 The standard \texttt{phi4:14b} (F1~$0.706 \pm 0.011$) ranks sixth.
 Notably, \texttt{deepseek-r1:8b} (rank~7, F1~$0.683 \pm 0.012$)
 only narrowly exceeds the standard \texttt{gemma2:9b} (rank~8,
-F1~$0.676 \pm 0.009$), confirming that 8B reasoning models do not
+F1~$0.676 \pm 0.008$), confirming that 8B reasoning models do not
 automatically dominate similarly sized standard models. The weakest model is \texttt{mistral-nemo:12b}
 (F1~$0.540 \pm 0.025$, rank~11), which despite being a 12B model
 scores below both \texttt{mistral:7b} (F1~$0.587$) and
-\texttt{llama3.1:8b} (F1~$0.587$), suggesting that the Mistral Nemo
-architecture is not well-suited to strict JSON output tasks in the zero-shot
-setting. The low standard deviations across most models —
+\texttt{llama3.1:8b} (F1~$0.587$), showing lower classification quality for this saved deployment
+configuration. Its low invalid-output count does not support attributing
+the difference to a JSON-format limitation or to architecture alone. The low standard deviations across most models —
 notably \texttt{qwen3:8b} ($\pm$0.002) and \texttt{mistral:7b}
 ($\pm$0.004) — show limited score variation across these test subsets;
 small standard deviations alone do not establish every rank separation.
 
 \begin{table}[!t]
   \renewcommand{\arraystretch}{1.2}
-  \caption{Experiment A Results — Balanced ($N = 1{,}000$, mean of 3 seeds; std in parentheses)}
+  \caption{Experiment A Results — Balanced ($N = 1{,}000$, mean of 3 test subsets; sample std in parentheses)}
   \label{tab:results_balanced}
   \centering
   \scriptsize
@@ -521,17 +528,17 @@ small standard deviations alone do not establish every rank separation.
     \toprule
     \textbf{Model} & \textbf{T} & \textbf{Acc.} & \textbf{F1w} & \textbf{F1m} & \textbf{Lat.(s)} & \textbf{OL} \\
     \midrule
-    \texttt{gemma4:12b}       & U & 0.774{\scriptsize($\pm$.017)} & 0.774{\scriptsize($\pm$.016)} & 0.774 & 17.11 & 3.7 \\
-    \texttt{qwen3:14b}        & R & 0.751{\scriptsize($\pm$.011)} & 0.750{\scriptsize($\pm$.011)} & 0.750 &  5.73 & 0.0 \\
-    \texttt{gpt-oss:20b}      & R & 0.748{\scriptsize($\pm$.020)} & 0.749{\scriptsize($\pm$.019)} & 0.749 &  4.13 & 0.0 \\
-    \texttt{deepseek-r1:14b}  & R & 0.724{\scriptsize($\pm$.006)} & 0.724{\scriptsize($\pm$.007)} & 0.724 &  9.33 & 1.3 \\
-    \texttt{qwen3:8b}         & R & 0.717{\scriptsize($\pm$.003)} & 0.717{\scriptsize($\pm$.002)} & 0.717 &  5.19 & 0.0 \\
-    \texttt{phi4:14b}         & S & 0.705{\scriptsize($\pm$.012)} & 0.706{\scriptsize($\pm$.011)} & 0.706 &  0.54 & 1.0 \\
-    \texttt{deepseek-r1:8b}   & R & 0.684{\scriptsize($\pm$.013)} & 0.683{\scriptsize($\pm$.012)} & 0.683 &  5.14 & 2.0 \\
-    \texttt{gemma2:9b}        & S & 0.680{\scriptsize($\pm$.006)} & 0.676{\scriptsize($\pm$.009)} & 0.676 &  0.67 & 0.3 \\
-    \texttt{mistral:7b}       & S & 0.593{\scriptsize($\pm$.002)} & 0.587{\scriptsize($\pm$.004)} & 0.587 &  0.23 & 58.7 \\
-    \texttt{llama3.1:8b}      & S & 0.578{\scriptsize($\pm$.005)} & 0.587{\scriptsize($\pm$.003)} & 0.587 &  2.97 & 66.7 \\
-    \texttt{mistral-nemo:12b} & S & 0.559{\scriptsize($\pm$.019)} & 0.540{\scriptsize($\pm$.025)} & 0.540 &  0.59 & 0.7 \\
+    \texttt{gemma4:12b} & U & 0.773{\scriptsize($\pm$.017)} & 0.774{\scriptsize($\pm$.016)} & 0.774 & 17.12 & 3.7 \\
+    \texttt{qwen3:14b} & R & 0.751{\scriptsize($\pm$.011)} & 0.750{\scriptsize($\pm$.011)} & 0.750 & 5.73 & 0.0 \\
+    \texttt{gpt-oss:20b} & R & 0.748{\scriptsize($\pm$.020)} & 0.749{\scriptsize($\pm$.018)} & 0.749 & 4.13 & 0.0 \\
+    \texttt{deepseek-r1:14b} & R & 0.724{\scriptsize($\pm$.006)} & 0.724{\scriptsize($\pm$.007)} & 0.724 & 9.33 & 1.3 \\
+    \texttt{qwen3:8b} & R & 0.717{\scriptsize($\pm$.003)} & 0.717{\scriptsize($\pm$.002)} & 0.717 & 5.19 & 0.0 \\
+    \texttt{phi4:14b} & S & 0.705{\scriptsize($\pm$.012)} & 0.706{\scriptsize($\pm$.011)} & 0.706 & 0.54 & 1.0 \\
+    \texttt{deepseek-r1:8b} & R & 0.684{\scriptsize($\pm$.013)} & 0.683{\scriptsize($\pm$.012)} & 0.683 & 5.14 & 2.0 \\
+    \texttt{gemma2:9b} & S & 0.680{\scriptsize($\pm$.006)} & 0.676{\scriptsize($\pm$.008)} & 0.676 & 0.67 & 0.3 \\
+    \texttt{mistral:7b} & S & 0.593{\scriptsize($\pm$.002)} & 0.587{\scriptsize($\pm$.004)} & 0.587 & 0.23 & 58.7 \\
+    \texttt{llama3.1:8b} & S & 0.578{\scriptsize($\pm$.005)} & 0.587{\scriptsize($\pm$.003)} & 0.587 & 2.97 & 66.7 \\
+    \texttt{mistral-nemo:12b} & S & 0.559{\scriptsize($\pm$.019)} & 0.540{\scriptsize($\pm$.025)} & 0.540 & 0.59 & 0.7 \\
     \botrule
     \multicolumn{7}{l}{\footnotesize T: R=Reasoning, S=Standard, U=Unverified mode. OL=Invalid output mean. Lat.=Mean latency.}
   \end{tabular}
@@ -552,18 +559,17 @@ is notable among standard models: it reaches F1~0.706 with only one
 off-label prediction and a mean latency of 0.54~s, making it the
 strongest low-latency alternative.
 
-We perform post-hoc exact McNemar tests (binomial, one-sided) on
-paired correctness outcomes for each of the three seeds independently,
-applying a Bonferroni-adjusted threshold of $\alpha{=}0.0125$ (four
-comparisons anchored on \texttt{gemma4:12b}).
-The advantage of \texttt{gemma4:12b} over \texttt{deepseek-r1:14b} and
-\texttt{qwen3:8b} is significant in all three seeds ($p{<}0.001$ each),
-providing robust statistical evidence for those rank separations.
-Comparisons with \texttt{qwen3:14b} and \texttt{gpt-oss:20b} reach
-significance in only one seed each. Non-significance in other subsets
-does not establish equality, and McNemar tests accuracy rather than F1. The two lowest-performing
-models (\texttt{llama3.1:8b}, \texttt{mistral-nemo:12b}) are clearly
-separated from all others by a wide margin.
+Exploratory exact two-sided McNemar tests compare Gemma with four
+leading alternatives in each of three test subsets. Treating these as a
+single family of twelve comparisons gives a Bonferroni threshold of
+$0.05/12$. Gemma's accuracy advantage over DeepSeek-R1~14B and Qwen3~8B
+passes this threshold in all three subsets. Their largest raw p-values
+are 0.00296 and 0.000811, respectively. Neither Qwen3~14B nor gpt-oss
+passes this twelve-test threshold in any subset. The reference model
+was selected after inspecting scores, so these comparisons remain
+exploratory and do not establish an F1 ranking or equality between
+non-significant pairs.
+Llama~3.1 and Mistral~7B both round to F1~0.587, above Mistral-Nemo's 0.540.
 
 For Experiment~A, macro-F1 is numerically identical to weighted F1
 because all five classes have equal support. Per-class inspection
@@ -576,10 +582,12 @@ minority-class behaviour can otherwise be hidden by the majority class.
 Detailed per-class F1 for the leading models are reported in
 Table~\ref{tab:per_class}.
 
-Supplementary Figs.~S2--S5 show the balanced F1 distribution and
-confusion matrices for gpt-oss, Phi-4, and DeepSeek-R1~14B.
-Mortgage/loan and credit-card confusions remain visible even for
-models with almost no invalid outputs. Llama~3.1's larger invalid-output
+Supplementary Fig.~\ref{S-fig:f1_bar} shows the balanced F1 distribution.
+Supplementary Figs.~\ref{S-fig:conf_best}, \ref{S-fig:conf_phi4}, and
+\ref{S-fig:conf_worst} show confusion matrices for gpt-oss, Phi-4,
+and DeepSeek-R1~14B, with invalid outputs in a separate error column.
+Debt collection is frequently predicted as credit reporting in these
+matrices, even for models with almost no invalid outputs. Llama~3.1's larger invalid-output
 count primarily reflects refusals rather than invented category names.
 
 \subsection{Experiment B: Imbalanced Evaluation}
@@ -588,7 +596,7 @@ Table~\ref{tab:results_imbalanced} presents results for Experiment~B,
 again as means over three seeds. All eleven models show numerically
 higher accuracy and F1 compared to Experiment~A.
 \texttt{gpt-oss:20b} regains the top position under imbalanced conditions,
-with mean accuracy $0.782 \pm 0.017$ and F1 $0.783 \pm 0.016$.
+with mean accuracy $0.782 \pm 0.017$ and F1 $0.782 \pm 0.016$.
 \texttt{gemma4:12b} follows closely in second place
 (Acc~$0.776 \pm 0.015$, F1~$0.779 \pm 0.014$), and
 \texttt{qwen3:14b} ranks third (F1~$0.772 \pm 0.013$).
@@ -603,7 +611,7 @@ still produce many off-label outputs and benefit from the dominant
 
 \begin{table}[!t]
   \renewcommand{\arraystretch}{1.2}
-  \caption{Experiment B Results — Imbalanced ($N = 1{,}000$, mean of 3 seeds; std in parentheses)}
+  \caption{Experiment B Results — Imbalanced ($N = 1{,}000$, mean of 3 test subsets; sample std in parentheses)}
   \label{tab:results_imbalanced}
   \centering
   \scriptsize
@@ -612,17 +620,17 @@ still produce many off-label outputs and benefit from the dominant
     \toprule
     \textbf{Model} & \textbf{T} & \textbf{Acc.} & \textbf{F1w} & \textbf{F1m} & \textbf{Lat.(s)} & \textbf{OL} \\
     \midrule
-    \texttt{gpt-oss:20b}      & R & 0.782{\scriptsize($\pm$.017)} & 0.783{\scriptsize($\pm$.016)} & 0.740 &  4.01 & 0.0 \\
-    \texttt{gemma4:12b}       & U & 0.776{\scriptsize($\pm$.015)} & 0.779{\scriptsize($\pm$.014)} & 0.741 & 10.61 & 2.7 \\
-    \texttt{qwen3:14b}        & R & 0.772{\scriptsize($\pm$.012)} & 0.772{\scriptsize($\pm$.013)} & 0.730 &  5.53 & 0.0 \\
-    \texttt{qwen3:8b}         & R & 0.766{\scriptsize($\pm$.008)} & 0.762{\scriptsize($\pm$.007)} & 0.719 &  6.97 & 0.3 \\
-    \texttt{phi4:14b}         & S & 0.753{\scriptsize($\pm$.004)} & 0.754{\scriptsize($\pm$.002)} & 0.696 &  0.58 & 0.0 \\
-    \texttt{deepseek-r1:14b}  & R & 0.746{\scriptsize($\pm$.017)} & 0.748{\scriptsize($\pm$.015)} & 0.700 &  7.32 & 0.3 \\
-    \texttt{deepseek-r1:8b}   & R & 0.738{\scriptsize($\pm$.012)} & 0.731{\scriptsize($\pm$.011)} & 0.677 &  4.46 & 2.3 \\
-    \texttt{gemma2:9b}        & S & 0.720{\scriptsize($\pm$.012)} & 0.719{\scriptsize($\pm$.014)} & 0.656 &  0.67 & 0.3 \\
-    \texttt{mistral-nemo:12b} & S & 0.653{\scriptsize($\pm$.011)} & 0.641{\scriptsize($\pm$.013)} & 0.538 &  0.59 & 0.7 \\
-    \texttt{mistral:7b}       & S & 0.649{\scriptsize($\pm$.010)} & 0.661{\scriptsize($\pm$.010)} & 0.566 &  0.23 & 42.3 \\
-    \texttt{llama3.1:8b}      & S & 0.632{\scriptsize($\pm$.006)} & 0.647{\scriptsize($\pm$.012)} & 0.564 &  0.56 & 57.3 \\
+    \texttt{gpt-oss:20b} & R & 0.782{\scriptsize($\pm$.017)} & 0.782{\scriptsize($\pm$.016)} & 0.740 & 4.01 & 0.0 \\
+    \texttt{gemma4:12b} & U & 0.776{\scriptsize($\pm$.015)} & 0.779{\scriptsize($\pm$.014)} & 0.741 & 10.61 & 2.7 \\
+    \texttt{qwen3:14b} & R & 0.772{\scriptsize($\pm$.012)} & 0.772{\scriptsize($\pm$.013)} & 0.730 & 5.53 & 0.0 \\
+    \texttt{qwen3:8b} & R & 0.766{\scriptsize($\pm$.008)} & 0.762{\scriptsize($\pm$.007)} & 0.719 & 6.97 & 0.3 \\
+    \texttt{phi4:14b} & S & 0.753{\scriptsize($\pm$.003)} & 0.754{\scriptsize($\pm$.002)} & 0.696 & 0.58 & 0.0 \\
+    \texttt{deepseek-r1:14b} & R & 0.746{\scriptsize($\pm$.017)} & 0.748{\scriptsize($\pm$.015)} & 0.700 & 7.32 & 0.3 \\
+    \texttt{deepseek-r1:8b} & R & 0.738{\scriptsize($\pm$.012)} & 0.731{\scriptsize($\pm$.011)} & 0.677 & 4.46 & 2.3 \\
+    \texttt{gemma2:9b} & S & 0.720{\scriptsize($\pm$.012)} & 0.719{\scriptsize($\pm$.014)} & 0.656 & 0.67 & 0.3 \\
+    \texttt{mistral-nemo:12b} & S & 0.653{\scriptsize($\pm$.011)} & 0.641{\scriptsize($\pm$.013)} & 0.538 & 0.59 & 0.7 \\
+    \texttt{mistral:7b} & S & 0.649{\scriptsize($\pm$.010)} & 0.661{\scriptsize($\pm$.010)} & 0.566 & 0.23 & 42.3 \\
+    \texttt{llama3.1:8b} & S & 0.632{\scriptsize($\pm$.006)} & 0.647{\scriptsize($\pm$.012)} & 0.564 & 0.56 & 57.3 \\
     \botrule
     \multicolumn{7}{l}{\footnotesize T: R=Reasoning, S=Standard, U=Unverified mode. OL=Invalid output mean. Lat.=Mean latency.}
   \end{tabular}
@@ -632,12 +640,12 @@ The relative model ranking is broadly preserved compared to
 Experiment~A, with one notable reordering: \texttt{gpt-oss:20b}
 reclaims the top position while \texttt{gemma4:12b} drops to second.
 The macro-F1 column makes the imbalance effect visible:
-\texttt{gpt-oss:20b} has weighted F1~0.783 but macro-F1~0.740, while
+\texttt{gpt-oss:20b} has weighted F1~0.782 but macro-F1~0.740, while
 \texttt{llama3.1:8b} has weighted F1~0.647 but macro-F1~0.564.
 The gap shows that weighted metrics substantially overstate
 minority-class performance in the imbalanced setting.
-The F1-score distribution mirrors Experiment~A in its broad ordering
-(Fig.~\ref{fig:comparison_ab} right bars), with \texttt{gpt-oss:20b},
+The accuracy distribution broadly follows Experiment~A
+(Fig.~\ref{fig:comparison_ab} red bars), with \texttt{gpt-oss:20b},
 \texttt{gemma4:12b}, and \texttt{qwen3:14b} forming the leading group.
 
 \subsection{Cross-Experiment Comparison}
@@ -659,7 +667,8 @@ this does not isolate a causal effect of class imbalance.
   \caption{Side-by-side comparison of accuracy (mean~$\pm$~std, 3 seeds)
            across Experiment~A (Balanced, blue) and Experiment~B (Imbalanced, red)
            for all models ($N{=}1{,}000$). The dashed reference line marks
-           the best published paid-API result (o1, 0.777). The upward shift
+           the best published paid-API result (o1, 0.777)
+           from \cite{roumeliotis2025think}. The upward shift
            in Experiment~B partially reflects class imbalance rather than
            genuine model improvement.}
   \label{fig:comparison_ab}
@@ -669,10 +678,10 @@ this does not isolate a causal effect of class imbalance.
 
 Table~\ref{tab:vs_reference} compares selected local results with
 published paid-API results from Roumeliotis~et~al.\
-\cite{roumeliotis2025think} (the complete plot is Supplementary Fig.~S6)
+\cite{roumeliotis2025think} (the complete plot is Supplementary Fig.~\ref{S-fig:vs_reference})
 and summarises
 the key comparison points. The best archived zero-shot model, \texttt{gemma4:12b},
-achieves a mean accuracy of $0.774 \pm 0.017$ and F1 of $0.774 \pm 0.016$
+achieves a mean accuracy of $0.773 \pm 0.017$ and F1 of $0.774 \pm 0.016$
 — numerically close to the paid GPT-4.5 (F1~0.7763) and
 within 0.003 of o1 (F1~0.7764) under the matched protocol, at
 zero API cost. Similar point estimates indicate competitive local
@@ -702,15 +711,15 @@ transfer to third parties.
     \midrule
     o1                          & Paid API & 0.777             & 0.7764            & \$24.24 \\
     GPT-4.5                     & Paid API & 0.774             & 0.7763            & \$12.32 \\
-    \textbf{\texttt{gemma4:12b}}& \textbf{Open-source} & $\mathbf{0.774{\pm}.017}$ & $\mathbf{0.774{\pm}.016}$ & \textbf{\$0.00} \\
+    \textbf{\texttt{gemma4:12b}}& \textbf{Open-weight} & $\mathbf{0.773{\pm}.017}$ & $\mathbf{0.774{\pm}.016}$ & \textbf{\$0.00} \\
     Claude~3.7~Sonnet           & Paid API & 0.765             & 0.7626            & \$0.64 \\
     Gemini~2.0~Flash            & Paid API & 0.758             & 0.7586            & \$0.04 \\
-    \texttt{qwen3:14b}          & Open-source & $0.751{\pm}.011$ & $0.750{\pm}.011$ & \$0.00 \\
-    \texttt{gpt-oss:20b}        & Open-source & $0.748{\pm}.020$ & $0.749{\pm}.019$ & \$0.00 \\
+    \texttt{qwen3:14b}          & Open-weight & $0.751{\pm}.011$ & $0.750{\pm}.011$ & \$0.00 \\
+    \texttt{gpt-oss:20b}        & Open-weight & $0.748{\pm}.020$ & $0.749{\pm}.019$ & \$0.00 \\
     GPT-4o                      & Paid API & 0.736             & 0.7358            & \$0.45 \\
-    \texttt{deepseek-r1:14b}    & Open-source & $0.724{\pm}.006$ & $0.724{\pm}.007$ & \$0.00 \\
-    \texttt{qwen3:8b}           & Open-source & $0.717{\pm}.003$ & $0.717{\pm}.002$ & \$0.00 \\
-    \texttt{phi4:14b}           & Open-source & $0.705{\pm}.012$ & $0.706{\pm}.011$ & \$0.00 \\
+    \texttt{deepseek-r1:14b}    & Open-weight & $0.724{\pm}.006$ & $0.724{\pm}.007$ & \$0.00 \\
+    \texttt{qwen3:8b}           & Open-weight & $0.717{\pm}.003$ & $0.717{\pm}.002$ & \$0.00 \\
+    \texttt{phi4:14b}           & Open-weight & $0.705{\pm}.012$ & $0.706{\pm}.011$ & \$0.00 \\
     \botrule
   \end{tabular}
 \end{table}
@@ -720,7 +729,7 @@ transfer to third parties.
 \subsection{Narrative Length Sensitivity}
 \label{sec:sensitivity}
 
-Supplementary Fig.~S8 compares mean accuracy on
+Supplementary Fig.~\ref{S-fig:size_sensitivity} compares mean accuracy on
 250-character-limit versus 500-character-limit narratives for the
 balanced condition (both at $N{=}1{,}000$). The overall ranking
 is highly stable: no model changes its relative rank by more than
@@ -755,9 +764,9 @@ has the highest latency at 17.1~s. Separate thinking output, token
 counts, and termination reasons were not saved, so this latency
 cannot be attributed to a specific generation mechanism. The
 latency–accuracy trade-off is model-type dependent: \texttt{phi4:14b}
-achieves the best latency-accuracy ratio among all models (0.54~s,
+has the highest F1 among the saved configurations with mean latency below one second (0.54~s,
 F1~0.706). The full Experiment~B F1 plot is supplied as
-Supplementary Fig.~S7.
+Supplementary Fig.~\ref{S-fig:f1_imbalanced}.
 
 \subsection{Per-Class Breakdown for Leading Models}
 \label{sec:per_class_metrics}
@@ -766,12 +775,11 @@ Table~\ref{tab:per_class} reports per-class F1 for the three leading
 models in each experiment, confirming that aggregate weighted F1 masks
 important minority-class variation. In Experiment~B all three models
 jump to ${\geq}0.84$ F1 on \texttt{credit\_reporting} while minority
-classes remain in the 0.65--0.77 range, confirming the majority-class
-bias effect discussed in Section~\ref{sec:discussion}.
+classes remain in the 0.65--0.77 range, showing the class-specific variation discussed in Section~\ref{sec:discussion}.
 
 \begin{table}[tb]
   \renewcommand{\arraystretch}{1.2}
-  \caption{Per-Class F1 for Leading Models (Exp.~A and~B, $N{=}1{,}000$)}
+  \caption{Per-Class F1 for Leading Models (Exp.~A and~B, mean over 3 subsets of $N{=}1{,}000$)}
   \label{tab:per_class}
   \centering
   \scriptsize
@@ -785,13 +793,13 @@ bias effect discussed in Section~\ref{sec:discussion}.
     \textbf{Mortg.} &
     \textbf{Debt} \\
     \midrule
-    A & \texttt{gemma4:12b}      & 0.8247 & 0.7432 & 0.7634 & 0.8194 & 0.7178 \\
-    A & \texttt{qwen3:14b}       & 0.7855 & 0.7212 & 0.7296 & 0.8097 & 0.7019 \\
-    A & \texttt{gpt-oss:20b}     & 0.7939 & 0.7137 & 0.7394 & 0.7953 & 0.7045 \\
+    A & \texttt{gemma4:12b} & 0.8247 & 0.7432 & 0.7634 & 0.8194 & 0.7178 \\
+    A & \texttt{qwen3:14b} & 0.7855 & 0.7212 & 0.7296 & 0.8097 & 0.7019 \\
+    A & \texttt{gpt-oss:20b} & 0.7939 & 0.7137 & 0.7394 & 0.7953 & 0.7045 \\
     \midrule
-    B & \texttt{gpt-oss:20b}     & 0.7508 & 0.8527 & 0.6657 & 0.7404 & 0.6919 \\
-    B & \texttt{gemma4:12b}      & 0.7676 & 0.8453 & 0.6719 & 0.7442 & 0.6769 \\
-    B & \texttt{qwen3:14b}       & 0.7353 & 0.8437 & 0.6544 & 0.7427 & 0.6727 \\
+    B & \texttt{gpt-oss:20b} & 0.7509 & 0.8527 & 0.6654 & 0.7403 & 0.6919 \\
+    B & \texttt{gemma4:12b} & 0.7687 & 0.8452 & 0.6713 & 0.7448 & 0.6769 \\
+    B & \texttt{qwen3:14b} & 0.7353 & 0.8438 & 0.6542 & 0.7426 & 0.6719 \\
     \botrule
     \multicolumn{7}{l}{\footnotesize E = Experiment; Mortg. = Mortgages \& Loans.}
   \end{tabular}
@@ -827,9 +835,8 @@ An unexpected finding is the underperformance of \texttt{mistral-nemo:12b}
 below both its smaller sibling \texttt{mistral:7b} (F1~$0.587$) and
 all other 12B-tier models. Its off-label rate is low (0.7 per run),
 indicating that the model does produce parseable JSON but assigns
-incorrect categories. This suggests that the Mistral Nemo architecture,
-while competitive in general-purpose tasks, does not transfer as
-effectively to this narrow structured classification setting.
+incorrect categories. This difference is specific to the saved model/runtime configuration;
+the experiment does not isolate architecture, alignment or quantisation.
 
 \subsection{Within-Family Performance Patterns}
 
@@ -891,14 +898,14 @@ measured batching or multiple GPUs; their speedup was not evaluated.
 
 \textbf{Real-time deployment ($<$1\,s latency required):}
 Use \texttt{phi4:14b}. It offers F1~0.706 at just 0.54~s per
-prediction — the best accuracy-to-latency ratio among all eleven models.
-At roughly 110~predictions per minute throughput, it can serve a
-moderate complaint routing queue in real time on the local GPU.
+prediction, the highest F1 among saved configurations with mean latency below one second.
+The reciprocal of this serial mean is approximately 110 predictions
+per minute; concurrent throughput, queueing and tail latency were not measured.
 
 \textbf{Smaller model artifacts:}
 Consider \texttt{qwen3:8b} (5.2~GB artifact, F1~0.717, 5.19~s);
 peak runtime VRAM must be checked separately. It produces zero
-off-label predictions and outperforms all other sub-6\,GB models.
+invalid predictions in the balanced 500-character tests and outperforms all other sub-6\,GB models.
 
 \textbf{Avoid} \texttt{mistral:7b} and \texttt{llama3.1:8b} in
 zero-shot settings: both produce $>$50 off-label predictions per

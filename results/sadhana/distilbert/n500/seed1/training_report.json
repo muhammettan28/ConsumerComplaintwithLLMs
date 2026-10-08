@@ -1,0 +1,103 @@
+{
+  "train_size": 500,
+  "seed": 1,
+  "epochs": 3,
+  "revision": "12040accade4e8a0f71eabdb258fecc2e7e948be",
+  "resume": true,
+  "hf_model_id": "distilbert/distilbert-base-uncased",
+  "hf_revision": "12040accade4e8a0f71eabdb258fecc2e7e948be",
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "fit_seconds": 5.59341288098949,
+  "train_metrics": {
+    "train_runtime": 5.049,
+    "train_samples_per_second": 297.087,
+    "train_steps_per_second": 19.014,
+    "train_loss": 1.424486796061198,
+    "epoch": 3.0
+  },
+  "selected_checkpoint": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/distilbert/n500/seed1/checkpoint-96",
+  "selection": "best validation weighted F1",
+  "latency": "warm serial tokenization + forward pass with CUDA sync",
+  "training_manifest": {
+    "seed": 42,
+    "train_size": 20000,
+    "validation_size": 2000,
+    "distribution": "balanced, fixed validation, nested balanced train sizes",
+    "max_narrative_chars": 500,
+    "training_seeds_planned": [
+      1,
+      2,
+      3
+    ],
+    "original_test_files_unchanged": [
+      "dataset/1_subset_balanced_250.csv",
+      "dataset/1_subset_balanced_500.csv",
+      "dataset/1_subset_imbalanced_250.csv",
+      "dataset/1_subset_imbalanced_500.csv",
+      "dataset/2_subset_balanced_250.csv",
+      "dataset/2_subset_balanced_500.csv",
+      "dataset/2_subset_imbalanced_250.csv",
+      "dataset/2_subset_imbalanced_500.csv",
+      "dataset/3_subset_balanced_250.csv",
+      "dataset/3_subset_balanced_500.csv",
+      "dataset/3_subset_imbalanced_250.csv",
+      "dataset/3_subset_imbalanced_500.csv"
+    ],
+    "reserved_unique_normalized_texts": 5909,
+    "conflicting_label_hashes_excluded": 133,
+    "exact_and_250_prefix_test_records_excluded": 4444,
+    "approx_near_test_records_excluded": 496,
+    "approx_near_validation_records_excluded": 28,
+    "near_duplicate_method": "128-permutation MinHash LSH + exact word-3-shingle Jaccard",
+    "near_duplicate_threshold": 0.85,
+    "near_duplicate_limit": "LSH retrieval is approximate; undetected paraphrases may remain",
+    "counts_train": {
+      "retail_banking": 4000,
+      "credit_reporting": 4000,
+      "credit_card": 4000,
+      "mortgages_and_loans": 4000,
+      "debt_collection": 4000
+    },
+    "counts_validation": {
+      "credit_reporting": 400,
+      "mortgages_and_loans": 400,
+      "debt_collection": 400,
+      "credit_card": 400,
+      "retail_banking": 400
+    },
+    "source_sha256": "a120ac8450cb3839bf0085bbae68f7c0f3b5351302cafd0bc85ae27a251010b4",
+    "sha256": {
+      "dataset/1_subset_balanced_250.csv": "7a9a862ed974cf5ec7a28a8d5850384513c33138f3a712d81a597441684357af",
+      "dataset/1_subset_balanced_500.csv": "5b4c8bd3ca6bb6fad79482d496e3eca5d6bb27d5e2df1d1643c2f4e1aaa15e5d",
+      "dataset/1_subset_imbalanced_250.csv": "1ec6a7f70f4f40db232facd64f62d89e34150cf30ebe4389f2ac63cdc3a4c13a",
+      "dataset/1_subset_imbalanced_500.csv": "8097434bf6c8b50344fc8b7fec4a0276f35046d0e01352e2f5b79dc5359cb63a",
+      "dataset/2_subset_balanced_250.csv": "de9b3fe6b3bd4b9b4fab7bbd6fe29d7922b51e0414c1ef764b7958d36015bc8f",
+      "dataset/2_subset_balanced_500.csv": "e819cc4bf23685f07c8a17f820889071ad94a50e9b51a57bfcf812a32046ae26",
+      "dataset/2_subset_imbalanced_250.csv": "4e2e17acbc772920fe84fa617856d17064a7d1028cc36df075212ff8ac0dfbc5",
+      "dataset/2_subset_imbalanced_500.csv": "80730322e8a397a6f115ed447f44d05d9785d65666d80128b56475449187d8a9",
+      "dataset/3_subset_balanced_250.csv": "71af0420a9d367d84a4743aeb465e78ba7a32c263524eb651de2dcdd4320ab33",
+      "dataset/3_subset_balanced_500.csv": "d06ce9f4ed10f979a9174c7c83ce1e15c1d1c508a231107dd1ea2b5687b84250",
+      "dataset/3_subset_imbalanced_250.csv": "056ce1475caf946d587dc1ee9fc5b62887a026654479db5c6f550ac106244647",
+      "dataset/3_subset_imbalanced_500.csv": "710c5ae473d8cd58aee34aaf603dcdd70c8517a618bcab4322a041467729df7a",
+      "dataset/finetuning/train_10000.csv": "11e05fb46379dcd99a252bebc4019dd999deafe9317922182a4eb81871641cda",
+      "dataset/finetuning/train_2000.csv": "ac62b0358facfc0321ad0c09578d1fc6fa95a1fce6d473292b6269ccd4b52102",
+      "dataset/finetuning/train_20000.csv": "1c39fa49e7361c50aa7025e374004bd4a642a9db2be894ad1cc80fc0ef01b23d",
+      "dataset/finetuning/train_500.csv": "be839988085fc52fb776c85ff93ceda7ee448831542f73de46a62c0a9e429a3e",
+      "dataset/finetuning/validation.csv": "2da4a994a48bfa41484ea5cff7c08a9281fb1acaa067d978773a5dd564e6d2ed"
+    }
+  },
+  "prediction_sha256": {
+    "preds_distilbert_2_subset_balanced_500.csv": "968773ca00bc414683e6e691d821d25529ecb02ad5338dba386536442b63a9e3",
+    "preds_distilbert_1_subset_balanced_500.csv": "26dd0f84d8a511d116bcaf49cf523347958accd9c84961f68278394074ba5fa0",
+    "preds_distilbert_3_subset_imbalanced_250.csv": "259e3876137c63989289bcd8006151213bec1612ee083984026622919e1588da",
+    "preds_distilbert_1_subset_imbalanced_250.csv": "89473d54be5768f52fbe9f0c63b1ad5fe79dfc451f3eea07639c145253bb7125",
+    "preds_distilbert_2_subset_balanced_250.csv": "c6e5e3d969ecc4a85ee7647fbb40167aaa0286a67dfb188d9d88a16502362acd",
+    "preds_distilbert_2_subset_imbalanced_500.csv": "cfe0af86dc88cf91c1e980d5fb34d8247263604d7e76b7d28d1fbae601c54462",
+    "preds_distilbert_3_subset_balanced_250.csv": "67f69c321bbba6e030291b00044ceea98fd3756169818108e12d13ab441c4e59",
+    "preds_distilbert_1_subset_balanced_250.csv": "6979a604ea492bd6a76e2537eff482ae664bbda87f31af91ce6c6c1f5709a59d",
+    "preds_distilbert_2_subset_imbalanced_250.csv": "32b3fc6851579aa15feedd885c1ae28e609df920725ab9969efa2dbbf5017b17",
+    "preds_distilbert_3_subset_balanced_500.csv": "c907b8dd55fabe05d39ea1a1c78c01acd91a4cc010e3d8c4aecf926ffc654923",
+    "preds_distilbert_3_subset_imbalanced_500.csv": "cab9765b8963e946ab48412317875f012e493a1cd236d841483beee8840ae36f",
+    "preds_distilbert_1_subset_imbalanced_500.csv": "287d8a7b0ee8a4b421b3eceee1fe247650cd74e1cf55b562e1e0bbe83c5913ae"
+  }
+}

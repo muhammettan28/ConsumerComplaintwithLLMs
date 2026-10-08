@@ -1,0 +1,6 @@
+{
+  "unique_balanced_500": 3000,
+  "unique_imbalanced_500": 3000,
+  "shared_A_B_500": 2067,
+  "union_A_B_500": 3933
+}

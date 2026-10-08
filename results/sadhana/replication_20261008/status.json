@@ -1,0 +1,75 @@
+{
+  "phase": "running",
+  "started_local": "2026-10-08T10:31:07.172221+03:00",
+  "jobs": {
+    "distilbert_n500_s1": {
+      "phase": "complete",
+      "already_completed": true
+    },
+    "distilbert_n500_s2": {
+      "phase": "complete",
+      "already_completed": true
+    },
+    "distilbert_n500_s3": {
+      "phase": "complete",
+      "already_completed": true
+    },
+    "gemma4_n500_s2_train": {
+      "phase": "complete",
+      "already_completed": true
+    },
+    "distilbert_n500_convergence_s1": {
+      "phase": "complete",
+      "already_completed": true
+    },
+    "distilbert_n500_convergence_s2": {
+      "phase": "complete",
+      "already_completed": true
+    },
+    "distilbert_n500_convergence_s3": {
+      "phase": "complete",
+      "already_completed": true
+    },
+    "gemma4_n500_s2_evaluate": {
+      "phase": "complete",
+      "already_completed": true
+    },
+    "gemma4_n500_s3_train": {
+      "phase": "complete",
+      "already_completed": true
+    },
+    "gemma4_n500_s3_evaluate": {
+      "phase": "running",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/logs/gemma4_n500_s3_evaluate.log",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/gemma4_s3/run_status.json",
+      "started_local": "2026-10-08T13:19:23.505865+03:00",
+      "pid": 4456,
+      "elapsed_seconds": 225.029342213,
+      "progress": {
+        "phase": "inference",
+        "model": "gemma4",
+        "done_rows": 10256,
+        "total_rows": 24000,
+        "stage_total_rows": 24000,
+        "fresh_rows": 1360,
+        "effective_batch_size": 32,
+        "inference_seconds": 198.41499374099996,
+        "elapsed_seconds": 214.82560295099998,
+        "peak_allocated_vram_gib": 9.99609661102295,
+        "updated_local": "2026-10-08T13:23:04.439226+03:00",
+        "dataset": "1_subset_imbalanced_500",
+        "mode": "base"
+      }
+    }
+  },
+  "train_size": 500,
+  "validation_size": 2000,
+  "training_seeds": [
+    1,
+    2,
+    3
+  ],
+  "n_jobs": 23,
+  "active_job": "gemma4_n500_s3_evaluate",
+  "updated_local": "2026-10-08T13:23:08.535297+03:00"
+}

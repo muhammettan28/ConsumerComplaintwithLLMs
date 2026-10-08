@@ -1,0 +1,32 @@
+[
+  {
+    "seed": 1,
+    "condition": "balanced",
+    "exact_frame_match": true
+  },
+  {
+    "seed": 1,
+    "condition": "imbalanced",
+    "exact_frame_match": true
+  },
+  {
+    "seed": 2,
+    "condition": "balanced",
+    "exact_frame_match": true
+  },
+  {
+    "seed": 2,
+    "condition": "imbalanced",
+    "exact_frame_match": true
+  },
+  {
+    "seed": 3,
+    "condition": "balanced",
+    "exact_frame_match": true
+  },
+  {
+    "seed": 3,
+    "condition": "imbalanced",
+    "exact_frame_match": true
+  }
+]

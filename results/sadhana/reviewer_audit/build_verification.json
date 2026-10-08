@@ -1,0 +1,16 @@
+{
+  "main": {
+    "pages": 24,
+    "undefined_reference_or_citation_or_overfull": [],
+    "font_warnings_present": true,
+    "bookmark_warnings_present": true
+  },
+  "supplementary_material": {
+    "pages": 14,
+    "undefined_reference_or_citation_or_overfull": [],
+    "font_warnings_present": false,
+    "bookmark_warnings_present": false
+  },
+  "git_diff_check": "passed",
+  "abstract_visual_check": "page 1 reviewed"
+}

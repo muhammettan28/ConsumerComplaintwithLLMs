@@ -151,7 +151,8 @@ def aggregate(raw: pd.DataFrame, condition: str, size: int) -> pd.DataFrame:
             row[f"{col}_std"]  = vals.std(ddof=1) if len(vals) > 1 else 0.0
         rows.append(row)
     df = pd.DataFrame(rows).sort_values("accuracy_mean", ascending=False).reset_index(drop=True)
-    df["type"] = df["model"].apply(lambda m: "Reasoning" if m in REASONING else "Standard")
+    df["type"] = df["model"].apply(lambda m: "Unverified" if m == "gemma4_12b"
+                                 else ("Reasoning" if m in REASONING else "Standard"))
     return df
 
 
@@ -216,20 +217,20 @@ def plot_size_sensitivity(raw: pd.DataFrame, condition: str, fname: str) -> None
     for model in MODELS:
         sub = raw[(raw["condition"] == condition) & (raw["model"] == model)]
         for size, marker, ls in [(250, "o", "--"), (500, "s", "-")]:
-            g = sub[sub["size"] == size]["f1_weighted"].values
+            g = sub[sub["size"] == size]["accuracy"].values
             if len(g) == 0:
                 continue
             color = mcolor(model)
             ax.errorbar(model, g.mean(), yerr=g.std(ddof=1) if len(g) > 1 else 0,
                         fmt=marker, color=color, linestyle=ls,
                         capsize=4, markersize=7,
-                        label=f"N={size}" if model == MODELS[0] else "")
-    ax.set_ylabel("Weighted F1 (mean ± std)", fontsize=10)
+                        label=f"{size}-char" if model == MODELS[0] else "")
+    ax.set_ylabel("Accuracy (mean ± std)", fontsize=10)
     ax.set_title(f"Narrative Length Sensitivity — {condition.capitalize()} Condition", fontsize=11)
     ax.tick_params(axis="x", rotation=25)
     ax.grid(axis="y", linestyle="--", alpha=0.4)
     leg_size = [
-        mpatches.Patch(color="gray", label="N=250 (●)"),
+        mpatches.Patch(color="gray", label="250-char (●)"),
         mpatches.Patch(color="gray", label="500-char (■)"),
         mpatches.Patch(color=COLOR_R, label="Reasoning"),
         mpatches.Patch(color=COLOR_S, label="Standard"),
@@ -249,7 +250,8 @@ def plot_vs_reference(agg_a: pd.DataFrame, fname: str) -> None:
     our_rows = [
         {"model": row["model"], "acc": row["accuracy_mean"],
          "acc_std": row["accuracy_std"],
-         "type": "Reasoning (open-source)" if row["model"] in REASONING else "Standard (open-source)"}
+         "type": "Unverified mode (open-weight)" if row["model"] == "gemma4_12b"
+         else ("Reasoning (open-weight)" if row["model"] in REASONING else "Standard (open-weight)")}
         for _, row in agg_a.iterrows()
     ]
     ref_df = pd.DataFrame(ref_rows)
@@ -260,8 +262,9 @@ def plot_vs_reference(agg_a: pd.DataFrame, fname: str) -> None:
     ).sort_values("acc")
 
     palette = {
-        "Reasoning (open-source)": COLOR_R,
-        "Standard (open-source)":  COLOR_S,
+        "Reasoning (open-weight)": COLOR_R,
+        "Standard (open-weight)":  COLOR_S,
+        "Unverified mode (open-weight)": "#999999",
         "Paid API":                "#E57373",
     }
     colors = [palette[t] for t in combined["type"]]
@@ -275,8 +278,8 @@ def plot_vs_reference(agg_a: pd.DataFrame, fname: str) -> None:
         ax.text(row["acc"] + row["acc_std"] + 0.004,
                 list(combined["model"]).index(row["model"]),
                 f'{row["acc"]:.4f}{std_str}', va="center", fontsize=7.5)
-    ax.set_xlabel("Accuracy (mean ± std for open-source; point estimate for paid API)", fontsize=9)
-    ax.set_title("Open-Source Models vs. Paid API — Zero-Shot Accuracy", fontsize=11)
+    ax.set_xlabel("Accuracy (mean ± std for open-weight; point estimate for paid API)", fontsize=9)
+    ax.set_title("Open-Weight Models vs. Paid API — Zero-Shot Accuracy", fontsize=11)
     ax.set_xlim(0.44, 0.95)
     ax.grid(axis="x", linestyle="--", alpha=0.4)
     leg = [mpatches.Patch(color=c, label=l) for l, c in palette.items()]
@@ -294,8 +297,10 @@ def plot_confusion_averaged(raw: pd.DataFrame, model: str,
     for _, row in sub.iterrows():
         df = row["df"]
         y_true = df["true_label"]
-        y_pred = df["predicted_label"].replace("off_label", CATEGORIES[0])
-        cm = confusion_matrix(y_true, y_pred, labels=CATEGORIES).astype(float)
+        y_pred = df["predicted_label"]
+        # Invalid responses remain errors instead of becoming retail predictions.
+        cm = confusion_matrix(y_true, y_pred,
+                              labels=CATEGORIES + ["off_label"]).astype(float)[:len(CATEGORIES)]
         cm_norm = cm / cm.sum(axis=1, keepdims=True).clip(1)
         cms.append(cm_norm)
     avg_cm = np.mean(cms, axis=0)
@@ -303,11 +308,11 @@ def plot_confusion_averaged(raw: pd.DataFrame, model: str,
     import seaborn as sns
     short = [CAT_SHORT[c] for c in CATEGORIES]
     fig, ax = plt.subplots(figsize=(7, 5))
-    sns.heatmap(avg_cm, annot=True, fmt=".2f", cmap="Blues",
+    sns.heatmap(avg_cm, annot=True, fmt=".3f", cmap="Blues",
                 linewidths=0.4, ax=ax, vmin=0, vmax=1,
-                xticklabels=short, yticklabels=short,
+                xticklabels=short + ["Invalid\noutput"], yticklabels=short,
                 annot_kws={"size": 9})
-    ax.set_title(f"{model} — {condition} N={size} (avg. {len(sub)} seeds)", fontsize=10, pad=8)
+    ax.set_title(f"{model} — {condition}, {size}-char, N=1,000 (avg. {len(sub)} test subsets)", fontsize=10, pad=8)
     ax.set_xlabel("Predicted", fontsize=9)
     ax.set_ylabel("True", fontsize=9)
     plt.xticks(rotation=30, ha="right", fontsize=8)
@@ -361,7 +366,7 @@ def build_vs_reference_table(agg_a: pd.DataFrame) -> pd.DataFrame:
         for k, v in REFERENCE.items()
     ]
     our_rows = [
-        {"Model": row["model"], "Source": "Ours (open-source)",
+        {"Model": row["model"], "Source": "Ours (open-weight)",
          "Acc":     round(row["accuracy_mean"],    4),
          "Acc std": round(row["accuracy_std"],     4),
          "F1w":     round(row["f1_weighted_mean"], 4),

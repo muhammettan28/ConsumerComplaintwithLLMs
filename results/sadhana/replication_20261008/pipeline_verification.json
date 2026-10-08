@@ -1,0 +1,17 @@
+{
+  "verified_local": "2026-10-08T11:01:55.010580+03:00",
+  "result": "pass",
+  "checks": [
+    "Modified Python scripts compile; git diff --check passes",
+    "Seed-1 summary regression: all 12 rows and 57 shared columns unchanged",
+    "Full seed-1 verifier: 72,000 test and 600 serial predictions; class metrics verified",
+    "Six completed encoder fits: source indices/labels/hash, manifest, prediction SHA256 and recomputed metrics pass",
+    "Real seed-1 label-matched SVM and convergence encoder: paired identity and 100-resample bootstrap paths pass",
+    "Synthetic schema fixture exclusively under /tmp: complete isolated LaTeX export rehearsal passes with no live write",
+    "Rehearsal: no undefined citations/refs, uncited objects, duplicate labels, overfull boxes or abstract hardware terms",
+    "Actual study remains partial with six encoder and three original LLM fits; live manuscript has not received incomplete multi-seed results",
+    "Persistent user systemd service running; actual new Gemma seed-2 GPU training active"
+  ],
+  "typesetting_fixture_is_experiment_evidence": false,
+  "current_study_complete": false
+}

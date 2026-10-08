@@ -230,6 +230,8 @@ def main():
         "peak_allocated_vram_gb": torch.cuda.max_memory_allocated()/2**30,
         "load_and_training_seconds": time.perf_counter()-start, "metrics": result.metrics,
         "validation_selection": "minimum completion-only validation loss",
+        "selected_checkpoint": trainer.state.best_model_checkpoint,
+        "best_validation_loss": trainer.state.best_metric,
         "target_end_token": END_TOKENS[args.model],
         "quantization": "NF4 double quantization, BF16 compute",
         "frozen_matrix_dtype": "BF16; one-dimensional parameters FP32",

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.9.26)  8 OCT 2026 09:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.9.26)  8 OCT 2026 10:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -399,6 +399,12 @@ Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
 \TX@cols=\count296
 \TX@ftn=\toks33
 )
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/xr-hyper.sty
+Package: xr-hyper 2024-01-20 v7.01h eXternal References (DPC)
+)
+Package xr Info: IMPORTING LABELS FROM supplementary_material.aux on input line
+ 18.
+
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip66
@@ -545,7 +551,7 @@ Package: nccfoots 2005/02/03 v1.2 NCC Footnotes Package (NCC)
 )
 \MFL@columnwidth=\dimen264
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 34.
+Package hyperref Info: Option `colorlinks' set `true' on input line 36.
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
@@ -555,24 +561,24 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -631,31 +637,31 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \S on input line 36.
-LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 36.
+LaTeX Info: Redefining \S on input line 38.
+LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 38.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `normal'
-(Font)                  U/msa/m/n --> U/msa/m/n on input line 36.
+(Font)                  U/msa/m/n --> U/msa/m/n on input line 38.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
-(Font)                  U/msa/m/n --> U/msa/m/n on input line 36.
-Package hyperref Info: Link coloring ON on input line 36.
+(Font)                  U/msa/m/n --> U/msa/m/n on input line 38.
+Package hyperref Info: Link coloring ON on input line 38.
 
 (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 36.
-Package microtype Info: Applying patch `item' on input line 36.
-Package microtype Info: Applying patch `toc' on input line 36.
-Package microtype Info: Applying patch `eqnum' on input line 36.
-Package microtype Info: Applying patch `footnote' on input line 36.
-Package microtype Info: Applying patch `verbatim' on input line 36.
+LaTeX Info: Redefining \microtypecontext on input line 38.
+Package microtype Info: Applying patch `item' on input line 38.
+Package microtype Info: Applying patch `toc' on input line 38.
+Package microtype Info: Applying patch `eqnum' on input line 38.
+Package microtype Info: Applying patch `footnote' on input line 38.
+Package microtype Info: Applying patch `verbatim' on input line 38.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 36.
+LaTeX Info: Redefining \showhyphens on input line 38.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -664,8 +670,8 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 73.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 73.
+LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 70.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -674,7 +680,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 73.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -683,7 +689,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 73
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 70
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
@@ -691,15 +697,15 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 73.
+(Font)              size <8> substituted on input line 70.
 
-LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 73
+LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 70
 .
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.52061> not available
-(Font)              size <6> substituted on input line 73.
+(Font)              size <6> substituted on input line 70.
 
-LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 73
+LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 70
 .
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -713,14 +719,6 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 3612) in paragraph at lines 118--127
-\T1/cmtt/m/n/10.03749 mistral:7b\T1/cmr/m/n/10.03749 (+20) , \T1/cmtt/m/n/10.03
-749 mistral-nemo:12b\T1/cmr/m/n/10.03749 (+20) , \T1/cmtt/m/n/10.03749 llama3.1
-:8b\T1/cmr/m/n/10.03749 (+20) , \T1/cmtt/m/n/10.03749 phi4:14b\T1/cmr/m/n/10.03
-749 (+20) , \T1/cmtt/m/n/10.03749 deepseek-r1:8b\T1/cmr/m/n/10.03749 (+20) ,
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
@@ -731,15 +729,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: figures/v2/class_distribution.png Graphic file (type png)
 <use figures/v2/class_distribution.png>
 Package pdftex.def Info: figures/v2/class_distribution.png  used on input line 
-250.
+256.
 (pdftex.def)             Requested size: 372.0pt x 183.33562pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4 <./figures/v2/class_distribution.png>]
+ [4]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5]
+ [5 <./figures/v2/class_distribution.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6]
@@ -750,65 +748,65 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8])
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 537.
-
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 537.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9]
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 544.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.015> not available
+(Font)              size <5> substituted on input line 544.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10]
-<figures/v2/comparison_A_vs_B.png, id=336, 867.24pt x 361.35pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11]
+<figures/v2/comparison_A_vs_B.png, id=348, 867.24pt x 361.35pt>
 File: figures/v2/comparison_A_vs_B.png Graphic file (type png)
 <use figures/v2/comparison_A_vs_B.png>
 Package pdftex.def Info: figures/v2/comparison_A_vs_B.png  used on input line 6
-58.
+66.
 (pdftex.def)             Requested size: 372.0pt x 155.00253pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11]
+ [12 <./figures/v2/comparison_A_vs_B.png>]
 
 LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <9> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 705.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 714.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12 <./figures/v2/comparison_A_vs_B.png>] (./statistical_audit.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13])
-(./supervised_baselines.tex
+ [13]
+(./statistical_audit.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14])
-(./qlora_results.tex
+(./supervised_baselines.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15]
-(./qlora_main_tables.tex)
+ [15])
+(./qlora_results.tex (./qlora_main_tables.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16]
-<figures/v2/hf_qlora_f1_comparison.pdf, id=387, 642.93024pt x 265.31834pt>
+<figures/v2/hf_qlora_f1_comparison.pdf, id=401, 642.93024pt x 265.31834pt>
 File: figures/v2/hf_qlora_f1_comparison.pdf Graphic file (type pdf)
 <use figures/v2/hf_qlora_f1_comparison.pdf>
 Package pdftex.def Info: figures/v2/hf_qlora_f1_comparison.pdf  used on input l
-ine 41.
+ine 42.
 (pdftex.def)             Requested size: 372.0pt x 153.51633pt.
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17 <./figures/v2/hf_qlora_f1_comparison.pdf>]
+ [17]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [18]
+ [18 <./figures/v2/hf_qlora_f1_comparison.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [19]
@@ -817,21 +815,24 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [20]
 
 Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 999.
+(hyperref)                than one, level fixed on input line 1006.
 
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1003.
+(hyperref)                than one, level fixed on input line 1010.
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1007.
+(hyperref)                than one, level fixed on input line 1014.
 
 (./main.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21]
-Underfull \hbox (badness 1043) in paragraph at lines 266--272
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22]
+Underfull \hbox (badness 1043) in paragraph at lines 281--287
 []\T1/cmr/m/n/10.03749 (+20) Zhao, W.X., et al.: A sur-vey of large lan-guage m
 od-els. arXiv preprint
  []
@@ -839,22 +840,19 @@ od-els. arXiv preprint
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22]
-Underfull \hbox (badness 2671) in paragraph at lines 439--447
+ [23]
+Underfull \hbox (badness 2671) in paragraph at lines 477--485
 []\T1/cmr/m/n/10.03749 (+20) Tiwari, S.: Con-sumer Com-plaints Dataset for NLP.
  Kag-gle. Accessed:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 439--447
+Underfull \hbox (badness 10000) in paragraph at lines 477--485
 \T1/cmr/m/n/10.03749 (+20) 15 June 2026 (2021). [][]$https : / / www . kaggle .
  com / datasets / shashwatwork /
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [23])
+)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [24]
@@ -872,13 +870,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: A7E48CE05EEFC7E01459C09D440D3632;6782.
  ) 
 Here is how much of TeX's memory you used:
- 15521 strings out of 474222
- 242212 string characters out of 5748733
- 1939975 words of memory out of 5000000
- 37026 multiletter control sequences out of 15000+600000
- 615362 words of font info for 350 fonts, out of 8000000 for 9000
+ 15615 strings out of 474222
+ 243883 string characters out of 5748733
+ 1938975 words of memory out of 5000000
+ 37095 multiletter control sequences out of 15000+600000
+ 615474 words of font info for 359 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,14n,93p,1001b,691s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,14n,93p,1001b,677s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texliv
@@ -903,10 +901,10 @@ hare/texmf/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf/fonts/typ
 e1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
 ftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/sh
 are/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (24 pages, 761122 bytes).
+Output written on main.pdf (24 pages, 764046 bytes).
 PDF statistics:
- 655 PDF objects out of 1000 (max. 8388607)
- 513 compressed objects within 6 object streams
+ 688 PDF objects out of 1000 (max. 8388607)
+ 546 compressed objects within 6 object streams
  124 named destinations out of 1000 (max. 500000)
- 99656 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 99144 words of extra memory for PDF output out of 106986 (max. 10000000)
 

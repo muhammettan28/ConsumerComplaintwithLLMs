@@ -1,0 +1,20 @@
+[transformers] [1mDistilBertForSequenceClassification LOAD REPORT[0m from: distilbert/distilbert-base-uncased
+Key                     | Status     | 
+------------------------+------------+-
+vocab_layer_norm.bias   | UNEXPECTED | 
+vocab_layer_norm.weight | UNEXPECTED | 
+vocab_transform.weight  | UNEXPECTED | 
+vocab_transform.bias    | UNEXPECTED | 
+vocab_projector.bias    | UNEXPECTED | 
+pre_classifier.bias     | MISSING    | 
+classifier.bias         | MISSING    | 
+classifier.weight       | MISSING    | 
+pre_classifier.weight   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{'eval_loss': '1.572', 'eval_accuracy': '0.319', 'eval_f1_weighted': '0.2106', 'eval_f1_macro': '0.2106', 'eval_precision_retail_banking': '0.5556', 'eval_precision_credit_reporting': '0.3446', 'eval_precision_credit_card': '0.5', 'eval_precision_mortgages_and_loans': '0.2863', 'eval_precision_debt_collection': '0', 'eval_recall_retail_banking': '0.0875', 'eval_recall_credit_reporting': '0.69', 'eval_recall_credit_card': '0.01', 'eval_recall_mortgages_and_loans': '0.8075', 'eval_recall_debt_collection': '0', 'eval_runtime': '0.5226', 'eval_samples_per_second': '3827', 'eval_steps_per_second': '120.6', 'epoch': '1'}
+{'eval_loss': '1.477', 'eval_accuracy': '0.3985', 'eval_f1_weighted': '0.3311', 'eval_f1_macro': '0.3311', 'eval_precision_retail_banking': '0.6882', 'eval_precision_credit_reporting': '0.4539', 'eval_precision_credit_card': '0.3473', 'eval_precision_mortgages_and_loans': '0.336', 'eval_precision_debt_collection': '0.541', 'eval_recall_retail_banking': '0.16', 'eval_recall_credit_reporting': '0.75', 'eval_recall_credit_card': '0.145', 'eval_recall_mortgages_and_loans': '0.855', 'eval_recall_debt_collection': '0.0825', 'eval_runtime': '0.515', 'eval_samples_per_second': '3883', 'eval_steps_per_second': '122.3', 'epoch': '2'}
+{'eval_loss': '1.418', 'eval_accuracy': '0.4415', 'eval_f1_weighted': '0.385', 'eval_f1_macro': '0.385', 'eval_precision_retail_banking': '0.6788', 'eval_precision_credit_reporting': '0.4407', 'eval_precision_credit_card': '0.3758', 'eval_precision_mortgages_and_loans': '0.4183', 'eval_precision_debt_collection': '0.5957', 'eval_recall_retail_banking': '0.2325', 'eval_recall_credit_reporting': '0.79', 'eval_recall_credit_card': '0.3025', 'eval_recall_mortgages_and_loans': '0.8125', 'eval_recall_debt_collection': '0.07', 'eval_runtime': '0.517', 'eval_samples_per_second': '3869', 'eval_steps_per_second': '121.9', 'epoch': '3'}
+{'train_runtime': '4.942', 'train_samples_per_second': '303.5', 'train_steps_per_second': '19.43', 'train_loss': '1.51', 'epoch': '3'}

@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1791440314.66582 "main.aux" "main.bbl" "main" 1791440556.45804 0
-  "./references.bib" 1791440137.0971 12549 976f690fd1f2000a3eb4debf14ceb715 ""
+["bibtex main"] 1791442820.37573 "main.aux" "main.bbl" "main" 1791443641.73345 0
+  "./references.bib" 1791442471.38141 13554 9847409b964ffe6afe8464d3acc59ebf ""
   "./sn-mathphys-num.bst" 1791266088.79482 64164 943df446db725f71d6bb625fc0d6f4fc ""
-  "main.aux" 1791440556.26597 16100 1ffcc3e499997ec2e6e26cea4756c9dc "pdflatex"
+  "main.aux" 1791443641.53639 16383 b6775495f98e9c01c0c22f05e8cca9d3 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1791440555.71746 "main.tex" "main.pdf" "main" 1791440556.45816 0
+["pdflatex"] 1791443640.99374 "main.tex" "main.pdf" "main" 1791443641.73357 0
   "/etc/texmf/web2c/texmf.cnf" 1790421201.38071 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx0700.tfm" 1136768653 3584 ca0c423beaacd28d53ddce5a826cd558 ""
@@ -140,6 +140,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty" 1705871765 11026 182c63f139a71afd30a28e5f1ed2cd1c ""
   "/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def" 1705871765 14249 e67cb186717b7ab18d14a4875e7e98b5 ""
   "/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def" 1705871765 117112 05831178ece2cad4d9629dcf65099b11 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/hyperref/xr-hyper.sty" 1705871765 3379 f6eabc0f461e74204fef8a08643008ad ""
   "/usr/share/texlive/texmf-dist/tex/latex/jknapltx/mathrsfs.sty" 1137110241 300 12fa6f636b617656f2810ee82cb05015 ""
   "/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd" 1137110241 548 cc4e3557704bfed27c7002773fad6c90 ""
   "/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty" 1655478651 22555 6d8e155cfef6d82c3d5c742fea7c992e ""
@@ -190,16 +191,18 @@
   "figures/v2/class_distribution.png" 1791266088.78353 57895 e18cef9aadee4de265e4b83a23640f4a ""
   "figures/v2/comparison_A_vs_B.png" 1791266088.78353 98267 903c592c81ffc4b90a9a23f825a26786 ""
   "figures/v2/hf_qlora_f1_comparison.pdf" 1791440414.09075 19555 57ec56c70b00d940a64ef7da79341fcf ""
-  "main.aux" 1791440556.26597 16100 1ffcc3e499997ec2e6e26cea4756c9dc "pdflatex"
-  "main.bbl" 1791440314.76416 16008 8a985099a306954f192498466572d43a "bibtex main"
-  "main.out" 1791440556.26697 6782 a7e48ce05eefc7e01459c09d440d3632 "pdflatex"
-  "main.tex" 1791440555.61398 54815 5e436d9f915aae1b17bce454dc32690a ""
+  "main.aux" 1791443641.53639 16383 b6775495f98e9c01c0c22f05e8cca9d3 "pdflatex"
+  "main.bbl" 1791442820.47146 17505 c9e7b28a14060714c3e59b2f51a477d3 "bibtex main"
+  "main.out" 1791443641.53639 6782 a7e48ce05eefc7e01459c09d440d3632 "pdflatex"
+  "main.tex" 1791443601.50838 55669 38420a34568e029f1a17bae7e036115e ""
   "qlora_main_tables.tex" 1791440414.08892 1631 a2359199932db73588c765ee455a29df ""
   "qlora_methods.tex" 1791440137.0951 4103 bd754d8ca20bb914cff6e82169de5bb5 ""
-  "qlora_results.tex" 1791440294.6125 3195 394343b3036be2fbf21c64eadbc57326 ""
+  "qlora_results.tex" 1791442581.38407 3347 524bdc69244e3776ac4306dde5dbb216 ""
   "sn-jnl.cls" 1791266088.79482 55857 c14ef9d34b3d95356940eaf177aff85f ""
-  "statistical_audit.tex" 1791267467.40816 2604 0f79b82f35c419260e318c4b3d626635 ""
-  "supervised_baselines.tex" 1791440137.0941 3694 45a1132b27439639d654e32e2798d4b0 ""
+  "statistical_audit.tex" 1791442380.00884 2672 161613891564920c6f0ded1f7f2d9141 ""
+  "supervised_baselines.tex" 1791442380.00984 3793 1e2078b501919a5f246974dccbf3d4a1 ""
+  "supplementary_material.aux" 1791443640.76341 10038 425358e6c3a218fda6e4134fa9c02824 ""
+  "supplementary_material.tex" 1791443601.50838 12015 aa92f1d9640c81d3d3ace3839019822d ""
   (generated)
   "main.aux"
   "main.log"

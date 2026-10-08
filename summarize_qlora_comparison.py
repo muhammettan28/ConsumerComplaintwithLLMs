@@ -60,13 +60,15 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--bootstrap',type=int,default=5000)
     parser.add_argument('--output',type=Path,default=ROOT/'results/sadhana/qlora_comparison')
+    parser.add_argument('--training-seed',type=int,default=1)
+    parser.add_argument('--base-root',type=Path,default=ROOT/'results/sadhana/hf_base')
     args=parser.parse_args()
     if args.bootstrap and args.bootstrap<100:parser.error('Use 0 or at least 100 replicates')
     args.output.mkdir(parents=True,exist_ok=True)
     per_test,pooled=[],[]
     for name in ['gemma4','qwen3','phi4']:
-        base=ROOT/f'results/sadhana/hf_base/{name}'
-        adapted=ROOT/f'results/sadhana/qlora/{name}_n500_s1'
+        base=args.base_root/name
+        adapted=ROOT/f'results/sadhana/qlora/{name}_n500_s{args.training_seed}'
         if not (base/'evaluation_method.json').exists() or not (adapted/'evaluation_method.json').exists():continue
         method=json.loads((base/'evaluation_method.json').read_text())
         other=json.loads((adapted/'evaluation_method.json').read_text())
@@ -83,7 +85,7 @@ def main():
             if len(join)!=1000:raise ValueError(f'Prediction/source alignment failed: {path}')
             join['seed']=int(seed);join['condition']=condition;join['size']=int(size);pairs.append(join)
             va,vb=measures(join.true_label,join.predicted_label_base),measures(join.true_label,join.predicted_label_adapter)
-            per_test.append({'model':name,'seed':int(seed),'condition':condition,'size':int(size),'n':len(join),
+            per_test.append({'model':name,'seed':int(seed),'training_seed':args.training_seed,'condition':condition,'size':int(size),'n':len(join),
                 **{f'{mode}_{key}':value for mode,values in [('base',va),('adapter',vb)] for key,value in values.items()},
                 **{f'delta_{key}':vb[key]-va[key] for key in SCORES},
                 'invalid_base':int(join.status_base.ne('ok').sum()),'invalid_adapter':int(join.status_adapter.ne('ok').sum())})
@@ -91,7 +93,7 @@ def main():
         full=pd.concat(pairs,ignore_index=True)
         for (condition,size),group in full.groupby(['condition','size']):
             va,vb=measures(group.true_label,group.predicted_label_base),measures(group.true_label,group.predicted_label_adapter)
-            row={'model':name,'condition':condition,'size':int(size),'train_size':500,'training_seed':1,
+            row={'model':name,'condition':condition,'size':int(size),'train_size':500,'training_seed':args.training_seed,
                 'test_seeds_available':int(group.seed.nunique()),'test_seeds_complete':bool(group.seed.nunique()==3),'n':len(group),
                 **{f'{mode}_{key}':value for mode,values in [('base',va),('adapter',vb)] for key,value in values.items()},
                 **{f'delta_{key}':vb[key]-va[key] for key in SCORES},
@@ -124,7 +126,7 @@ def main():
         table.loc[chosen,'mcnemar_p_holm']=multipletests(table.loc[chosen,'mcnemar_p'],method='holm')[1]
     for filename,frame in [('per_test_comparison.csv',pd.DataFrame(per_test)),('pooled_comparison.csv',table)]:
         path=args.output/filename;temporary=path.with_suffix('.tmp');frame.to_csv(temporary,index=False);temporary.replace(path)
-    method={'training':'500 balanced records, seed 1, best validation-loss adapter; no training-seed uncertainty estimate',
+    method={'training':f'500 balanced records, seed {args.training_seed}, best validation-loss adapter; within-fit uncertainty only',
         'test':'12 preserved files, three test subsets, balanced/imbalanced, 250/500 characters; all invalid outputs retained as errors',
         'estimator':'Pooled confusion-matrix metrics; partial groups explicitly marked',
         'paired_bootstrap':'Same normalized-text-cluster weights for base and adapter; class-stratified if cluster labels consistent, otherwise unstratified',

@@ -1,0 +1,12 @@
+{
+  "phase": "partial",
+  "updated_local": "2026-10-08T10:57:46.936639+03:00",
+  "encoder_fits_complete": 6,
+  "qlora_fits_complete": 3,
+  "seed_aggregation": "Compute metrics separately for each fit on the same 3,000 records; report mean and sample std over 3 training fits. Never pool fits into 9,000 independent records.",
+  "mcnemar_families": "36 base/adapter comparisons across training seeds; 72 separate label-matched classifier comparisons; Holm within each family",
+  "bootstrap": "0 paired normalized-text-cluster draws for label-matched comparisons; base/adapter intervals retained from verified per-fit summaries; training variability reported separately",
+  "encoder_selection": "3 epochs retained; additional max-30-epoch/patience-5 control selected by validation only",
+  "label_budget": "All n500 methods use the same 500 training and 2,000 validation records",
+  "temporal_limit": "Processed CSV has no timestamps or original complaint IDs; this is not temporal validation"
+}

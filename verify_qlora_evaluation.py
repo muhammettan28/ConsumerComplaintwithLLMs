@@ -1,5 +1,6 @@
 """Verify completed paired HF predictions against source files and saved reports."""
 import hashlib
+import argparse
 import json
 from datetime import datetime
 from pathlib import Path
@@ -29,20 +30,27 @@ def check_rows(frame, source, expected_indices):
 
 
 def main():
-    out = ROOT / 'results/sadhana/qlora_comparison'
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--comparison-dir', type=Path, default=ROOT/'results/sadhana/qlora_comparison')
+    parser.add_argument('--base-root', type=Path, default=ROOT/'results/sadhana/hf_base')
+    parser.add_argument('--training-seed', type=int, default=1)
+    args = parser.parse_args()
+    out = args.comparison_dir
     pooled = pd.read_csv(out / 'pooled_comparison.csv')
     assert len(pooled) == 12 and pooled.test_seeds_complete.all()
     assert (pooled.n == 3000).all()
+    assert pooled.training_seed.eq(args.training_seed).all()
     checked, differences = [], []
     prediction_count = serial_count = 0
     for name in ['gemma4', 'qwen3', 'phi4']:
-        directories = {'base': ROOT / f'results/sadhana/hf_base/{name}',
-                       'adapter': ROOT / f'results/sadhana/qlora/{name}_n500_s1'}
+        directories = {'base': args.base_root/name,
+                       'adapter': ROOT / f'results/sadhana/qlora/{name}_n500_s{args.training_seed}'}
         methods = {mode: json.loads((p / 'evaluation_method.json').read_text()) for mode, p in directories.items()}
         assert methods['base']['fingerprint'] == methods['adapter']['fingerprint']
         protocol = methods['base']
         run = Path(protocol['adapter_run'])
         training = json.loads((run / 'training_report.json').read_text())
+        assert training['seed'] == args.training_seed and training['train_size'] == 500
         for rel in ['dataset/finetuning/train_500.csv', 'dataset/finetuning/validation.csv']:
             assert sha(ROOT / rel) == training['train_manifest']['sha256'][rel], f'Training/validation changed: {rel}'
         assert sha(run / 'adapter/adapter_model.safetensors') == protocol['adapter_sha256']
@@ -82,6 +90,11 @@ def main():
                 values = metrics(matrix(frame.true_label, frame.predicted_label))
                 for score in ['accuracy', 'f1_weighted', 'f1_macro']:
                     assert np.isclose(values[score], row[f'{mode}_{score}'], rtol=0, atol=1e-12), 'Pooled score mismatch'
+                for category in CATEGORIES:
+                    precision, recall = values[f'precision_{category}'], values[f'recall_{category}']
+                    f1 = 2 * precision * recall / (precision + recall) if precision + recall else 0.0
+                    for score, value in [('precision', precision), ('recall', recall), ('f1', f1)]:
+                        assert np.isclose(value, row[f'{mode}_{score}_{category}'], rtol=0, atol=1e-12), 'Pooled class score mismatch'
                 assert int(frame.status.ne('ok').sum()) == row[f'invalid_{mode}']
         stem = '1_subset_balanced_500'
         source = pd.read_csv(ROOT / 'dataset' / f'{stem}.csv', keep_default_na=False)
@@ -109,11 +122,14 @@ def main():
             serial_count += len(frame)
     pd.DataFrame(differences).to_csv(out / 'serial_batch_disagreements.csv', index=False)
     result = {'verified_at': datetime.now().astimezone().isoformat(), 'result': 'pass',
+        'training_seed': args.training_seed,
         'n_full_test_predictions': prediction_count, 'n_serial_predictions': serial_count,
         'checks': ['All six completion manifests and prediction SHA256 values', 'Original training/validation, test and adapter SHA256 values',
                    'Source/index/label and normalized text alignment', 'Raw-response reparsing and invalid counts',
                    'Equal paired batch sizes; finite positive and correctly amortized timing', 'Recomputed pooled accuracy/weighted/macro F1',
-                   'Serial 20-per-class selection, input token counts, latency summaries and batch agreement'],
+                   'Serial 20-per-class selection, input token counts, latency summaries and batch agreement', 'Recomputed pooled per-class precision/recall/F1'],
+        'comparison_sha256': {name: sha(out / name) for name in
+                              ['pooled_comparison.csv', 'per_test_comparison.csv', 'comparison_method.json']},
         'serial_batch_disagreements': len(differences), 'datasets': checked}
     assert prediction_count == 72000 and serial_count == 600
     (out / 'verification.json').write_text(json.dumps(result, indent=2))

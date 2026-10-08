@@ -1,0 +1,60 @@
+\subsection{QLoRA Adaptation with 500 Training Records}
+\label{sec:qlora_results}
+
+All three models and both modes completed every preserved test file.
+Source/label alignment, original test and adapter hashes, raw-response
+reparsing, paired batch sizes and recomputed pooled metrics were verified
+for all 72,000 predictions. Table~\ref{tab:qlora_paired} and
+Fig.~\ref{fig:qlora_paired} report the 500-character comparisons.
+Balanced weighted F1 increases by 2.83 percentage points for Gemma,
+7.92 for Qwen and 9.62 for Phi. The corresponding paired 95\,\% intervals
+are [1.75, 3.96], [6.55, 9.34] and [8.21, 11.07] percentage points.
+Qwen has the highest adapted balanced point estimate (0.7891), followed
+by Phi (0.7845) and Gemma (0.7803). These point estimates do not establish
+significant differences between adapted models.
+
+\input{qlora_main_tables}
+
+All twelve paired F1 intervals exclude zero, including both length
+variants and reduced imbalance. All twelve accuracy comparisons pass
+Holm correction ($p_{\mathrm{adj}}\leq0.00142$).
+For 250-character balanced inputs, adapted F1 is 0.7674, 0.7767 and
+0.7794 for Gemma, Qwen and Phi; gains are 2.13, 7.17 and 9.70 percentage
+points. Thus the gain is observed under both text limits, while their
+paired records preclude treating them as independent replications.
+Complete length and macro-F1 results appear in Supplementary
+Table~\ref{S-tab:qlora_full}; class-specific scores appear in
+Supplementary Table~\ref{S-tab:qlora_class}.
+
+In reduced imbalance at 500 characters, adapted weighted F1 is
+0.7948, 0.7946 and 0.7994, whereas macro-F1 is 0.7576, 0.7602 and
+0.7643. The gap retains the importance of minority-class evaluation.
+On balanced 500-character tests all five class F1 scores improve for each model;
+Qwen's largest class gain is debt collection (16.68 percentage points),
+and Phi's is retail banking (14.82 points). Across all test files,
+none of the 36,000 adapted predictions is invalid. Base Gemma has two
+invalid predictions, Qwen none and Phi 21. Improvements therefore extend
+beyond output-format repair: balanced Gemma and Qwen bases already have
+zero invalid predictions.
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\textwidth]{figures/v2/hf_qlora_f1_comparison.pdf}
+\caption{Matched HF base/adapted pooled weighted F1 on 500-character
+tests, with 95\,\% cluster-bootstrap intervals. Each bar uses 3,000
+records; adapters use 500 training and 2,000 validation records.
+The archived Ollama runtime is not used as the adaptation control.}
+\label{fig:qlora_paired}
+\end{figure}
+
+The training and serial timing results in Table~\ref{tab:qlora_resources}
+fit the 16~GB GPU budget. Adaptation does not consistently accelerate
+generation: Gemma and Qwen's measured serial means rise from 0.475 to
+0.647~s and from 0.421 to 0.539~s, while Phi's falls from 0.487 to
+0.435~s. These observations concern unmerged adapters and the measured
+100-record sample, rather than a general serving-engine speedup.
+Serial/batch prediction agreement is 100/99\,\% for base/adapted Gemma,
+98/100\,\% for Qwen and 100/100\,\% for Phi. The three differences have
+matching source hashes and input token counts; their computational cause
+was not isolated. Full-test scores use the saved batched predictions.
+Supplementary Table~\ref{S-tab:qlora_serial} gives timing and agreement details.

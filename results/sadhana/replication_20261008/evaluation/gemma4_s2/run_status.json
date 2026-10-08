@@ -1,0 +1,13 @@
+{
+  "phase": "complete",
+  "model": "gemma4",
+  "done_rows": 24000,
+  "total_rows": 24000,
+  "stage_total_rows": 24000,
+  "fresh_rows": 24000,
+  "effective_batch_size": 32,
+  "inference_seconds": 3631.1173410700576,
+  "elapsed_seconds": 3776.671252381988,
+  "peak_allocated_vram_gib": 10.192246437072754,
+  "updated_local": "2026-10-08T12:16:12.679173+03:00"
+}

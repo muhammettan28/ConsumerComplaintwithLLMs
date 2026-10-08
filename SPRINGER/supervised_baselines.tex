@@ -1,0 +1,75 @@
+\subsection{Supervised Baselines on the Preserved Test Sets}
+\label{sec:supervised}
+
+To assess whether an LLM is warranted when labelled data are available,
+we add TF-IDF/LinearSVC and fine-tuned DistilBERT
+\cite{sanh2019distilbert} baselines. All twelve saved test sets remain
+unchanged. Training and validation use separate balanced sets of
+20,000 and 2,000 records, respectively. We exclude normalised exact
+matches and shared 250-character prefixes with any test narrative,
+discard 133 conflicting-label text groups, and screen near duplicates
+using 128-permutation MinHash retrieval followed by exact word-trigram
+Jaccard similarity at threshold 0.85. This excludes 496 additional
+test-similar records and 28 validation-similar training candidates.
+The approximate retrieval cannot guarantee removal of every paraphrase.
+
+Nested balanced training subsets of 500, 2,000, 10,000, and 20,000
+records are used for the classical learning curve. TF-IDF uses word
+unigrams/bigrams, sublinear term frequencies, minimum document
+frequency 2, and at most 100,000 features. LinearSVC's $C$ is selected
+from $\{0.1,1,10\}$ by validation weighted F1. Its pooled balanced-test
+weighted F1 increases from 0.7546 with 500 examples to 0.7908, 0.8241,
+and 0.8291 at the larger sizes. Warm serial CPU vectorisation and
+prediction take approximately 0.29~ms per narrative at 20,000 examples.
+
+DistilBERT is trained for three epochs with learning rate
+$2\times10^{-5}$, batch size 16, weight decay 0.01, a 256-token cap,
+and 10\,\% warmup.
+The checkpoint with highest validation weighted F1 is selected.
+Training seeds are distinct from the three saved test-subset identifiers.
+Test performance is never used for checkpoint or hyperparameter selection.
+The training and prediction artifacts report exact model commits,
+training time, peak allocated VRAM, and warm serial GPU latency.
+Across three training seeds, mean pooled balanced weighted F1 is
+$0.8244\pm0.0046$ (standard deviation over model fits, each evaluated
+on the same 3,000 test records). Mean reduced-imbalance weighted F1
+is $0.8220\pm0.0042$. Each fit takes approximately 80~s and peaks at
+1.30~GiB allocated GPU memory; warm serial tokenisation and forward
+inference average 2.07~ms on the RTX~5060~Ti.
+
+Table~\ref{tab:supervised} summarises the learning curve and the
+larger-budget DistilBERT result.
+
+\begin{table}[tb]
+\centering
+\caption{Supervised balanced-test performance. F1 is computed on the
+pooled 3,000 records; DistilBERT values average three separate model fits.
+Latency is warm serial end-to-end feature/token preparation and inference.}
+\label{tab:supervised}
+\begin{tabular}{lrrr}
+\toprule
+Model & Training records & Weighted F1 & Latency (ms) \\
+\midrule
+TF-IDF/SVM (CPU) & 500 & 0.7546 & 0.29 \\
+TF-IDF/SVM (CPU) & 2,000 & 0.7908 & 0.29 \\
+TF-IDF/SVM (CPU) & 10,000 & 0.8241 & 0.28 \\
+TF-IDF/SVM (CPU) & 20,000 & 0.8291 & 0.29 \\
+DistilBERT (GPU) & 20,000 & 0.8244 & 2.07 \\
+\botrule
+\end{tabular}
+\end{table}
+
+Paired two-sided McNemar comparisons against the saved Gemma~4
+balanced predictions give Holm-adjusted $p<0.001$ for the 20,000-record
+SVM and for each DistilBERT fit, correcting over all 42
+baseline--reference--condition comparisons. This tests accuracy gains,
+not F1 differences; the zero-shot and supervised label budgets differ.
+
+These supervised comparisons use additional labelled data and
+therefore measure a different deployment regime from zero-shot
+inference. Their strong performance requires the LLM deployment
+recommendations to be conditional on the availability of training
+labels. The matched 500-training-label LLM adaptation experiment is
+reported next; higher-budget baselines do not establish equal-budget
+superiority. All supervised budgets additionally use the same 2,000
+validation labels.

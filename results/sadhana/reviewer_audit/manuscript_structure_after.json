@@ -1,0 +1,19 @@
+{
+  "documents": {
+    "main.tex": {
+      "figure": 3,
+      "table": 9
+    },
+    "supplementary_material.tex": {
+      "figure": 8,
+      "table": 3
+    }
+  },
+  "uncited_objects": [],
+  "undefined_refs": [],
+  "undefined_citations": [],
+  "duplicate_labels": [],
+  "abstract_word_count_whitespace": 179,
+  "abstract_hardware_terms": [],
+  "bibliography_entry_count": 36
+}

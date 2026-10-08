@@ -35,3 +35,11 @@ SPRINGER/main.fls
 SPRINGER/main.log
 SPRINGER/main.out
 SPRINGER/references.bib
+!/SPRINGER/*.tex
+!/SPRINGER/yol_haritasi_sadhana.md
+!/SPRINGER/sadhana_durum_raporu.md
+!/SPRINGER/hakem_degerlendirmesi_2026-10-08.md
+!/SPRINGER/figures/
+!/SPRINGER/figures/v2/
+!/SPRINGER/figures/v2/hf_qlora_f1_comparison.pdf
+!/SPRINGER/figures/v2/hf_qlora_multiseed_f1.pdf

@@ -1,6 +1,7 @@
 {
-  "verified_at": "2026-10-08T09:20:13.545520+03:00",
+  "verified_at": "2026-10-08T10:57:46.864979+03:00",
   "result": "pass",
+  "training_seed": 1,
   "n_full_test_predictions": 72000,
   "n_serial_predictions": 600,
   "checks": [
@@ -10,8 +11,14 @@
     "Raw-response reparsing and invalid counts",
     "Equal paired batch sizes; finite positive and correctly amortized timing",
     "Recomputed pooled accuracy/weighted/macro F1",
-    "Serial 20-per-class selection, input token counts, latency summaries and batch agreement"
+    "Serial 20-per-class selection, input token counts, latency summaries and batch agreement",
+    "Recomputed pooled per-class precision/recall/F1"
   ],
+  "comparison_sha256": {
+    "pooled_comparison.csv": "3632fa3b83797b778c891b753cecf2849d6b8f2119cebf9b35f07a382e882245",
+    "per_test_comparison.csv": "6a9d7a8f44344824ed91a70be70033777aad69d90a71777850963d3dd526f0cc",
+    "comparison_method.json": "76117cf90a2451c23444b3aea0e65cdb93ee3af2ea5d10dc8fdbb17011f62d3a"
+  },
   "serial_batch_disagreements": 3,
   "datasets": [
     {

@@ -1,0 +1,230 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{graphicx,booktabs,amsmath,url,hyperref}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\title{Supplementary material: Local LLMs for Financial Complaint Classification}
+\author{Muhammet Tan and Halit Bak{\i}r}
+\date{}
+\begin{document}
+\maketitle
+Most figures retain the original model colour grouping; Fig.~\ref{fig:vs_reference}
+marks Gemma's unverified mode separately. Gemma~4's
+historical thinking mode is unverified; its placement in the standard
+colour group must not be interpreted as evidence that reasoning was disabled.
+\section{Additional figures}
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\textwidth]{figures/v2/char_length_histogram.png}
+  \caption{Narrative character-length distribution in three random
+           $N{=}5{,}000$ samples from the unfiltered non-missing corpus
+           (seeds 1--3, different colours), before test-set construction.
+           Lengths at or above 1,000 characters are collected in the last bin.
+           The dashed line marks the 250-character evaluation limit;
+           the solid line marks 500 characters.
+           The unfiltered corpus median is 361 characters; 42.7\,\%
+           of narratives have at most 300 characters. These samples
+           describe the source corpus rather than the balanced test sets.}
+  \label{fig:char_hist}
+\end{figure}\clearpage
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\textwidth]{figures/v2/f1_balanced_errbar.png}
+  \caption{Weighted F1-scores for all eleven models in Experiment~A (Balanced),
+           shown as mean~$\pm$~std over three seeds.
+           Reasoning models are shown in dark blue; standard models in
+           light blue under the original grouping. Gemma~4's thinking
+           mode was not recorded; its original standard label is provisional.}
+  \label{fig:f1_bar}
+\end{figure}\clearpage
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.92\textwidth]{figures/v2/confusion_gpt-oss_20b_balanced.png}
+  \caption{Averaged confusion matrix for \texttt{gpt-oss:20b} (third-ranked
+           model, Experiment~A, $N{=}1{,}000$, averaged
+           over 3 test subsets). Cells are mean row-normalised proportions;
+           rows are true labels and columns are predicted labels, with a
+           separate invalid-output column.}
+  \label{fig:conf_best}
+\end{figure}\clearpage
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.92\textwidth]{figures/v2/confusion_phi4_14b_balanced.png}
+  \caption{Averaged confusion matrix for \texttt{phi4:14b} (sixth overall,
+           best sub-1-second standard model, Experiment~A, averaged over
+           3 test subsets). Cells are mean row-normalised proportions;
+           invalid outputs retain a separate error column. Prominent errors
+           include debt collection predicted as credit reporting and retail
+           banking predicted as credit card.}
+  \label{fig:conf_phi4}
+\end{figure}\clearpage
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.92\textwidth]{figures/v2/confusion_deepseek-r1_14b_balanced.png}
+  \caption{Averaged confusion matrix for \texttt{deepseek-r1:14b} (fourth-ranked
+           model, third among the originally designated reasoning models, Experiment~A, averaged over
+           3 test subsets). Cells are mean row-normalised proportions;
+           invalid outputs retain a separate error column. Prominent errors
+           include debt collection predicted as credit reporting and credit
+           card predicted as retail banking.}
+  \label{fig:conf_worst}
+\end{figure}\clearpage
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\textwidth]{figures/v2/vs_reference.png}
+  \caption{Accuracy of all eleven open-weight models (Experiment~A,
+           mean~$\pm$~std over 3 seeds) alongside five paid-API baselines
+           from the literature \cite{roumeliotis2025think}.
+           \texttt{gemma4:12b} is numerically close to GPT-4.5 and o1
+           without API fees; this is not an equivalence test.
+           Open-weight error bars reflect seed variability; paid-API
+           figures are single-run point estimates.}
+  \label{fig:vs_reference}
+\end{figure}\clearpage
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\textwidth]{figures/v2/f1_imbalanced_errbar.png}
+  \caption{Weighted F1-scores for all eleven models in Experiment~B
+           (Imbalanced), shown as mean~$\pm$~std over three seeds
+           ($N{=}1{,}000$). Reasoning models are shown in dark blue;
+           standard models in light blue. \texttt{gpt-oss:20b} leads,
+           with \texttt{gemma4:12b} a close second.}
+  \label{fig:f1_imbalanced}
+\end{figure}\clearpage
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\textwidth]{figures/v2/size_sensitivity_balanced.png}
+  \caption{Mean accuracy on 250-char vs 500-char narrative variants
+           (Balanced, $N{=}1{,}000$, 3~seeds) for all eleven models.
+           Rankings are highly stable; most models show small gains
+           with longer narratives.}
+  \label{fig:size_sensitivity}
+\end{figure}\clearpage
+\subsection{Within-Family Performance Patterns}
+
+The eleven-model set permits several within-family comparisons.
+
+\textbf{Gemma family (Google):} \texttt{gemma4:12b} (F1~0.774)
+outperforms \texttt{gemma2:9b} (F1~0.676) by 0.098 F1 points —
+the largest within-family gain observed. Both size and model generation change in this comparison.
+Off-label counts increase slightly from gemma2 (mean 0.3) to
+gemma4 (mean 3.7); the latter are empty responses recorded as parse
+errors. This comparison changes both generation (Gemma~2 to Gemma~4)
+and parameter count (9B to 12B), and cannot separate their effects.
+
+\textbf{Mistral family (Mistral AI):} \texttt{mistral-nemo:12b}
+(F1~0.540) performs \emph{worse} than \texttt{mistral:7b} (F1~0.587)
+in Experiment~A, despite having 71\,\% more parameters. Their
+error modes are opposite: \texttt{mistral:7b} frequently produces
+off-label outputs (58.7 per run), whereas \texttt{mistral-nemo:12b}
+commits to valid categories but assigns them incorrectly.
+Both mean latencies are below one second (0.23~s vs 0.59~s). This establishes a performance difference for the saved
+configurations, but does not identify its architectural or training cause.
+
+\textbf{Qwen3 family (Alibaba):} \texttt{qwen3:14b} (F1~0.750)
+outperforms \texttt{qwen3:8b} (F1~0.717) consistently across both
+experiments. Both have zero invalid outputs in balanced 500-character
+tests; in Experiment~B, Qwen3~8B has one invalid output across the
+three subsets and Qwen3~14B has none. The
++0.033 F1 gain is achieved with comparable latency (5.73~s vs 5.19~s),
+making \texttt{qwen3:14b} the better choice when additional VRAM is
+available (reported artifact sizes 9.3~GB vs 5.2~GB). Both models demonstrate that the Qwen3
+configurations produce almost exclusively in-taxonomy outputs in these tests.
+
+\textbf{DeepSeek-R1:} \texttt{deepseek-r1:14b}
+(F1~0.724) outperforms \texttt{deepseek-r1:8b} (F1~0.683) by 0.041
+F1 points. Off-label counts also improve with scale (1.3 vs 2.0).
+Latency increases (9.33~s vs 5.14~s); separate thinking traces
+and token counts were not retained. The
+performance gap is consistent across all three subsets, supporting
+an observed within-line size advantage on these test sets.
+
+
+\section{Controlled HF adaptation: complete results and reproducibility}
+All three models use 500 balanced training records and the same separate
+2,000-record validation set, with one training seed. The two inference
+modes share the same pinned base weights and differ only in enabling
+the unmerged LoRA adapter \cite{hu2021lora,dettmers2023qlora}. Exact
+HF revisions are:
+\input{qlora_revisions}
+
+All 72,000 full-test predictions and 600 serial benchmark predictions
+passed checks of source text, row indices, labels, hashes and raw responses. No adapted
+prediction is invalid. Across twelve base files, Gemma has two invalid
+responses, Qwen none and Phi 21; invalid outputs remain errors. The
+500-character groups have 3,000 unique source inputs per condition;
+250-character groups have 2,997 (balanced) and 2,986 (reduced imbalance).
+McNemar uses the first subset/index for each exact duplicate and adjusts
+across twelve comparisons. The paired bootstrap retains clustered
+duplicates in pooled metrics and uses the same weights in both modes.
+
+Warm serial benchmark inputs are the first 20 examples per class in
+the first balanced 500-character test, restored to original index order.
+Timing includes prompt rendering/tokenisation and synchronised generation;
+response decoding, network overhead and initial loading are excluded.
+Three serial/batch labels differ: adapted Gemma at index 50, and base
+Qwen at indices 30 and 91. Source hashes and input token counts match;
+the numerical cause was not isolated. These outputs are preserved in
+\texttt{serial\_batch\_disagreements.csv}. Full-test F1 uses the batched
+predictions, and serial latency uses the separate batch-1 benchmark.
+
+Generated CSVs contain weighted/macro F1, accuracy, class metrics, invalid
+and output-limit counts, paired confidence intervals and adjusted p-values.
+\texttt{verify\_qlora\_evaluation.py} checks prediction and artifact
+integrity; \texttt{export\_qlora\_manuscript.py} produces the following
+tables directly from the verified results. Table~\ref{tab:qlora_full}
+reports all paired conditions, Table~\ref{tab:qlora_class} gives the
+class-level scores, and Table~\ref{tab:qlora_serial} reports serial
+latency and serial/batch agreement.
+\input{qlora_supplementary_tables}
+\clearpage
+
+\section{Extended related work}
+Complaint analysis spans several tasks that should be distinguished when
+comparing results. Sangaraju~et~al.\ \cite{raju2022bertopic} evaluate
+BERTopic and domain-specific FinBERT embeddings for topic discovery;
+this is not a directly comparable five-label classification benchmark.
+Vairetti~et~al.\ \cite{vairetti2024bert} address complaint prioritisation
+using deep learning and multicriteria decision-making, while Das~et~al.\
+\cite{das2024explainable} focus on interpretability in financial complaints.
+Liu~et~al.\ \cite{liu2024framework} examine LLM-based categorisation,
+and Correa~et~al.\ \cite{correa2024genai} study classification,
+summarisation and response generation for consumer communications.
+These task differences preclude treating published accuracy values as
+instance-matched targets for our preserved test sets.
+
+The closest reference is Roumeliotis~et~al.\ \cite{roumeliotis2025think},
+whose balanced 1,000-record, five-category CFPB evaluation reports
+accuracy 0.777 and weighted F1 0.7764 for o1. Their exact sampled
+identifiers are unavailable, so the commercial comparison remains
+at the protocol level. Other tourism, e-commerce and customer-service
+studies \cite{roumeliotis2024tourism,roumeliotis2024ecommerce,
+li2024customerservice} provide context on generative-model deployment
+rather than comparable scores on this dataset.
+
+Shin~et~al.\ \cite{shin2025llmwritten} examine LLM adoption and efficacy
+through financial-industry complaints. Liang~et~al.\ \cite{liang2025cfpb}
+study LLM-assisted writing across several domains. Their work motivates
+future evaluation on more recent complaint corpora; our processed data
+and experiment design do not establish robustness to this shift.
+
+Bulgakov and Turchin \cite{bulgakov2026deepseek} combine reasoning-based
+predictions with a supervised correction stage for rare events in medical
+and consumer-service data. G{\"u}ll{\"u}~et~al.\ \cite{gullu2025llama}
+study customer complaint classification with LLMs. We do not import
+numerical performance claims from these studies as direct comparators.
+The present study evaluates the deployment choices supported by our
+own zero-shot predictions, paired adaptation outputs and supervised
+learning curve.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+\end{document}

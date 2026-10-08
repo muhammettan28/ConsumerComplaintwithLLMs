@@ -1,0 +1,544 @@
+{
+  "train_size": 500,
+  "validation_size": 2000,
+  "training_seeds": [
+    1,
+    2,
+    3
+  ],
+  "new_encoder_fits": 6,
+  "new_llm_fits": 6,
+  "new_llm_test_predictions": 144000,
+  "original_test_sha256": {
+    "dataset/1_subset_balanced_250.csv": "7a9a862ed974cf5ec7a28a8d5850384513c33138f3a712d81a597441684357af",
+    "dataset/1_subset_balanced_500.csv": "5b4c8bd3ca6bb6fad79482d496e3eca5d6bb27d5e2df1d1643c2f4e1aaa15e5d",
+    "dataset/1_subset_imbalanced_250.csv": "1ec6a7f70f4f40db232facd64f62d89e34150cf30ebe4389f2ac63cdc3a4c13a",
+    "dataset/1_subset_imbalanced_500.csv": "8097434bf6c8b50344fc8b7fec4a0276f35046d0e01352e2f5b79dc5359cb63a",
+    "dataset/2_subset_balanced_250.csv": "de9b3fe6b3bd4b9b4fab7bbd6fe29d7922b51e0414c1ef764b7958d36015bc8f",
+    "dataset/2_subset_balanced_500.csv": "e819cc4bf23685f07c8a17f820889071ad94a50e9b51a57bfcf812a32046ae26",
+    "dataset/2_subset_imbalanced_250.csv": "4e2e17acbc772920fe84fa617856d17064a7d1028cc36df075212ff8ac0dfbc5",
+    "dataset/2_subset_imbalanced_500.csv": "80730322e8a397a6f115ed447f44d05d9785d65666d80128b56475449187d8a9",
+    "dataset/3_subset_balanced_250.csv": "71af0420a9d367d84a4743aeb465e78ba7a32c263524eb651de2dcdd4320ab33",
+    "dataset/3_subset_balanced_500.csv": "d06ce9f4ed10f979a9174c7c83ce1e15c1d1c508a231107dd1ea2b5687b84250",
+    "dataset/3_subset_imbalanced_250.csv": "056ce1475caf946d587dc1ee9fc5b62887a026654479db5c6f550ac106244647",
+    "dataset/3_subset_imbalanced_500.csv": "710c5ae473d8cd58aee34aaf603dcdd70c8517a618bcab4322a041467729df7a"
+  },
+  "protocol": "Same splits, pinned HF commits and hyperparameters; seed1 LLM outputs retained; each fit evaluated separately on the same tests",
+  "network": "Offline HF cache; no Ollama pulls",
+  "temporal_evaluation": "Unavailable: local CSV has no dates or original CFPB IDs",
+  "jobs": [
+    {
+      "key": "distilbert_n500_s1",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/train_encoder_baseline.py",
+        "--train-size",
+        "500",
+        "--seed",
+        "1",
+        "--revision",
+        "12040accade4e8a0f71eabdb258fecc2e7e948be",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/distilbert/n500/seed1/training_report.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/distilbert/n500/seed1/run_status.json",
+      "requires": []
+    },
+    {
+      "key": "distilbert_n500_s2",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/train_encoder_baseline.py",
+        "--train-size",
+        "500",
+        "--seed",
+        "2",
+        "--revision",
+        "12040accade4e8a0f71eabdb258fecc2e7e948be",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/distilbert/n500/seed2/training_report.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/distilbert/n500/seed2/run_status.json",
+      "requires": []
+    },
+    {
+      "key": "distilbert_n500_s3",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/train_encoder_baseline.py",
+        "--train-size",
+        "500",
+        "--seed",
+        "3",
+        "--revision",
+        "12040accade4e8a0f71eabdb258fecc2e7e948be",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/distilbert/n500/seed3/training_report.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/distilbert/n500/seed3/run_status.json",
+      "requires": []
+    },
+    {
+      "key": "distilbert_n500_convergence_s1",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/train_encoder_baseline.py",
+        "--train-size",
+        "500",
+        "--seed",
+        "1",
+        "--revision",
+        "12040accade4e8a0f71eabdb258fecc2e7e948be",
+        "--epochs",
+        "30",
+        "--run-tag",
+        "convergence",
+        "--early-stopping-patience",
+        "5",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/distilbert/n500_convergence/seed1/training_report.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/distilbert/n500_convergence/seed1/run_status.json",
+      "requires": []
+    },
+    {
+      "key": "distilbert_n500_convergence_s2",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/train_encoder_baseline.py",
+        "--train-size",
+        "500",
+        "--seed",
+        "2",
+        "--revision",
+        "12040accade4e8a0f71eabdb258fecc2e7e948be",
+        "--epochs",
+        "30",
+        "--run-tag",
+        "convergence",
+        "--early-stopping-patience",
+        "5",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/distilbert/n500_convergence/seed2/training_report.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/distilbert/n500_convergence/seed2/run_status.json",
+      "requires": []
+    },
+    {
+      "key": "distilbert_n500_convergence_s3",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/train_encoder_baseline.py",
+        "--train-size",
+        "500",
+        "--seed",
+        "3",
+        "--revision",
+        "12040accade4e8a0f71eabdb258fecc2e7e948be",
+        "--epochs",
+        "30",
+        "--run-tag",
+        "convergence",
+        "--early-stopping-patience",
+        "5",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/distilbert/n500_convergence/seed3/training_report.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/distilbert/n500_convergence/seed3/run_status.json",
+      "requires": []
+    },
+    {
+      "key": "gemma4_n500_s2_train",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/train_qlora.py",
+        "--model",
+        "gemma4",
+        "--train-size",
+        "500",
+        "--seed",
+        "2",
+        "--revision",
+        "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/gemma4/n500/seed2/training_report.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/gemma4/n500/seed2/run_status.json",
+      "requires": []
+    },
+    {
+      "key": "gemma4_n500_s2_evaluate",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/evaluate_qlora_pair.py",
+        "--adapter",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/gemma4/n500/seed2",
+        "--base-output",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/hf_base_repeats/n500/seed2/gemma4",
+        "--adapter-output",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/qlora/gemma4_n500_s2",
+        "--status",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/gemma4_s2/run_status.json",
+        "--batch-size",
+        "32",
+        "--serial-samples",
+        "100",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/qlora/gemma4_n500_s2/evaluation_complete.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/gemma4_s2/run_status.json",
+      "requires": [
+        "gemma4_n500_s2_train"
+      ]
+    },
+    {
+      "key": "gemma4_n500_s3_train",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/train_qlora.py",
+        "--model",
+        "gemma4",
+        "--train-size",
+        "500",
+        "--seed",
+        "3",
+        "--revision",
+        "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/gemma4/n500/seed3/training_report.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/gemma4/n500/seed3/run_status.json",
+      "requires": []
+    },
+    {
+      "key": "gemma4_n500_s3_evaluate",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/evaluate_qlora_pair.py",
+        "--adapter",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/gemma4/n500/seed3",
+        "--base-output",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/hf_base_repeats/n500/seed3/gemma4",
+        "--adapter-output",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/qlora/gemma4_n500_s3",
+        "--status",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/gemma4_s3/run_status.json",
+        "--batch-size",
+        "32",
+        "--serial-samples",
+        "100",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/qlora/gemma4_n500_s3/evaluation_complete.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/gemma4_s3/run_status.json",
+      "requires": [
+        "gemma4_n500_s3_train"
+      ]
+    },
+    {
+      "key": "qwen3_n500_s2_train",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/train_qlora.py",
+        "--model",
+        "qwen3",
+        "--train-size",
+        "500",
+        "--seed",
+        "2",
+        "--revision",
+        "40c069824f4251a91eefaf281ebe4c544efd3e18",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/qwen3/n500/seed2/training_report.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/qwen3/n500/seed2/run_status.json",
+      "requires": []
+    },
+    {
+      "key": "qwen3_n500_s2_evaluate",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/evaluate_qlora_pair.py",
+        "--adapter",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/qwen3/n500/seed2",
+        "--base-output",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/hf_base_repeats/n500/seed2/qwen3",
+        "--adapter-output",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/qlora/qwen3_n500_s2",
+        "--status",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/qwen3_s2/run_status.json",
+        "--batch-size",
+        "32",
+        "--serial-samples",
+        "100",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/qlora/qwen3_n500_s2/evaluation_complete.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/qwen3_s2/run_status.json",
+      "requires": [
+        "qwen3_n500_s2_train"
+      ]
+    },
+    {
+      "key": "qwen3_n500_s3_train",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/train_qlora.py",
+        "--model",
+        "qwen3",
+        "--train-size",
+        "500",
+        "--seed",
+        "3",
+        "--revision",
+        "40c069824f4251a91eefaf281ebe4c544efd3e18",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/qwen3/n500/seed3/training_report.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/qwen3/n500/seed3/run_status.json",
+      "requires": []
+    },
+    {
+      "key": "qwen3_n500_s3_evaluate",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/evaluate_qlora_pair.py",
+        "--adapter",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/qwen3/n500/seed3",
+        "--base-output",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/hf_base_repeats/n500/seed3/qwen3",
+        "--adapter-output",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/qlora/qwen3_n500_s3",
+        "--status",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/qwen3_s3/run_status.json",
+        "--batch-size",
+        "32",
+        "--serial-samples",
+        "100",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/qlora/qwen3_n500_s3/evaluation_complete.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/qwen3_s3/run_status.json",
+      "requires": [
+        "qwen3_n500_s3_train"
+      ]
+    },
+    {
+      "key": "phi4_n500_s2_train",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/train_qlora.py",
+        "--model",
+        "phi4",
+        "--train-size",
+        "500",
+        "--seed",
+        "2",
+        "--revision",
+        "2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/phi4/n500/seed2/training_report.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/phi4/n500/seed2/run_status.json",
+      "requires": []
+    },
+    {
+      "key": "phi4_n500_s2_evaluate",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/evaluate_qlora_pair.py",
+        "--adapter",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/phi4/n500/seed2",
+        "--base-output",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/hf_base_repeats/n500/seed2/phi4",
+        "--adapter-output",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/qlora/phi4_n500_s2",
+        "--status",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/phi4_s2/run_status.json",
+        "--batch-size",
+        "32",
+        "--serial-samples",
+        "100",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/qlora/phi4_n500_s2/evaluation_complete.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/phi4_s2/run_status.json",
+      "requires": [
+        "phi4_n500_s2_train"
+      ]
+    },
+    {
+      "key": "phi4_n500_s3_train",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/train_qlora.py",
+        "--model",
+        "phi4",
+        "--train-size",
+        "500",
+        "--seed",
+        "3",
+        "--revision",
+        "2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/phi4/n500/seed3/training_report.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/phi4/n500/seed3/run_status.json",
+      "requires": []
+    },
+    {
+      "key": "phi4_n500_s3_evaluate",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/evaluate_qlora_pair.py",
+        "--adapter",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/phi4/n500/seed3",
+        "--base-output",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/hf_base_repeats/n500/seed3/phi4",
+        "--adapter-output",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/qlora/phi4_n500_s3",
+        "--status",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/phi4_s3/run_status.json",
+        "--batch-size",
+        "32",
+        "--serial-samples",
+        "100",
+        "--resume"
+      ],
+      "completed_artifact": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/qlora/phi4_n500_s3/evaluation_complete.json",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/phi4_s3/run_status.json",
+      "requires": [
+        "phi4_n500_s3_train"
+      ]
+    },
+    {
+      "key": "seed2_statistics",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/summarize_qlora_comparison.py",
+        "--training-seed",
+        "2",
+        "--base-root",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/hf_base_repeats/n500/seed2",
+        "--output",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/seed2_comparison",
+        "--bootstrap",
+        "5000"
+      ],
+      "completed_artifact": null,
+      "live_status": null,
+      "requires": [
+        "gemma4_n500_s2_evaluate",
+        "qwen3_n500_s2_evaluate",
+        "phi4_n500_s2_evaluate"
+      ]
+    },
+    {
+      "key": "seed2_verify",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/verify_qlora_evaluation.py",
+        "--training-seed",
+        "2",
+        "--base-root",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/hf_base_repeats/n500/seed2",
+        "--comparison-dir",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/seed2_comparison"
+      ],
+      "completed_artifact": null,
+      "live_status": null,
+      "requires": [
+        "seed2_statistics"
+      ]
+    },
+    {
+      "key": "seed3_statistics",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/summarize_qlora_comparison.py",
+        "--training-seed",
+        "3",
+        "--base-root",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/hf_base_repeats/n500/seed3",
+        "--output",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/seed3_comparison",
+        "--bootstrap",
+        "5000"
+      ],
+      "completed_artifact": null,
+      "live_status": null,
+      "requires": [
+        "gemma4_n500_s3_evaluate",
+        "qwen3_n500_s3_evaluate",
+        "phi4_n500_s3_evaluate"
+      ]
+    },
+    {
+      "key": "seed3_verify",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/verify_qlora_evaluation.py",
+        "--training-seed",
+        "3",
+        "--base-root",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/hf_base_repeats/n500/seed3",
+        "--comparison-dir",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/seed3_comparison"
+      ],
+      "completed_artifact": null,
+      "live_status": null,
+      "requires": [
+        "seed3_statistics"
+      ]
+    },
+    {
+      "key": "aggregate_replications",
+      "command": [
+        "/home/tan/anaconda3/envs/ConsumerComplaint/bin/python",
+        "-u",
+        "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/summarize_replications.py"
+      ],
+      "completed_artifact": null,
+      "live_status": null,
+      "requires": [
+        "seed2_verify",
+        "seed3_verify",
+        "distilbert_n500_s1",
+        "distilbert_n500_s2",
+        "distilbert_n500_s3",
+        "distilbert_n500_convergence_s1",
+        "distilbert_n500_convergence_s2",
+        "distilbert_n500_convergence_s3"
+      ]
+    }
+  ],
+  "encoder_convergence_control": {
+    "max_epochs": 30,
+    "early_stopping_patience": 5,
+    "selection": "validation weighted F1 only",
+    "reason": "Seed1 three-epoch validation F1 and loss were still improving; convergence control chosen before inspecting new test scores",
+    "preservation": "Three-epoch controls retained; convergence fits stored separately"
+  }
+}

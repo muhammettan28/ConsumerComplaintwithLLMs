@@ -1,0 +1,10 @@
+{
+  "result": "pass",
+  "prediction_files": 84,
+  "prediction_rows": 84000,
+  "recomputed_500_character_pooled_groups": 14,
+  "source_train_validation_and_test_manifest_hashes": "match",
+  "predictions_index_and_true_labels": "aligned",
+  "per_run_and_pooled_accuracy_weighted_macro_f1": "match",
+  "limit": "Baseline prediction CSVs lack per-row input text hashes; recorded split hashes match current sources."
+}

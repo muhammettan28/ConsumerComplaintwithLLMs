@@ -185,3 +185,83 @@ deneyi ayrıca gereklidir: önceki CSV'lerde ayrı thinking alanı,
 
 Güncel bulgular ve gönderim öncesi kalan işler:
 [`SPRINGER/sadhana_durum_raporu.md`](SPRINGER/sadhana_durum_raporu.md).
+
+## Hakem denetimi — 8 Ekim 2026
+
+[Detaylı inceleme](SPRINGER/hakem_degerlendirmesi_2026-10-08.md),
+veri bütünlüğü, kaynakça, istatistik ve tablo/şekil denetimini içerir.
+Özet donanım ayrıntılarından arındırıldı. Denetim kayıtları
+`results/sadhana/reviewer_audit/` altında tutulur.
+
+```bash
+python verify_qlora_evaluation.py
+python export_legacy_manuscript.py --check
+python audit_manuscript.py
+```
+
+Eski tablo hücrelerini tahminlerden yenilemek için
+`python export_legacy_manuscript.py` kullanılır. Bu işlem tahminleri
+değiştirmez. Çizimlerde geçersiz yanıtlar ayrı hata sütununda kalır.
+Yeni LaTeX input dosyaları ve kullanılan QLoRA şekli `.gitignore`
+istisnalarıyla görünür kılındı; son kamuya açık sürüm için commit/push
+yine gereklidir.
+
+
+## Ek eğitim seed'leri ve 500 etiket kontrolü
+
+8 Ekim 2026'da aynı 500 eğitim / 2.000 doğrulama kaydı için ek
+deneyler başlatıldı. Üç-epoch ve doğrulama ile erken durdurmalı
+DistilBERT kontrollerinin üçer seed'i tamamlandı. Gemma 4, Qwen3 ve
+Phi-4'ün ikinci/üçüncü eğitim seed'leri ve eşleşmiş base/adapter
+değerlendirmeleri kuyrukta çalışıyor. Mevcut HF ağırlıkları offline
+yüklenir. İlk pilot sonuçları yerlerinde korunur.
+
+```bash
+source /home/tan/anaconda3/etc/profile.d/conda.sh
+conda activate ConsumerComplaint
+python finetuning_status.py
+systemctl --user status consumercomplaint-replication-n500.service
+```
+
+Deney planı ve durum: `results/sadhana/replication_20261008/`.
+`report.md` yalnızca tamamlanıp doğrulanmış fit'leri gösterir.
+Tamamlanan fit'ler ayrı ayrı değerlendirilir; üç eğitim seed'inin
+ortalama/standart sapması ile test belirsizliği ayrı raporlanır.
+Zamansal test için tarih ve CFPB kayıt kimliği bulunmuyor.
+
+Kuyruk durmuşsa ve başka değerlendirme/eğitim kuyruğu yoksa devam:
+
+```bash
+python run_replication_queue.py --resume
+```
+
+Ara raporu yenilemek için `python summarize_replications.py
+--allow-partial --bootstrap 0` kullanılır. Tam kuyruk sonunda
+`verify_qlora_evaluation.py` her seed'i doğrular;
+`summarize_replications.py` 36 base/adapter ve ayrı 72
+etiket-eşit classifier karşılaştırmasını hesaplar.
+`export_replication_manuscript.py` ayrı dizinde derleme, atıf ve
+nesne denetimi başarılı olunca makaleyi yedekleyerek günceller.
+Bu aşamadan sonra eski tek-seed `export_qlora_manuscript.py`
+komutu üç-seed tablolarını yeniden üretmek için kullanılmamalıdır;
+yeni exporter'ın çıktıları esas alınır. Dergi biçimi son aşamadadır.
+
+
+## Yeniden başlatma için durdurma — 8 Ekim 2026
+
+Kuyruk kullanıcı isteğiyle yeniden başlatma öncesinde durduruldu.
+Altı DistilBERT fit'i, Gemma seed-2/seed-3 eğitimleri ve Gemma seed-2
+değerlendirmesi tamamlandı. Gemma seed-3 değerlendirmesinde 8.640/24.000
+tahmin kaydedildi; iki modun eşleşmesi, kaynak metin/etiket/indeksleri
+doğrulandı. Ayrıntılar `reboot_checkpoint.json` içinde.
+
+Geçici servis kalıcı kullanıcı servisine dönüştürüldü:
+`~/.config/systemd/user/consumercomplaint-replication-n500.service`.
+Servis etkin, şu anda durmuş durumdadır. Sonraki açılış/oturumda
+`run_replication_queue.py --resume` ile otomatik devam eder.
+Tamamlanan fit'ler atlanır; Gemma seed-3 kaydedilmiş tahminlerinden
+devam eder. Servisin kopyası `recovery.service` dosyasındadır.
+
+Kontrol: `python finetuning_status.py`; manuel başlatma:
+`systemctl --user start consumercomplaint-replication-n500.service`.
+Servis logu: `results/sadhana/replication_20261008/service.log`.
