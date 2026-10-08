@@ -1,0 +1,5 @@
+{
+  "max_batch_size": 16,
+  "reason": "Observed CUDA OOM in Phi4 LoRA gate_up_proj at batch32, resuming complete paired rows with a smaller cap",
+  "updated_local": "2026-10-06T15:16:03.425833+03:00"
+}

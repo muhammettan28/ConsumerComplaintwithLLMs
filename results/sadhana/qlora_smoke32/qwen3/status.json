@@ -1,0 +1,9 @@
+{
+  "phase": "complete",
+  "model": "qwen3",
+  "done_rows": 64,
+  "total_rows": 64,
+  "elapsed_seconds": 44.44029911300095,
+  "peak_allocated_vram_gib": 12.70453405380249,
+  "updated_local": "2026-10-06T14:22:32.749469+03:00"
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "model": "gemma4",
+    "phase": "complete",
+    "train_size": 500,
+    "seed": 1,
+    "epochs": 3,
+    "steps": 96,
+    "training_and_validation_minutes": 34.749905,
+    "load_download_and_training_minutes": 98.98058996418334,
+    "peak_allocated_vram_gib": 7.765798568725586,
+    "best_validation_loss": 0.06738325953483582,
+    "adapter_tensors": 656,
+    "adapter_parameters": 32784384,
+    "adapter_all_finite": true,
+    "completed_local": "2026-10-06T11:20:46.924952+03:00",
+    "test_metrics_available": false
+  },
+  {
+    "model": "qwen3",
+    "phase": "complete",
+    "train_size": 500,
+    "seed": 1,
+    "epochs": 3,
+    "steps": 96,
+    "training_and_validation_minutes": 41.149876666666664,
+    "load_download_and_training_minutes": 79.73840911891666,
+    "peak_allocated_vram_gib": 10.041569709777832,
+    "best_validation_loss": 0.06924163550138474,
+    "adapter_tensors": 560,
+    "adapter_parameters": 32112640,
+    "adapter_all_finite": true,
+    "completed_local": "2026-10-06T12:40:43.987816+03:00",
+    "test_metrics_available": false
+  },
+  {
+    "model": "phi4",
+    "phase": "complete",
+    "train_size": 500,
+    "seed": 1,
+    "epochs": 3,
+    "steps": 96,
+    "training_and_validation_minutes": 40.67658333333333,
+    "load_download_and_training_minutes": 78.26523465793335,
+    "peak_allocated_vram_gib": 9.322932720184326,
+    "best_validation_loss": 0.07331366091966629,
+    "adapter_tensors": 320,
+    "adapter_parameters": 27852800,
+    "adapter_all_finite": true,
+    "completed_local": "2026-10-06T13:59:11.119273+03:00",
+    "test_metrics_available": false
+  }
+]

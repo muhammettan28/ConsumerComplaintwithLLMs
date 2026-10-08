@@ -1,0 +1,10 @@
+{
+  "phase": "complete",
+  "model": "gemma4",
+  "mode": "adapter",
+  "fingerprint": "fd243ee43e13888c4760783e9fed71f064f1eb0d60057cc1f25d210e552d208f",
+  "n_datasets": 1,
+  "n_predictions": 32,
+  "limit": 32,
+  "completed_local": "2026-10-06T14:19:18.764919+03:00"
+}

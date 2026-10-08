@@ -1,0 +1,8 @@
+{
+  "hyperparameter_selection": "C in [0.1, 1, 10], highest validation weighted F1; ties choose first",
+  "features": "word TF-IDF 1/2-grams, min_df=2, max_features=100000, sublinear_tf=True",
+  "hardware": "CPU; serial latency includes vectorization; no GPU or output generation",
+  "seed": 42,
+  "training_split": "same fixed balanced nested splits intended for QLoRA",
+  "limits": "A classical baseline; does not replace a supervised transformer baseline"
+}

@@ -1,0 +1,7 @@
+condition,seed,same_labels_and_order,all_are_250_char_truncations
+balanced,1,True,True
+balanced,2,True,True
+balanced,3,True,True
+imbalanced,1,True,True
+imbalanced,2,True,True
+imbalanced,3,True,True

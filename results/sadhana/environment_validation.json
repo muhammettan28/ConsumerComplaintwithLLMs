@@ -1,0 +1,49 @@
+{
+  "date_local": "2026-10-06",
+  "timezone": "Europe/Istanbul",
+  "environment": "ConsumerComplaint",
+  "python": "3.12.14",
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "cuda_runtime": "13.0",
+  "compute_capability": [
+    12,
+    0
+  ],
+  "bf16": true,
+  "versions": {
+    "torch": "2.14.1",
+    "transformers": "5.18.0",
+    "peft": "0.21.2",
+    "bitsandbytes": "0.50.2",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "statsmodels": "0.15.0"
+  },
+  "checks": [
+    "pip check passed",
+    "CUDA matrix multiplication passed",
+    "NF4 forward/backward passed",
+    "tiny Qwen3 completion-only LoRA backward passed",
+    "weighted metrics agree with scikit-learn",
+    "all test/split SHA256 hashes matched",
+    "132 prediction files had complete unique positional indices and matching true labels",
+    "all three model/tokenizer preflights passed"
+  ],
+  "large_qlora_training_completed": false,
+  "main_pdf_pages": 20,
+  "supplementary_pdf_pages": 13,
+  "latex_checks": "Both PDFs compiled with no undefined citations/references or overfull boxes",
+  "distilbert_training_seeds_completed": [
+    1,
+    2,
+    3
+  ],
+  "tfidf_training_sizes_completed": [
+    500,
+    2000,
+    10000,
+    20000
+  ]
+}

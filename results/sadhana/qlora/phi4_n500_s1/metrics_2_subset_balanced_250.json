@@ -1,0 +1,21 @@
+{
+  "test_dataset": "2_subset_balanced_250",
+  "n": 1000,
+  "accuracy": 0.789,
+  "f1_weighted": 0.78908829226052,
+  "f1_macro": 0.78908829226052,
+  "precision_retail_banking": 0.7956521739130434,
+  "precision_credit_reporting": 0.6680672268907563,
+  "precision_credit_card": 0.8166666666666667,
+  "precision_mortgages_and_loans": 0.9,
+  "precision_debt_collection": 0.8023255813953488,
+  "recall_retail_banking": 0.915,
+  "recall_credit_reporting": 0.795,
+  "recall_credit_card": 0.735,
+  "recall_mortgages_and_loans": 0.81,
+  "recall_debt_collection": 0.69,
+  "mean_amortized_latency_s": 0.20991141565699944,
+  "invalid": 0,
+  "output_limited": 0,
+  "limited": false
+}

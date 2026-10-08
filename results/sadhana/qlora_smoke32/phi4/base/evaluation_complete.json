@@ -1,0 +1,10 @@
+{
+  "phase": "complete",
+  "model": "phi4",
+  "mode": "base",
+  "fingerprint": "d7f79673c8a743f3b015032e15477b32b4f46674e8496badb910538ec647306b",
+  "n_datasets": 1,
+  "n_predictions": 32,
+  "limit": 32,
+  "completed_local": "2026-10-06T14:23:20.875274+03:00"
+}

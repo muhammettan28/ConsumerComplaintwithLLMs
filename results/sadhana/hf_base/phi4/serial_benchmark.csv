@@ -1,0 +1,301 @@
+index,text_hash,source_hash,true_label,predicted_label,status,raw_response,input_tokens,output_tokens,batch_size,batch_latency_seconds,latency_seconds,reached_output_limit
+0,a509d78a5e51c2a0176ce362e9af776acf02d75d1115ffd8acba5c66b658550e,a509d78a5e51c2a0176ce362e9af776acf02d75d1115ffd8acba5c66b658550e,credit_card,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",124,12,1,0.4517275760008488,0.4517275760008488,False
+1,a3cdbd04f267cc3f8f768726f4861166c7f6086ccf21df2d8ab24b551f0d3235,a3cdbd04f267cc3f8f768726f4861166c7f6086ccf21df2d8ab24b551f0d3235,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",143,15,1,0.5603424860019004,0.5603424860019004,False
+2,77ab245a83291c97b01359543b3305fdec81b3dc97270c6a232c6a75b16410b1,77ab245a83291c97b01359543b3305fdec81b3dc97270c6a232c6a75b16410b1,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",133,15,1,0.5584030559984967,0.5584030559984967,False
+3,aee8d590ae472aab150f94453909f28bac203612da8a1ab6980845c602cbadf8,aee8d590ae472aab150f94453909f28bac203612da8a1ab6980845c602cbadf8,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",104,15,1,0.5082398030062905,0.5082398030062905,False
+4,4b03862f262d785ef685b13611e82abd011761c919d0e5ee4903612d5f58fbcc,4b03862f262d785ef685b13611e82abd011761c919d0e5ee4903612d5f58fbcc,credit_card,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",112,12,1,0.43922248700255295,0.43922248700255295,False
+5,0743be9dff49d2b0d5626d04ae7de33faa8b8935aaca3b0f761ec4fa79bd18b4,0743be9dff49d2b0d5626d04ae7de33faa8b8935aaca3b0f761ec4fa79bd18b4,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",165,15,1,0.5657508290023543,0.5657508290023543,False
+6,581730976ae06e4e9a69c387417f2e02062acc80198bfe131caef87fc5c64d9d,581730976ae06e4e9a69c387417f2e02062acc80198bfe131caef87fc5c64d9d,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",123,15,1,0.5164068099984434,0.5164068099984434,False
+7,b72d3ab9b88800854aa423b8af0f2f950857e858f2fea8145609bda562ab1d6b,b72d3ab9b88800854aa423b8af0f2f950857e858f2fea8145609bda562ab1d6b,credit_card,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",158,12,1,0.4932160379976267,0.4932160379976267,False
+8,724e21645513ea13f6a86763c025c8949641be3d38ea4d66b25994954456354f,724e21645513ea13f6a86763c025c8949641be3d38ea4d66b25994954456354f,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",155,13,1,0.515934973002004,0.515934973002004,False
+9,c08c2f500afe8aa12e920eb319160e024bacc31a029adfcba2ec3c6a2ed056bd,c08c2f500afe8aa12e920eb319160e024bacc31a029adfcba2ec3c6a2ed056bd,retail_banking,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",152,14,1,0.5388482919952367,0.5388482919952367,False
+10,f70b34262511e32714b0e80d78e2d410d29396dd62389640f01c25a42816ab6d,f70b34262511e32714b0e80d78e2d410d29396dd62389640f01c25a42816ab6d,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",132,13,1,0.5110610060000909,0.5110610060000909,False
+11,f2658209f369cac5f6a3494494deef6db639de63782f3763322d6351f63929d8,f2658209f369cac5f6a3494494deef6db639de63782f3763322d6351f63929d8,retail_banking,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",119,14,1,0.490544394000608,0.490544394000608,False
+12,f5f5c6a38e3f26975c122f3d6c41833ef1fe25d3da332cf289c9d208a563c23d,f5f5c6a38e3f26975c122f3d6c41833ef1fe25d3da332cf289c9d208a563c23d,mortgages_and_loans,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",117,12,1,0.44269616800011136,0.44269616800011136,False
+13,69a0f39a2296a2ac7565a734e5cfcd70571c7d84d63b6ecbac904154d7e40a8d,69a0f39a2296a2ac7565a734e5cfcd70571c7d84d63b6ecbac904154d7e40a8d,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",110,13,1,0.4624008259997936,0.4624008259997936,False
+14,0975bee58b4785a96cbe4a6f866d69ac68ea5c581fd7c9f25a6f7a4393d54d7d,0975bee58b4785a96cbe4a6f866d69ac68ea5c581fd7c9f25a6f7a4393d54d7d,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",160,13,1,0.5168605300059426,0.5168605300059426,False
+15,5a5507caf02bb0182e989aa02bcca371755a4678397094911b5e0ba86d287b30,5a5507caf02bb0182e989aa02bcca371755a4678397094911b5e0ba86d287b30,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",147,13,1,0.5137724500018521,0.5137724500018521,False
+16,9e4c4f2b82a9bc7a516f6c493c04e960a366e0cc68dd1bac349cd06e948b30f9,9e4c4f2b82a9bc7a516f6c493c04e960a366e0cc68dd1bac349cd06e948b30f9,credit_reporting,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",100,14,1,0.48304156200174475,0.48304156200174475,False
+17,092f047067c4dfb4d5a700dc438330f241a2f3444341ab82d091e70c33c5f74e,092f047067c4dfb4d5a700dc438330f241a2f3444341ab82d091e70c33c5f74e,debt_collection,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",121,14,1,0.4913964289953583,0.4913964289953583,False
+18,c687ed9f07481270c54684d8a25534dd39841759d6add37024ee16762609ccfd,c687ed9f07481270c54684d8a25534dd39841759d6add37024ee16762609ccfd,mortgages_and_loans,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",107,12,1,0.4377094719966408,0.4377094719966408,False
+19,5fd625326134cbc7bb639089de31e21b65516341194b2b6f5bc2901cdaba0e24,5fd625326134cbc7bb639089de31e21b65516341194b2b6f5bc2901cdaba0e24,credit_reporting,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",136,13,1,0.51161832499929,0.51161832499929,False
+20,1b3b57448429bb008a78829cb6f3be4f6b57ce3ca5c93b8e6bdfa8b3c795c42c,1b3b57448429bb008a78829cb6f3be4f6b57ce3ca5c93b8e6bdfa8b3c795c42c,credit_card,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",140,14,1,0.536374915005581,0.536374915005581,False
+21,d62babc4c6960af7fb1c56f9eda8c57c191f4e3c34488684d067346998d3847a,d62babc4c6960af7fb1c56f9eda8c57c191f4e3c34488684d067346998d3847a,retail_banking,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",104,14,1,0.4843623859997024,0.4843623859997024,False
+22,156e8c7da2375f029152a3677df88cf05e2ff0fd4c3bbfcfaa32aeaf366f407f,156e8c7da2375f029152a3677df88cf05e2ff0fd4c3bbfcfaa32aeaf366f407f,credit_reporting,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",136,12,1,0.48761944299621973,0.48761944299621973,False
+23,51d347902adb5ed3d74d79bb486524c8847560b3867e86ab0b58e9909be13ce3,51d347902adb5ed3d74d79bb486524c8847560b3867e86ab0b58e9909be13ce3,credit_card,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",127,12,1,0.4458994349988643,0.4458994349988643,False
+24,31e91fb6e77576d0d5a693ec5afa2bb2aa2e98562491c71b577cf9d9b38527af,31e91fb6e77576d0d5a693ec5afa2bb2aa2e98562491c71b577cf9d9b38527af,credit_reporting,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",125,12,1,0.44467180100036785,0.44467180100036785,False
+25,808f4a3887726d36de7af2f12781d3955ba37e30a0416a5c2a5b1606b1b7ae90,808f4a3887726d36de7af2f12781d3955ba37e30a0416a5c2a5b1606b1b7ae90,credit_reporting,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",109,12,1,0.4374742259969935,0.4374742259969935,False
+26,5540dc6a3799ccbc796bf15bb769ab153a020c979ea36e1281be0e6314b48b78,5540dc6a3799ccbc796bf15bb769ab153a020c979ea36e1281be0e6314b48b78,retail_banking,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",110,12,1,0.4389153969968902,0.4389153969968902,False
+27,6b68e126443db65c0450855257b2b5880be24905c36cbe83c457b4b03a2f51a2,6b68e126443db65c0450855257b2b5880be24905c36cbe83c457b4b03a2f51a2,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",112,13,1,0.46372180600155843,0.46372180600155843,False
+28,290f69cd3d71f57a07a7101789695caabf93cce8286dc4703dc147f3f9a6672f,290f69cd3d71f57a07a7101789695caabf93cce8286dc4703dc147f3f9a6672f,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",124,13,1,0.46797919199889293,0.46797919199889293,False
+29,986bd893aef5dc3e1e6118d2d792da66b1f198195ae628e45d9903074a5fbfa2,986bd893aef5dc3e1e6118d2d792da66b1f198195ae628e45d9903074a5fbfa2,debt_collection,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",116,12,1,0.4419418119941838,0.4419418119941838,False
+30,4e27e088d63f1b4ca0b78122c2a4c2312b7bca9b2e7b0bce2ef92e02c3a46058,4e27e088d63f1b4ca0b78122c2a4c2312b7bca9b2e7b0bce2ef92e02c3a46058,credit_reporting,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",154,12,1,0.491781794000417,0.491781794000417,False
+31,567e9ff66ee838d806cff03ae6346ba9b7e52080e3fc21150b1036e623b26b8f,567e9ff66ee838d806cff03ae6346ba9b7e52080e3fc21150b1036e623b26b8f,retail_banking,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",122,12,1,0.44416489799914416,0.44416489799914416,False
+32,f97deb92a47feb9633e30e453a326ad21a311f3b16295756229e5aed1c68bdc6,f97deb92a47feb9633e30e453a326ad21a311f3b16295756229e5aed1c68bdc6,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",117,15,1,0.5142315789998975,0.5142315789998975,False
+33,49648778eac00c68da2507b195ed7b35239f8fd681e4404d92e9aaca730acbf3,49648778eac00c68da2507b195ed7b35239f8fd681e4404d92e9aaca730acbf3,credit_card,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",154,12,1,0.4920853889998398,0.4920853889998398,False
+34,389ac63dfa441c33513d96579c0e05fc4e7279fce0cfb04d7ed7cbba4957ca27,389ac63dfa441c33513d96579c0e05fc4e7279fce0cfb04d7ed7cbba4957ca27,credit_reporting,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",145,12,1,0.48955978699814295,0.48955978699814295,False
+35,cd0c62022a9215880c661bea74c1527681d8688075d9e9e2344aa4a31a77a01d,cd0c62022a9215880c661bea74c1527681d8688075d9e9e2344aa4a31a77a01d,retail_banking,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",136,12,1,0.4879475560010178,0.4879475560010178,False
+36,f425a273b542ae8c4e0a5937e283ba37e902b849c779628e50831485e7ef8b41,f425a273b542ae8c4e0a5937e283ba37e902b849c779628e50831485e7ef8b41,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",124,15,1,0.5155136050016154,0.5155136050016154,False
+37,af04551687cf69d1e03340403851c5722ac62e4f7dd790eb240e9632b1405bad,af04551687cf69d1e03340403851c5722ac62e4f7dd790eb240e9632b1405bad,credit_card,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",107,12,1,0.4381104219937697,0.4381104219937697,False
+38,2725ce6d9c900fcb64e0e60bd4897deda4ac356735d9dc9beb83b4f77dd66f72,2725ce6d9c900fcb64e0e60bd4897deda4ac356735d9dc9beb83b4f77dd66f72,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",122,13,1,0.46746288199938135,0.46746288199938135,False
+39,11f74a923bfccd9ed6f0271f32a978368e27703d0422cda2cd01cf33232c7eef,11f74a923bfccd9ed6f0271f32a978368e27703d0422cda2cd01cf33232c7eef,retail_banking,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",144,14,1,0.5372490969966748,0.5372490969966748,False
+40,f391bc1cd2b7146c475859afad03c510c8235092b30682393b1ade3c0c6962cd,f391bc1cd2b7146c475859afad03c510c8235092b30682393b1ade3c0c6962cd,credit_reporting,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",115,12,1,0.4413440149946837,0.4413440149946837,False
+41,7b8750872f79bd74a5eb9af4b0e10b16e5f2a1d4b478d508a117ec74d7779d58,7b8750872f79bd74a5eb9af4b0e10b16e5f2a1d4b478d508a117ec74d7779d58,retail_banking,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",100,14,1,0.4833793650032021,0.4833793650032021,False
+42,696f157bcad87c914cd2d7017f24621e3d61cab4dbe93439c3f5e9778211398d,696f157bcad87c914cd2d7017f24621e3d61cab4dbe93439c3f5e9778211398d,credit_reporting,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",113,14,1,0.48749961300200084,0.48749961300200084,False
+43,b4fddee7c022a3799a6a31100201ad1c53ac993777917756f5458e531b284d27,b4fddee7c022a3799a6a31100201ad1c53ac993777917756f5458e531b284d27,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",139,13,1,0.5125192090054043,0.5125192090054043,False
+44,970563e72a1076534508c25a52398b28e55e95e71f8421828baae325d6e25035,970563e72a1076534508c25a52398b28e55e95e71f8421828baae325d6e25035,credit_reporting,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",139,12,1,0.48894330600160174,0.48894330600160174,False
+45,8253ef6c1348ff3fc07e5dd72889a5394e96e3411335fcdafae365fb10ed0157,8253ef6c1348ff3fc07e5dd72889a5394e96e3411335fcdafae365fb10ed0157,credit_reporting,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",144,12,1,0.4897952730025281,0.4897952730025281,False
+46,ae87925ef9c889161a61786f07d6d5ab55feb96ec27b14680a30fc37d06c9756,ae87925ef9c889161a61786f07d6d5ab55feb96ec27b14680a30fc37d06c9756,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",126,13,1,0.46918724499846576,0.46918724499846576,False
+47,89c84a025818aac364863c236efa66e83bff52bdb091b07e200debec8b214b96,89c84a025818aac364863c236efa66e83bff52bdb091b07e200debec8b214b96,mortgages_and_loans,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",137,13,1,0.5117518990009557,0.5117518990009557,False
+48,fb5d53a817cdc46f62e3096e06d6a76d5893b85a535175c40beab8891de844fa,fb5d53a817cdc46f62e3096e06d6a76d5893b85a535175c40beab8891de844fa,credit_card,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",141,14,1,0.5362138530035736,0.5362138530035736,False
+49,88ab84529c635395f0e7cbae979c8245c4264238810557865ff57da173f87a4b,88ab84529c635395f0e7cbae979c8245c4264238810557865ff57da173f87a4b,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",144,13,1,0.5134566619963152,0.5134566619963152,False
+50,f6715fd6598652300b65a1cd25b0482d307ecbbfb6b27d351354aebcb69ff8b4,f6715fd6598652300b65a1cd25b0482d307ecbbfb6b27d351354aebcb69ff8b4,credit_card,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",155,12,1,0.4923764530030894,0.4923764530030894,False
+51,d6ecee095f3e78e0b1ed529e5f29cf4b3ea657c403ebcf23fca5095200b42a05,d6ecee095f3e78e0b1ed529e5f29cf4b3ea657c403ebcf23fca5095200b42a05,debt_collection,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",132,12,1,0.4873497020016657,0.4873497020016657,False
+52,dc26f3632803f01ba4497bea0326b6b6859e340d582b18425a30760ecd743f9c,dc26f3632803f01ba4497bea0326b6b6859e340d582b18425a30760ecd743f9c,credit_reporting,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",109,12,1,0.4380953869986115,0.4380953869986115,False
+53,59cce3a6bc49f94fee5a89f71676bb149e9ce7a02fea51c0f102e40fed8e47a9,59cce3a6bc49f94fee5a89f71676bb149e9ce7a02fea51c0f102e40fed8e47a9,credit_card,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",109,12,1,0.43775379799626535,0.43775379799626535,False
+54,29dc906a865264f0ab09bddaea37613608e75be89f484285eea1f6c8717dbfea,29dc906a865264f0ab09bddaea37613608e75be89f484285eea1f6c8717dbfea,retail_banking,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",102,12,1,0.43699449200357776,0.43699449200357776,False
+55,9a437b45d4c152c394f4fffa4df34febc2fe488a67d5443095d924fba5d7321f,9a437b45d4c152c394f4fffa4df34febc2fe488a67d5443095d924fba5d7321f,retail_banking,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",112,14,1,0.48645241900521796,0.48645241900521796,False
+56,7a600eb2cb5272214fa8271b359b780fcfed7e15b24c3e03a34eba47702efa07,7a600eb2cb5272214fa8271b359b780fcfed7e15b24c3e03a34eba47702efa07,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",155,15,1,0.5637605899974005,0.5637605899974005,False
+57,71cbbb89fd125ba91cde5f31e734d53e764aef4a29ae896c1797255fda002813,71cbbb89fd125ba91cde5f31e734d53e764aef4a29ae896c1797255fda002813,retail_banking,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",150,14,1,0.5389658090061857,0.5389658090061857,False
+58,6373be311598d75cba97e37b9099f3ce21030cd51fd88babc415fbc1e61867eb,6373be311598d75cba97e37b9099f3ce21030cd51fd88babc415fbc1e61867eb,credit_reporting,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",94,12,1,0.43397870699845953,0.43397870699845953,False
+59,10912394c016bd6edb8f7275a8b9e62d17b59fcdbdda3a4fb002f21d66e15459,10912394c016bd6edb8f7275a8b9e62d17b59fcdbdda3a4fb002f21d66e15459,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",136,13,1,0.5116758700023638,0.5116758700023638,False
+60,7c45c0d9437b7639a8f448bd810d5b231b7455cd8d412bbbf65c6ca0a41f65c3,7c45c0d9437b7639a8f448bd810d5b231b7455cd8d412bbbf65c6ca0a41f65c3,credit_reporting,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",162,12,1,0.49419654899975285,0.49419654899975285,False
+61,8b563424f2528fb0494a4451a860f4434e2bd7a27e14cd0d421db8ce5409ad81,8b563424f2528fb0494a4451a860f4434e2bd7a27e14cd0d421db8ce5409ad81,retail_banking,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",97,14,1,0.48252392900030827,0.48252392900030827,False
+62,4607702cbfabcdee91fa714d008aa4dfe228d1b02c46307821f2f5d3e64fb9c5,4607702cbfabcdee91fa714d008aa4dfe228d1b02c46307821f2f5d3e64fb9c5,credit_card,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",153,12,1,0.4922382139993715,0.4922382139993715,False
+63,94440120657b19369414a81618c35523bc8b81ea580d6dcb2efbd8394ad4f413,94440120657b19369414a81618c35523bc8b81ea580d6dcb2efbd8394ad4f413,credit_reporting,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",104,12,1,0.4373185669974191,0.4373185669974191,False
+64,a9901bf89861171fe73a03d25f1af1a104f16170d78a49f2118ec512895aa354,a9901bf89861171fe73a03d25f1af1a104f16170d78a49f2118ec512895aa354,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",140,15,1,0.5598931509957765,0.5598931509957765,False
+65,4db1d6af0b06cfa2cba333ee09ee815f017fdeea50c7e107aa476be291c1c390,4db1d6af0b06cfa2cba333ee09ee815f017fdeea50c7e107aa476be291c1c390,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",137,15,1,0.5596021789970109,0.5596021789970109,False
+66,43588432880ccea1ef0b0b3b61b559e41a3ad1845385202560a58e8c512f49dc,43588432880ccea1ef0b0b3b61b559e41a3ad1845385202560a58e8c512f49dc,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",149,15,1,0.5623485670002992,0.5623485670002992,False
+67,afdb974c2ab68fb4b1ceadd87dbd0498d2f59d726ff624ed3178eb2da91bc86b,afdb974c2ab68fb4b1ceadd87dbd0498d2f59d726ff624ed3178eb2da91bc86b,debt_collection,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",147,12,1,0.4902363669971237,0.4902363669971237,False
+68,681280ff67075f6f9587685d4108079294d078a11b164376bd878784b8a77d75,681280ff67075f6f9587685d4108079294d078a11b164376bd878784b8a77d75,retail_banking,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",162,14,1,0.5416093430030742,0.5416093430030742,False
+69,a3bc088aecea3587f24dba4068598802acc2a6c11039054e2c1b5cf21cf3decc,a3bc088aecea3587f24dba4068598802acc2a6c11039054e2c1b5cf21cf3decc,credit_card,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",114,12,1,0.4412616629997501,0.4412616629997501,False
+70,07fe8010dafccb6c64b7fc6ccc5b252a8509867b054c98fc080d6be17b6805a2,07fe8010dafccb6c64b7fc6ccc5b252a8509867b054c98fc080d6be17b6805a2,retail_banking,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",153,14,1,0.5394702410048922,0.5394702410048922,False
+71,b211afca3bf7beaabb066106c1caebbeacaa5571c4d32f0b27c091c84c08025f,b211afca3bf7beaabb066106c1caebbeacaa5571c4d32f0b27c091c84c08025f,credit_card,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",150,12,1,0.4912598360024276,0.4912598360024276,False
+72,107fcbd9076f9d223dc8c9b3eea6fac8ff554c46e8bfd90bebd3172bf00d7c23,107fcbd9076f9d223dc8c9b3eea6fac8ff554c46e8bfd90bebd3172bf00d7c23,credit_card,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",149,12,1,0.4909329189977143,0.4909329189977143,False
+73,08666723514f610a9263a5a7c8c55d9ab4473c5e3b7f27c8f022a81fdfeb6e75,08666723514f610a9263a5a7c8c55d9ab4473c5e3b7f27c8f022a81fdfeb6e75,mortgages_and_loans,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",131,12,1,0.4871452929946827,0.4871452929946827,False
+74,1840038a058c629249f4098ccc7cbc9d788ad06e843d84eae86d963911595759,1840038a058c629249f4098ccc7cbc9d788ad06e843d84eae86d963911595759,credit_reporting,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",96,12,1,0.43470850399899064,0.43470850399899064,False
+75,b06a3c9dd5493b55714d4499593531d24a9a1a986a57240894c157f03f5a8833,b06a3c9dd5493b55714d4499593531d24a9a1a986a57240894c157f03f5a8833,credit_reporting,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",112,12,1,0.4391017199959606,0.4391017199959606,False
+76,053784b57b0f4f5fff1823862a1e371ee710b7bf39c58fbf4feb03f38d399651,053784b57b0f4f5fff1823862a1e371ee710b7bf39c58fbf4feb03f38d399651,mortgages_and_loans,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",162,13,1,0.5176469139987603,0.5176469139987603,False
+77,a91eeb4ff515e19f3b4ece6d3467f47cb37c6bfe54c547eb9bfdec5b890d040b,a91eeb4ff515e19f3b4ece6d3467f47cb37c6bfe54c547eb9bfdec5b890d040b,retail_banking,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",97,12,1,0.434892919001868,0.434892919001868,False
+78,4e413f9bf10245acf2f13c9d160e97cfa16b133d02bd44dec2576b9bfd47adfc,4e413f9bf10245acf2f13c9d160e97cfa16b133d02bd44dec2576b9bfd47adfc,credit_card,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",103,14,1,0.48435171999881277,0.48435171999881277,False
+79,fa05ee670604d507be638cc6149c575cfe6b049f8b1dd7baa50a1ffbd15c0399,fa05ee670604d507be638cc6149c575cfe6b049f8b1dd7baa50a1ffbd15c0399,credit_reporting,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",119,12,1,0.44332965400099056,0.44332965400099056,False
+80,653d5f4731016ffa4f2d8f2cc950f18f141a342a414186d3f7ac264851f672dc,653d5f4731016ffa4f2d8f2cc950f18f141a342a414186d3f7ac264851f672dc,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",157,15,1,0.5646538259970839,0.5646538259970839,False
+81,229b3b904eac27874df18522fb34c320297e66acefe2883fc668d49f4a5332c7,229b3b904eac27874df18522fb34c320297e66acefe2883fc668d49f4a5332c7,retail_banking,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",98,12,1,0.43520450300275115,0.43520450300275115,False
+82,a7da6bce8a62b8c9034b73aa3f3e5d0a0a4e6232320030a9b846025f515aef53,a7da6bce8a62b8c9034b73aa3f3e5d0a0a4e6232320030a9b846025f515aef53,credit_reporting,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",105,12,1,0.43682725799590116,0.43682725799590116,False
+83,e51a98f07ab4096fca473620b86ee158065eb549e6a9008e09fc6ffbeb0d8529,e51a98f07ab4096fca473620b86ee158065eb549e6a9008e09fc6ffbeb0d8529,retail_banking,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",106,14,1,0.48480490300426027,0.48480490300426027,False
+84,868bf7cf802466a64cdf4fbaf33b230d8e0ab96d1c6f384fdaffc75ee3e15766,868bf7cf802466a64cdf4fbaf33b230d8e0ab96d1c6f384fdaffc75ee3e15766,credit_reporting,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",108,12,1,0.43836929900135146,0.43836929900135146,False
+85,fd3567f020173fb328007ed82f1ae14123c182c7bac40bcb875bac41e564a008,fd3567f020173fb328007ed82f1ae14123c182c7bac40bcb875bac41e564a008,credit_card,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",103,14,1,0.4842597660026513,0.4842597660026513,False
+86,2f4eb89d838080b70c7c57803832eaa70a7ff4cc43d6bf31136e8d56a20868c9,2f4eb89d838080b70c7c57803832eaa70a7ff4cc43d6bf31136e8d56a20868c9,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",139,13,1,0.5128363679978065,0.5128363679978065,False
+87,c6d3833a6a79be147ea03762d4ae6c16d81bc6ee3cbc76788b5fb81959b64817,c6d3833a6a79be147ea03762d4ae6c16d81bc6ee3cbc76788b5fb81959b64817,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",142,15,1,0.5607683760026703,0.5607683760026703,False
+88,7e4a4078ce365f77b3f410554bb8286109f05327be91930d7f8ffaa4992e5f08,7e4a4078ce365f77b3f410554bb8286109f05327be91930d7f8ffaa4992e5f08,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",101,15,1,0.5074060079932678,0.5074060079932678,False
+91,06086f992d80ff9efc56e6d10561f6395b68c0d56e92a2532eae33b266ce95b6,06086f992d80ff9efc56e6d10561f6395b68c0d56e92a2532eae33b266ce95b6,credit_card,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",129,12,1,0.4875079810008174,0.4875079810008174,False
+92,9b1a47ff7e96a96ca4c2e950591a1f5981aa2c49b7113d9293b54160b3ed58f1,9b1a47ff7e96a96ca4c2e950591a1f5981aa2c49b7113d9293b54160b3ed58f1,credit_card,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",109,12,1,0.4377967249965877,0.4377967249965877,False
+94,ea85350977c16531b23cb62bf87e59eb17c68d51177013509db3a0bef011e441,ea85350977c16531b23cb62bf87e59eb17c68d51177013509db3a0bef011e441,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",104,15,1,0.5082477560063126,0.5082477560063126,False
+95,7aba3d5fa5991ceef0c406d713c365d2818cadca5a3431a66c5d2054d1fe9d7d,7aba3d5fa5991ceef0c406d713c365d2818cadca5a3431a66c5d2054d1fe9d7d,credit_card,credit_reporting,ok,"```json
+{""product"": ""credit_reporting""}
+```",135,12,1,0.4878694919971167,0.4878694919971167,False
+97,e91ef68bc77c1b08b2b9eb991acc794cd94e3fc6ae89074d72b805bd8a95e136,e91ef68bc77c1b08b2b9eb991acc794cd94e3fc6ae89074d72b805bd8a95e136,retail_banking,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",95,14,1,0.4816406320023816,0.4816406320023816,False
+98,17aa8a1ea8904c7a699d80793ff74d7d1e9d5604af33687b10cfad687795be01,17aa8a1ea8904c7a699d80793ff74d7d1e9d5604af33687b10cfad687795be01,retail_banking,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",119,12,1,0.44352962500124704,0.44352962500124704,False
+99,d4ba700a572717898859e476e7ce3a6f6ac996868575e15afab5e730331bdabc,d4ba700a572717898859e476e7ce3a6f6ac996868575e15afab5e730331bdabc,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",122,13,1,0.4682641209947178,0.4682641209947178,False
+102,c8843426a8d530cb9eb2b01644f09da0b58742dc0834b674dd3593eb09ddf334,c8843426a8d530cb9eb2b01644f09da0b58742dc0834b674dd3593eb09ddf334,debt_collection,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",130,12,1,0.48717679499532096,0.48717679499532096,False
+106,b97cccf42a8554e8811637fcb28de80aa2ff607897fa0358d0fa86fba84a5e9e,b97cccf42a8554e8811637fcb28de80aa2ff607897fa0358d0fa86fba84a5e9e,credit_card,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",102,12,1,0.43722651599819073,0.43722651599819073,False
+107,142fd5d121437042ccb39d1fe8fe6559a9be43c2e17a153854567b596b15d575,142fd5d121437042ccb39d1fe8fe6559a9be43c2e17a153854567b596b15d575,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",116,13,1,0.4655328350054333,0.4655328350054333,False
+108,2e7b6ed6065e80e1fc16508bf1ecefea6b27c52e2f9d18a69c897ce69a96f553,2e7b6ed6065e80e1fc16508bf1ecefea6b27c52e2f9d18a69c897ce69a96f553,retail_banking,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",155,12,1,0.4927605949997087,0.4927605949997087,False

@@ -1,0 +1,50 @@
+[
+  {
+    "model": "gemma4",
+    "split": "train_500",
+    "n": 500,
+    "max_tokens": 202,
+    "mean_tokens": 153.568,
+    "end_token_id": 106
+  },
+  {
+    "model": "gemma4",
+    "split": "validation",
+    "n": 2000,
+    "max_tokens": 204,
+    "mean_tokens": 152.3375,
+    "end_token_id": 106
+  },
+  {
+    "model": "qwen3",
+    "split": "train_500",
+    "n": 500,
+    "max_tokens": 192,
+    "mean_tokens": 144.852,
+    "end_token_id": 151645
+  },
+  {
+    "model": "qwen3",
+    "split": "validation",
+    "n": 2000,
+    "max_tokens": 196,
+    "mean_tokens": 143.6035,
+    "end_token_id": 151645
+  },
+  {
+    "model": "phi4",
+    "split": "train_500",
+    "n": 500,
+    "max_tokens": 187,
+    "mean_tokens": 139.852,
+    "end_token_id": 100265
+  },
+  {
+    "model": "phi4",
+    "split": "validation",
+    "n": 2000,
+    "max_tokens": 191,
+    "mean_tokens": 138.6055,
+    "end_token_id": 100265
+  }
+]

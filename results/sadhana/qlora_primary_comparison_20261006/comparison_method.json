@@ -1,0 +1,11 @@
+{
+  "training": "500 balanced records, seed 1, best validation-loss adapter; no training-seed uncertainty estimate",
+  "test": "12 preserved files, three test subsets, balanced/imbalanced, 250/500 characters; all invalid outputs retained as errors",
+  "estimator": "Pooled confusion-matrix metrics; partial groups explicitly marked",
+  "paired_bootstrap": "Same normalized-text-cluster weights for base and adapter; class-stratified if cluster labels consistent, otherwise unstratified",
+  "bootstrap_replicates": 5000,
+  "rng_seed": 42,
+  "mcnemar": "Exact paired accuracy test after selecting first seed/index for each exact source input; conflicting-label inputs excluded only from this test; Holm across available model/condition/length comparisons",
+  "timing": "Full-test amortized batch latency (max32, paired memory fallback, actual batch size recorded per row) and separate stratified serial benchmark; serial benchmark belongs to balanced 500-character seed-1 dataset, not each condition",
+  "historical_ollama": "Separate runtime/quantization; not used as the base for adaptation deltas"
+}

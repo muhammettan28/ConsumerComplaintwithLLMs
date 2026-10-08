@@ -1,0 +1,43 @@
+{
+  "model_key": "gemma4",
+  "model": "google/gemma-4-12B-it",
+  "hf_revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "adapter_run": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/gemma4/n500/seed1",
+  "adapter_sha256": "0e150b206b4bb760314b6e3a51d85ae47ce75d5f6992cc8cc0a1d9d00d138880",
+  "adapter_config_sha256": "e5436f10e25bc47ff6b508371ec95cd4a62c86dddd727befd0390739767d96a9",
+  "test_sha256": {
+    "dataset/1_subset_balanced_500.csv": "5b4c8bd3ca6bb6fad79482d496e3eca5d6bb27d5e2df1d1643c2f4e1aaa15e5d",
+    "dataset/1_subset_imbalanced_500.csv": "8097434bf6c8b50344fc8b7fec4a0276f35046d0e01352e2f5b79dc5359cb63a",
+    "dataset/2_subset_balanced_500.csv": "e819cc4bf23685f07c8a17f820889071ad94a50e9b51a57bfcf812a32046ae26",
+    "dataset/2_subset_imbalanced_500.csv": "80730322e8a397a6f115ed447f44d05d9785d65666d80128b56475449187d8a9",
+    "dataset/3_subset_balanced_500.csv": "d06ce9f4ed10f979a9174c7c83ce1e15c1d1c508a231107dd1ea2b5687b84250",
+    "dataset/3_subset_imbalanced_500.csv": "710c5ae473d8cd58aee34aaf603dcdd70c8517a618bcab4322a041467729df7a",
+    "dataset/1_subset_balanced_250.csv": "7a9a862ed974cf5ec7a28a8d5850384513c33138f3a712d81a597441684357af",
+    "dataset/1_subset_imbalanced_250.csv": "1ec6a7f70f4f40db232facd64f62d89e34150cf30ebe4389f2ac63cdc3a4c13a",
+    "dataset/2_subset_balanced_250.csv": "de9b3fe6b3bd4b9b4fab7bbd6fe29d7922b51e0414c1ef764b7958d36015bc8f",
+    "dataset/2_subset_imbalanced_250.csv": "4e2e17acbc772920fe84fa617856d17064a7d1028cc36df075212ff8ac0dfbc5",
+    "dataset/3_subset_balanced_250.csv": "71af0420a9d367d84a4743aeb465e78ba7a32c263524eb651de2dcdd4320ab33",
+    "dataset/3_subset_imbalanced_250.csv": "056ce1475caf946d587dc1ee9fc5b62887a026654479db5c6f550ac106244647"
+  },
+  "batch_size": 8,
+  "serial_samples_requested": 10,
+  "max_new_tokens": 64,
+  "thinking": false,
+  "do_sample": false,
+  "limit": 10,
+  "quantization": "NF4 double quantization, BF16 compute",
+  "frozen_parameter_dtype": "matrices BF16, one-dimensional norms FP32",
+  "adapter_compute": "BF16 autocast; saved adapter parameter dtypes retained",
+  "base_mode": "Same PeftModel instance with adapters disabled; no KV cache shared across calls",
+  "latency_seconds": "Amortized batch wall time per row; prompt rendering/tokenization and CUDA generation included, output decoding excluded",
+  "serial_latency": "Separate stratified serial benchmark on first balanced 500-character test, same timing boundaries",
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "versions": {
+    "torch": "2.14.1",
+    "transformers": "5.18.0",
+    "peft": "0.21.2",
+    "bitsandbytes": "0.50.2"
+  },
+  "fingerprint": "ddd2105cb75cb2832a432fca90b08a8bb8ad4afb632c0e94769a54c275e12b32",
+  "mode": "base"
+}

@@ -1,0 +1,10 @@
+{
+  "model": "Qwen/Qwen3-14B",
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "model_type": "qwen3",
+  "prompt_tokens": 102,
+  "thinking_requested": false,
+  "loader_class": "Qwen3ForCausalLM",
+  "target_end_token": "<|im_end|>",
+  "cuda": true
+}

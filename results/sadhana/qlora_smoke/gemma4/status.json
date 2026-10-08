@@ -1,0 +1,9 @@
+{
+  "phase": "complete",
+  "model": "gemma4",
+  "done_rows": 240,
+  "total_rows": 240,
+  "elapsed_seconds": 83.24992731500242,
+  "peak_allocated_vram_gib": 8.01412296295166,
+  "updated_local": "2026-10-06T14:16:27.889016+03:00"
+}

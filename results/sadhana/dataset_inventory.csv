@@ -1,0 +1,13 @@
+dataset,n,unique_texts,max_chars,credit_card,mortgages_and_loans,debt_collection,retail_banking,credit_reporting
+1_subset_balanced_250,1000,999,250,200,200,200,200,200
+1_subset_balanced_500,1000,1000,500,200,200,200,200,200
+1_subset_imbalanced_250,1000,997,250,100,107,182,100,511
+1_subset_imbalanced_500,1000,1000,500,100,107,182,100,511
+2_subset_balanced_250,1000,1000,250,200,200,200,200,200
+2_subset_balanced_500,1000,1000,500,200,200,200,200,200
+2_subset_imbalanced_250,1000,999,250,100,107,182,100,511
+2_subset_imbalanced_500,1000,1000,500,100,107,182,100,511
+3_subset_balanced_250,1000,1000,250,200,200,200,200,200
+3_subset_balanced_500,1000,1000,500,200,200,200,200,200
+3_subset_imbalanced_250,1000,998,250,100,107,182,100,511
+3_subset_imbalanced_500,1000,1000,500,100,107,182,100,511

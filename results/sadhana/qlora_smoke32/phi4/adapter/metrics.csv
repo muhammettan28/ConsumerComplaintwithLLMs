@@ -1,0 +1,2 @@
+test_dataset,n,accuracy,f1_weighted,f1_macro,precision_retail_banking,precision_credit_reporting,precision_credit_card,precision_mortgages_and_loans,precision_debt_collection,recall_retail_banking,recall_credit_reporting,recall_credit_card,recall_mortgages_and_loans,recall_debt_collection,mean_amortized_latency_s,invalid,output_limited,limited
+1_subset_balanced_500,32,0.6875,0.6887651821862348,0.6586774628879891,0.5,1.0,0.4,0.8333333333333334,0.8,0.8,0.5,0.4,0.7142857142857143,0.8888888888888888,0.2114195774062182,0,0,True

@@ -1,0 +1,31 @@
+index,text_hash,source_hash,true_label,predicted_label,status,raw_response,input_tokens,output_tokens,batch_size,batch_latency_seconds,latency_seconds,reached_output_limit
+0,a509d78a5e51c2a0176ce362e9af776acf02d75d1115ffd8acba5c66b658550e,a509d78a5e51c2a0176ce362e9af776acf02d75d1115ffd8acba5c66b658550e,credit_card,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",124,12,1,0.45180595299825654,0.45180595299825654,False
+1,a3cdbd04f267cc3f8f768726f4861166c7f6086ccf21df2d8ab24b551f0d3235,a3cdbd04f267cc3f8f768726f4861166c7f6086ccf21df2d8ab24b551f0d3235,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",143,15,1,0.5610262929985765,0.5610262929985765,False
+2,77ab245a83291c97b01359543b3305fdec81b3dc97270c6a232c6a75b16410b1,77ab245a83291c97b01359543b3305fdec81b3dc97270c6a232c6a75b16410b1,mortgages_and_loans,mortgages_and_loans,ok,"```json
+{""product"": ""mortgages_and_loans""}
+```",133,15,1,0.5580765030026669,0.5580765030026669,False
+4,4b03862f262d785ef685b13611e82abd011761c919d0e5ee4903612d5f58fbcc,4b03862f262d785ef685b13611e82abd011761c919d0e5ee4903612d5f58fbcc,credit_card,credit_card,ok,"```json
+{""product"": ""credit_card""}
+```",112,12,1,0.43908613600069657,0.43908613600069657,False
+8,724e21645513ea13f6a86763c025c8949641be3d38ea4d66b25994954456354f,724e21645513ea13f6a86763c025c8949641be3d38ea4d66b25994954456354f,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",155,13,1,0.5162544020022324,0.5162544020022324,False
+9,c08c2f500afe8aa12e920eb319160e024bacc31a029adfcba2ec3c6a2ed056bd,c08c2f500afe8aa12e920eb319160e024bacc31a029adfcba2ec3c6a2ed056bd,retail_banking,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",152,14,1,0.5376023589997203,0.5376023589997203,False
+10,f70b34262511e32714b0e80d78e2d410d29396dd62389640f01c25a42816ab6d,f70b34262511e32714b0e80d78e2d410d29396dd62389640f01c25a42816ab6d,debt_collection,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",132,13,1,0.5112766820020624,0.5112766820020624,False
+11,f2658209f369cac5f6a3494494deef6db639de63782f3763322d6351f63929d8,f2658209f369cac5f6a3494494deef6db639de63782f3763322d6351f63929d8,retail_banking,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",119,14,1,0.4908632930018939,0.4908632930018939,False
+16,9e4c4f2b82a9bc7a516f6c493c04e960a366e0cc68dd1bac349cd06e948b30f9,9e4c4f2b82a9bc7a516f6c493c04e960a366e0cc68dd1bac349cd06e948b30f9,credit_reporting,retail_banking,ok,"```json
+{""product"": ""retail_banking""}
+```",100,14,1,0.4832455960022344,0.4832455960022344,False
+19,5fd625326134cbc7bb639089de31e21b65516341194b2b6f5bc2901cdaba0e24,5fd625326134cbc7bb639089de31e21b65516341194b2b6f5bc2901cdaba0e24,credit_reporting,debt_collection,ok,"```json
+{""product"": ""debt_collection""}
+```",136,13,1,0.5112069669994526,0.5112069669994526,False

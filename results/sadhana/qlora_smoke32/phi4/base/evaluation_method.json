@@ -1,0 +1,32 @@
+{
+  "model_key": "phi4",
+  "model": "microsoft/phi-4",
+  "hf_revision": "2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+  "adapter_run": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/phi4/n500/seed1",
+  "adapter_sha256": "e5e38e1f4fc3b6330dc098476b71553a53c14fe6b0c5788523433ac11f35811b",
+  "adapter_config_sha256": "0eb0a8f6d3a47e8e3e50677511e6138bbcf1ddae3750ad66512197e091282286",
+  "test_sha256": {
+    "dataset/1_subset_balanced_500.csv": "5b4c8bd3ca6bb6fad79482d496e3eca5d6bb27d5e2df1d1643c2f4e1aaa15e5d"
+  },
+  "batch_size": 32,
+  "serial_samples_requested": 10,
+  "max_new_tokens": 64,
+  "thinking": false,
+  "do_sample": false,
+  "limit": 32,
+  "quantization": "NF4 double quantization, BF16 compute",
+  "frozen_parameter_dtype": "matrices BF16, one-dimensional norms FP32",
+  "adapter_compute": "BF16 autocast; saved adapter parameter dtypes retained",
+  "base_mode": "Same PeftModel instance with adapters disabled; no KV cache shared across calls",
+  "latency_seconds": "Amortized batch wall time per row; prompt rendering/tokenization and CUDA generation included, output decoding excluded",
+  "serial_latency": "Separate stratified serial benchmark on first balanced 500-character test, same timing boundaries",
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "versions": {
+    "torch": "2.14.1",
+    "transformers": "5.18.0",
+    "peft": "0.21.2",
+    "bitsandbytes": "0.50.2"
+  },
+  "fingerprint": "d7f79673c8a743f3b015032e15477b32b4f46674e8496badb910538ec647306b",
+  "mode": "base"
+}

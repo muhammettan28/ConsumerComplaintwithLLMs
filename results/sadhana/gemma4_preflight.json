@@ -1,0 +1,10 @@
+{
+  "model": "google/gemma-4-12B-it",
+  "revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+  "model_type": "gemma4_unified",
+  "prompt_tokens": 111,
+  "thinking_requested": false,
+  "loader_class": "Gemma4UnifiedForConditionalGeneration",
+  "target_end_token": "<turn|>",
+  "cuda": true
+}

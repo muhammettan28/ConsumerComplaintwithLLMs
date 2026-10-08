@@ -1,0 +1,13 @@
+{
+  "phase": "complete",
+  "model": "qwen3",
+  "done_rows": 24000,
+  "total_rows": 24000,
+  "stage_total_rows": 24000,
+  "fresh_rows": 18000,
+  "effective_batch_size": 32,
+  "inference_seconds": 3309.0550729930183,
+  "elapsed_seconds": 3436.8192716060003,
+  "peak_allocated_vram_gib": 12.994853973388672,
+  "updated_local": "2026-10-06T17:13:53.912776+03:00"
+}

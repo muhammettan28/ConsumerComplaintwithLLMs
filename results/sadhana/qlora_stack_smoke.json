@@ -1,0 +1,32 @@
+{
+  "purpose": "Small randomly initialized architecture replicas; validates software, not task quality or full-model VRAM",
+  "runs": [
+    {
+      "model": "gemma4",
+      "steps": 2,
+      "train_loss": 4.168313503265381,
+      "best_validation_loss": 4.159178733825684,
+      "nf4": true,
+      "bf16": true,
+      "checkpoint_reload": true
+    },
+    {
+      "model": "qwen3",
+      "steps": 2,
+      "train_loss": 4.164870023727417,
+      "best_validation_loss": 4.159942626953125,
+      "nf4": true,
+      "bf16": true,
+      "checkpoint_reload": true
+    },
+    {
+      "model": "phi4",
+      "steps": 2,
+      "train_loss": 4.183206796646118,
+      "best_validation_loss": 4.179471015930176,
+      "nf4": true,
+      "bf16": true,
+      "checkpoint_reload": true
+    }
+  ]
+}

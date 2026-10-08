@@ -1,0 +1,9 @@
+{
+  "phase": "complete",
+  "model": "phi4",
+  "done_rows": 64,
+  "total_rows": 64,
+  "elapsed_seconds": 43.31328321999899,
+  "peak_allocated_vram_gib": 12.750336647033691,
+  "updated_local": "2026-10-06T14:23:25.480662+03:00"
+}

@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{31}
+\begin{thebibliography}{34}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -132,18 +132,6 @@ pp. \bfpage{4171}--\blpage{4186}
 \endbibitem
 
 %%% 6
-\bibitem[\protect\citeauthoryear{Vairetti et~al.}{2024}]{vairetti2024bert}
-\begin{barticle}
-\bauthor{\bsnm{Vairetti}, \binits{C.}}, \betal:
-\batitle{{BETO}-based prioritization of consumer complaints}.
-\bjtitle{European Journal of Operational Research}
-\bvolume{312},
-\bfpage{1108}--\blpage{1118}
-(\byear{2024})
-\end{barticle}
-\endbibitem
-
-%%% 7
 \bibitem[\protect\citeauthoryear{Brown et~al.}{2020}]{brown2020gpt3}
 \begin{bchapter}
 \bauthor{\bsnm{Brown}, \binits{T.B.}}, \betal:
@@ -155,7 +143,7 @@ pp. \bfpage{1877}--\blpage{1901}
 \end{bchapter}
 \endbibitem
 
-%%% 8
+%%% 7
 \bibitem[\protect\citeauthoryear{Kojima et~al.}{2022}]{kojima2022zeroshotcot}
 \begin{botherref}
 \oauthor{\bsnm{Kojima}, \binits{T.}},
@@ -170,18 +158,7 @@ Advances in Neural Information Processing Systems (NeurIPS)
 \end{botherref}
 \endbibitem
 
-%%% 9
-\bibitem[\protect\citeauthoryear{Madanchian}{2024}]{madanchian2024genai}
-\begin{botherref}
-\oauthor{\bsnm{Madanchian}, \binits{M.}}:
-Generative {AI} for consumer behavior prediction: Techniques and applications.
-Sustainability
-\textbf{16}
-(2024)
-\end{botherref}
-\endbibitem
-
-%%% 10
+%%% 8
 \bibitem[\protect\citeauthoryear{Roumeliotis
   et~al.}{2025}]{roumeliotis2025think}
 \begin{barticle}
@@ -198,20 +175,37 @@ Sustainability
 \end{barticle}
 \endbibitem
 
-%%% 11
-\bibitem[\protect\citeauthoryear{Raju et~al.}{2022}]{raju2022bertopic}
-\begin{bchapter}
-\bauthor{\bsnm{Raju}, \binits{A.}}, \betal:
-\bctitle{Topic modeling and classification of {CFPB} consumer complaints using
-  transformer models}.
-In: \bbtitle{Proceedings of IEEE International Conference on Machine Learning
-  and Applications}
-(\byear{2022}).
-\bcomment{IEEE}
-\end{bchapter}
+%%% 9
+\bibitem[\protect\citeauthoryear{Hu et~al.}{2021}]{hu2021lora}
+\begin{botherref}
+\oauthor{\bsnm{Hu}, \binits{E.J.}},
+\oauthor{\bsnm{Shen}, \binits{Y.}},
+\oauthor{\bsnm{Wallis}, \binits{P.}},
+\oauthor{\bsnm{Allen-Zhu}, \binits{Z.}},
+\oauthor{\bsnm{Li}, \binits{Y.}},
+\oauthor{\bsnm{Wang}, \binits{S.}},
+\oauthor{\bsnm{Wang}, \binits{L.}},
+\oauthor{\bsnm{Chen}, \binits{W.}}:
+{LoRA}: Low-Rank Adaptation of Large Language Models
+(2021).
+\doiurl{10.48550/arXiv.2106.09685}
+\end{botherref}
 \endbibitem
 
-%%% 12
+%%% 10
+\bibitem[\protect\citeauthoryear{Dettmers et~al.}{2023}]{dettmers2023qlora}
+\begin{botherref}
+\oauthor{\bsnm{Dettmers}, \binits{T.}},
+\oauthor{\bsnm{Pagnoni}, \binits{A.}},
+\oauthor{\bsnm{Holtzman}, \binits{A.}},
+\oauthor{\bsnm{Zettlemoyer}, \binits{L.}}:
+{QLoRA}: Efficient Finetuning of Quantized {LLMs}
+(2023).
+\doiurl{10.48550/arXiv.2305.14314}
+\end{botherref}
+\endbibitem
+
+%%% 11
 \bibitem[\protect\citeauthoryear{Lilleberg
   et~al.}{2015}]{lilleberg2015word2vec}
 \begin{bchapter}
@@ -229,6 +223,19 @@ pp. \bfpage{136}--\blpage{140}
 \end{bchapter}
 \endbibitem
 
+%%% 12
+\bibitem[\protect\citeauthoryear{Raju et~al.}{2022}]{raju2022bertopic}
+\begin{bchapter}
+\bauthor{\bsnm{Raju}, \binits{A.}}, \betal:
+\bctitle{Topic modeling and classification of {CFPB} consumer complaints using
+  transformer models}.
+In: \bbtitle{Proceedings of IEEE International Conference on Machine Learning
+  and Applications}
+(\byear{2022}).
+\bcomment{IEEE}
+\end{bchapter}
+\endbibitem
+
 %%% 13
 \bibitem[\protect\citeauthoryear{Grootendorst}{2020}]{grootendorst2020bertopic}
 \begin{botherref}
@@ -242,6 +249,18 @@ Zenodo
 \endbibitem
 
 %%% 14
+\bibitem[\protect\citeauthoryear{Vairetti et~al.}{2024}]{vairetti2024bert}
+\begin{barticle}
+\bauthor{\bsnm{Vairetti}, \binits{C.}}, \betal:
+\batitle{{BETO}-based prioritization of consumer complaints}.
+\bjtitle{European Journal of Operational Research}
+\bvolume{312},
+\bfpage{1108}--\blpage{1118}
+(\byear{2024})
+\end{barticle}
+\endbibitem
+
+%%% 15
 \bibitem[\protect\citeauthoryear{Zhao et~al.}{2023}]{zhao2023survey}
 \begin{botherref}
 \oauthor{\bsnm{Zhao}, \binits{W.X.}}, et al.:
@@ -251,7 +270,7 @@ arXiv preprint arXiv:2303.18223
 \end{botherref}
 \endbibitem
 
-%%% 15
+%%% 16
 \bibitem[\protect\citeauthoryear{Correa et~al.}{2024}]{correa2024genai}
 \begin{bchapter}
 \bauthor{\bsnm{Correa}, \binits{D.}}, \betal:
@@ -263,7 +282,7 @@ In: \bbtitle{Proceedings of the IEEE Andescon}
 \end{bchapter}
 \endbibitem
 
-%%% 16
+%%% 17
 \bibitem[\protect\citeauthoryear{Roumeliotis
   et~al.}{2024a}]{roumeliotis2024tourism}
 \begin{botherref}
@@ -279,7 +298,7 @@ Information
 \end{botherref}
 \endbibitem
 
-%%% 17
+%%% 18
 \bibitem[\protect\citeauthoryear{Roumeliotis
   et~al.}{2024b}]{roumeliotis2024ecommerce}
 \begin{barticle}
@@ -296,7 +315,7 @@ Information
 \end{barticle}
 \endbibitem
 
-%%% 18
+%%% 19
 \bibitem[\protect\citeauthoryear{Li et~al.}{2024}]{li2024customerservice}
 \begin{botherref}
 \oauthor{\bsnm{Li}, \binits{F.}},
@@ -317,7 +336,7 @@ International Journal of Machine Learning and Cybernetics
 \end{botherref}
 \endbibitem
 
-%%% 19
+%%% 20
 \bibitem[\protect\citeauthoryear{Shin et~al.}{2025}]{shin2025llmwritten}
 \begin{botherref}
 \oauthor{\bsnm{Shin}, \binits{J.}}, et al.:
@@ -328,7 +347,7 @@ arXiv:2311.16466v4
 \end{botherref}
 \endbibitem
 
-%%% 20
+%%% 21
 \bibitem[\protect\citeauthoryear{Liang et~al.}{2025}]{liang2025cfpb}
 \begin{botherref}
 \oauthor{\bsnm{Liang}, \binits{P.}}, et al.:
@@ -338,7 +357,7 @@ arXiv preprint arXiv:2502.09747
 \end{botherref}
 \endbibitem
 
-%%% 21
+%%% 22
 \bibitem[\protect\citeauthoryear{Wei et~al.}{2022}]{wei2022chainofthought}
 \begin{botherref}
 \oauthor{\bsnm{Wei}, \binits{J.}}, et al.:
@@ -349,7 +368,7 @@ Advances in Neural Information Processing Systems (NeurIPS)
 \end{botherref}
 \endbibitem
 
-%%% 22
+%%% 23
 \bibitem[\protect\citeauthoryear{{DeepSeek-AI} et~al.}{2024}]{deepseekllm2024}
 \begin{botherref}
 \oauthor{\bsnm{{DeepSeek-AI}}},
@@ -367,7 +386,7 @@ arXiv preprint arXiv:2401.02954
 \end{botherref}
 \endbibitem
 
-%%% 23
+%%% 24
 \bibitem[\protect\citeauthoryear{Guo et~al.}{2025}]{guo2025deepseekr1}
 \begin{botherref}
 \oauthor{\bsnm{Guo}, \binits{D.}}, et al.:
@@ -378,7 +397,7 @@ arXiv preprint arXiv:2501.12948
 \end{botherref}
 \endbibitem
 
-%%% 24
+%%% 25
 \bibitem[\protect\citeauthoryear{{Qwen Team}}{2025}]{qwen2025qwen3}
 \begin{botherref}
 \oauthor{\bsnm{{Qwen Team}}}:
@@ -388,7 +407,7 @@ arXiv preprint arXiv:2505.09388
 \end{botherref}
 \endbibitem
 
-%%% 25
+%%% 26
 \bibitem[\protect\citeauthoryear{Bulgakov and
   Turchin}{2026}]{bulgakov2026deepseek}
 \begin{botherref}
@@ -401,7 +420,7 @@ arXiv preprint arXiv:2601.16406
 \end{botherref}
 \endbibitem
 
-%%% 26
+%%% 27
 \bibitem[\protect\citeauthoryear{G{\"u}ll{\"u} et~al.}{2025}]{gullu2025llama}
 \begin{bchapter}
 \bauthor{\bsnm{G{\"u}ll{\"u}}, \binits{B.}}, \betal:
@@ -414,7 +433,7 @@ In: \bbtitle{Proceedings of the IEEE International Conference on Artificial
 \end{bchapter}
 \endbibitem
 
-%%% 27
+%%% 28
 \bibitem[\protect\citeauthoryear{Tiwari}{2021}]{tiwari2021cfpb}
 \begin{botherref}
 \oauthor{\bsnm{Tiwari}, \binits{S.}}:
@@ -426,7 +445,19 @@ Accessed: 15 June 2026
 \end{botherref}
 \endbibitem
 
-%%% 28
+%%% 29
+\bibitem[\protect\citeauthoryear{{Google
+  DeepMind}}{2026}]{google2026gemma4card}
+\begin{botherref}
+\oauthor{\bsnm{{Google DeepMind}}}:
+Gemma 4 12B Unified Model Card.
+\url{https://huggingface.co/google/gemma-4-12B-it}.
+Accessed 6 October 2026
+(2026)
+\end{botherref}
+\endbibitem
+
+%%% 30
 \bibitem[\protect\citeauthoryear{Touvron et~al.}{2023}]{touvron2023llama2}
 \begin{botherref}
 \oauthor{\bsnm{Touvron}, \binits{H.}}, et al.:
@@ -436,7 +467,7 @@ arXiv preprint arXiv:2307.09288
 \end{botherref}
 \endbibitem
 
-%%% 29
+%%% 31
 \bibitem[\protect\citeauthoryear{Jiang et~al.}{2023}]{jiang2023mistral}
 \begin{botherref}
 \oauthor{\bsnm{Jiang}, \binits{A.Q.}}, et al.:
@@ -446,7 +477,7 @@ arXiv preprint arXiv:2310.06825
 \end{botherref}
 \endbibitem
 
-%%% 30
+%%% 32
 \bibitem[\protect\citeauthoryear{{Google DeepMind Gemma
   Team}}{2024}]{team2024gemma2}
 \begin{botherref}
@@ -457,13 +488,27 @@ arXiv preprint arXiv:2408.00118
 \end{botherref}
 \endbibitem
 
-%%% 31
+%%% 33
 \bibitem[\protect\citeauthoryear{Abdin et~al.}{2024}]{abdin2024phi4}
 \begin{botherref}
 \oauthor{\bsnm{Abdin}, \binits{M.}}, et al.:
 Phi-4 technical report.
 arXiv preprint arXiv:2412.08905
 (2024)
+\end{botherref}
+\endbibitem
+
+%%% 34
+\bibitem[\protect\citeauthoryear{Sanh et~al.}{2019}]{sanh2019distilbert}
+\begin{botherref}
+\oauthor{\bsnm{Sanh}, \binits{V.}},
+\oauthor{\bsnm{Debut}, \binits{L.}},
+\oauthor{\bsnm{Chaumond}, \binits{J.}},
+\oauthor{\bsnm{Wolf}, \binits{T.}}:
+{DistilBERT}, a distilled version of {BERT}: smaller, faster, cheaper and
+  lighter
+(2019).
+\doiurl{10.48550/arXiv.1910.01108}
 \end{botherref}
 \endbibitem
 

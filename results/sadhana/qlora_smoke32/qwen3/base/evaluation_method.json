@@ -1,0 +1,32 @@
+{
+  "model_key": "qwen3",
+  "model": "Qwen/Qwen3-14B",
+  "hf_revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "adapter_run": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/qwen3/n500/seed1",
+  "adapter_sha256": "980e27b84c1d02e64d6b84fdb4df45ff965c16eb6991f19d003446cc23ffdde6",
+  "adapter_config_sha256": "04ba14dc7a7916749bcffec1e34de1e6cc4e05c7ad4222a3f301b00a1a3f514a",
+  "test_sha256": {
+    "dataset/1_subset_balanced_500.csv": "5b4c8bd3ca6bb6fad79482d496e3eca5d6bb27d5e2df1d1643c2f4e1aaa15e5d"
+  },
+  "batch_size": 32,
+  "serial_samples_requested": 10,
+  "max_new_tokens": 64,
+  "thinking": false,
+  "do_sample": false,
+  "limit": 32,
+  "quantization": "NF4 double quantization, BF16 compute",
+  "frozen_parameter_dtype": "matrices BF16, one-dimensional norms FP32",
+  "adapter_compute": "BF16 autocast; saved adapter parameter dtypes retained",
+  "base_mode": "Same PeftModel instance with adapters disabled; no KV cache shared across calls",
+  "latency_seconds": "Amortized batch wall time per row; prompt rendering/tokenization and CUDA generation included, output decoding excluded",
+  "serial_latency": "Separate stratified serial benchmark on first balanced 500-character test, same timing boundaries",
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "versions": {
+    "torch": "2.14.1",
+    "transformers": "5.18.0",
+    "peft": "0.21.2",
+    "bitsandbytes": "0.50.2"
+  },
+  "fingerprint": "304033781c15d23bbf357bdfbc0229cfb6ad028f165e5b707622f2e93a5bb85d",
+  "mode": "base"
+}

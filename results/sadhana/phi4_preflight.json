@@ -1,0 +1,10 @@
+{
+  "model": "microsoft/phi-4",
+  "revision": "2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+  "model_type": "phi3",
+  "prompt_tokens": 97,
+  "thinking_requested": false,
+  "loader_class": "Phi3ForCausalLM",
+  "target_end_token": "<|im_end|>",
+  "cuda": true
+}

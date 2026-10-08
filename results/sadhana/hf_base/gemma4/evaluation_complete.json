@@ -1,0 +1,24 @@
+{
+  "phase": "complete",
+  "model": "gemma4",
+  "mode": "base",
+  "fingerprint": "a567f75b1bc889f94322a1df3e2360ea030c87320d32c95cf825589737e84948",
+  "n_datasets": 12,
+  "n_predictions": 12000,
+  "limit": null,
+  "prediction_sha256": {
+    "preds_1_subset_balanced_250.csv": "59f661ff8daa054cd74ce819b4909888e172c420322b3bda2c73aa4eef830f92",
+    "preds_1_subset_balanced_500.csv": "1150802cbd64633084ee04712393bbd84c7fbc0d8d93767afccf7006aa1f4330",
+    "preds_1_subset_imbalanced_250.csv": "38db153e1ea557962c4403ca122fd583fe83b08ddf471192a247c6f26d6ceb7e",
+    "preds_1_subset_imbalanced_500.csv": "6b058ae5d30d02ccbfc5bfeadf3235a629076ebdb50b1972daf533642541bc7c",
+    "preds_2_subset_balanced_250.csv": "a3859c3988f1bc44908e72c8f3da0c38afd7dac72a9e67596a4caf3eee9997ea",
+    "preds_2_subset_balanced_500.csv": "7b44dc011dfe6abe03b9cac8eec6162e819da53ae26c1d06d4a293d82ac7a401",
+    "preds_2_subset_imbalanced_250.csv": "befb009deb1c7a6013298982f075871d68958b10bdc86220978c520aa2a9a7e7",
+    "preds_2_subset_imbalanced_500.csv": "d3406165de63f315287874f177fbddad2ba87f03b877f7d69a0efa6983be78f6",
+    "preds_3_subset_balanced_250.csv": "737ae5eccf08532fda3deb633d78cb674dae98982f2c69dfcd1f954f6603915f",
+    "preds_3_subset_balanced_500.csv": "07f05951270a67fd256571776a0e16acc107f811cb22beab554c1e450c4ef713",
+    "preds_3_subset_imbalanced_250.csv": "c89422a5680be0a7dc8e630a68821ef2bb641c541125b2d0bfc820fc74099763",
+    "preds_3_subset_imbalanced_500.csv": "0fb404cf0bc9ac479c3889f95977e1dd669391967a061cac251d397e222b5e4e"
+  },
+  "completed_local": "2026-10-06T16:15:22.822936+03:00"
+}

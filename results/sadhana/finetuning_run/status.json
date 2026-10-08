@@ -1,0 +1,44 @@
+{
+  "train_size": 500,
+  "training_seeds": [
+    1
+  ],
+  "started_local": "2026-10-06T09:41:36.730379+03:00",
+  "phase": "complete",
+  "ollama": {
+    "gemma4": {
+      "phase": "complete",
+      "tag": "gemma4:12b",
+      "metadata": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/finetuning_run/ollama_gemma4_metadata.json"
+    },
+    "qwen3": {
+      "phase": "complete",
+      "tag": "qwen3:14b",
+      "metadata": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/finetuning_run/ollama_qwen3_metadata.json"
+    },
+    "phi4": {
+      "phase": "complete",
+      "tag": "phi4:14b",
+      "metadata": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/finetuning_run/ollama_phi4_metadata.json"
+    }
+  },
+  "training": {
+    "gemma4_n500_seed1": {
+      "phase": "complete",
+      "report": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/gemma4/n500/seed1/training_report.json",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/finetuning_run/gemma4_n500_seed1.log"
+    },
+    "qwen3_n500_seed1": {
+      "phase": "complete",
+      "report": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/qwen3/n500/seed1/training_report.json",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/finetuning_run/qwen3_n500_seed1.log"
+    },
+    "phi4_n500_seed1": {
+      "phase": "complete",
+      "report": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/phi4/n500/seed1/training_report.json",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/finetuning_run/phi4_n500_seed1.log"
+    }
+  },
+  "protocol": "NF4 + BF16, r=8, 3 epochs, completion-only loss; fixed original tests",
+  "updated_local": "2026-10-06T13:59:14.505650+03:00"
+}

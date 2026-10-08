@@ -1,19 +1,19 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.4.24)  5 OCT 2026 23:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.9.26)  8 OCT 2026 09:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
-LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
 (./sn-jnl.cls
 Document Class: sn-jnl 2019/11/18 v0.1: An authoring template for Springer Jour
 nal articles
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/fleqn.clo
 File: fleqn.clo 2016/12/29 v1.2b Standard LaTeX option (flush left equations)
-\mathindent=\skip49
+\mathindent=\skip48
 Applying: [2015/01/01] Make \[ robust on input line 50.
 LaTeX Info: Redefining \[ on input line 51.
 Already applied: [0000/00/00] Make \[ robust on input line 62.
@@ -22,19 +22,19 @@ LaTeX Info: Redefining \] on input line 75.
 Already applied: [0000/00/00] Make \] robust on input line 83.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count275
-\c@section=\count276
-\c@subsection=\count277
-\c@subsubsection=\count278
-\c@paragraph=\count279
-\c@subparagraph=\count280
-\c@figure=\count281
-\c@table=\count282
-\abovecaptionskip=\skip50
-\belowcaptionskip=\skip51
-\bibindent=\dimen148
+\c@part=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen140
 )
 LaTeX Info: Redefining \rm on input line 146.
 LaTeX Info: Redefining \sf on input line 147.
@@ -46,7 +46,7 @@ LaTeX Info: Redefining \sc on input line 152.
 LaTeX Info: Redefining \cal on input line 153.
 LaTeX Info: Redefining \mit on input line 154.
 LaTeX Info: Redefining \textsubscript on input line 212.
-\columnhsize=\skip52
+\columnhsize=\skip51
 
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
@@ -59,120 +59,119 @@ Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
 (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2024/12/12 v1.0g TeX engine tests
+Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
-\Gm@cnth=\count283
-\Gm@cntv=\count284
-\c@Gm@tempcnt=\count285
-\Gm@bindingoffset=\dimen149
-\Gm@wd@mp=\dimen150
-\Gm@odd@mp=\dimen151
-\Gm@even@mp=\dimen152
-\Gm@layoutwidth=\dimen153
-\Gm@layoutheight=\dimen154
-\Gm@layouthoffset=\dimen155
-\Gm@layoutvoffset=\dimen156
+\Gm@cnth=\count195
+\Gm@cntv=\count196
+\c@Gm@tempcnt=\count197
+\Gm@bindingoffset=\dimen141
+\Gm@wd@mp=\dimen142
+\Gm@odd@mp=\dimen143
+\Gm@even@mp=\dimen144
+\Gm@layoutwidth=\dimen145
+\Gm@layoutheight=\dimen146
+\Gm@layouthoffset=\dimen147
+\Gm@layoutvoffset=\dimen148
 \Gm@dimlist=\toks18
 )
-\artcatbox=\box53
-\aucount=\count286
-\corraucount=\count287
-\punctcount=\count288
-\emailcnt=\count289
-\c@affn=\count290
-\addcount=\count291
-\PacsCount=\count292
-\PacsTmpCnt=\count293
-\FMremarkdim=\dimen157
-\fmremarkbox=\box54
+\artcatbox=\box51
+\aucount=\count198
+\corraucount=\count199
+\punctcount=\count266
+\emailcnt=\count267
+\c@affn=\count268
+\addcount=\count269
+\PacsCount=\count270
+\PacsTmpCnt=\count271
+\FMremarkdim=\dimen149
+\fmremarkbox=\box52
 
 (/usr/share/texlive/texmf-dist/tex/latex/sttools/cuted.sty
-Package: cuted 2025/12/15 v2.10 Mixing onecolumn and twocolumn modes (ST)
+Package: cuted 2021/10/04 v2.0 Mixing onecolumn and twocolumn modes
 \At@ViperColsBreak=\toks19
 \preCutedStrip=\toks20
 \postCutedStrip=\toks21
-\cuted@@tempbox@a=\box55
-\cuted@@tempbox@c=\box56
-\cuted@@tempbox@var=\box57
-\hold@viper=\box58
-\@viper=\box59
-\cuted@@varbox@a=\box60
-\cuted@@varbox@c=\box61
-\cuted@@tempdim@spread=\dimen158
-\cuted@@tempdim@a=\dimen159
-\cuted@@tempdim@b=\dimen160
-\ht@hold@viper=\dimen161
-\ht@viper=\dimen162
-\var@@pagediscards@ht=\dimen163
-\stripsep=\skip53
-\viper@penalty=\count294
-\strip@page@discards=\dimen164
+\cuted@@tempbox@a=\box53
+\cuted@@tempbox@c=\box54
+\cuted@@tempbox@var=\box55
+\hold@viper=\box56
+\@viper=\box57
+\cuted@@varbox@a=\box58
+\cuted@@varbox@c=\box59
+\cuted@@tempdim@spread=\dimen150
+\cuted@@tempdim@a=\dimen151
+\cuted@@tempdim@b=\dimen152
+\ht@hold@viper=\dimen153
+\ht@viper=\dimen154
+\var@@pagediscards@ht=\dimen155
+\stripsep=\skip52
+\viper@penalty=\count272
 )
-\firstpagehtcheck=\dimen165
-\labelwidthi=\dimen166
-\labelwidthii=\dimen167
-\labelwidthiii=\dimen168
-\labelwidthiv=\dimen169
-\figwidth=\dimen170
-\figheight=\dimen171
-\sidecapwidth=\dimen172
-\wrapcapline=\dimen173
-\totalwrapline=\dimen174
-\wraptotline=\dimen175
-\figurebox=\box62
-\wrapfigcapbox=\box63
-\figcapbox=\box64
-\capbox=\box65
-\headwidthskip=\skip54
-\tabcapbox=\box66
-\temptbox=\box67
-\tempdime=\dimen176
-\tabhtdime=\dimen177
+\firstpagehtcheck=\dimen156
+\labelwidthi=\dimen157
+\labelwidthii=\dimen158
+\labelwidthiii=\dimen159
+\labelwidthiv=\dimen160
+\figwidth=\dimen161
+\figheight=\dimen162
+\sidecapwidth=\dimen163
+\wrapcapline=\dimen164
+\totalwrapline=\dimen165
+\wraptotline=\dimen166
+\figurebox=\box60
+\wrapfigcapbox=\box61
+\figcapbox=\box62
+\capbox=\box63
+\headwidthskip=\skip53
+\tabcapbox=\box64
+\temptbox=\box65
+\tempdime=\dimen167
+\tabhtdime=\dimen168
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty
-Package: rotating 2025/01/14 v2.16e rotated objects in LaTeX
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 106.
+Package graphics Info: Driver file: pdftex.def on input line 107.
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen178
-\Gin@req@width=\dimen179
+\Gin@req@height=\dimen169
+\Gin@req@width=\dimen170
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-\c@r@tfl@t=\count295
-\rotFPtop=\skip55
-\rotFPbot=\skip56
-\rot@float@box=\box68
+\c@r@tfl@t=\count273
+\rotFPtop=\skip54
+\rotFPbot=\skip55
+\rot@float@box=\box66
 \rot@mess@toks=\toks22
 )
 (/usr/share/texlive/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box69
+\@tempboxb=\box67
 )
 (/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2020/02/08 v1.2c extra appendix facilities
-\c@@pps=\count296
-\c@@ppsavesec=\count297
-\c@@ppsaveapp=\count298
+\c@@pps=\count274
+\c@@ppsavesec=\count275
+\c@@ppsaveapp=\count276
 )
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
 
 (/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
@@ -200,8 +199,11 @@ Package pdftexcmds Info: \pdfdraftmode found.
 (/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
@@ -212,50 +214,46 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count299
+\c@section@level=\count277
 )
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count300
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count278
 )
-(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
-)
-)
-\@linkdim=\dimen180
-\Hy@linkcounter=\count301
-\Hy@pagecounter=\count302
+\@linkdim=\dimen171
+\Hy@linkcounter=\count279
+\Hy@pagecounter=\count280
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
 (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count303
+\Hy@SavedSpaceFactor=\count281
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4195.
-Package hyperref Info: Link nesting OFF on input line 4200.
-Package hyperref Info: Hyper index ON on input line 4203.
-Package hyperref Info: Plain pages OFF on input line 4210.
-Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Hyper figures OFF on input line 4179.
+Package hyperref Info: Link nesting OFF on input line 4184.
+Package hyperref Info: Hyper index ON on input line 4187.
+Package hyperref Info: Plain pages OFF on input line 4194.
+Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count304
+Package hyperref Info: Bookmarks ON on input line 4446.
+\c@Hy@tempcnt=\count282
 
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip17
+\Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen181
+LaTeX Info: Redefining \url on input line 4784.
+\XeTeXLinkMargin=\dimen172
 
 (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -264,37 +262,48 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count305
-\Field@Width=\dimen182
-\Fld@charsize=\dimen183
-Package hyperref Info: Hyper figures OFF on input line 6078.
-Package hyperref Info: Link nesting OFF on input line 6083.
-Package hyperref Info: Hyper index ON on input line 6086.
-Package hyperref Info: backreferencing OFF on input line 6093.
-Package hyperref Info: Link coloring OFF on input line 6098.
-Package hyperref Info: Link coloring with OCG OFF on input line 6103.
-Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count306
-\c@Item=\count307
-\c@Hfootnote=\count308
+\Fld@menulength=\count283
+\Field@Width=\dimen173
+\Fld@charsize=\dimen174
+Package hyperref Info: Hyper figures OFF on input line 6063.
+Package hyperref Info: Link nesting OFF on input line 6068.
+Package hyperref Info: Hyper index ON on input line 6071.
+Package hyperref Info: backreferencing OFF on input line 6078.
+Package hyperref Info: Link coloring OFF on input line 6083.
+Package hyperref Info: Link coloring with OCG OFF on input line 6088.
+Package hyperref Info: PDF/A mode OFF on input line 6093.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count284
+\c@Item=\count285
+\c@Hfootnote=\count286
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count309
-\c@bookmark@seq@number=\count310
+File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count287
+\c@bookmark@seq@number=\count288
 
 (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
-Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
 
 (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-84.
+85.
 )
-\Hy@SectionHShift=\skip57
+\Hy@SectionHShift=\skip56
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 1471.
 Package hyperref Info: Option `breaklinks' set `true' on input line 1471.
@@ -304,17 +313,17 @@ Package hyperref Info: Option `bookmarksnumbered' set `false' on input line 147
 1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen184
-\WF@size=\dimen185
-\c@WF@wrappedlines=\count311
-\WF@box=\box70
+\wrapoverhang=\dimen175
+\WF@size=\dimen176
+\c@WF@wrappedlines=\count289
+\WF@box=\box68
 \WF@everypar=\toks23
 Package: wrapfig 2003/01/31  v 3.6
 )
-\wraplines=\count312
-\@authorfigbox=\box71
-\@authorfigboxdim=\skip58
-\biofigadjskip=\skip59
+\wraplines=\count290
+\@authorfigbox=\box69
+\@authorfigboxdim=\skip57
+\biofigadjskip=\skip58
 
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
@@ -323,9 +332,9 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@headfont=\toks26
 \thm@notefont=\toks27
 \thm@headpunct=\toks28
-\thm@preskip=\skip60
-\thm@postskip=\skip61
-\thm@headsep=\skip62
+\thm@preskip=\skip59
+\thm@postskip=\skip60
+\thm@headsep=\skip61
 \dth@everypar=\toks29
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/fix-cm.sty
@@ -334,325 +343,71 @@ Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
-LaTeX Encoding Info:    Redeclaring text command \capitalcedilla (encoding TS1)
- on input line 49.
-LaTeX Encoding Info:    Redeclaring text command \capitalogonek (encoding TS1) 
-on input line 52.
-LaTeX Encoding Info:    Redeclaring text command \capitalgrave (encoding TS1) o
-n input line 55.
-LaTeX Encoding Info:    Redeclaring text command \capitalacute (encoding TS1) o
-n input line 56.
-LaTeX Encoding Info:    Redeclaring text command \capitalcircumflex (encoding T
-S1) on input line 57.
-LaTeX Encoding Info:    Redeclaring text command \capitaltilde (encoding TS1) o
-n input line 58.
-LaTeX Encoding Info:    Redeclaring text command \capitaldieresis (encoding TS1
-) on input line 59.
-LaTeX Encoding Info:    Redeclaring text command \capitalhungarumlaut (encoding
- TS1) on input line 60.
-LaTeX Encoding Info:    Redeclaring text command \capitalring (encoding TS1) on
- input line 61.
-LaTeX Encoding Info:    Redeclaring text command \capitalcaron (encoding TS1) o
-n input line 62.
-LaTeX Encoding Info:    Redeclaring text command \capitalbreve (encoding TS1) o
-n input line 63.
-LaTeX Encoding Info:    Redeclaring text command \capitalmacron (encoding TS1) 
-on input line 64.
-LaTeX Encoding Info:    Redeclaring text command \capitaldotaccent (encoding TS
-1) on input line 65.
-LaTeX Encoding Info:    Redeclaring text command \t (encoding TS1) on input lin
-e 66.
-LaTeX Encoding Info:    Redeclaring text command \capitaltie (encoding TS1) on 
-input line 67.
-LaTeX Encoding Info:    Redeclaring text command \newtie (encoding TS1) on inpu
-t line 68.
-LaTeX Encoding Info:    Redeclaring text command \capitalnewtie (encoding TS1) 
-on input line 69.
-LaTeX Encoding Info:    Redeclaring text symbol \textcapitalcompwordmark (encod
-ing TS1) on input line 70.
-LaTeX Encoding Info:    Redeclaring text symbol \textascendercompwordmark (enco
-ding TS1) on input line 71.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotestraightbase (encodin
-g TS1) on input line 72.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotestraightdblbase (enco
-ding TS1) on input line 73.
-LaTeX Encoding Info:    Redeclaring text symbol \texttwelveudash (encoding TS1)
- on input line 74.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreequartersemdash (encod
-ing TS1) on input line 75.
-LaTeX Encoding Info:    Redeclaring text symbol \textleftarrow (encoding TS1) o
-n input line 76.
-LaTeX Encoding Info:    Redeclaring text symbol \textrightarrow (encoding TS1) 
-on input line 77.
-LaTeX Encoding Info:    Redeclaring text symbol \textblank (encoding TS1) on in
-put line 78.
-LaTeX Encoding Info:    Redeclaring text symbol \textdollar (encoding TS1) on i
-nput line 79.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotesingle (encoding TS1)
- on input line 80.
-LaTeX Encoding Info:    Redeclaring text command \textasteriskcentered (encodin
-g TS1) on input line 81.
-LaTeX Encoding Info:    Redeclaring text symbol \textdblhyphen (encoding TS1) o
-n input line 92.
-LaTeX Encoding Info:    Redeclaring text symbol \textfractionsolidus (encoding 
-TS1) on input line 93.
-LaTeX Encoding Info:    Redeclaring text symbol \textzerooldstyle (encoding TS1
-) on input line 94.
-LaTeX Encoding Info:    Redeclaring text symbol \textoneoldstyle (encoding TS1)
- on input line 95.
-LaTeX Encoding Info:    Redeclaring text symbol \texttwooldstyle (encoding TS1)
- on input line 96.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreeoldstyle (encoding TS
-1) on input line 97.
-LaTeX Encoding Info:    Redeclaring text symbol \textfouroldstyle (encoding TS1
-) on input line 98.
-LaTeX Encoding Info:    Redeclaring text symbol \textfiveoldstyle (encoding TS1
-) on input line 99.
-LaTeX Encoding Info:    Redeclaring text symbol \textsixoldstyle (encoding TS1)
- on input line 100.
-LaTeX Encoding Info:    Redeclaring text symbol \textsevenoldstyle (encoding TS
-1) on input line 101.
-LaTeX Encoding Info:    Redeclaring text symbol \texteightoldstyle (encoding TS
-1) on input line 102.
-LaTeX Encoding Info:    Redeclaring text symbol \textnineoldstyle (encoding TS1
-) on input line 103.
-LaTeX Encoding Info:    Redeclaring text symbol \textlangle (encoding TS1) on i
-nput line 104.
-LaTeX Encoding Info:    Redeclaring text symbol \textminus (encoding TS1) on in
-put line 105.
-LaTeX Encoding Info:    Redeclaring text symbol \textrangle (encoding TS1) on i
-nput line 106.
-LaTeX Encoding Info:    Redeclaring text symbol \textmho (encoding TS1) on inpu
-t line 107.
-LaTeX Encoding Info:    Redeclaring text symbol \textbigcircle (encoding TS1) o
-n input line 108.
-LaTeX Encoding Info:    Redeclaring text command \textcircled (encoding TS1) on
- input line 109.
-LaTeX Encoding Info:    Redeclaring text symbol \textohm (encoding TS1) on inpu
-t line 115.
-LaTeX Encoding Info:    Redeclaring text symbol \textlbrackdbl (encoding TS1) o
-n input line 116.
-LaTeX Encoding Info:    Redeclaring text symbol \textrbrackdbl (encoding TS1) o
-n input line 117.
-LaTeX Encoding Info:    Redeclaring text symbol \textuparrow (encoding TS1) on 
-input line 118.
-LaTeX Encoding Info:    Redeclaring text symbol \textdownarrow (encoding TS1) o
-n input line 119.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciigrave (encoding TS1) 
-on input line 120.
-LaTeX Encoding Info:    Redeclaring text symbol \textborn (encoding TS1) on inp
-ut line 121.
-LaTeX Encoding Info:    Redeclaring text symbol \textdivorced (encoding TS1) on
- input line 122.
-LaTeX Encoding Info:    Redeclaring text symbol \textdied (encoding TS1) on inp
-ut line 123.
-LaTeX Encoding Info:    Redeclaring text symbol \textleaf (encoding TS1) on inp
-ut line 124.
-LaTeX Encoding Info:    Redeclaring text symbol \textmarried (encoding TS1) on 
-input line 125.
-LaTeX Encoding Info:    Redeclaring text symbol \textmusicalnote (encoding TS1)
- on input line 126.
-LaTeX Encoding Info:    Redeclaring text symbol \texttildelow (encoding TS1) on
- input line 127.
-LaTeX Encoding Info:    Redeclaring text symbol \textdblhyphenchar (encoding TS
-1) on input line 128.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciibreve (encoding TS1) 
-on input line 129.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciicaron (encoding TS1) 
-on input line 130.
-LaTeX Encoding Info:    Redeclaring text symbol \textacutedbl (encoding TS1) on
- input line 131.
-LaTeX Encoding Info:    Redeclaring text symbol \textgravedbl (encoding TS1) on
- input line 132.
-LaTeX Encoding Info:    Redeclaring text symbol \textdagger (encoding TS1) on i
-nput line 133.
-LaTeX Encoding Info:    Redeclaring text symbol \textdaggerdbl (encoding TS1) o
-n input line 134.
-LaTeX Encoding Info:    Redeclaring text symbol \textbardbl (encoding TS1) on i
-nput line 135.
-LaTeX Encoding Info:    Redeclaring text symbol \textperthousand (encoding TS1)
- on input line 136.
-LaTeX Encoding Info:    Redeclaring text symbol \textbullet (encoding TS1) on i
-nput line 137.
-LaTeX Encoding Info:    Redeclaring text symbol \textcelsius (encoding TS1) on 
-input line 138.
-LaTeX Encoding Info:    Redeclaring text symbol \textdollaroldstyle (encoding T
-S1) on input line 139.
-LaTeX Encoding Info:    Redeclaring text symbol \textcentoldstyle (encoding TS1
-) on input line 140.
-LaTeX Encoding Info:    Redeclaring text symbol \textflorin (encoding TS1) on i
-nput line 141.
-LaTeX Encoding Info:    Redeclaring text symbol \textcolonmonetary (encoding TS
-1) on input line 142.
-LaTeX Encoding Info:    Redeclaring text symbol \textwon (encoding TS1) on inpu
-t line 143.
-LaTeX Encoding Info:    Redeclaring text symbol \textnaira (encoding TS1) on in
-put line 144.
-LaTeX Encoding Info:    Redeclaring text symbol \textguarani (encoding TS1) on 
-input line 145.
-LaTeX Encoding Info:    Redeclaring text symbol \textpeso (encoding TS1) on inp
-ut line 146.
-LaTeX Encoding Info:    Redeclaring text symbol \textlira (encoding TS1) on inp
-ut line 147.
-LaTeX Encoding Info:    Redeclaring text symbol \textrecipe (encoding TS1) on i
-nput line 148.
-LaTeX Encoding Info:    Redeclaring text symbol \textinterrobang (encoding TS1)
- on input line 149.
-LaTeX Encoding Info:    Redeclaring text symbol \textinterrobangdown (encoding 
-TS1) on input line 150.
-LaTeX Encoding Info:    Redeclaring text symbol \textdong (encoding TS1) on inp
-ut line 151.
-LaTeX Encoding Info:    Redeclaring text symbol \texttrademark (encoding TS1) o
-n input line 152.
-LaTeX Encoding Info:    Redeclaring text symbol \textpertenthousand (encoding T
-S1) on input line 153.
-LaTeX Encoding Info:    Redeclaring text symbol \textpilcrow (encoding TS1) on 
-input line 154.
-LaTeX Encoding Info:    Redeclaring text symbol \textbaht (encoding TS1) on inp
-ut line 155.
-LaTeX Encoding Info:    Redeclaring text symbol \textnumero (encoding TS1) on i
-nput line 156.
-LaTeX Encoding Info:    Redeclaring text symbol \textdiscount (encoding TS1) on
- input line 157.
-LaTeX Encoding Info:    Redeclaring text symbol \textestimated (encoding TS1) o
-n input line 158.
-LaTeX Encoding Info:    Redeclaring text symbol \textopenbullet (encoding TS1) 
-on input line 159.
-LaTeX Encoding Info:    Redeclaring text symbol \textservicemark (encoding TS1)
- on input line 160.
-LaTeX Encoding Info:    Redeclaring text symbol \textlquill (encoding TS1) on i
-nput line 161.
-LaTeX Encoding Info:    Redeclaring text symbol \textrquill (encoding TS1) on i
-nput line 162.
-LaTeX Encoding Info:    Redeclaring text symbol \textcent (encoding TS1) on inp
-ut line 163.
-LaTeX Encoding Info:    Redeclaring text symbol \textsterling (encoding TS1) on
- input line 164.
-LaTeX Encoding Info:    Redeclaring text symbol \textcurrency (encoding TS1) on
- input line 165.
-LaTeX Encoding Info:    Redeclaring text symbol \textyen (encoding TS1) on inpu
-t line 166.
-LaTeX Encoding Info:    Redeclaring text symbol \textbrokenbar (encoding TS1) o
-n input line 167.
-LaTeX Encoding Info:    Redeclaring text symbol \textsection (encoding TS1) on 
-input line 168.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciidieresis (encoding TS
-1) on input line 169.
-LaTeX Encoding Info:    Redeclaring text symbol \textcopyright (encoding TS1) o
-n input line 170.
-LaTeX Encoding Info:    Redeclaring text symbol \textordfeminine (encoding TS1)
- on input line 171.
-LaTeX Encoding Info:    Redeclaring text symbol \textcopyleft (encoding TS1) on
- input line 172.
-LaTeX Encoding Info:    Redeclaring text symbol \textlnot (encoding TS1) on inp
-ut line 173.
-LaTeX Encoding Info:    Redeclaring text symbol \textcircledP (encoding TS1) on
- input line 174.
-LaTeX Encoding Info:    Redeclaring text symbol \textregistered (encoding TS1) 
-on input line 175.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciimacron (encoding TS1)
- on input line 176.
-LaTeX Encoding Info:    Redeclaring text symbol \textdegree (encoding TS1) on i
-nput line 177.
-LaTeX Encoding Info:    Redeclaring text symbol \textpm (encoding TS1) on input
- line 178.
-LaTeX Encoding Info:    Redeclaring text symbol \texttwosuperior (encoding TS1)
- on input line 179.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreesuperior (encoding TS
-1) on input line 180.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciiacute (encoding TS1) 
-on input line 181.
-LaTeX Encoding Info:    Redeclaring text symbol \textmu (encoding TS1) on input
- line 182.
-LaTeX Encoding Info:    Redeclaring text symbol \textparagraph (encoding TS1) o
-n input line 183.
-LaTeX Encoding Info:    Redeclaring text symbol \textperiodcentered (encoding T
-S1) on input line 184.
-LaTeX Encoding Info:    Redeclaring text symbol \textreferencemark (encoding TS
-1) on input line 185.
-LaTeX Encoding Info:    Redeclaring text symbol \textonesuperior (encoding TS1)
- on input line 186.
-LaTeX Encoding Info:    Redeclaring text symbol \textordmasculine (encoding TS1
-) on input line 187.
-LaTeX Encoding Info:    Redeclaring text symbol \textsurd (encoding TS1) on inp
-ut line 188.
-LaTeX Encoding Info:    Redeclaring text symbol \textonequarter (encoding TS1) 
-on input line 189.
-LaTeX Encoding Info:    Redeclaring text symbol \textonehalf (encoding TS1) on 
-input line 190.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreequarters (encoding TS
-1) on input line 191.
-LaTeX Encoding Info:    Redeclaring text symbol \texteuro (encoding TS1) on inp
-ut line 192.
-LaTeX Encoding Info:    Redeclaring text symbol \texttimes (encoding TS1) on in
-put line 193.
-LaTeX Encoding Info:    Redeclaring text symbol \textdiv (encoding TS1) on inpu
-t line 194.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip63
-\bibsep=\skip64
+\bibhang=\skip62
+\bibsep=\skip63
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count313
+\c@NAT@ctr=\count291
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2024/02/08 v1.3d Input encoding file
+Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks30
 \inpenc@posthook=\toks31
 )
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen186
-\lightrulewidth=\dimen187
-\cmidrulewidth=\dimen188
-\belowrulesep=\dimen189
-\belowbottomsep=\dimen190
-\aboverulesep=\dimen191
-\abovetopsep=\dimen192
-\cmidrulesep=\dimen193
-\cmidrulekern=\dimen194
-\defaultaddspace=\dimen195
-\@cmidla=\count314
-\@cmidlb=\count315
-\@aboverulesep=\dimen196
-\@belowrulesep=\dimen197
-\@thisruleclass=\count316
-\@lastruleclass=\count317
-\@thisrulewidth=\dimen198
+\heavyrulewidth=\dimen177
+\lightrulewidth=\dimen178
+\cmidrulewidth=\dimen179
+\belowrulesep=\dimen180
+\belowbottomsep=\dimen181
+\aboverulesep=\dimen182
+\abovetopsep=\dimen183
+\cmidrulesep=\dimen184
+\cmidrulekern=\dimen185
+\defaultaddspace=\dimen186
+\@cmidla=\count292
+\@cmidlb=\count293
+\@aboverulesep=\dimen187
+\@belowrulesep=\dimen188
+\@thisruleclass=\count294
+\@lastruleclass=\count295
+\@thisrulewidth=\dimen189
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
-Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
-\col@sep=\dimen199
-\ar@mcellbox=\box72
-\extrarowheight=\dimen256
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen190
+\ar@mcellbox=\box70
+\extrarowheight=\dimen191
 \NC@list=\toks32
-\extratabsurround=\skip65
-\backup@length=\skip66
-\ar@cellbox=\box73
+\extratabsurround=\skip64
+\backup@length=\skip65
+\ar@cellbox=\box71
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
-Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
-\TX@col@width=\dimen257
-\TX@old@table=\dimen258
-\TX@old@col=\dimen259
-\TX@target=\dimen260
-\TX@delta=\dimen261
-\TX@cols=\count318
+Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen192
+\TX@old@table=\dimen193
+\TX@old@col=\dimen194
+\TX@target=\dimen195
+\TX@delta=\dimen196
+\TX@cols=\count296
 \TX@ftn=\toks33
 )
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
-Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
-\multirow@colwidth=\skip67
-\multirow@cntb=\count319
-\multirow@dima=\skip68
-\bigstrutjot=\dimen262
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip66
+\multirow@cntb=\count297
+\multirow@dima=\skip67
+\bigstrutjot=\dimen197
 )
 (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -660,112 +415,109 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package xcolor Info: Driver file: pdftex.def on input line 274.
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
-Package xcolor Info: Model `RGB' extended on input line 1365.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
-Package: microtype 2025/07/09 v3.2b Micro-typographical refinements (RS)
+Package: microtype 2023/03/13 v3.1a Micro-typographical refinements (RS)
 \MT@toks=\toks34
-\MT@tempbox=\box74
-\MT@count=\count320
-LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
-LaTeX Info: Redefining \leftprotrusion on input line 1088.
+\MT@tempbox=\box72
+\MT@count=\count298
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1059.
+LaTeX Info: Redefining \leftprotrusion on input line 1060.
 \MT@prot@toks=\toks35
-LaTeX Info: Redefining \rightprotrusion on input line 1107.
-LaTeX Info: Redefining \textls on input line 1449.
-\MT@outer@kern=\dimen263
-LaTeX Info: Redefining \microtypecontext on input line 2053.
-LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
-\MT@listname@count=\count321
+LaTeX Info: Redefining \rightprotrusion on input line 1078.
+LaTeX Info: Redefining \textls on input line 1368.
+\MT@outer@kern=\dimen198
+LaTeX Info: Redefining \textmicrotypecontext on input line 1988.
+\MT@listname@count=\count299
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
-File: microtype-pdftex.def 2025/07/09 v3.2b Definitions specific to pdftex (RS)
+File: microtype-pdftex.def 2023/03/13 v3.1a Definitions specific to pdftex (RS)
 
-LaTeX Info: Redefining \lsstyle on input line 944.
-LaTeX Info: Redefining \lslig on input line 944.
-\MT@outer@space=\skip69
+LaTeX Info: Redefining \lsstyle on input line 902.
+LaTeX Info: Redefining \lslig on input line 902.
+\MT@outer@space=\skip68
 )
 Package microtype Info: Loading configuration file microtype.cfg.
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg
-File: microtype.cfg 2025/07/09 v3.2b microtype main configuration file (RS)
-)
-LaTeX Info: Redefining \microtypesetup on input line 3065.
-)
+File: microtype.cfg 2023/03/13 v3.1a microtype main configuration file (RS)
+))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2025/07/09 v2.17z AMS math features
-\@mathmargin=\skip70
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip69
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2024/11/17 v2.01 AMS text
+Package: amstext 2021/08/26 v2.01 AMS text
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks36
-\ex@=\dimen264
+\ex@=\dimen199
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen265
+\pmbraise@=\dimen256
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count322
-LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count323
-\leftroot@=\count324
-LaTeX Info: Redefining \overline on input line 398.
-LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count325
-\DOTSCASE@=\count326
-LaTeX Info: Redefining \ldots on input line 495.
-LaTeX Info: Redefining \dots on input line 498.
-LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box75
-\strutbox@=\box76
-LaTeX Info: Redefining \big on input line 721.
-LaTeX Info: Redefining \Big on input line 722.
-LaTeX Info: Redefining \bigg on input line 723.
-LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen266
-LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count327
-LaTeX Info: Redefining \bmod on input line 904.
-LaTeX Info: Redefining \pmod on input line 909.
-LaTeX Info: Redefining \smash on input line 939.
-LaTeX Info: Redefining \relbar on input line 969.
-LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count328
-\dotsspace@=\muskip18
-\c@parentequation=\count329
-\dspbrk@lvl=\count330
+\inf@bad=\count300
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count301
+\leftroot@=\count302
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count303
+\DOTSCASE@=\count304
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box73
+\strutbox@=\box74
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen257
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count305
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count306
+\dotsspace@=\muskip17
+\c@parentequation=\count307
+\dspbrk@lvl=\count308
 \tag@help=\toks37
-\row@=\count331
-\column@=\count332
-\maxfields@=\count333
+\row@=\count309
+\column@=\count310
+\maxfields@=\count311
 \andhelp@=\toks38
-\eqnshift@=\dimen267
-\alignsep@=\dimen268
-\tagshift@=\dimen269
-\tagwidth@=\dimen270
-\totwidth@=\dimen271
-\lineht@=\dimen272
+\eqnshift@=\dimen258
+\alignsep@=\dimen259
+\tagshift@=\dimen260
+\tagwidth@=\dimen261
+\totwidth@=\dimen262
+\lineht@=\dimen263
 \@envbody=\toks39
-\multlinegap=\skip71
-\multlinetaggap=\skip72
+\multlinegap=\skip70
+\multlinetaggap=\skip71
 \mathdisplay@stack=\toks40
-LaTeX Info: Redefining \[ on input line 2950.
-LaTeX Info: Redefining \] on input line 2951.
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
@@ -783,7 +535,7 @@ Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup6
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
-Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
 (/usr/share/texlive/texmf-dist/tex/latex/ncctools/manyfoot.sty
 Package: manyfoot 2019/08/03 v1.11 Many Footnote Levels Package (NCC)
@@ -791,13 +543,14 @@ Package: manyfoot 2019/08/03 v1.11 Many Footnote Levels Package (NCC)
 (/usr/share/texlive/texmf-dist/tex/latex/ncctools/nccfoots.sty
 Package: nccfoots 2005/02/03 v1.2 NCC Footnotes Package (NCC)
 )
-\MFL@columnwidth=\dimen273
+\MFL@columnwidth=\dimen264
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 34.
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count334
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count312
+\l__pdf_internal_box=\box75
 )
 (./main.aux)
 \openout1 = `main.aux'.
@@ -858,16 +611,16 @@ LaTeX Font Info:    ... okay on input line 36.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count335
-\scratchdimen=\dimen274
-\scratchbox=\box77
-\nofMPsegments=\count336
-\nofMParguments=\count337
+\scratchcounter=\count313
+\scratchdimen=\dimen265
+\scratchbox=\box76
+\nofMPsegments=\count314
+\nofMParguments=\count315
 \everyMPshowfont=\toks41
-\MPscratchCnt=\count338
-\MPscratchDim=\dimen275
-\MPnumerator=\count339
-\makeMPintoPDFobject=\count340
+\MPscratchCnt=\count316
+\MPscratchDim=\dimen266
+\MPnumerator=\count317
+\makeMPintoPDFobject=\count318
 \everyMPtoPDFconversion=\toks42
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -896,14 +649,13 @@ Package microtype Info: Applying patch `toc' on input line 36.
 Package microtype Info: Applying patch `eqnum' on input line 36.
 Package microtype Info: Applying patch `footnote' on input line 36.
 Package microtype Info: Applying patch `verbatim' on input line 36.
-LaTeX Info: Redefining \microtypesetup on input line 36.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-Package microtype Info: Patching command `\showhyphens'.
+LaTeX Info: Redefining \showhyphens on input line 36.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -912,8 +664,8 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 68.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 68.
+LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 73.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 73.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -922,7 +674,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 73.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -931,7 +683,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 68
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 73
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
@@ -939,25 +691,15 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 68.
+(Font)              size <8> substituted on input line 73.
 
-LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 68
+LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 73
 .
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.52061> not available
-(Font)              size <6> substituted on input line 68.
+(Font)              size <6> substituted on input line 73.
 
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `cmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Calculating math sizes for size <9.03374> on input line 68.
-
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.51686> not available
-(Font)              size <5> substituted on input line 68.
-
-LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 68
+LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 73
 .
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -966,10 +708,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
 dvips/cm-super/cm-super-t1.enc}]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 
- [2]
-Underfull \hbox (badness 3612) in paragraph at lines 161--170
+Underfull \hbox (badness 3612) in paragraph at lines 118--127
 \T1/cmtt/m/n/10.03749 mistral:7b\T1/cmr/m/n/10.03749 (+20) , \T1/cmtt/m/n/10.03
 749 mistral-nemo:12b\T1/cmr/m/n/10.03749 (+20) , \T1/cmtt/m/n/10.03749 llama3.1
 :8b\T1/cmr/m/n/10.03749 (+20) , \T1/cmtt/m/n/10.03749 phi4:14b\T1/cmr/m/n/10.03
@@ -979,171 +723,115 @@ Underfull \hbox (badness 3612) in paragraph at lines 161--170
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [2]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [3]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5]
-<figures/v2/class_distribution.png, id=281, 570.933pt x 281.3712pt>
+<figures/v2/class_distribution.png, id=252, 570.933pt x 281.3712pt>
 File: figures/v2/class_distribution.png Graphic file (type png)
 <use figures/v2/class_distribution.png>
 Package pdftex.def Info: figures/v2/class_distribution.png  used on input line 
-379.
+250.
 (pdftex.def)             Requested size: 372.0pt x 183.33562pt.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4 <./figures/v2/class_distribution.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7 <./figures/v2/class_distribution.png>]
-<figures/v2/char_length_histogram.png, id=308, 498.663pt x 245.2362pt>
-File: figures/v2/char_length_histogram.png Graphic file (type png)
-<use figures/v2/char_length_histogram.png>
-Package pdftex.def Info: figures/v2/char_length_histogram.png  used on input li
-ne 456.
-(pdftex.def)             Requested size: 372.0pt x 182.94629pt.
-
+ [7]
+(./qlora_methods.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [8 <./figures/v2/char_length_histogram.png>]
+ [8])
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 537.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.015> not available
+(Font)              size <5> substituted on input line 537.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10]
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 664.
-
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 664.
-
+<figures/v2/comparison_A_vs_B.png, id=336, 867.24pt x 361.35pt>
+File: figures/v2/comparison_A_vs_B.png Graphic file (type png)
+<use figures/v2/comparison_A_vs_B.png>
+Package pdftex.def Info: figures/v2/comparison_A_vs_B.png  used on input line 6
+58.
+(pdftex.def)             Requested size: 372.0pt x 155.00253pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
-<figures/v2/f1_balanced_errbar.png, id=355, 650.43pt x 361.35pt>
-File: figures/v2/f1_balanced_errbar.png Graphic file (type png)
-<use figures/v2/f1_balanced_errbar.png>
-Package pdftex.def Info: figures/v2/f1_balanced_errbar.png  used on input line 
-731.
-(pdftex.def)             Requested size: 372.0pt x 206.67189pt.
-<figures/v2/confusion_gpt-oss_20b_balanced.png, id=356, 505.89pt x 328.5876pt>
-File: figures/v2/confusion_gpt-oss_20b_balanced.png Graphic file (type png)
-<use figures/v2/confusion_gpt-oss_20b_balanced.png>
-Package pdftex.def Info: figures/v2/confusion_gpt-oss_20b_balanced.png  used on
- input line 741.
-(pdftex.def)             Requested size: 342.23932pt x 222.29846pt.
-<figures/v2/confusion_phi4_14b_balanced.png, id=357, 505.89pt x 326.6604pt>
-File: figures/v2/confusion_phi4_14b_balanced.png Graphic file (type png)
-<use figures/v2/confusion_phi4_14b_balanced.png>
-Package pdftex.def Info: figures/v2/confusion_phi4_14b_balanced.png  used on in
-put line 750.
-(pdftex.def)             Requested size: 342.23932pt x 220.99466pt.
-<figures/v2/confusion_deepseek-r1_14b_balanced.png, id=358, 505.89pt x 329.5512
-pt>
-File: figures/v2/confusion_deepseek-r1_14b_balanced.png Graphic file (type png)
-
-<use figures/v2/confusion_deepseek-r1_14b_balanced.png>
-Package pdftex.def Info: figures/v2/confusion_deepseek-r1_14b_balanced.png  use
-d on input line 760.
-(pdftex.def)             Requested size: 342.23932pt x 222.95035pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12 <./figures/v2/f1_balanced_errbar.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13 <./figures/v2/confusion_gpt-oss_20b_balanced.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14 <./figures/v2/confusion_phi4_14b_balanced.png>]
-<figures/v2/comparison_A_vs_B.png, id=386, 867.24pt x 361.35pt>
-File: figures/v2/comparison_A_vs_B.png Graphic file (type png)
-<use figures/v2/comparison_A_vs_B.png>
-Package pdftex.def Info: figures/v2/comparison_A_vs_B.png  used on input line 8
-43.
-(pdftex.def)             Requested size: 372.0pt x 155.00253pt.
-
 
 LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <9> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 890.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 705.
 
-<figures/v2/vs_reference.png, id=392, 794.97pt x 433.62pt>
-File: figures/v2/vs_reference.png Graphic file (type png)
-<use figures/v2/vs_reference.png>
-Package pdftex.def Info: figures/v2/vs_reference.png  used on input line 905.
-(pdftex.def)             Requested size: 372.0pt x 202.91481pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15 <./figures/v2/confusion_deepseek-r1_14b_balanced.png>]
-<figures/v2/size_sensitivity_balanced.png, id=402, 722.7pt x 361.35pt>
-File: figures/v2/size_sensitivity_balanced.png Graphic file (type png)
-<use figures/v2/size_sensitivity_balanced.png>
-Package pdftex.def Info: figures/v2/size_sensitivity_balanced.png  used on inpu
-t line 935.
-(pdftex.def)             Requested size: 372.0pt x 186.00084pt.
-
+ [12 <./figures/v2/comparison_A_vs_B.png>] (./statistical_audit.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16 <./figures/v2/comparison_A_vs_B.png>]
-<figures/v2/f1_imbalanced_errbar.png, id=415, 650.43pt x 361.35pt>
-File: figures/v2/f1_imbalanced_errbar.png Graphic file (type png)
-<use figures/v2/f1_imbalanced_errbar.png>
-Package pdftex.def Info: figures/v2/f1_imbalanced_errbar.png  used on input lin
-e 962.
-(pdftex.def)             Requested size: 372.0pt x 206.67189pt.
-
+ [13])
+(./supervised_baselines.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17 <./figures/v2/vs_reference.png>]
+ [14])
+(./qlora_results.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [18 <./figures/v2/size_sensitivity_balanced.png> <./figures/v2/f1_imbalanced_e
-rrbar.png>]
+ [15]
+(./qlora_main_tables.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16]
+<figures/v2/hf_qlora_f1_comparison.pdf, id=387, 642.93024pt x 265.31834pt>
+File: figures/v2/hf_qlora_f1_comparison.pdf Graphic file (type pdf)
+<use figures/v2/hf_qlora_f1_comparison.pdf>
+Package pdftex.def Info: figures/v2/hf_qlora_f1_comparison.pdf  used on input l
+ine 41.
+(pdftex.def)             Requested size: 372.0pt x 153.51633pt.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17 <./figures/v2/hf_qlora_f1_comparison.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [19]
-Underfull \hbox (badness 1043) in paragraph at lines 1074--1081
-[]\T1/cmr/bx/n/10.03749 (+20) Qwen3 fam-ily (Alibaba): \T1/cmtt/m/n/10.03749 qw
-en3:14b \T1/cmr/m/n/10.03749 (+20) (F1 0.750) out-per-forms \T1/cmtt/m/n/10.037
-49 qwen3:8b
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [20]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [21]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [22]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [23]
 
 Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1322.
+(hyperref)                than one, level fixed on input line 999.
 
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1326.
+(hyperref)                than one, level fixed on input line 1003.
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1330.
+(hyperref)                than one, level fixed on input line 1007.
 
 (./main.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [24]
-Underfull \hbox (badness 1043) in paragraph at lines 247--253
+ [21]
+Underfull \hbox (badness 1043) in paragraph at lines 266--272
 []\T1/cmr/m/n/10.03749 (+20) Zhao, W.X., et al.: A sur-vey of large lan-guage m
 od-els. arXiv preprint
  []
@@ -1151,26 +839,29 @@ od-els. arXiv preprint
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [25]
-Underfull \hbox (badness 2671) in paragraph at lines 420--428
+ [22]
+Underfull \hbox (badness 2671) in paragraph at lines 439--447
 []\T1/cmr/m/n/10.03749 (+20) Tiwari, S.: Con-sumer Com-plaints Dataset for NLP.
  Kag-gle. Accessed:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 420--428
+Underfull \hbox (badness 10000) in paragraph at lines 439--447
 \T1/cmr/m/n/10.03749 (+20) 15 June 2026 (2021). [][]$https : / / www . kaggle .
  com / datasets / shashwatwork /
  []
 
-)
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [26]
+ [23])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24]
 (./main.aux)
  ***********
-LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
  ***********
 
 
@@ -1178,44 +869,44 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.985pt have occurred.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 728B5DA842DCA2169B779DE4DD28C0A4;7055.
+(rerunfilecheck)             Checksum: A7E48CE05EEFC7E01459C09D440D3632;6782.
  ) 
 Here is how much of TeX's memory you used:
- 15746 strings out of 467533
- 246292 string characters out of 5422138
- 696572 words of memory out of 5000000
- 43880 multiletter control sequences out of 15000+600000
- 692034 words of font info for 396 fonts, out of 8000000 for 9000
+ 15521 strings out of 474222
+ 242212 string characters out of 5748733
+ 1939975 words of memory out of 5000000
+ 37026 multiletter control sequences out of 15000+600000
+ 615362 words of font info for 350 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,14n,93p,1001b,676s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb
-></usr/share/texmf/fonts/type1/public/cm-super/sfbx0700.pfb></usr/share/texmf/f
-onts/type1/public/cm-super/sfbx0800.pfb></usr/share/texmf/fonts/type1/public/cm
--super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb>
-</usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fo
-nts/type1/public/cm-super/sfit0900.pfb></usr/share/texmf/fonts/type1/public/cm-
-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb><
-/usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fon
-ts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-s
-uper/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></
-usr/share/texmf/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf/font
-s/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-su
-per/sftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></u
-sr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (26 pages, 1259378 bytes).
+ 90i,14n,93p,1001b,691s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></us
+r/share/texmf/fonts/type1/public/cm-super/sfbx0700.pfb></usr/share/texmf/fonts/
+type1/public/cm-super/sfbx0800.pfb></usr/share/texmf/fonts/type1/public/cm-supe
+r/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr
+/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/t
+ype1/public/cm-super/sfit0900.pfb></usr/share/texmf/fonts/type1/public/cm-super
+/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/
+share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/ty
+pe1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/
+sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/s
+hare/texmf/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf/fonts/typ
+e1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
+ftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/sh
+are/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on main.pdf (24 pages, 761122 bytes).
 PDF statistics:
- 633 PDF objects out of 1000 (max. 8388607)
- 521 compressed objects within 6 object streams
- 126 named destinations out of 1000 (max. 500000)
- 109947 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 655 PDF objects out of 1000 (max. 8388607)
+ 513 compressed objects within 6 object streams
+ 124 named destinations out of 1000 (max. 500000)
+ 99656 words of extra memory for PDF output out of 106986 (max. 10000000)
 

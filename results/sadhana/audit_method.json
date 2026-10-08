@@ -1,0 +1,15 @@
+{
+  "bootstrap_replicates": 5000,
+  "rng_seed": 42,
+  "estimator": "pooled metrics, NOT mean of per-seed metrics",
+  "bootstrap": "normalized narrative cluster bootstrap stratified by true class",
+  "invalid_predictions": "retained as errors in accuracy, recall and F1; extra column in confusion matrix",
+  "reweighting": "confusion rows rescaled to equal class prior, then precision/recall/F1 recomputed",
+  "mcnemar": "250 vs 500, paired by seed and positional index, Holm correction over 22 tests",
+  "limits": [
+    "Intervals condition on the saved evaluation sets and predictions",
+    "Old prediction files omit original text hashes, thinking, done_reason and token counters",
+    "Strict-parser audit uses saved responses, which may be truncated to 2000 characters",
+    "A and B share records: their results are not independent replications"
+  ]
+}
