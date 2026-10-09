@@ -1,0 +1,4 @@
+model,mode,index,source_hash,true_label,serial_label,batch_label,serial_response,batch_response,serial_input_tokens,batch_input_tokens
+gemma4,adapter,50,f6715fd6598652300b65a1cd25b0482d307ecbbfb6b27d351354aebcb69ff8b4,credit_card,credit_card,debt_collection,"{""product"": ""credit_card""}","{""product"": ""debt_collection""}",169,169
+qwen3,base,30,4e27e088d63f1b4ca0b78122c2a4c2312b7bca9b2e7b0bce2ef92e02c3a46058,credit_reporting,credit_reporting,debt_collection,"{""product"": ""credit_reporting""}","{""product"": ""debt_collection""}",159,159
+qwen3,base,91,06086f992d80ff9efc56e6d10561f6395b68c0d56e92a2532eae33b266ce95b6,credit_card,retail_banking,credit_card,"{""product"": ""retail_banking""}","{""product"": ""credit_card""}",134,134

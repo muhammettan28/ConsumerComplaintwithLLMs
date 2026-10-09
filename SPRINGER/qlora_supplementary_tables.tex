@@ -3,7 +3,7 @@
 \centering
 \footnotesize
 \setlength{\tabcolsep}{3pt}
-\caption{Complete HF paired comparison. A: balanced; B: reduced imbalance; chars: narrative limit. Each row pools 3,000 records per mode. F1w/F1m: weighted/macro F1. Gain and CI are percentage points; $p_H$ is the exact accuracy McNemar p-value after Holm correction over twelve comparisons.}
+\caption{Seed-1 HF paired comparison (seed-1 twelve-test correction family). A: balanced; B: reduced imbalance; chars: narrative limit. Each row pools 3,000 records per mode. F1w/F1m: weighted/macro F1. Gain and CI are percentage points; $p_H$ is the exact accuracy McNemar p-value after Holm correction over twelve comparisons.}
 \label{tab:qlora_full}
 \begin{tabular}{llrrrrrrr}
 \toprule
@@ -28,7 +28,7 @@ Phi-4 & B & 500 & 0.7456 & 0.7994 & 0.7643 & +5.38 & [4.08, 6.68] & 2.6e-14 \\
 \centering
 \footnotesize
 \setlength{\tabcolsep}{3pt}
-\caption{Pooled per-class F1 on 500-character tests. A/B denote balanced/reduced imbalance. Mortg.: mortgages and loans.}
+\caption{Seed-1 pooled per-class F1 on 500-character tests. A/B denote balanced/reduced imbalance. Mortg.: mortgages and loans.}
 \label{tab:qlora_class}
 \begin{tabular}{lllrrrrr}
 \toprule
@@ -53,7 +53,7 @@ Phi-4 & B & adapter & 0.7963 & 0.8569 & 0.6656 & 0.7754 & 0.7273 \\
 \centering
 \footnotesize
 \setlength{\tabcolsep}{3pt}
-\caption{Warm serial latency distribution on 100 fixed class-balanced records per model/mode. Agreement is with the corresponding saved full-test batched labels; full-test F1 is not replaced by the 100-record benchmark score.}
+\caption{Seed-1 warm serial latency distribution on 100 fixed class-balanced records per model/mode. Agreement is with the corresponding saved full-test batched labels; full-test F1 is not replaced by the 100-record benchmark score.}
 \label{tab:qlora_serial}
 \begin{tabular}{llrrrr}
 \toprule

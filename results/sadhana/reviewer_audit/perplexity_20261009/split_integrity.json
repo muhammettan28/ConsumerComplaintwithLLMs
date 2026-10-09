@@ -1,0 +1,329 @@
+{
+  "checked_at": "2026-10-09T13:34:18.540267+03:00",
+  "scope": "Saved data only; no training, inference or split changes",
+  "sha256_match": {
+    "dataset/1_subset_balanced_250.csv": true,
+    "dataset/1_subset_balanced_500.csv": true,
+    "dataset/1_subset_imbalanced_250.csv": true,
+    "dataset/1_subset_imbalanced_500.csv": true,
+    "dataset/2_subset_balanced_250.csv": true,
+    "dataset/2_subset_balanced_500.csv": true,
+    "dataset/2_subset_imbalanced_250.csv": true,
+    "dataset/2_subset_imbalanced_500.csv": true,
+    "dataset/3_subset_balanced_250.csv": true,
+    "dataset/3_subset_balanced_500.csv": true,
+    "dataset/3_subset_imbalanced_250.csv": true,
+    "dataset/3_subset_imbalanced_500.csv": true,
+    "dataset/finetuning/train_10000.csv": true,
+    "dataset/finetuning/train_2000.csv": true,
+    "dataset/finetuning/train_20000.csv": true,
+    "dataset/finetuning/train_500.csv": true,
+    "dataset/finetuning/validation.csv": true
+  },
+  "splits": {
+    "1_subset_balanced_250": {
+      "n": 1000,
+      "counts": {
+        "credit_card": 200,
+        "mortgages_and_loans": 200,
+        "debt_collection": 200,
+        "retail_banking": 200,
+        "credit_reporting": 200
+      },
+      "unique_normalized_texts": 999
+    },
+    "1_subset_balanced_500": {
+      "n": 1000,
+      "counts": {
+        "credit_card": 200,
+        "mortgages_and_loans": 200,
+        "debt_collection": 200,
+        "retail_banking": 200,
+        "credit_reporting": 200
+      },
+      "unique_normalized_texts": 1000
+    },
+    "1_subset_imbalanced_250": {
+      "n": 1000,
+      "counts": {
+        "credit_reporting": 511,
+        "debt_collection": 182,
+        "mortgages_and_loans": 107,
+        "credit_card": 100,
+        "retail_banking": 100
+      },
+      "unique_normalized_texts": 997
+    },
+    "1_subset_imbalanced_500": {
+      "n": 1000,
+      "counts": {
+        "credit_reporting": 511,
+        "debt_collection": 182,
+        "mortgages_and_loans": 107,
+        "credit_card": 100,
+        "retail_banking": 100
+      },
+      "unique_normalized_texts": 1000
+    },
+    "2_subset_balanced_250": {
+      "n": 1000,
+      "counts": {
+        "debt_collection": 200,
+        "retail_banking": 200,
+        "credit_card": 200,
+        "mortgages_and_loans": 200,
+        "credit_reporting": 200
+      },
+      "unique_normalized_texts": 1000
+    },
+    "2_subset_balanced_500": {
+      "n": 1000,
+      "counts": {
+        "debt_collection": 200,
+        "retail_banking": 200,
+        "credit_card": 200,
+        "mortgages_and_loans": 200,
+        "credit_reporting": 200
+      },
+      "unique_normalized_texts": 1000
+    },
+    "2_subset_imbalanced_250": {
+      "n": 1000,
+      "counts": {
+        "credit_reporting": 511,
+        "debt_collection": 182,
+        "mortgages_and_loans": 107,
+        "credit_card": 100,
+        "retail_banking": 100
+      },
+      "unique_normalized_texts": 999
+    },
+    "2_subset_imbalanced_500": {
+      "n": 1000,
+      "counts": {
+        "credit_reporting": 511,
+        "debt_collection": 182,
+        "mortgages_and_loans": 107,
+        "credit_card": 100,
+        "retail_banking": 100
+      },
+      "unique_normalized_texts": 1000
+    },
+    "3_subset_balanced_250": {
+      "n": 1000,
+      "counts": {
+        "retail_banking": 200,
+        "credit_card": 200,
+        "credit_reporting": 200,
+        "mortgages_and_loans": 200,
+        "debt_collection": 200
+      },
+      "unique_normalized_texts": 1000
+    },
+    "3_subset_balanced_500": {
+      "n": 1000,
+      "counts": {
+        "retail_banking": 200,
+        "credit_card": 200,
+        "credit_reporting": 200,
+        "mortgages_and_loans": 200,
+        "debt_collection": 200
+      },
+      "unique_normalized_texts": 1000
+    },
+    "3_subset_imbalanced_250": {
+      "n": 1000,
+      "counts": {
+        "credit_reporting": 511,
+        "debt_collection": 182,
+        "mortgages_and_loans": 107,
+        "credit_card": 100,
+        "retail_banking": 100
+      },
+      "unique_normalized_texts": 998
+    },
+    "3_subset_imbalanced_500": {
+      "n": 1000,
+      "counts": {
+        "credit_reporting": 511,
+        "debt_collection": 182,
+        "mortgages_and_loans": 107,
+        "credit_card": 100,
+        "retail_banking": 100
+      },
+      "unique_normalized_texts": 1000
+    },
+    "train_500": {
+      "n": 500,
+      "counts": {
+        "retail_banking": 100,
+        "credit_reporting": 100,
+        "credit_card": 100,
+        "mortgages_and_loans": 100,
+        "debt_collection": 100
+      },
+      "unique_normalized_texts": 500,
+      "stored_text_hashes_match": true,
+      "source_texts_match": true,
+      "source_labels_match": true,
+      "unique_source_ids": 500
+    },
+    "train_2000": {
+      "n": 2000,
+      "counts": {
+        "retail_banking": 400,
+        "credit_reporting": 400,
+        "credit_card": 400,
+        "mortgages_and_loans": 400,
+        "debt_collection": 400
+      },
+      "unique_normalized_texts": 2000,
+      "stored_text_hashes_match": true,
+      "source_texts_match": true,
+      "source_labels_match": true,
+      "unique_source_ids": 2000
+    },
+    "train_10000": {
+      "n": 10000,
+      "counts": {
+        "retail_banking": 2000,
+        "credit_reporting": 2000,
+        "credit_card": 2000,
+        "mortgages_and_loans": 2000,
+        "debt_collection": 2000
+      },
+      "unique_normalized_texts": 10000,
+      "stored_text_hashes_match": true,
+      "source_texts_match": true,
+      "source_labels_match": true,
+      "unique_source_ids": 10000
+    },
+    "train_20000": {
+      "n": 20000,
+      "counts": {
+        "retail_banking": 4000,
+        "credit_reporting": 4000,
+        "credit_card": 4000,
+        "mortgages_and_loans": 4000,
+        "debt_collection": 4000
+      },
+      "unique_normalized_texts": 20000,
+      "stored_text_hashes_match": true,
+      "source_texts_match": true,
+      "source_labels_match": true,
+      "unique_source_ids": 20000
+    },
+    "validation": {
+      "n": 2000,
+      "counts": {
+        "credit_reporting": 400,
+        "mortgages_and_loans": 400,
+        "debt_collection": 400,
+        "credit_card": 400,
+        "retail_banking": 400
+      },
+      "unique_normalized_texts": 2000,
+      "stored_text_hashes_match": true,
+      "source_texts_match": true,
+      "source_labels_match": true,
+      "unique_source_ids": 2000
+    }
+  },
+  "overlaps": {
+    "train_500": {
+      "test_exact": 0,
+      "test_250_prefix": 0,
+      "validation_exact": 0,
+      "validation_250_prefix": 0,
+      "validation_source_id": 0
+    },
+    "train_2000": {
+      "test_exact": 0,
+      "test_250_prefix": 0,
+      "validation_exact": 0,
+      "validation_250_prefix": 0,
+      "validation_source_id": 0
+    },
+    "train_10000": {
+      "test_exact": 0,
+      "test_250_prefix": 0,
+      "validation_exact": 0,
+      "validation_250_prefix": 0,
+      "validation_source_id": 0
+    },
+    "train_20000": {
+      "test_exact": 0,
+      "test_250_prefix": 0,
+      "validation_exact": 0,
+      "validation_250_prefix": 0,
+      "validation_source_id": 0
+    },
+    "validation": {
+      "test_exact": 0,
+      "test_250_prefix": 0
+    }
+  },
+  "test_clusters": {
+    "balanced_250": {
+      "n": 3000,
+      "normalized_text_clusters": 2997,
+      "conflicting_label_clusters": 0
+    },
+    "balanced_500": {
+      "n": 3000,
+      "normalized_text_clusters": 3000,
+      "conflicting_label_clusters": 0
+    },
+    "imbalanced_250": {
+      "n": 3000,
+      "normalized_text_clusters": 2986,
+      "conflicting_label_clusters": 0
+    },
+    "imbalanced_500": {
+      "n": 3000,
+      "normalized_text_clusters": 3000,
+      "conflicting_label_clusters": 0
+    }
+  },
+  "length_pairs": {
+    "balanced_1": {
+      "same_labels_order": true,
+      "same_truncated_texts_order": true
+    },
+    "balanced_2": {
+      "same_labels_order": true,
+      "same_truncated_texts_order": true
+    },
+    "balanced_3": {
+      "same_labels_order": true,
+      "same_truncated_texts_order": true
+    },
+    "imbalanced_1": {
+      "same_labels_order": true,
+      "same_truncated_texts_order": true
+    },
+    "imbalanced_2": {
+      "same_labels_order": true,
+      "same_truncated_texts_order": true
+    },
+    "imbalanced_3": {
+      "same_labels_order": true,
+      "same_truncated_texts_order": true
+    }
+  },
+  "source_sha256_match": true,
+  "test_AB_500": {
+    "shared_normalized_texts": 2067,
+    "union": 3933
+  },
+  "nested_training_subsets": true,
+  "near_duplicate_recheck": {
+    "method": "128-permutation MinHash LSH + exact word-3-shingle Jaccard",
+    "threshold": 0.85,
+    "limit": "Approximate retrieval; not proof of absence of all near duplicates or semantic paraphrases",
+    "train_20000_to_test_matches": 0,
+    "validation_to_test_matches": 0,
+    "train_20000_to_validation_matches": 0
+  },
+  "passed": true
+}

@@ -1,0 +1,421 @@
+{
+  "verified_at": "2026-10-08T23:07:48.295202+03:00",
+  "result": "pass",
+  "training_seed": 3,
+  "n_full_test_predictions": 72000,
+  "n_serial_predictions": 600,
+  "checks": [
+    "All six completion manifests and prediction SHA256 values",
+    "Original training/validation, test and adapter SHA256 values",
+    "Source/index/label and normalized text alignment",
+    "Raw-response reparsing and invalid counts",
+    "Equal paired batch sizes; finite positive and correctly amortized timing",
+    "Recomputed pooled accuracy/weighted/macro F1",
+    "Serial 20-per-class selection, input token counts, latency summaries and batch agreement",
+    "Recomputed pooled per-class precision/recall/F1"
+  ],
+  "comparison_sha256": {
+    "pooled_comparison.csv": "d64349a8b301d8e701196ae0261a0ae53459c206c38d968712d5e6854bde0919",
+    "per_test_comparison.csv": "b4ce6e476b7b94a04fb1a07585fcd94cbda2db7b588d2fa5dde6e003c71328ff",
+    "comparison_method.json": "b39d7506cb50d6cf5ab2ebead26061ad88c09978c45c0953420a2c788f11610c"
+  },
+  "serial_batch_disagreements": 5,
+  "datasets": [
+    {
+      "model": "gemma4",
+      "test": "1_subset_balanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "gemma4",
+      "test": "1_subset_balanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "gemma4",
+      "test": "1_subset_imbalanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "gemma4",
+      "test": "1_subset_imbalanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "gemma4",
+      "test": "2_subset_balanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "gemma4",
+      "test": "2_subset_balanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "gemma4",
+      "test": "2_subset_imbalanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "gemma4",
+      "test": "2_subset_imbalanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "gemma4",
+      "test": "3_subset_balanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "gemma4",
+      "test": "3_subset_balanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "gemma4",
+      "test": "3_subset_imbalanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 1,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "gemma4",
+      "test": "3_subset_imbalanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 1,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "qwen3",
+      "test": "1_subset_balanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "qwen3",
+      "test": "1_subset_balanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "qwen3",
+      "test": "1_subset_imbalanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "qwen3",
+      "test": "1_subset_imbalanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "qwen3",
+      "test": "2_subset_balanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "qwen3",
+      "test": "2_subset_balanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "qwen3",
+      "test": "2_subset_imbalanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "qwen3",
+      "test": "2_subset_imbalanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "qwen3",
+      "test": "3_subset_balanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "qwen3",
+      "test": "3_subset_balanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "qwen3",
+      "test": "3_subset_imbalanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "qwen3",
+      "test": "3_subset_imbalanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 0,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "phi4",
+      "test": "1_subset_balanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 3,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "phi4",
+      "test": "1_subset_balanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 3,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "phi4",
+      "test": "1_subset_imbalanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 3,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "phi4",
+      "test": "1_subset_imbalanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 4,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "phi4",
+      "test": "2_subset_balanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 1,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "phi4",
+      "test": "2_subset_balanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 2,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "phi4",
+      "test": "2_subset_imbalanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 2,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "phi4",
+      "test": "2_subset_imbalanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 1,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "phi4",
+      "test": "3_subset_balanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 1,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "phi4",
+      "test": "3_subset_balanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 1,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "phi4",
+      "test": "3_subset_imbalanced_250",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 1,
+      "invalid_adapter": 0
+    },
+    {
+      "model": "phi4",
+      "test": "3_subset_imbalanced_500",
+      "n_per_mode": 1000,
+      "actual_batch_sizes": [
+        8,
+        32
+      ],
+      "invalid_base": 1,
+      "invalid_adapter": 0
+    }
+  ]
+}

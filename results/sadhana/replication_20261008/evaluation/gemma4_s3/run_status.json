@@ -1,15 +1,13 @@
 {
-  "phase": "inference",
+  "phase": "complete",
   "model": "gemma4",
-  "done_rows": 10256,
+  "done_rows": 24000,
   "total_rows": 24000,
   "stage_total_rows": 24000,
-  "fresh_rows": 1360,
+  "fresh_rows": 15104,
   "effective_batch_size": 32,
-  "inference_seconds": 198.41499374099996,
-  "elapsed_seconds": 219.84408118099998,
-  "peak_allocated_vram_gib": 9.99609661102295,
-  "updated_local": "2026-10-08T13:23:09.457721+03:00",
-  "dataset": "1_subset_imbalanced_500",
-  "mode": "adapter"
+  "inference_seconds": 2262.797013528998,
+  "elapsed_seconds": 2403.560706134,
+  "peak_allocated_vram_gib": 10.191834449768066,
+  "updated_local": "2026-10-08T13:59:33.174341+03:00"
 }

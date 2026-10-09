@@ -36,6 +36,9 @@ and sampling uncertainty are unavailable.
 To examine class-prior effects, we rescale each row of the pooled
 Experiment~B confusion matrix to equal support, retaining invalid
 predictions as an additional error column, then recompute metrics.
+Fractional counts are retained without rounding; this reweights observed
+errors rather than improving predictions. Supplementary
+Section~\ref{S-sec:split_integrity} gives the transformation.
 For \texttt{mistral-nemo:12b}, observed accuracy 0.6530 becomes 0.5562,
 close to Experiment~A's 0.5593. For \texttt{gpt-oss:20b}, accuracy
 0.7820 becomes 0.7480, close to Experiment~A's 0.7483.
@@ -46,7 +49,7 @@ this is not a causal experiment with the class prior independently manipulated.
 
 Reparsing all 132 saved response files with a JSON decoder, accepting
 only an explicit string-valued \texttt{product} field, changes no
-in-taxonomy prediction under the retained legacy outputs.
+in-taxonomy prediction in the recorded GGUF benchmark outputs.
 Across all Gemma~4 files, 37 saved responses are empty; their causes
 cannot be distinguished without separate thinking and termination logs.
 Representative Llama parse errors are explicit refusals, whereas

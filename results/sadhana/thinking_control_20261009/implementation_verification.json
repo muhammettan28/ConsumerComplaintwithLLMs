@@ -1,0 +1,17 @@
+{
+  "code_sha256": {
+    "run_thinking_control.py": "66f35133a14bb4cba36ffab3f1b9e85175b0c38700e4ce17382d55c63ec8746f",
+    "run_inference.py": "cccff1705a6b122a98709bf89c01332116985fa45f56023d53aea957df4bf4bf",
+    "sadhana_audit.py": "e51ac4f836bf299f5bda76b20ea8899da714db02ba4bbd7ac79ceda98b801b69",
+    "summarize_qlora_comparison.py": "e618edd358f189a24ee3a7390f8d66b53bd30b7b839ca85b54fd1ecec85c1ad4",
+    "test_thinking_control.py": "cd1bbaa20deb0409fc5b8a148afd641675a67b0a8ab71bfcc8efa5ee5b02c920"
+  },
+  "packages": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "statsmodels": "0.15.0"
+  },
+  "safeguard_tests": "8/8 passed; synthetic recovery/protocol fixtures only",
+  "render_check": "Both documents compiled using synthetic formatting fixtures in an isolated temporary copy; no live manuscript changes"
+}

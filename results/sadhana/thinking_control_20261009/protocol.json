@@ -1,0 +1,12 @@
+{
+  "frozen_local": "2026-10-09T09:26:35.286562+03:00",
+  "study_plan_sha256": "d14bc8f7036d6fd644971b728c0970fbfe3744edbcfff5e26b64e2da6a3efb62",
+  "output_cap": 4096,
+  "pilot_source_sha256": "56d826b8e8cf31e677169f551bda6cc058e9349608386b14cc6e7dd42fac69cf",
+  "total_main_predictions": 2000,
+  "same_cap_for_both_modes_and_models": true,
+  "residual_pilot_length_or_empty_final": 1,
+  "bounded_fallback_used": true,
+  "amendment_sha256": "a0f302c3eb8deb9f44936b64d6f53fc6a4431c1fb93b2ca885d3095087bbcaab",
+  "definition": "Total generated tokens, including reasoning; limit failures remain evaluation errors"
+}

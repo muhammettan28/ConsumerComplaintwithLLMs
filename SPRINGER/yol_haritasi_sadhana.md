@@ -214,9 +214,124 @@ belgeliyor; üç-seed LLM sonuçları henüz tamamlanmadı.
 - Tarih/özgün CFPB kimliği içeren ek dosya yok: zamansal genelleme
   yapılmayacak ve bu sınırlılık makalede kalacak.
 
-Canlı durum: `python finetuning_status.py`. Servis:
+Canlı durum: `python utils/finetuning_status.py`. Servis:
 `consumercomplaint-replication-n500.service`. Ayrıntılı plan, log ve
 kısmi rapor: `results/sadhana/replication_20261008/`. Tüm fit'ler ve
 tahminler doğrulandığında makale ayrı dizinde derlenip atıf/tablo/şekil
 denetiminden geçecek; ardından yedek alınarak üç-seed sonuçları işlenecek.
 Ana makale bu tamamlanma öncesinde hâlâ tek-seed pilotunu raporlar.
+
+
+## Ek deneyler tamamlandı — 2026-10-08T22:10:40.188294+03:00
+
+500 eğitim / 2.000 doğrulama kaydıyla üç-seed DistilBERT kontrolleri
+ve üç LLM'nin üç eğitim seed'i tamamlandı. Dokuz LLM fit'inin 216.000
+test + 1.800 seri tahmini doğrulandı. Üç epoch encoder F1: 0.5329;
+erken durdurmalı encoder F1: 0.7150.
+LLM balanced ortalama F1 artışları 3.21–9.72 yüzde puan.
+Makalede özet/yöntem/tablo/şekil/sonuç/tartışma üç eğitim seed'ine
+göre güncellendi; yukarıdaki tek-seed açıklamalar önceki pilotu belgeler.
+Son ana/ek PDF: 25/14 sayfa.
+Zamansal test yapılmadı: yerel CSV tarih/özgün CFPB kimliği içermiyor.
+Tam rapor: `results/sadhana/replication_20261008/report.md`.
+
+
+## Üç-seed sonrası ikinci hakem denetimi — 8 Ekim 2026
+
+Güncel ayrıntılı inceleme:
+[hakem_degerlendirmesi_uc_seed_2026-10-08.md](hakem_degerlendirmesi_uc_seed_2026-10-08.md).
+216.000 test + 1.800 seri çıktı yeniden doğrulamayı geçti; kaynak/bölme
+hash'leri ve exact/250-prefix sızıntı kontrolleri aynı. Kalan gpt-oss std
+hatası, Phi batch açıklaması, ortalamadan SLA çıkarımı, tarihsel GPU-day
+yorumu ve DeepSeek'i temiz bir scale karşılaştırması sayan ifadeler
+düzeltildi. F1 interval/accuracy Holm ayrımı ve iki Gemma-B istisnası
+açıklandı. Üç-fit sınıf-F1 tablosu S5 ve encoder revision eklendi.
+Ana PDF 25, ek PDF 15 sayfa; 37 kaynak çözümleniyor. Özet 155 kelime.
+Ana/ek loglarında tanımsız ref/citation veya overfull box yok.
+
+Yerleşim denemesi: genel iki sütun 19, double-spaced referee 37 sayfa.
+Bu, Sādhanā submission şemasına uygunluk kanıtı değildir; resmî
+yönergede çift aralık ve 20 sayfa sınırı birlikte yer alıyor. Journal
+style sayfasına erişim 403 verdi. Yeni GPU deneyi veya gönderim yapılmadı.
+Denetim kayıtları: `results/sadhana/reviewer_audit/post_replication/`.
+
+## Claude ve DeepSeek geri bildirimleri — 8 Ekim 2026
+
+[Ayrıntılı değerlendirme](claude_deepseek_feedback_degerlendirmesi.md). Ana mesaj ve toplam etiket bütçesi
+açıklaştırıldı; classifier yöntemleri setup bölümüne taşındı. Mevcut
+sonuçlardan bütçe–F1 grafiği, deduplicated-pool barı ve fit noktaları
+eklendi. Seri çıktı tokenları analiz edildi; ek tablo oluşturuldu. Yeni
+training/inference yapılmadı. Son ana/ek PDF: **26/15 sayfa**, 39 kaynak;
+tanımsız referans/atıf veya taşma uyarısı yok. Yeni GPU deneyleri için
+öncelik ve gerekçeler değerlendirme dosyasında.
+
+## Ek deney kapsamı — 9 Ekim 2026
+
+Kullanıcının kararıyla bu revizyonda yalnızca **Gemma 4 / Qwen3 thinking
+açık–kapalı kontrolü** yürütülüyor. 500 karakter koşulu, ön işleme ve
+prompt korunuyor. Mevcut dengeli testten sınıf başına 100, toplam 500
+aynı kayıt iki modelin iki modunda değerlendiriliyor: 2.000 ana tahmin.
+On kayıtlık ayrı teknik pilot yalnızca ortak çıktı-token tavanını
+belirlemek için kullanılıyor; ana değerlendirmeden hash ile dışlanıyor.
+Bu çıktı bütçesi anlatının karakter uzunluğu değildir. Yeni training,
+uzun metin, prompt varyantı, daha yüksek LLM bütçesi veya classifier
+deneyi bu revizyonun ek deney kapsamına dahil değil.
+
+Çalışma: `results/sadhana/thinking_control_20261009/`; canlı durum:
+`status.json`. `python utils/finetuning_status.py` yeni kontrolü gösterir.
+`consumercomplaint-thinking-control.service` yarım kalan JSONL kayıtlarından
+devam eder. Yeni sonuçların makaleye aktarılması yalnızca tüm 2.000
+çıktı doğrulandıktan ve ayrı preview PDF'leri derlendikten sonra yapılır.
+Tarihsel Ollama sonuçlarının modu yeni kontrolle geriye dönük doğrulanamaz.
+
+## Thinking kontrolü tamamlandı — 9 Ekim 2026, 11:34 (Türkiye)
+
+2.000/2.000 ana tahmin tamamlandı. Aynı 500 benzersiz, sınıf başına 100
+ve ≤500 karakter girdi iki modelin iki modunda kullanıldı. Bağımsız son
+kontrol ham JSONL kayıtlarını yeniden ayrıştırdı; kaynak/seçim/tahmin
+hash'leri, eşleştirilmiş istekler, sklearn metrikleri ve exact
+McNemar/Holm sonuçları doğrulandı. Eksik veya çift kayıt ve pilot/test
+çakışması yok. Rapor: `results/sadhana/thinking_control_20261009/completion_check.json`.
+
+| Model | Thinking kapalı F1 | Thinking açık F1 | Ortalama süre kapalı → açık |
+|---|---:|---:|---:|
+| Gemma 4 12B | 0.7298 | 0.7447 | 0.28 → 6.19 s |
+| Qwen3 14B | 0.6926 | 0.7449 | 0.25 → 8.43 s |
+
+Gemma'nın weighted-F1 değişimi +1.49 yüzde puan; düzeltilmemiş eşleşmiş
+%95 güven aralığı [-1.31, +4.19], dolayısıyla iyileşme kanıtı yeterli değil.
+Thinking açıkken 14/500 (%2.8) yanıt ortak 4.096 çıktı-token sınırına
+ulaşıp son yanıt üretmedi; tamamı hata olarak değerlendirmede tutuldu.
+Qwen3'ün değişimi +5.23 yüzde puan; aynı tür aralık [+1.91, +8.51].
+İki accuracy testi için Holm-düzeltilmiş p değerleri sırasıyla 0.7798 ve
+0.004372. Bu p değerleri F1 testleri veya modeller arası üstünlük testleri
+değildir. Sonuçlar mevcut artefaktlara ve sabit alt kümeye koşulludur;
+tarihsel çalışmaların kaydedilmemiş thinking ayarlarını geriye dönük belirlemez.
+
+Sonuçlar `SPRINGER/thinking_control.tex` ve
+`SPRINGER/thinking_control_supplementary.tex` üzerinden ana/ek metne
+ve PDF'lere işlendi. Ana PDF 27, ek PDF 15 sayfa; atıfsız nesne,
+tanımsız atıf/referans, yinelenen etiket veya taşma uyarısı yok.
+Deney servisi durmuş ve açılışta yeniden çalışması kapatılmıştır.
+
+## Son hakem taraması ve kısaltma — 9 Ekim 2026
+
+Ana metin baştan tarandı; tekrarlar ve koşulsuz deployment önerileri
+budandı, uzun paragraflar bölündü. Thinking bulguları özet/katkı/tartışma/
+sonuca işlendi; test-subset/eğitim-seed ve accuracy/F1 testleri ayrıldı.
+Aynı şablonda ana PDF 27 → 23 sayfa; ek 15 sayfa. Ana metin sözcükleri
+texcount ile 7.940 → 5.931 (yaklaşık %25 azalma); özet 177 sözcük.
+Tabloların sayısal satırları ve sonuç dosyaları korunuyor; referans/nesne
+ve derleme kontrolleri başarılı. Yeni deney başlatılmadı.
+Ayrıntılı rapor: `SPRINGER/hakem_degerlendirmesi_editorial_2026-10-09.md`.
+Denetim: `results/sadhana/reviewer_audit/editorial_20261009/`.
+
+## Deney kolları ve sınıf düzeyi yorum — 9 Ekim 2026
+
+Experimental Setup'a üç LLM deney kolunun farklı amaç ve karşılaştırma
+sınırlarını açıklayan paragraf eklendi. Thinking sonuçlarına Qwen'in beş
+sınıftaki pozitif nokta değişimleri ile Gemma'nın mortgages/loans ve
+credit-card düşüşleri eklendi; bunların sınıf bazında anlamlılık testi
+olmayan betimsel gözlemler olduğu belirtildi. Değerler CSV'den doğrulandı.
+Son ana PDF **24 sayfa**, ek PDF 15 sayfa; derleme/atıf kontrolü başarılı.
+Denetim: `results/sadhana/reviewer_audit/scope_clarifications_20261009/`.

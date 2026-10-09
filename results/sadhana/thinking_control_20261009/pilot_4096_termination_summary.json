@@ -1,0 +1,6 @@
+{
+  "cap": 4096,
+  "n": 40,
+  "length_or_empty_final": 1,
+  "no_accuracy_based_selection": true
+}

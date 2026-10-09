@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{34}
+\begin{thebibliography}{37}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -484,14 +484,13 @@ Accessed: 15 June 2026
 \endbibitem
 
 %%% 29
-\bibitem[\protect\citeauthoryear{{Google
-  DeepMind}}{2026}]{google2026gemma4card}
+\bibitem[\protect\citeauthoryear{{Ollama}}{2026}]{ollama2026docs}
 \begin{botherref}
-\oauthor{\bsnm{{Google DeepMind}}}:
-Gemma 4 12B Unified Model Card.
-\url{https://huggingface.co/google/gemma-4-12B-it}.
-Accessed 6 October 2026
-(2026)
+\oauthor{\bsnm{{Ollama}}}:
+{Ollama} Documentation.
+Accessed: 8 October 2026
+(2026).
+\url{https://docs.ollama.com/}
 \end{botherref}
 \endbibitem
 
@@ -529,6 +528,18 @@ arXiv preprint arXiv:2408.00118
 \endbibitem
 
 %%% 33
+\bibitem[\protect\citeauthoryear{{Google
+  DeepMind}}{2026}]{google2026gemma4card}
+\begin{botherref}
+\oauthor{\bsnm{{Google DeepMind}}}:
+Gemma 4 12B Unified Model Card.
+\url{https://huggingface.co/google/gemma-4-12B-it}.
+Accessed 6 October 2026
+(2026)
+\end{botherref}
+\endbibitem
+
+%%% 34
 \bibitem[\protect\citeauthoryear{Abdin et~al.}{2024}]{abdin2024phi4}
 \begin{botherref}
 \oauthor{\bsnm{Abdin}, \binits{M.}}, et al.:
@@ -538,7 +549,30 @@ arXiv preprint arXiv:2412.08905
 \end{botherref}
 \endbibitem
 
-%%% 34
+%%% 35
+\bibitem[\protect\citeauthoryear{{OpenAI}}{2025}]{openai2025gptoss}
+\begin{botherref}
+\oauthor{\bsnm{{OpenAI}}}:
+gpt-oss-20b Model Card.
+Accessed: 8 October 2026
+(2025).
+\url{https://huggingface.co/openai/gpt-oss-20b}
+\end{botherref}
+\endbibitem
+
+%%% 36
+\bibitem[\protect\citeauthoryear{{Ollama}}{2026}]{ollama2026deepseekregistry}
+\begin{botherref}
+\oauthor{\bsnm{{Ollama}}}:
+{DeepSeek-R1} model registry and distilled model lineage.
+Ollama model registry.
+Accessed 8 October 2026
+(2026).
+\url{https://ollama.com/library/deepseek-r1}
+\end{botherref}
+\endbibitem
+
+%%% 37
 \bibitem[\protect\citeauthoryear{Sanh et~al.}{2019}]{sanh2019distilbert}
 \begin{botherref}
 \oauthor{\bsnm{Sanh}, \binits{V.}},

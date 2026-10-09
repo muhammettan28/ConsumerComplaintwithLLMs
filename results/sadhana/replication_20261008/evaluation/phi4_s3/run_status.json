@@ -1,0 +1,13 @@
+{
+  "phase": "complete",
+  "model": "phi4",
+  "done_rows": 24000,
+  "total_rows": 24000,
+  "stage_total_rows": 24000,
+  "fresh_rows": 24000,
+  "effective_batch_size": 32,
+  "inference_seconds": 4908.131747306019,
+  "elapsed_seconds": 5034.882997246001,
+  "peak_allocated_vram_gib": 13.123993396759033,
+  "updated_local": "2026-10-08T22:09:02.027054+03:00"
+}

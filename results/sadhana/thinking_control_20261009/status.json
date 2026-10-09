@@ -1,0 +1,17 @@
+{
+  "phase": "complete",
+  "updated_local": "2026-10-09T11:34:19.981077+03:00",
+  "pid": 633527,
+  "done_predictions": 2000,
+  "total_predictions": 2000,
+  "active_model": null,
+  "output_cap": 4096,
+  "pilot_done": 40,
+  "pilot_total": 40,
+  "think": false,
+  "fresh_predictions": 294,
+  "inference_seconds": 1269.5339414142218,
+  "estimated_remaining_minutes": 0.0,
+  "manuscript_updated": true,
+  "completed_local": "2026-10-09T11:34:19.981035+03:00"
+}

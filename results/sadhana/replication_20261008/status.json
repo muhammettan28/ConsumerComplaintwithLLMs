@@ -1,5 +1,5 @@
 {
-  "phase": "running",
+  "phase": "complete",
   "started_local": "2026-10-08T10:31:07.172221+03:00",
   "jobs": {
     "distilbert_n500_s1": {
@@ -39,27 +39,279 @@
       "already_completed": true
     },
     "gemma4_n500_s3_evaluate": {
-      "phase": "running",
+      "phase": "complete",
       "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/logs/gemma4_n500_s3_evaluate.log",
       "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/gemma4_s3/run_status.json",
       "started_local": "2026-10-08T13:19:23.505865+03:00",
       "pid": 4456,
-      "elapsed_seconds": 225.029342213,
+      "elapsed_seconds": 2415.232037619,
       "progress": {
-        "phase": "inference",
+        "phase": "complete",
         "model": "gemma4",
-        "done_rows": 10256,
+        "done_rows": 24000,
         "total_rows": 24000,
         "stage_total_rows": 24000,
-        "fresh_rows": 1360,
+        "fresh_rows": 15104,
         "effective_batch_size": 32,
-        "inference_seconds": 198.41499374099996,
-        "elapsed_seconds": 214.82560295099998,
-        "peak_allocated_vram_gib": 9.99609661102295,
-        "updated_local": "2026-10-08T13:23:04.439226+03:00",
-        "dataset": "1_subset_imbalanced_500",
-        "mode": "base"
-      }
+        "inference_seconds": 2262.797013528998,
+        "elapsed_seconds": 2403.560706134,
+        "peak_allocated_vram_gib": 10.191834449768066,
+        "updated_local": "2026-10-08T13:59:33.174341+03:00"
+      },
+      "exit_code": 0
+    },
+    "qwen3_n500_s2_train": {
+      "phase": "complete",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/logs/qwen3_n500_s2_train.log",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/qwen3/n500/seed2/run_status.json",
+      "started_local": "2026-10-08T13:59:38.739304+03:00",
+      "pid": 16348,
+      "elapsed_seconds": 2495.2671194770005,
+      "progress": {
+        "phase": "validation",
+        "global_step": 96,
+        "max_steps": 96,
+        "epoch": 3.0,
+        "latest_metrics": {
+          "loss": 0.002182961907237768,
+          "grad_norm": 0.04215080663561821,
+          "learning_rate": 5.705090702819993e-08,
+          "epoch": 3.0,
+          "eval_loss": 0.06865629553794861,
+          "eval_runtime": 459.4088,
+          "eval_samples_per_second": 4.353,
+          "eval_steps_per_second": 4.353
+        },
+        "allocated_vram_gib": 9.498901844024658,
+        "peak_allocated_vram_gib": 10.042027473449707,
+        "updated_unix": 1791459669.0013912
+      },
+      "exit_code": 0
+    },
+    "qwen3_n500_s2_evaluate": {
+      "phase": "complete",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/logs/qwen3_n500_s2_evaluate.log",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/qwen3_s2/run_status.json",
+      "started_local": "2026-10-08T14:41:14.008648+03:00",
+      "pid": 20001,
+      "elapsed_seconds": 4680.558807764,
+      "progress": {
+        "phase": "complete",
+        "model": "qwen3",
+        "done_rows": 24000,
+        "total_rows": 24000,
+        "stage_total_rows": 24000,
+        "fresh_rows": 24000,
+        "effective_batch_size": 32,
+        "inference_seconds": 4539.7546593019915,
+        "elapsed_seconds": 4668.1253728169995,
+        "peak_allocated_vram_gib": 12.993999481201172,
+        "updated_local": "2026-10-08T15:59:07.640074+03:00"
+      },
+      "exit_code": 0
+    },
+    "qwen3_n500_s3_train": {
+      "phase": "complete",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/logs/qwen3_n500_s3_train.log",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/qwen3/n500/seed3/run_status.json",
+      "started_local": "2026-10-08T15:59:14.570715+03:00",
+      "pid": 55632,
+      "elapsed_seconds": 2480.292668319,
+      "progress": {
+        "phase": "complete",
+        "global_step": 96,
+        "max_steps": 96,
+        "epoch": 3.0,
+        "latest_metrics": {
+          "loss": 0.05737166851758957,
+          "grad_norm": 0.45328256487846375,
+          "learning_rate": 5.705090702819993e-08,
+          "epoch": 3.0,
+          "eval_loss": 0.06854625046253204,
+          "eval_runtime": 456.5956,
+          "eval_samples_per_second": 4.38,
+          "eval_steps_per_second": 4.38,
+          "train_runtime": 2450.93,
+          "train_samples_per_second": 0.612,
+          "train_steps_per_second": 0.039,
+          "total_flos": 1.828069433358336e+16,
+          "train_loss": 0.07243056352793549
+        },
+        "allocated_vram_gib": 9.49888277053833,
+        "peak_allocated_vram_gib": 10.043034553527832,
+        "updated_unix": 1791466829.312474
+      },
+      "exit_code": 0
+    },
+    "qwen3_n500_s3_evaluate": {
+      "phase": "complete",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/logs/qwen3_n500_s3_evaluate.log",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/qwen3_s3/run_status.json",
+      "started_local": "2026-10-08T16:40:34.865976+03:00",
+      "pid": 75854,
+      "elapsed_seconds": 4680.606751817,
+      "progress": {
+        "phase": "complete",
+        "model": "qwen3",
+        "done_rows": 24000,
+        "total_rows": 24000,
+        "stage_total_rows": 24000,
+        "fresh_rows": 24000,
+        "effective_batch_size": 32,
+        "inference_seconds": 4533.804466304009,
+        "elapsed_seconds": 4663.133920810002,
+        "peak_allocated_vram_gib": 12.993999481201172,
+        "updated_local": "2026-10-08T17:58:23.692256+03:00"
+      },
+      "exit_code": 0
+    },
+    "phi4_n500_s2_train": {
+      "phase": "complete",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/logs/phi4_n500_s2_train.log",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/phi4/n500/seed2/run_status.json",
+      "started_local": "2026-10-08T17:58:35.476006+03:00",
+      "pid": 116300,
+      "elapsed_seconds": 2435.296239233001,
+      "progress": {
+        "phase": "training",
+        "global_step": 96,
+        "max_steps": 96,
+        "epoch": 3.0,
+        "latest_metrics": {
+          "loss": 0.0012423678999766707,
+          "grad_norm": 0.033662885427474976,
+          "learning_rate": 5.705090702819993e-08,
+          "epoch": 3.0,
+          "eval_loss": 0.06833332777023315,
+          "eval_runtime": 449.4715,
+          "eval_samples_per_second": 4.45,
+          "eval_steps_per_second": 4.45
+        },
+        "allocated_vram_gib": 8.664944171905518,
+        "peak_allocated_vram_gib": 9.329671382904053,
+        "updated_unix": 1791473498.284518
+      },
+      "exit_code": 0
+    },
+    "phi4_n500_s2_evaluate": {
+      "phase": "complete",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/logs/phi4_n500_s2_evaluate.log",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/phi4_s2/run_status.json",
+      "started_local": "2026-10-08T18:39:10.774214+03:00",
+      "pid": 136385,
+      "elapsed_seconds": 5110.592764642999,
+      "progress": {
+        "phase": "serial_benchmark",
+        "model": "phi4",
+        "done_rows": 24000,
+        "total_rows": 24000,
+        "stage_total_rows": 24000,
+        "fresh_rows": 24000,
+        "effective_batch_size": 32,
+        "inference_seconds": 4982.340728230007,
+        "elapsed_seconds": 5099.598543338998,
+        "peak_allocated_vram_gib": 13.123993396759033,
+        "updated_local": "2026-10-08T20:04:16.022383+03:00",
+        "mode": "adapter",
+        "serial_done": 97,
+        "serial_total": 100
+      },
+      "exit_code": 0
+    },
+    "phi4_n500_s3_train": {
+      "phase": "complete",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/logs/phi4_n500_s3_train.log",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/checkpoints/phi4/n500/seed3/run_status.json",
+      "started_local": "2026-10-08T20:04:21.369605+03:00",
+      "pid": 180056,
+      "elapsed_seconds": 2440.3118276669993,
+      "progress": {
+        "phase": "training",
+        "global_step": 96,
+        "max_steps": 96,
+        "epoch": 3.0,
+        "latest_metrics": {
+          "loss": 0.08518314361572266,
+          "grad_norm": 0.7730639576911926,
+          "learning_rate": 5.705090702819993e-08,
+          "epoch": 3.0,
+          "eval_loss": 0.06744310259819031,
+          "eval_runtime": 450.5296,
+          "eval_samples_per_second": 4.439,
+          "eval_steps_per_second": 4.439
+        },
+        "allocated_vram_gib": 8.664944171905518,
+        "peak_allocated_vram_gib": 9.320343017578125,
+        "updated_unix": 1791481046.2557771
+      },
+      "exit_code": 0
+    },
+    "phi4_n500_s3_evaluate": {
+      "phase": "complete",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/logs/phi4_n500_s3_evaluate.log",
+      "live_status": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/evaluation/phi4_s3/run_status.json",
+      "started_local": "2026-10-08T20:45:01.683547+03:00",
+      "pid": 199333,
+      "elapsed_seconds": 5045.7002565,
+      "progress": {
+        "phase": "complete",
+        "model": "phi4",
+        "done_rows": 24000,
+        "total_rows": 24000,
+        "stage_total_rows": 24000,
+        "fresh_rows": 24000,
+        "effective_batch_size": 32,
+        "inference_seconds": 4908.131747306019,
+        "elapsed_seconds": 5034.882997246001,
+        "peak_allocated_vram_gib": 13.123993396759033,
+        "updated_local": "2026-10-08T22:09:02.027054+03:00"
+      },
+      "exit_code": 0
+    },
+    "seed2_statistics": {
+      "phase": "complete",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/logs/seed2_statistics.log",
+      "live_status": null,
+      "started_local": "2026-10-08T22:09:07.387718+03:00",
+      "pid": 240567,
+      "elapsed_seconds": 15.01283842599878,
+      "exit_code": 0
+    },
+    "seed2_verify": {
+      "phase": "complete",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/logs/seed2_verify.log",
+      "live_status": null,
+      "started_local": "2026-10-08T22:09:22.402718+03:00",
+      "pid": 240682,
+      "elapsed_seconds": 5.004161616998317,
+      "exit_code": 0
+    },
+    "seed3_statistics": {
+      "phase": "complete",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/logs/seed3_statistics.log",
+      "live_status": null,
+      "started_local": "2026-10-08T22:09:27.408437+03:00",
+      "pid": 240725,
+      "elapsed_seconds": 10.00468255600208,
+      "exit_code": 0
+    },
+    "seed3_verify": {
+      "phase": "complete",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/logs/seed3_verify.log",
+      "live_status": null,
+      "started_local": "2026-10-08T22:09:37.415596+03:00",
+      "pid": 240802,
+      "elapsed_seconds": 5.004306238999561,
+      "exit_code": 0
+    },
+    "aggregate_replications": {
+      "phase": "complete",
+      "log": "/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/replication_20261008/logs/aggregate_replications.log",
+      "live_status": null,
+      "started_local": "2026-10-08T22:09:42.421850+03:00",
+      "pid": 240845,
+      "elapsed_seconds": 60.01066773799903,
+      "exit_code": 0
     }
   },
   "train_size": 500,
@@ -70,6 +322,6 @@
     3
   ],
   "n_jobs": 23,
-  "active_job": "gemma4_n500_s3_evaluate",
-  "updated_local": "2026-10-08T13:23:08.535297+03:00"
+  "active_job": null,
+  "updated_local": "2026-10-08T22:10:42.434703+03:00"
 }

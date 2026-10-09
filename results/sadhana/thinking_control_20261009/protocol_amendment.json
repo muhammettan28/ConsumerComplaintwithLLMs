@@ -1,0 +1,30 @@
+{
+  "declared_local": "2026-10-09T09:25:15.476517+03:00",
+  "before_any_main_predictions": true,
+  "study_plan_sha256": "d14bc8f7036d6fd644971b728c0970fbfe3744edbcfff5e26b64e2da6a3efb62",
+  "technical_evidence": {
+    "1024": {
+      "cap": 1024,
+      "n": 40,
+      "length_or_empty_final": 1,
+      "no_accuracy_based_selection": true
+    },
+    "2048": {
+      "cap": 2048,
+      "n": 40,
+      "length_or_empty_final": 1,
+      "no_accuracy_based_selection": true
+    },
+    "4096": {
+      "cap": 4096,
+      "n": 40,
+      "length_or_empty_final": 1,
+      "no_accuracy_based_selection": true
+    }
+  },
+  "change": "If residual pilot length/empty-final flags persist at the highest prespecified cap, use that highest cap for all main modes/models and retain all capped completions as errors. No further cap search.",
+  "reason": "Same excluded Gemma thinking-on pilot input hits all three caps; a finite deployment-budget policy is needed rather than requiring zero termination failures.",
+  "no_classification_accuracy_used": true,
+  "no_input_or_model_selection_change": true,
+  "highest_prespecified_cap": 4096
+}

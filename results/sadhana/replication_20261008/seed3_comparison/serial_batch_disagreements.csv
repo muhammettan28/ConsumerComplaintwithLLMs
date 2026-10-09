@@ -1,0 +1,6 @@
+model,mode,index,source_hash,true_label,serial_label,batch_label,serial_response,batch_response,serial_input_tokens,batch_input_tokens
+gemma4,adapter,67,afdb974c2ab68fb4b1ceadd87dbd0498d2f59d726ff624ed3178eb2da91bc86b,debt_collection,debt_collection,credit_reporting,"{""product"": ""debt_collection""}","{""product"": ""credit_reporting""}",158,158
+gemma4,adapter,77,a91eeb4ff515e19f3b4ece6d3467f47cb37c6bfe54c547eb9bfdec5b890d040b,retail_banking,retail_banking,mortgages_and_loans,"{""product"": ""retail_banking""}","{""product"": ""mortgages_and_loans""}",111,111
+qwen3,base,30,4e27e088d63f1b4ca0b78122c2a4c2312b7bca9b2e7b0bce2ef92e02c3a46058,credit_reporting,credit_reporting,debt_collection,"{""product"": ""credit_reporting""}","{""product"": ""debt_collection""}",159,159
+qwen3,base,91,06086f992d80ff9efc56e6d10561f6395b68c0d56e92a2532eae33b266ce95b6,credit_card,retail_banking,credit_card,"{""product"": ""retail_banking""}","{""product"": ""credit_card""}",134,134
+qwen3,adapter,78,4e413f9bf10245acf2f13c9d160e97cfa16b133d02bd44dec2576b9bfd47adfc,credit_card,credit_card,mortgages_and_loans,"{""product"": ""credit_card""}","{""product"": ""mortgages_and_loans""}",108,108

@@ -1,0 +1,18 @@
+% Generated from verified qlora_per_fit.csv, three independent adapter fits.
+\begin{table}[tb]
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
+\caption{Adapted class F1 on 500-character tests, mean $\pm$ sample
+standard deviation over three training fits, each evaluated on the same
+3,000 records per condition. A/B denote balanced/reduced imbalance;
+Mortg. denotes mortgages and loans.}
+\label{tab:replication_class}
+\begin{tabular}{llrrrrr}\toprule
+Model & Test & Retail & Credit rep. & Card & Mortg. & Debt \\\midrule
+Gemma 4 & A & $0.8398\pm0.0013$ & $0.7408\pm0.0111$ & $0.7631\pm0.0073$ & $0.8218\pm0.0155$ & $0.7550\pm0.0215$ \\
+Qwen3 & A & $0.8308\pm0.0016$ & $0.7392\pm0.0120$ & $0.7626\pm0.0137$ & $0.8124\pm0.0079$ & $0.7714\pm0.0133$ \\
+Phi-4 & A & $0.8327\pm0.0031$ & $0.7399\pm0.0026$ & $0.7434\pm0.0039$ & $0.8336\pm0.0045$ & $0.7789\pm0.0046$ \\
+Gemma 4 & B & $0.7900\pm0.0027$ & $0.8511\pm0.0148$ & $0.6660\pm0.0024$ & $0.7625\pm0.0153$ & $0.7040\pm0.0106$ \\
+Qwen3 & B & $0.7830\pm0.0071$ & $0.8496\pm0.0017$ & $0.6650\pm0.0119$ & $0.7622\pm0.0126$ & $0.7169\pm0.0130$ \\
+Phi-4 & B & $0.7969\pm0.0028$ & $0.8481\pm0.0080$ & $0.6398\pm0.0246$ & $0.7796\pm0.0040$ & $0.7208\pm0.0070$ \\
+\bottomrule\end{tabular}\end{table}

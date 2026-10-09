@@ -2,18 +2,18 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[a4paper,margin=2.2cm]{geometry}
-\usepackage{graphicx,booktabs,amsmath,url,hyperref}
+\usepackage{graphicx,booktabs,amsmath,url,hyperref,longtable}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thetable}{S\arabic{table}}
-\title{Supplementary material: Local LLMs for Financial Complaint Classification}
+\title{Supplementary material: Local Consumer Complaint Classification: Zero-Shot, Lightweight Adaptation and Label Budgets}
 \author{Muhammet Tan and Halit Bak{\i}r}
 \date{}
 \begin{document}
 \maketitle
-Most figures retain the original model colour grouping; Fig.~\ref{fig:vs_reference}
-marks Gemma's unverified mode separately. Gemma~4's
-historical thinking mode is unverified; its placement in the standard
-colour group must not be interpreted as evidence that reasoning was disabled.
+Figure colours distinguish model groups; Fig.~\ref{fig:vs_reference}
+marks Gemma's unspecified GGUF benchmark thinking mode separately.
+Its placement in the standard colour group does not establish that
+reasoning was disabled.
 \section{Additional figures}
 \begin{figure}[tb]
   \centering
@@ -34,7 +34,7 @@ colour group must not be interpreted as evidence that reasoning was disabled.
   \centering
   \includegraphics[width=\textwidth]{figures/v2/f1_balanced_errbar.png}
   \caption{Weighted F1-scores for all eleven models in Experiment~A (Balanced),
-           shown as mean~$\pm$~std over three seeds.
+           shown as mean~$\pm$~sample std over three test subsets.
            Reasoning models are shown in dark blue; standard models in
            light blue under the original grouping. Gemma~4's thinking
            mode was not recorded; its original standard label is provisional.}
@@ -80,11 +80,11 @@ colour group must not be interpreted as evidence that reasoning was disabled.
   \centering
   \includegraphics[width=\textwidth]{figures/v2/vs_reference.png}
   \caption{Accuracy of all eleven open-weight models (Experiment~A,
-           mean~$\pm$~std over 3 seeds) alongside five paid-API baselines
+           mean~$\pm$~sample std over 3 test subsets) alongside five paid-API baselines
            from the literature \cite{roumeliotis2025think}.
            \texttt{gemma4:12b} is numerically close to GPT-4.5 and o1
            without API fees; this is not an equivalence test.
-           Open-weight error bars reflect seed variability; paid-API
+           Open-weight error bars reflect test-subset variability; paid-API
            figures are single-run point estimates.}
   \label{fig:vs_reference}
 \end{figure}\clearpage
@@ -93,7 +93,7 @@ colour group must not be interpreted as evidence that reasoning was disabled.
   \centering
   \includegraphics[width=\textwidth]{figures/v2/f1_imbalanced_errbar.png}
   \caption{Weighted F1-scores for all eleven models in Experiment~B
-           (Imbalanced), shown as mean~$\pm$~std over three seeds
+           (Imbalanced), shown as mean~$\pm$~sample std over three test subsets
            ($N{=}1{,}000$). Reasoning models are shown in dark blue;
            standard models in light blue. \texttt{gpt-oss:20b} leads,
            with \texttt{gemma4:12b} a close second.}
@@ -103,7 +103,7 @@ colour group must not be interpreted as evidence that reasoning was disabled.
   \centering
   \includegraphics[width=\textwidth]{figures/v2/size_sensitivity_balanced.png}
   \caption{Mean accuracy on 250-char vs 500-char narrative variants
-           (Balanced, $N{=}1{,}000$, 3~seeds) for all eleven models.
+           (Balanced, $N{=}1{,}000$, 3 test subsets) for all eleven models.
            Rankings are highly stable; most models show small gains
            with longer narratives.}
   \label{fig:size_sensitivity}
@@ -114,8 +114,7 @@ The eleven-model set permits several within-family comparisons.
 
 \textbf{Gemma family (Google):} \texttt{gemma4:12b} (F1~0.774)
 outperforms \texttt{gemma2:9b} (F1~0.676) by 0.098 F1 points —
-the largest within-family gain observed. Both size and model generation change in this comparison.
-Off-label counts increase slightly from gemma2 (mean 0.3) to
+the largest within-family gain observed. Off-label counts increase slightly from gemma2 (mean 0.3) to
 gemma4 (mean 3.7); the latter are empty responses recorded as parse
 errors. This comparison changes both generation (Gemma~2 to Gemma~4)
 and parameter count (9B to 12B), and cannot separate their effects.
@@ -135,56 +134,126 @@ experiments. Both have zero invalid outputs in balanced 500-character
 tests; in Experiment~B, Qwen3~8B has one invalid output across the
 three subsets and Qwen3~14B has none. The
 +0.033 F1 gain is achieved with comparable latency (5.73~s vs 5.19~s),
-making \texttt{qwen3:14b} the better choice when additional VRAM is
-available (reported artifact sizes 9.3~GB vs 5.2~GB). Both models demonstrate that the Qwen3
+alongside larger reported artifact size (9.3~GB vs 5.2~GB);
+peak runtime VRAM was not recorded. Both models demonstrate that the Qwen3
 configurations produce almost exclusively in-taxonomy outputs in these tests.
 
 \textbf{DeepSeek-R1:} \texttt{deepseek-r1:14b}
 (F1~0.724) outperforms \texttt{deepseek-r1:8b} (F1~0.683) by 0.041
-F1 points. Off-label counts also improve with scale (1.3 vs 2.0).
+F1 points. The 14B tag also has fewer invalid outputs (1.3 vs 2.0).
 Latency increases (9.33~s vs 5.14~s); separate thinking traces
 and token counts were not retained. The
-performance gap is consistent across all three subsets, supporting
-an observed within-line size advantage on these test sets.
+performance gap is consistent across all three test subsets, but
+the tags can also differ in backbone and model revision
+\cite{guo2025deepseekr1,ollama2026deepseekregistry}. Missing artifact
+digests prevent identifying a parameter-count effect from this pair.
 
+
+\section{Saved splits and statistical units}
+\label{sec:split_integrity}
+
+Table~\ref{tab:split_inventory} summarises the saved data splits.
+The benchmark is drawn from the length-filtered, deduplicated source
+pool with master seed 42. Within each condition, consecutive class-wise
+slices form subsets 1--3; seeds 42, 43 and 44 shuffle their row order.
+The 250-character files shorten the same ordered records and are not
+new samples. Across the two 500-character conditions, 2,067 normalised
+texts are shared, leaving a union of 3,933 texts.
+
+\begin{table}[htbp]\centering\small
+\caption{Split inventory. Test counts are per saved 1,000-record subset;
+each test condition has three subsets and two paired length variants.
+RB/CR/CC/ML/DC denote retail banking, credit reporting, credit cards,
+mortgages/loans and debt collection.}
+\label{tab:split_inventory}
+\begin{tabular}{lrl}\toprule
+Split & Records & Class counts \\\midrule
+Nested training & 500/2,000/10,000/20,000 & 100/400/2,000/4,000 per class \\
+Fixed validation & 2,000 & 400 per class \\
+Test A, each subset & 1,000 & 200 per class \\
+Test B, each subset & 1,000 & RB 100, CR 511, CC 100, ML 107, DC 182 \\
+\bottomrule\end{tabular}
+\end{table}
+
+Before supervised sampling, all twelve test files are reserved by
+normalised-text hash and 250-character-prefix matching. Source candidates
+with conflicting labels for one text hash are removed; MinHash/Jaccard
+screening then excludes retrieved near matches to the tests.
+Seed 42 draws the fixed balanced validation set and nested training
+sets, with a further prefix/near-match exclusion against validation.
+The saved source index traces a row of the processed CSV; it does not
+identify a CFPB complaint, consumer or institution. These splits support
+random-sample evaluation in this corpus, not temporal or source-group
+generalisation. Training seeds 1--3 change optimisation randomness on
+identical training and validation records.
+
+The matched classifier comparison uses identical training/validation
+records. Validation selects SVM's $C$ and DistilBERT's checkpoint by
+weighted F1, while adapter checkpoints minimise completion-only loss.
+SVM has one fixed-seed fit per budget; encoder and adapter summaries
+describe three fits. Equal record counts control label availability,
+not tuning effort, compute or the cost of obtaining individual labels.
+
+A bootstrap cluster comprises all occurrences of the same normalised
+input text within one condition and length, across its three test files.
+Both modes receive the same cluster multiplicity in a resample. The
+500-character conditions each contain 3,000 clusters; at 250 characters,
+A contains 2,997 and B contains 2,986. None has conflicting cluster labels.
+The paired implementation stratifies by true class when cluster labels
+are consistent and otherwise uses unstratified cluster resampling.
+McNemar uses one occurrence per source-input hash, keeping the first
+subset/index; conflicting-label source inputs would be excluded from
+that accuracy test, rather than from the F1 denominator. The 133 excluded
+source-corpus conflicting-label groups concern supervised split
+construction. Holm correction does not require independent comparisons,
+but cannot make overlapping tests independent replications.
+
+For the equal-prior diagnostic, let $C_{ij}$ be the pooled confusion
+matrix, including an invalid-output column, and $n_i=\sum_j C_{ij}$.
+We compute $\widetilde C_{ij}=C_{ij}/n_i$, retaining fractional counts,
+then recompute precision, recall and F1 from $\widetilde C$.
+No rounding is applied before metric calculation. Each row has unit
+support, so macro and weighted F1 coincide under this diagnostic prior;
+this changes the weighting of observed errors, not the predictions.
 
 \section{Controlled HF adaptation: complete results and reproducibility}
-All three models use 500 balanced training records and the same separate
-2,000-record validation set, with one training seed. The two inference
-modes share the same pinned base weights and differ only in enabling
-the unmerged LoRA adapter \cite{hu2021lora,dettmers2023qlora}. Exact
-HF revisions are:
+Three models use the same 500 balanced training and 2,000 validation records,
+with three training seeds each. Nine base/adapted pairs use identical
+pinned weights within each fit. Exact revisions are:
 \input{qlora_revisions}
+All 216,000 test predictions and 1,800 serial predictions pass the same
+source, label, hash, response and pairing checks. Mean and sample standard
+deviation describe three fits on the same tests, not 9,000 independent
+records. Per-fit paired confidence intervals and unique-input McNemar tests
+use the original cluster and duplicate handling. Holm correction covers
+36 base/adapter comparisons; a separate family of 72 tests compares
+adapters with label-matched SVM and validation-stopped DistilBERT.
+Serial timing uses the same first 20 records per class from the first
+balanced 500-character file; full-test scores use batched predictions.
+For the eleven-model GGUF script, request timing stops when the HTTP
+response headers arrive, before reading and parsing the response body.
+Each saved row records the final attempt; retry waits and preceding
+attempts are excluded. Invalid/error rows remain in the reported means.
+This boundary differs from the thinking control's complete HTTP timing
+and the HF generation benchmark; the timings are not interchangeable.
 
-All 72,000 full-test predictions and 600 serial benchmark predictions
-passed checks of source text, row indices, labels, hashes and raw responses. No adapted
-prediction is invalid. Across twelve base files, Gemma has two invalid
-responses, Qwen none and Phi 21; invalid outputs remain errors. The
-500-character groups have 3,000 unique source inputs per condition;
-250-character groups have 2,997 (balanced) and 2,986 (reduced imbalance).
-McNemar uses the first subset/index for each exact duplicate and adjusts
-across twelve comparisons. The paired bootstrap retains clustered
-duplicates in pooled metrics and uses the same weights in both modes.
-
-Warm serial benchmark inputs are the first 20 examples per class in
-the first balanced 500-character test, restored to original index order.
-Timing includes prompt rendering/tokenisation and synchronised generation;
-response decoding, network overhead and initial loading are excluded.
-Three serial/batch labels differ: adapted Gemma at index 50, and base
-Qwen at indices 30 and 91. Source hashes and input token counts match;
-the numerical cause was not isolated. These outputs are preserved in
-\texttt{serial\_batch\_disagreements.csv}. Full-test F1 uses the batched
-predictions, and serial latency uses the separate batch-1 benchmark.
-
-Generated CSVs contain weighted/macro F1, accuracy, class metrics, invalid
-and output-limit counts, paired confidence intervals and adjusted p-values.
-\texttt{verify\_qlora\_evaluation.py} checks prediction and artifact
-integrity; \texttt{export\_qlora\_manuscript.py} produces the following
-tables directly from the verified results. Table~\ref{tab:qlora_full}
-reports all paired conditions, Table~\ref{tab:qlora_class} gives the
-class-level scores, and Table~\ref{tab:qlora_serial} reports serial
-latency and serial/batch agreement.
+The initial seed-1 results are retained for traceability in
+Table~\ref{tab:qlora_full} (full metrics), Table~\ref{tab:qlora_class}
+(class metrics), and Table~\ref{tab:qlora_serial} (timing and agreement).
+These three tables describe seed 1, not averages over fits.
 \input{qlora_supplementary_tables}
+Table~\ref{tab:replication_full} reports all three training seeds.
+\begingroup\scriptsize
+\input{replication_supplementary_tables}
+\endgroup
+Table~\ref{tab:replication_class} reports class F1 averaged over all
+three training fits, complementing the seed-1 audit table.
+\input{replication_class_tables}
+\input{serial_token_analysis}
+\input{thinking_control_supplementary}
+Full seed summaries, class scores, baseline differences, bootstrap
+intervals, adjusted tests and verification logs are supplied as CSV/JSON
+reproducibility artifacts in the replication directory.
 \clearpage
 
 \section{Extended related work}

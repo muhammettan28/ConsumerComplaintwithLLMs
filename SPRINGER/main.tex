@@ -44,25 +44,27 @@
 
 \affil*[1]{\orgdiv{Department of Computer Engineering}, \orgname{Sivas University of Science and Technology}, \orgaddress{\city{Sivas}, \postcode{58010}, \country{Turkey}}}
 
-\abstract{Consumer complaint classification supports financial-service routing
-and regulatory oversight, but the choice between general-purpose language
-models and supervised classifiers depends on available labels and inference
-cost. We compare eleven open-weight models in a zero-shot benchmark and
-study lightweight adaptation of Gemma~4, Qwen3 and Phi-4 on a five-category
-Consumer Financial Protection Bureau task. The evaluation preserves three
-test subsets under balanced and imbalanced conditions, with paired short
-and longer narrative variants. Adaptation uses 500 balanced training
-records and a separate 2,000-record validation set. On the same 3,000
-balanced test records, adaptation improves weighted F1 by 2.83--9.62
-percentage points, with Qwen3 reaching 0.7891. Paired confidence intervals
-are positive across all evaluated conditions, and no adapted prediction
-falls outside the prescribed label set. Adaptation does not consistently
-reduce inference latency. A supervised support vector machine reaches
-weighted F1 of 0.7546 with 500 training records and 0.8291 with 20,000,
-while DistilBERT averages 0.8244 at the larger training budget. These
-results show how label availability and response-time requirements shape
-local deployment choices. Findings for adaptation are exploratory because
-only one training seed was evaluated.}
+\abstract{Consumer complaint routing requires accurate, reliable classification
+under practical label and response-time budgets. We benchmark eleven
+local open-weight models on a five-category Consumer Financial Protection
+Bureau short-narrative task and evaluate QLoRA adaptation of Gemma~4, Qwen3 and Phi-4.
+Each adapted model uses 500 balanced training records, 2,000 additional validation
+records and three training seeds, evaluated on the same 3,000 balanced
+test records. Balanced mean weighted-F1 gains are 3.21--9.72 percentage points,
+with adapted means of 0.7833--0.7857. At the same label budget,
+TF-IDF/SVM scores 0.7546 and validation-stopped DistilBERT averages 0.7150.
+With 2,000 training records, SVM reaches 0.7908; with 20,000, SVM and
+DistilBERT reach 0.8291 and 0.8244. Higher-budget LLM adaptation was
+not evaluated, leaving the equal-budget crossover unmeasured.
+A separate paired thinking-on/off
+control on 500 balanced inputs finds a Qwen3 F1 gain of 5.23 percentage
+points, while Gemma's 1.49-point change has a confidence interval
+including zero. Thinking increases mean latency substantially for both
+models, and adaptation does not consistently reduce it. Minority-class
+weaknesses persist after adaptation. Classifier choice depends on
+label availability and serving requirements. Findings are conditional
+on the preserved short-narrative corpus; temporal generalisation and
+concurrent serving were not evaluated.}
 
 \keywords{consumer complaint classification, large language models, QLoRA, label budgets, CFPB, local deployment}
 
@@ -90,7 +92,7 @@ a system that assumes a fixed category set.
 The closest published comparison, Roumeliotis~et~al.\
 \cite{roumeliotis2025think}, evaluates 14 commercial model APIs on the
 five-category CFPB task. Its best result is o1 at accuracy 0.777 and
-weighted F1 0.7764, with a reported historical API charge of
+weighted F1 0.7764, with a reported API charge of
 \$24.24 per thousand predictions. We examine whether local open-weight
 models provide competitive zero-shot performance, and how that choice
 changes when labelled training data are available. We evaluate balanced
@@ -99,64 +101,33 @@ invalid outputs, and inference latency. Exact commercial test identifiers
 are unavailable, so cross-study comparisons remain protocol-matched
 rather than instance-identical.
 
-We additionally ask whether 500 labelled complaints suffice to improve
-three representative LLMs within a 16~GB GPU budget, and whether those
-gains justify their training and serving costs relative to direct
-classifiers. The supervised experiments share a separate 2,000-record
-validation set; training-label budgets exclude these additional labels.
+We extend this commercial zero-shot task design with label-budget
+classifier controls and matched adaptation and thinking-policy comparisons.
+Joint analysis of prediction quality, invalid outputs and latency tests
+how classifier choice depends on label availability and serving requirements.
+
+The adaptation experiment uses 500 balanced training records per model
+within a 16~GB GPU budget. The supervised experiments share a separate
+2,000-record validation set; training-label budgets exclude these
+additional labels.
 QLoRA enables this test through low-rank updates to frozen
-quantised weights \cite{hu2021lora,dettmers2023qlora}. The experiment
-preserves every existing test file and selects adapters using validation
-loss, keeping test outcomes outside model selection.
+quantised weights \cite{hu2021lora,dettmers2023qlora}. Within-fit
+checkpoints are selected by validation loss on separate records.
 
 Our contributions are:
-
 \begin{enumerate}
-  \item We benchmark eleven open-weight LLMs —
-        \texttt{gemma2:9b}, \texttt{gemma4:12b}, \texttt{mistral:7b},
-        \texttt{mistral-nemo:12b}, \texttt{llama3.1:8b}, \texttt{phi4:14b},
-        \texttt{deepseek-r1:8b}, \texttt{deepseek-r1:14b},
-        \texttt{qwen3:8b}, \texttt{qwen3:14b}, and \texttt{gpt-oss:20b}
-        — on the same five-category CFPB zero-shot task, at
-        \textbf{zero API cost}. This expanded model set includes matched
-        8B/14B variants for Qwen3 and DeepSeek-R1, enabling within-line
-        scale comparisons; other family comparisons also change model generation.
-
-  \item We measure lightweight adaptation of Gemma~4~12B, Qwen3~14B
-        and Phi-4~14B using 500 balanced labels, with paired adapters-on/off
-        inference at identical model revisions and runtime settings,
-        serial latency, training time and peak allocated GPU memory.
-
-  \item We conduct a second experiment using a reduced-imbalance
-        class distribution, evaluating whether performance patterns
-        observed under artificial balance hold in a more realistic
-        scenario.
-
-  \item We provide a direct quantitative comparison with the paid-API
-        results of Roumeliotis~et~al.\ \cite{roumeliotis2025think},
-        showing that our best open-weight model has a numerically higher
-        score than GPT-4o under a matched evaluation protocol and remains
-        competitive with more expensive API-based alternatives.
-
-  \item We analyse off-label prediction behaviour — instances where
-        models invent labels outside the five prescribed categories —
-        as a proxy for instruction-following reliability.
-  \item We add supervised classical and DistilBERT baselines using
-        training/validation data separated from every saved test subset,
-        together with paired bootstrap uncertainty, multiplicity-adjusted
-        accuracy tests and equal-prior reweighting. The classical learning
-        curve separates 500/2,000/10,000/20,000-label budgets; LLM adaptation
-        is evaluated at 500 labels and one training seed.
+  \item Label-matched SVM and DistilBERT controls and a classical
+        500--20,000-record learning curve, with test-excluded splits and
+        explicit accounting for additional validation labels.
+  \item Matched base/adapter evaluation of three LLMs over three training
+        seeds, with validation-based checkpoint selection, paired
+        uncertainty, and measured training and serving resources.
+  \item A paired Gemma/Qwen thinking-on/off experiment with fixed
+        artifacts, prompts, inputs and total output-token budgets.
+  \item An eleven-model local zero-shot benchmark with balanced and
+        reduced-imbalance tests, paired 250/500-character variants,
+        invalid-output analysis and a contextual commercial-API comparison.
 \end{enumerate}
-
-The remainder of this paper is structured as follows.
-Section~\ref{sec:related} surveys the related literature.
-Section~\ref{sec:data} describes the dataset and preprocessing
-pipeline. Section~\ref{sec:setup} details the experimental setup.
-Section~\ref{sec:results} presents results for both experiments.
-Section~\ref{sec:discussion} discusses the findings.
-Section~\ref{sec:conclusion} concludes with directions for future work.
-
 
 % =============================================================
 \section{Related Work}
@@ -178,7 +149,7 @@ and data splits differ from this task \cite{roumeliotis2024tourism,
 roumeliotis2024ecommerce,li2024customerservice}. Recent analyses of
 LLM-assisted complaint writing provide additional motivation for
 robustness studies on newer corpora \cite{shin2025llmwritten,liang2025cfpb};
-our 2020--2021 data do not directly test that shift.
+our source-described 2020--2021 corpus does not directly test that shift.
 
 Reasoning-oriented models generate intermediate text before an answer
 \cite{wei2022chainofthought,deepseekllm2024,guo2025deepseekr1,qwen2025qwen3}.
@@ -199,7 +170,7 @@ We use these established methods to test the practical value of limited
 complaint labels on consumer hardware.
 Our contribution is an empirical local deployment comparison across
 label budgets and output-reliability requirements, with preserved test
-sets for supervised baselines. We do not claim a new LLM architecture.
+sets for supervised baselines.
 The extended background discussion is supplied in the supplementary material.
 
 
@@ -220,42 +191,34 @@ and \texttt{narrative} (the free-text complaint). The raw file
 comprises 162,421 records consolidated to five target product categories:
 \texttt{retail\_banking}, \texttt{credit\_reporting},
 \texttt{credit\_card}, \texttt{mortgages\_and\_loans}, and
-\texttt{debt\_collection}. This is the same dataset and label set used
+\texttt{debt\_collection}.
+
+This is the same dataset and label set used
 by Roumeliotis~et~al.\ \cite{roumeliotis2025think}; exact commercial
-test identifiers are unavailable, so comparability is at the protocol level.
+test identifiers are unavailable, so comparability is at the task-design
+level: shared source, five-category taxonomy, balanced sample size and
+JSON-output instructions. Identity of the complete normalisation,
+length-filtering and deduplication pipeline with the reference
+implementation has not been independently established.
 
 \subsection{Class Distribution}
 
-The original data are heavily imbalanced. After removing records with
-empty \texttt{product} or \texttt{narrative} fields (10 rows removed,
-162,411 remaining) and discarding narratives exceeding 500 characters
-(resulting in 103,915 usable records), the class distribution shifts
-to: \texttt{credit\_reporting}~63.6\,\%,
-\texttt{debt\_collection}~14.1\,\%,
-\texttt{mortgages\_and\_loans}~7.7\,\%,
-\texttt{credit\_card}~7.5\,\%, and
-\texttt{retail\_banking}~7.1\,\%. Before the length filter, the same
-five-category corpus contains 162,411 records with
-\texttt{credit\_reporting} accounting for 56.1\,\% of the data.
-Fig.~\ref{fig:class_dist} illustrates how this skew propagates into
-the experimental subsets. Exact narrative deduplication then removes
-31,304 records, leaving 72,611 unique narratives. In this sampling pool,
-\texttt{credit\_reporting} falls to 51.15\,\%, debt collection is
-18.17\,\%, mortgages/loans 10.70\,\%, retail banking 10.02\,\% and
-credit cards 9.97\,\%. Experiment~B rounds these deduplicated-pool
-proportions to a 1,000-record sample, retaining the
-dominant \texttt{credit\_reporting} class at 51.1\,\%, while the
-balanced condition enforces equal class sizes of 200~samples each.
-At $N{=}1{,}000$, a model that defaults to the majority class in the
-imbalanced setting would achieve 51.1\,\% accuracy with zero
-language understanding — motivating the need to report both conditions
-side by side.
+The non-missing corpus contains 162,411 records, of which 56.1\,\%
+are credit-reporting complaints. Filtering out narratives longer than
+500 characters leaves 103,915 records and raises this share to 63.6\,\%.
+Exact narrative deduplication removes 31,304 records, leaving a
+72,611-record sampling pool with 51.15\,\% credit reporting,
+18.17\,\% debt collection, 10.70\,\% mortgages/loans,
+10.02\,\% retail banking and 9.97\,\% credit cards.
+Fig.~\ref{fig:class_dist} distinguishes these preprocessing stages
+from the experimental samples.
 
 \begin{figure}[tb]
   \centering
   \includegraphics[width=\textwidth]{figures/v2/class_distribution.png}
   \caption{Class proportions (\%) in the length-filtered dataset before
-           deduplication ($N{=}103{,}915$), the imbalanced experimental subset
+           deduplication ($N{=}103{,}915$), the deduplicated sampling pool
+           ($N{=}72{,}611$), the reduced-imbalance experimental subset
            ($N{=}1{,}000$), and the balanced subset ($N{=}1{,}000$).
            Experiment~B rounds the proportions of the deduplicated
            $N{=}72{,}611$ pool, where credit reporting accounts for
@@ -284,62 +247,64 @@ in the following order to every record:
 Two experimental conditions are defined, each evaluated under a
 three-subset, two-length design to describe sampling variation.
 
-\textbf{Experiment~A (Balanced):} 200~records are sampled uniformly at
-random from each of the five categories (N=1,000 total) using
-stratified undersampling.
-This follows the evaluation protocol of
-Roumeliotis~et~al.\ \cite{roumeliotis2025think}; because the original
-sample identifiers are not publicly released, the comparison should be
-interpreted as protocol-matched rather than instance-identical.
+\textbf{Experiment~A (Balanced):} Each subset randomly samples 200
+records per category ($N=1{,}000$), following the balanced design of
+Roumeliotis~et~al.\ \cite{roumeliotis2025think}.
 
-\textbf{Experiment~B (Reduced imbalance):} The saved subsets use rounded
-class proportions of the deduplicated 72,611-record sampling pool.
-This pool is less skewed than the pre-deduplication length-filtered
-corpus, and differs from the original corpus distribution. Each contains $N{=}1{,}000$ with
-\texttt{credit\_reporting}~51.1\,\%,
-\texttt{debt\_collection}~18.2\,\%,
-\texttt{mortgages\_and\_loans}~10.7\,\%,
-\texttt{credit\_card}~10.0\,\%, and
-\texttt{retail\_banking}~10.0\,\%.
-The dominant \texttt{credit\_reporting} class means a naive majority
-baseline would reach only 51.1\,\% accuracy with no language understanding.
-This second experiment, absent from the closest antecedent benchmark,
-assesses how class imbalance affects both accuracy estimates and
-per-class performance patterns.
+\textbf{Experiment~B (Reduced imbalance):} Each $N=1{,}000$ subset
+rounds the deduplicated-pool proportions to 51.1\,\% credit reporting,
+18.2\,\% debt collection, 10.7\,\% mortgages/loans and
+10.0\,\% each for retail banking and credit cards. A majority-only
+classifier would achieve 51.1\,\% accuracy. This condition measures
+sensitivity to class proportions within the processed pool, rather
+than representing deployment traffic.
 
-\textbf{Multi-seed and narrative-length design:}
+\textbf{Test-subset and narrative-length design:}
 Each condition is replicated with three subset identifiers (1, 2,
 and 3) and at two narrative character-length limits (250 and 500
 characters), yielding 12 datasets per model and 132 inference runs in
-total (11~models $\times$~3~seeds~$\times$~2~conditions~$\times$~2~length
+total (11~models $\times$~3~test~subsets~$\times$~2~conditions~$\times$~2~length
 limits). The 250-character subsets contain exactly the same records in
 the same order as their 500-character counterparts, with narratives
 truncated to 250 characters. Balanced and reduced-imbalance subsets
 share 2,067 of their 3,000 records per condition at 500 characters,
 yielding 3,933 unique full-text inputs across both conditions. They
 are therefore not independent replications.
-The archived Ollama result tables use the 500-character variant and
-mean~$\pm$~standard deviation across the three test subsets. New HF
+
+The eleven-model GGUF benchmark tables use the 500-character variant
+and mean~$\pm$~standard deviation across the three test subsets. HF
 adaptation comparisons instead pool 3,000 predictions per mode and
 condition, with paired cluster-bootstrap intervals. The three test
-identifiers are distinct from the single LLM adaptation training seed.
+identifiers are distinct from the three LLM adaptation training seeds.
 The 250-character runs provide a narrative-length
 sensitivity check discussed in Section~\ref{sec:sensitivity}.
 These subsets describe variation within this short-narrative population;
 they do not establish stability across training seeds, prompts or future data.
 
-The two length variants compare truncated and retained text from the
-same short-narrative population. The narrative-length histogram is
-provided in Supplementary Fig.~\ref{S-fig:char_hist}.
+All evaluation protocols use subsets of the same fixed benchmark.
+Model selection for adaptation considers zero-shot performance and
+deployment characteristics (Section~\ref{sec:qlora_methods});
+checkpoint and hyperparameter selection use the separate validation
+set (Section~\ref{sec:supervised_methods}). Supplementary
+Fig.~\ref{S-fig:char_hist} describes the source narrative-length distribution.
 
 
 % =============================================================
 \section{Experimental Setup}
 \label{sec:setup}
 
+The three LLM experimental arms answer distinct questions. The
+eleven-model GGUF benchmark evaluates zero-shot deployment configurations; paired HF
+runs estimate adaptation gains against matched frozen bases; the GGUF
+thinking control estimates policy differences on a fixed 500-input
+subset. Absolute scores across these arms are not directly
+interchangeable because artifacts, inference settings and evaluation
+samples differ. Adaptation and thinking gains are therefore interpreted
+within their respective paired controls.
+
 \subsection{Infrastructure}
 
-The new supervised and paired HF adaptation experiments run on an
+The supervised classifier and paired HF adaptation experiments run on an
 Ubuntu workstation with an Intel Core i7-14700 processor, 32\,GB RAM,
 and an NVIDIA GeForce RTX~5060~Ti with 16\,GB VRAM. The adaptation
 environment uses Python~3.12, PyTorch~2.14.1, Transformers~5.18.0,
@@ -348,54 +313,41 @@ SHA-256 hashes, package versions and run statuses are saved. The HF
 evaluation uses cached weights in offline mode; complaint narratives
 are not sent to a third-party model service.
 
-The archived zero-shot benchmark uses Ollama, a self-contained serving runtime
+The GGUF zero-shot benchmark uses Ollama \cite{ollama2026docs}, a self-contained serving runtime
 that manages model loading, KV-cache management, and the local REST API.
 Its Python inference script communicates through a local REST endpoint.
-Historical artifact digests, thinking modes and execution logs are
-incomplete; the saved results do not establish every historical hardware
-or serving configuration. New HF timing is consequently reported
-separately from archived Ollama timing.
+GGUF request timing and HF generation timing use different runtime
+settings and measurement boundaries and are reported separately.
 
 \subsection{Models}
 
-Table~\ref{tab:models} lists all eleven models. The original grouping
-treated five builds as reasoning models and six as standard models.
-However, upstream Gemma~4 supports configurable thinking \cite{google2026gemma4card};
-the exact thinking mode of the saved \texttt{gemma4:12b} runs was not
-recorded and its grouping remains unverified.
-Only Qwen3 and DeepSeek-R1 provide within-line 8B/14B pairs;
-other comparisons mix parameter count, generation, and training recipe.
-The builds use compressed GGUF weights. Current local metadata
-identifies \texttt{qwen3:8b} as Q4\_K\_M and
-\texttt{gpt-oss:20b} as MXFP4, so a uniform Q4\_K\_M claim is
-inappropriate. Current metadata does not establish the identity of
-every historical artifact; missing digests remain a reproducibility limitation.
-The reported 13.0\,GB size for \texttt{gpt-oss:20b} is an artifact size,
-not a measurement of total runtime VRAM. Memory feasibility of the new
-three-model adaptation experiment is measured separately.
-The evaluated model families build on recent open-weight model lines,
-including LLaMA \cite{grattafiori2024llama3}, Mistral \cite{jiang2023mistral},
-Gemma \cite{team2024gemma2}, Phi \cite{abdin2024phi4}, Qwen
-\cite{qwen2025qwen3}, and DeepSeek \cite{deepseekllm2024,guo2025deepseekr1}.
-Model names in Table~\ref{tab:models} are the exact Ollama tags used
-in the experiments. The family column records the upstream lineage or
-registry metadata associated with each tag and should not be interpreted
-as equivalence to a proprietary API model with a similar provider name.
-For this archived zero-shot benchmark, artifacts were obtained through
-\texttt{ollama pull <tag>} without task-specific fine-tuning. The new
-adaptation experiment uses separately pinned HF weights, as detailed below.
-\texttt{gpt-oss:20b} is an open-weight reasoning model released by
-OpenAI and distributed through the Ollama registry; it requires no API
-key and its weights are publicly accessible via
-\texttt{ollama pull gpt-oss:20b}.
-The ``OpenAI'' entry in the Family column reflects the model's
-originating developer, not access through any proprietary API or
-commercial service.
+Table~\ref{tab:models} lists the eleven Ollama tags and reported
+artifact sizes. They were evaluated without task-specific fine-tuning.
+The families include LLaMA \cite{grattafiori2024llama3}, Mistral
+\cite{jiang2023mistral}, Gemma~2/4 \cite{team2024gemma2,google2026gemma4card}, Phi
+\cite{abdin2024phi4}, Qwen \cite{qwen2025qwen3}, DeepSeek
+\cite{deepseekllm2024,guo2025deepseekr1} and OpenAI's open-weight
+gpt-oss \cite{openai2025gptoss}; the latter uses local weights, without
+a proprietary API.
+
+Model tags do not isolate architecture, parameter count or reasoning.
+Gemma~4 supports configurable thinking \cite{google2026gemma4card},
+but its mode was not recorded in the eleven-model benchmark. Its leading
+zero-shot point estimate therefore cannot be attributed to thinking
+being enabled or disabled. DeepSeek's current 8B/14B
+tags map to R1-0528-Qwen3 and R1-Distill-Qwen2.5, respectively
+\cite{ollama2026deepseekregistry}; missing artifact digests prevent
+a clean size comparison. Current metadata also shows differing
+quantisation formats, including Q4\_K\_M for Qwen3~8B and MXFP4 for
+gpt-oss. Registry tags alone do not uniquely identify the evaluated weights. Artifact sizes are not peak runtime VRAM measurements.
+The HF adaptation and GGUF thinking controls pin artifacts and
+report their protocols separately.
 
 \begin{table}[!t]
   \renewcommand{\arraystretch}{1.2}
-  \caption{Open-weight model builds evaluated. Historical artifact sizes
-           are reported; peak runtime VRAM was not recorded.}
+  \caption{Open-weight model builds evaluated in the GGUF benchmark. Reported
+           artifact sizes are listed; peak runtime VRAM was not recorded. Type records
+           the original grouping, not a verified per-request thinking flag.}
   \label{tab:models}
   \centering
   \footnotesize
@@ -422,10 +374,12 @@ commercial service.
 
 \subsection{Prompt Design}
 
-A single, model-agnostic prompt is used for all models and all
-experiments. The prompt follows the five-label JSON-output template
-used by Roumeliotis~et~al.\ \cite{roumeliotis2025think} to ensure
-comparability:
+A common task instruction and five-label taxonomy are used across
+the LLM experiments, with arm-specific chat templates, thinking policies
+and generation limits rather than identical rendered model inputs.
+The instruction follows the JSON-output template
+used by Roumeliotis~et~al.\ \cite{roumeliotis2025think} to align
+task instructions:
 
 \begin{quote}
 \textit{You are an AI assistant specializing in consumer complaint
@@ -437,7 +391,7 @@ classification in the following JSON format without explanations:
 \texttt{\{"product": "chosen\_category\_name"\}}. Complaint: [NARRATIVE]}
 \end{quote}
 
-For the archived Ollama runs, temperature is set to 0 to reduce
+For the eleven-model GGUF benchmark, temperature is set to 0 to reduce
 sampling variability and improve reproducibility. No explicit
 \texttt{top\_p}, \texttt{max\_tokens}, stop-sequence, or model-specific
 thinking-mode flags are set; Ollama defaults are used for all other
@@ -449,73 +403,55 @@ for the last valid \texttt{\{"product": "..."\}} occurrence using a
 regular expression, accounting for models that prepend reasoning traces
 before the answer.
 
-The inference script was implemented using only Python standard-library
-modules (\texttt{csv}, \texttt{json}, \texttt{urllib}, \texttt{time},
-\texttt{argparse}), eliminating the need for any \texttt{pip}-installed
-dependencies on the compute node. Each request is retried once on
-HTTP failure before being recorded as an error; errors are included in
-the final count. Saved responses are limited to 2,000 characters and
-newlines are replaced with spaces. The legacy parser also falls back
-to a category mentioned anywhere in the response when no JSON match
-is found, which can accept explanatory text as a classification.
-The CSVs omit separate thinking text, termination reasons, and token
-counts, limiting post-hoc auditing.
-The full experiment was orchestrated as local batch runs totalling
-132 tasks (11~models~$\times$~12~datasets), with runs scheduled
-sequentially or in controlled parallel groups according to GPU memory availability.
+The GGUF benchmark script retries an HTTP failure once and counts unresolved
+errors. It saves at most 2,000 response characters, replaces newlines
+with spaces and falls back to a category mentioned in prose if JSON
+extraction fails. Separate thinking text, termination reasons and
+token counts were not retained. Section~\ref{sec:audit} checks whether
+strict JSON reparsing changes the classifications.
 
 \subsection{Evaluation Metrics}
 
-Following the closest antecedent benchmark, we compute four primary metrics over
-all $N{=}1{,}000$ predictions per run: \emph{exact-match accuracy},
-\emph{weighted precision}, \emph{weighted recall}, and
-\emph{weighted F1-score}. We additionally report \emph{macro-F1},
-which weights all classes equally and is especially informative for
-the imbalanced experiment. Weighted variants weight each class by its
-sample size, making them appropriate for comparison with the reference
-paper but potentially optimistic under class imbalance. We additionally
-record the \emph{mean
-latency} (seconds per prediction, wall-clock time) and the number
-of \emph{off-label} predictions — responses where the model returned
-a category name not in the prescribed five, or failed to return
-valid JSON entirely. Off-label predictions are counted as errors.
-The API cost for all experiments is \$0. Compute time is supplied by
-the local workstation rather than a commercial LLM API.
-
+Each GGUF benchmark run scores all $N=1{,}000$ predictions using accuracy,
+weighted precision, recall and F1. Macro-F1 gives equal weight to the
+five classes and complements weighted metrics under imbalance.
+Invalid outputs include parsing failures and out-of-taxonomy labels;
+they remain errors in the full denominator. Mean request latency
+and invalid-output counts accompany the scores. All local runs incur
+zero model-API fees; local compute and electricity costs are not estimated.
 
 % =============================================================
+\input{supervised_methods}
 \input{qlora_methods}
 
 \section{Results}
 \label{sec:results}
 
-\subsection{Experiment A: Balanced Evaluation}
+We first report direct classifiers at explicit label budgets, followed
+by matched HF adaptation and controlled GGUF thinking policies.
+The eleven-model zero-shot benchmark then supplies context
+on model configurations, class imbalance and published API results.
+
+\input{supervised_baselines}
+\input{qlora_results}
+\input{thinking_control}
+
+\subsection{Zero-Shot GGUF Benchmark: Balanced Evaluation}
+\label{sec:zero_shot_results}
 
 Table~\ref{tab:results_balanced} presents the full results for
 Experiment~A, reported as means over three test subsets.
-The \texttt{gemma4:12b} model achieves the
-highest accuracy ($0.773 \pm 0.017$) and weighted F1 ($0.774 \pm 0.016$),
-numerically exceeding the larger
-\texttt{gpt-oss:20b} (F1~$0.749 \pm 0.019$) and ranking first among
-all eleven saved model runs. Its unrecorded thinking mode prevents
-using this result as evidence that reasoning is unnecessary.
-Second place goes to \texttt{qwen3:14b} (F1~$0.750 \pm 0.011$),
-a reasoning model, followed by \texttt{gpt-oss:20b} in third.
-\texttt{deepseek-r1:14b} (F1~$0.724 \pm 0.007$) and
-\texttt{qwen3:8b} (F1~$0.717 \pm 0.002$) complete the top five.
-The standard \texttt{phi4:14b} (F1~$0.706 \pm 0.011$) ranks sixth.
-Notably, \texttt{deepseek-r1:8b} (rank~7, F1~$0.683 \pm 0.012$)
-only narrowly exceeds the standard \texttt{gemma2:9b} (rank~8,
-F1~$0.676 \pm 0.008$), confirming that 8B reasoning models do not
-automatically dominate similarly sized standard models. The weakest model is \texttt{mistral-nemo:12b}
-(F1~$0.540 \pm 0.025$, rank~11), which despite being a 12B model
-scores below both \texttt{mistral:7b} (F1~$0.587$) and
-\texttt{llama3.1:8b} (F1~$0.587$), showing lower classification quality for this saved deployment
-configuration. Its low invalid-output count does not support attributing
-the difference to a JSON-format limitation or to architecture alone. The low standard deviations across most models —
-notably \texttt{qwen3:8b} ($\pm$0.002) and \texttt{mistral:7b}
-($\pm$0.004) — show limited score variation across these test subsets;
-small standard deviations alone do not establish every rank separation.
+Gemma~4 has the highest mean weighted F1 ($0.774\pm0.016$),
+followed by Qwen3~14B ($0.750\pm0.011$) and gpt-oss
+($0.749\pm0.018$). These are descriptive ranks: small subset standard
+deviations do not establish every pairwise difference. Gemma's
+unrecorded thinking mode also prevents attributing its result to
+reasoning being enabled or disabled.
+
+Phi-4 combines F1~0.706 with low recorded latency. Mistral-Nemo
+has the lowest F1 ($0.540\pm0.025$), despite few invalid outputs;
+its deficit therefore concerns classification quality in the saved
+configuration rather than primarily output format.
 
 \begin{table}[!t]
   \renewcommand{\arraystretch}{1.2}
@@ -544,20 +480,11 @@ small standard deviations alone do not establish every rank separation.
   \end{tabular}
 \end{table}
 
-The \texttt{OL} column in Table~\ref{tab:results_balanced} is
-particularly informative. The three zero-off-label models among
-the top-five (\texttt{qwen3:14b}, \texttt{gpt-oss:20b}, and
-\texttt{qwen3:8b}) are all reasoning models. The two models
-with severe format-following failures are standard models:
-\texttt{llama3.1:8b} produces 67 off-label predictions and
-\texttt{mistral:7b} produces 59. Importantly, \texttt{gemma4:12b}
-(rank~1) produces only 3.7 invalid predictions on average.
-Its saved failures are empty responses recorded as parse errors,
-rather than valid out-of-taxonomy labels. Their cause cannot be
-determined from the retained response field alone. At the same time, \texttt{phi4:14b}
-is notable among standard models: it reaches F1~0.706 with only one
-off-label prediction and a mean latency of 0.54~s, making it the
-strongest low-latency alternative.
+Qwen3~14B, gpt-oss and Qwen3~8B produce no invalid outputs in
+these balanced tests. Llama~3.1 and Mistral~7B average 66.7 and 58.7
+invalid outputs per subset, respectively. Gemma averages 3.7 empty
+responses; retained logs do not identify their cause. Phi-4 averages
+one invalid output.
 
 Exploratory exact two-sided McNemar tests compare Gemma with four
 leading alternatives in each of three test subsets. Treating these as a
@@ -569,18 +496,14 @@ passes this twelve-test threshold in any subset. The reference model
 was selected after inspecting scores, so these comparisons remain
 exploratory and do not establish an F1 ranking or equality between
 non-significant pairs.
-Llama~3.1 and Mistral~7B both round to F1~0.587, above Mistral-Nemo's 0.540.
 
 For Experiment~A, macro-F1 is numerically identical to weighted F1
 because all five classes have equal support. Per-class inspection
 reveals that even the best model is uneven across labels:
 \texttt{gemma4:12b} reaches F1 0.825 on \texttt{retail\_banking} and
-0.820 on \texttt{mortgages\_and\_loans} but drops to 0.718 on
+0.819 on \texttt{mortgages\_and\_loans} but drops to 0.718 on
 \texttt{debt\_collection} and 0.743 on \texttt{credit\_reporting}.
-This motivates the macro-F1 reporting in Experiment~B, where
-minority-class behaviour can otherwise be hidden by the majority class.
-Detailed per-class F1 for the leading models are reported in
-Table~\ref{tab:per_class}.
+Table~\ref{tab:per_class} reports the leading models' class scores.
 
 Supplementary Fig.~\ref{S-fig:f1_bar} shows the balanced F1 distribution.
 Supplementary Figs.~\ref{S-fig:conf_best}, \ref{S-fig:conf_phi4}, and
@@ -590,28 +513,19 @@ Debt collection is frequently predicted as credit reporting in these
 matrices, even for models with almost no invalid outputs. Llama~3.1's larger invalid-output
 count primarily reflects refusals rather than invented category names.
 
-\subsection{Experiment B: Imbalanced Evaluation}
+\subsection{Experiment B: Reduced-Imbalance Evaluation}
 
-Table~\ref{tab:results_imbalanced} presents results for Experiment~B,
-again as means over three seeds. All eleven models show numerically
-higher accuracy and F1 compared to Experiment~A.
-\texttt{gpt-oss:20b} regains the top position under imbalanced conditions,
-with mean accuracy $0.782 \pm 0.017$ and F1 $0.782 \pm 0.016$.
-\texttt{gemma4:12b} follows closely in second place
-(Acc~$0.776 \pm 0.015$, F1~$0.779 \pm 0.014$), and
-\texttt{qwen3:14b} ranks third (F1~$0.772 \pm 0.013$).
-The top five models (\texttt{gpt-oss:20b}, \texttt{gemma4:12b},
-\texttt{qwen3:14b}, \texttt{qwen3:8b}, \texttt{phi4:14b}) all achieve
-weighted F1 $\geq 0.754$. The imbalanced setting changes the absolute
-score level more than the identity of the leading models. However,
-the gains for \texttt{llama3.1:8b} and \texttt{mistral:7b} should not
-be interpreted as genuine robustness improvements, because both models
-still produce many off-label outputs and benefit from the dominant
-\texttt{credit\_reporting} class.
+Table~\ref{tab:results_imbalanced} reports three-subset means for
+Experiment~B. All eleven models have numerically higher accuracy and
+weighted F1 than in A. Gpt-oss leads with F1~$0.782\pm0.016$,
+followed by Gemma ($0.779\pm0.014$) and Qwen3~14B
+($0.772\pm0.013$). Llama and Mistral retain substantial invalid-output
+counts. Higher aggregate scores under different class proportions
+do not establish improved robustness.
 
 \begin{table}[!t]
   \renewcommand{\arraystretch}{1.2}
-  \caption{Experiment B Results — Imbalanced ($N = 1{,}000$, mean of 3 test subsets; sample std in parentheses)}
+  \caption{Experiment B Results — Reduced imbalance ($N = 1{,}000$, mean of 3 test subsets; sample std in parentheses)}
   \label{tab:results_imbalanced}
   \centering
   \scriptsize
@@ -636,17 +550,10 @@ still produce many off-label outputs and benefit from the dominant
   \end{tabular}
 \end{table}
 
-The relative model ranking is broadly preserved compared to
-Experiment~A, with one notable reordering: \texttt{gpt-oss:20b}
-reclaims the top position while \texttt{gemma4:12b} drops to second.
-The macro-F1 column makes the imbalance effect visible:
-\texttt{gpt-oss:20b} has weighted F1~0.782 but macro-F1~0.740, while
-\texttt{llama3.1:8b} has weighted F1~0.647 but macro-F1~0.564.
-The gap shows that weighted metrics substantially overstate
-minority-class performance in the imbalanced setting.
-The accuracy distribution broadly follows Experiment~A
-(Fig.~\ref{fig:comparison_ab} red bars), with \texttt{gpt-oss:20b},
-\texttt{gemma4:12b}, and \texttt{qwen3:14b} forming the leading group.
+Macro-F1 exposes the difference from weighted F1: gpt-oss scores
+0.740 versus 0.782, and Llama~3.1 scores 0.564 versus 0.647.
+Class-specific scores in Table~\ref{tab:per_class} show where the
+majority class masks weaker minority performance.
 
 \subsection{Cross-Experiment Comparison}
 
@@ -664,50 +571,45 @@ this does not isolate a causal effect of class imbalance.
 \begin{figure}[tb]
   \centering
   \includegraphics[width=\textwidth]{figures/v2/comparison_A_vs_B.png}
-  \caption{Side-by-side comparison of accuracy (mean~$\pm$~std, 3 seeds)
+  \caption{Accuracy comparison (mean~$\pm$~sample std over 3 test subsets)
            across Experiment~A (Balanced, blue) and Experiment~B (Imbalanced, red)
            for all models ($N{=}1{,}000$). The dashed reference line marks
            the best published paid-API result (o1, 0.777)
            from \cite{roumeliotis2025think}. The upward shift
-           in Experiment~B partially reflects class imbalance rather than
-           genuine model improvement.}
+           in Experiment~B partially reflects class imbalance and does not isolate improved class-conditional performance.}
   \label{fig:comparison_ab}
 \end{figure}
 
 \subsection{Comparison with Paid-API Models}
 
-Table~\ref{tab:vs_reference} compares selected local results with
-published paid-API results from Roumeliotis~et~al.\
-\cite{roumeliotis2025think} (the complete plot is Supplementary Fig.~\ref{S-fig:vs_reference})
-and summarises
-the key comparison points. The best archived zero-shot model, \texttt{gemma4:12b},
-achieves a mean accuracy of $0.773 \pm 0.017$ and F1 of $0.774 \pm 0.016$
-— numerically close to the paid GPT-4.5 (F1~0.7763) and
-within 0.003 of o1 (F1~0.7764) under the matched protocol, at
-zero API cost. Similar point estimates indicate competitive local
-performance but do not demonstrate statistical equivalence.
-\texttt{qwen3:14b} (F1~$0.750$) and \texttt{gpt-oss:20b} (F1~$0.749$)
-both have point estimates above the paid GPT-4o baseline (0.7358), although they remain
-below Claude~3.7 Sonnet (F1~0.7626). Because the reference paper does not
-publish the exact sampled complaint identifiers, this comparison should be
-read as protocol-matched rather than paired on identical instances.
-The cost differential is stark: the reference paper reported o1 costs of
-\$24.24 per thousand predictions, versus \$0.00 for all our models.
-Thus, Table~\ref{tab:vs_reference} supports a strong result:
-the best local model (\texttt{gemma4:12b}) is numerically close to frontier paid
-models on this protocol while eliminating API fees and data
-transfer to third parties.
+Table~\ref{tab:vs_reference} places local balanced results alongside
+the published API results of Roumeliotis~et~al.\
+\cite{roumeliotis2025think}; Supplementary Fig.~\ref{S-fig:vs_reference}
+shows the complete comparison. Gemma's mean F1~0.774 is numerically
+close to GPT-4.5 (0.7763) and o1 (0.7764). Qwen3~14B and gpt-oss
+have point estimates above GPT-4o (0.7358) and below Claude~3.7
+Sonnet (0.7626). Exact reference test identifiers and predictions
+are unavailable, so these cross-study observations establish neither
+paired superiority nor statistical equivalence.
+
+The table compares the model-API fees reported by the reference study: o1 was reported at
+\$24.24 per thousand predictions, while local inference incurs no
+third-party model-API charge. Hardware, electricity and maintenance
+are excluded from this comparison.
 
 \begin{table}[!t]
   \renewcommand{\arraystretch}{1.2}
-  \caption{Zero-Shot Performance vs.\ API Cost (Balanced, $N{=}1{,}000$). Commercial API figures are from \cite{roumeliotis2025think}.}
+  \caption{Balanced zero-shot performance and third-party API fees per
+  1,000 predictions. Commercial scores and reported fees are from
+  \cite{roumeliotis2025think}; local scores summarise three 1,000-record
+  subsets. Hardware, electricity and maintenance are excluded.}
   \label{tab:vs_reference}
   \centering
   \scriptsize
   \setlength{\tabcolsep}{2pt}
   \begin{tabular}{@{}llrrl@{}}
     \toprule
-    \textbf{Model} & \textbf{Source} & \textbf{Accuracy} & \textbf{F1} & \textbf{Cost/1k} \\
+    \textbf{Model} & \textbf{Source} & \textbf{Accuracy} & \textbf{F1} & \textbf{API fee/1k} \\
     \midrule
     o1                          & Paid API & 0.777             & 0.7764            & \$24.24 \\
     GPT-4.5                     & Paid API & 0.774             & 0.7763            & \$12.32 \\
@@ -715,7 +617,7 @@ transfer to third parties.
     Claude~3.7~Sonnet           & Paid API & 0.765             & 0.7626            & \$0.64 \\
     Gemini~2.0~Flash            & Paid API & 0.758             & 0.7586            & \$0.04 \\
     \texttt{qwen3:14b}          & Open-weight & $0.751{\pm}.011$ & $0.750{\pm}.011$ & \$0.00 \\
-    \texttt{gpt-oss:20b}        & Open-weight & $0.748{\pm}.020$ & $0.749{\pm}.019$ & \$0.00 \\
+\texttt{gpt-oss:20b}        & Open-weight & $0.748{\pm}.020$ & $0.749{\pm}.018$ & \$0.00 \\
     GPT-4o                      & Paid API & 0.736             & 0.7358            & \$0.45 \\
     \texttt{deepseek-r1:14b}    & Open-weight & $0.724{\pm}.006$ & $0.724{\pm}.007$ & \$0.00 \\
     \texttt{qwen3:8b}           & Open-weight & $0.717{\pm}.003$ & $0.717{\pm}.002$ & \$0.00 \\
@@ -737,6 +639,7 @@ one position between the two length limits. Most models improve by
 0--3 percentage points moving from shorter to longer narratives, with
 \texttt{deepseek-r1:14b} (+1.6~pp) and \texttt{llama3.1:8b} (+2.8~pp)
 showing gains when additional text from the same complaints is retained.
+
 Pairing all 3,000 balanced predictions and applying Holm correction
 over 22 model--condition tests gives significant accuracy changes for
 \texttt{llama3.1:8b} ($p_{\mathrm{adj}}<0.001$) and
@@ -751,29 +654,27 @@ length settings; this does not establish robustness to longer narratives.
 
 
 
-\subsection{Latency Analysis}
+\subsection{GGUF Request Latency}
 
-Mean per-prediction latency is shown in the Lat.(s) column of
-Tables~\ref{tab:results_balanced} and~\ref{tab:results_imbalanced}.
-Standard models are notably faster: \texttt{mistral:7b} completes
-a prediction in 0.23~s on average, while \texttt{phi4:14b} requires
-only 0.54~s despite being twice the parameter count. Reasoning models
-are slower: \texttt{deepseek-r1:14b} takes 9.33~s per prediction due
-to its end-to-end generation behaviour. \texttt{gemma4:12b}
-has the highest latency at 17.1~s. Separate thinking output, token
-counts, and termination reasons were not saved, so this latency
-cannot be attributed to a specific generation mechanism. The
-latency–accuracy trade-off is model-type dependent: \texttt{phi4:14b}
-has the highest F1 among the saved configurations with mean latency below one second (0.54~s,
-F1~0.706). The full Experiment~B F1 plot is supplied as
-Supplementary Fig.~\ref{S-fig:f1_imbalanced}.
+Tables~\ref{tab:results_balanced} and~\ref{tab:results_imbalanced}
+report per-request means for the 500-character GGUF tests. In A,
+Mistral~7B is fastest (0.23~s),
+while Phi-4 has the highest F1 among configurations averaging below
+one second (0.54~s, F1~0.706). Gemma is slowest at 17.1~s;
+missing thinking and token logs prevent explaining that latency.
+These benchmark request means are reported separately from the
+paired HF and thinking-control timings. Supplementary Fig.~\ref{S-fig:f1_imbalanced}
+provides the complete Experiment~B F1 plot.
 
 \subsection{Per-Class Breakdown for Leading Models}
 \label{sec:per_class_metrics}
 
 Table~\ref{tab:per_class} reports per-class F1 for the three leading
 models in each experiment, confirming that aggregate weighted F1 masks
-important minority-class variation. In Experiment~B all three models
+important minority-class variation. In Experiment~B, the four
+non-credit-reporting categories have lower support (10.0--18.2\,\%)
+than credit reporting (51.1\,\%); ``minority'' refers to this support.
+All three models
 jump to ${\geq}0.84$ F1 on \texttt{credit\_reporting} while minority
 classes remain in the 0.65--0.77 range, showing the class-specific variation discussed in Section~\ref{sec:discussion}.
 
@@ -807,197 +708,117 @@ classes remain in the 0.65--0.77 range, showing the class-specific variation dis
 
 % =============================================================
 \input{statistical_audit}
-\input{supervised_baselines}
-\input{qlora_results}
 
 \section{Discussion}
 \label{sec:discussion}
 
-\subsection{Reasoning vs.\ Standard Models}
+\subsection{Thinking, Reliability and Serving Cost}
 
-\texttt{gemma4:12b} achieves the highest weighted F1 in
-Experiment~A ($0.774 \pm 0.016$), numerically exceeding
-\texttt{gpt-oss:20b} (F1~$0.749$). However, Gemma~4 supports thinking,
-and the saved runs did not record whether it was active. This benchmark
-therefore compares deployed model configurations rather than isolating
-the benefit of reasoning. A controlled thinking-on/off comparison on
-identical complaints is needed to support that causal claim.
+The controlled experiment in Section~\ref{sec:thinking_control} shows
+that thinking has model-dependent value under the same total output
+budget. Qwen3 gains 5.23 weighted-F1 percentage points, with a paired
+interval excluding zero; Gemma's 1.49-point change is inconclusive.
+Mean latency rises approximately 34-fold and 22-fold, respectively.
+Gemma also exhausts the output budget on 2.8\,\% of thinking-on
+requests. Enabling thinking therefore requires evaluating both final
+answer quality and completion reliability. This paired control isolates the thinking-policy comparison within
+each fixed model configuration.
 
-At the 8B tier, \texttt{deepseek-r1:8b} and \texttt{qwen3:8b} generally
-outperform similarly sized \texttt{gemma2:9b}, \texttt{llama3.1:8b},
-and \texttt{mistral:7b}. At 14B, \texttt{qwen3:14b} (F1~0.750) and
-\texttt{phi4:14b} (F1~0.706) have different point estimates. These
-comparisons also change architecture and training recipe and cannot
-isolate a reasoning effect \cite{wei2022chainofthought,guo2025deepseekr1}.
+Invalid outputs require diagnosis beyond a single failure count.
+GGUF benchmark Llama failures often contain refusals, whereas Mistral~7B
+often emits valid JSON with unsupported labels. Format constraints
+alone would not enforce a correct classification or remove refusals;
+their effect was not tested here. Within-family score differences
+also mix size, generation, training recipe or backbone, as detailed
+in the supplementary material.
 
-An unexpected finding is the underperformance of \texttt{mistral-nemo:12b}
-(F1~$0.540 \pm 0.025$ in Experiment~A, rank~11 of~11), which falls
-below both its smaller sibling \texttt{mistral:7b} (F1~$0.587$) and
-all other 12B-tier models. Its off-label rate is low (0.7 per run),
-indicating that the model does produce parseable JSON but assigns
-incorrect categories. This difference is specific to the saved model/runtime configuration;
-the experiment does not isolate architecture, alignment or quantisation.
+\subsection{Label Budgets and Deployment Choices}
 
-\subsection{Within-Family Performance Patterns}
+At the matched 2,500-label budget (500 training and 2,000 validation),
+adapted LLM mean weighted F1 exceeds the SVM point estimate by
+approximately 2.9--3.1 percentage points on the balanced tests.
+This gain accompanies warm serial latency of 436--656~ms for the
+GPU-served LLMs, compared with 0.29~ms for CPU SVM on the same
+workstation. The observed trade-off makes response-time requirements
+central to model selection. These point estimates do not establish
+model-to-model superiority.
 
-Within the Qwen3 line, 14B exceeds 8B by 0.033 F1 points; the
-corresponding DeepSeek-R1 gain is 0.041. Both are within-line scale
-comparisons. Gemma~4 exceeds Gemma~2 by 0.098, but changes generation,
-size, and potentially thinking mode. Mistral-Nemo~12B falls below
-Mistral~7B despite having more parameters. These observations establish
-performance differences rather than their architectural causes.
-Detailed comparisons are supplied in the supplementary material.
+With 2,000 training labels plus the same validation budget,
+SVM reaches 0.7908; the 20,000-record classifiers
+score still higher. These observed regimes support direct classifiers
+when suitable labels are available. The unmeasured LLM learning
+curve prevents identifying an equal-budget crossover.
 
-\subsection{Output Reliability and Inference Latency}
+Among the GGUF zero-shot configurations, Gemma offers the highest
+balanced point estimate, Phi-4 the highest F1 among configurations
+averaging below one second, and Qwen3~8B a smaller artifact with few
+invalid outputs. These are conditional trade-offs, not deployment
+guarantees: latency depends on hardware and runtime settings,
+artifact size does not establish runtime memory, and serial means do
+not establish tail latency or concurrent throughput.
 
-Invalid predictions count as errors in accuracy, recall, and F1.
-Llama~3.1~8B records a mean of 67 parse errors in Experiment~A and
-57 in B, often explicit refusals. Mistral~7B records 59 and 42
-out-of-taxonomy labels, usually parseable JSON. Both failure modes
-remain substantial. They require different remediation: response
-format enforcement does not by itself prevent refusals or resolve
-ambiguous labels. Reasoning-enabled builds generally show fewer
-invalid outputs, but architecture and alignment also differ, preventing
-a causal attribution to reasoning.
-
-Among saved zero-shot runs, Phi-4~14B combines weighted F1~0.706 with
-0.54~s mean latency; Mistral~7B is faster at 0.23~s but much less
-accurate. DeepSeek-R1~14B takes 9.33~s. Recorded latency reflects
-end-to-end server requests, rather than pure decoding throughput;
-separate thinking, token counts, and termination reasons were not
-retained. The supervised baselines use direct classifier inference
-and their new serial latency measurements include feature/token preparation.
-
-\subsection{Deployment Recommendations}
-
-Deployment choices depend on available labels and the serving runtime.
-With 500 training labels and the common validation set, all three HF
-adapters improve their own matched base models, while TF-IDF/SVM
-provides a lower-latency option with pooled balanced F1~0.7546.
-At 20,000 training labels, SVM and DistilBERT have higher point
-estimates than the 500-label adapters and much lower measured serial
-latency. This is a comparison of deployment regimes, not equal-budget
-evidence that either model family is universally superior.
-
-For local LLM adaptation, Phi-4 has the largest balanced F1 gain and
-the lowest adapted serial mean latency (0.435~s), while Qwen3 has the
-highest balanced adapted point estimate (0.7891). Their small F1 difference
-was not tested as a between-model superiority claim. Unmerged adapters
-increase measured serial latency for Gemma and Qwen; merging, alternative
-serving engines and concurrent request throughput were not evaluated.
-The following archived Ollama recommendations apply to their saved
-zero-shot configurations; they are not timing predictions for HF NF4.
-
-\textbf{Maximum accuracy (offline / batch):}
-Use \texttt{gemma4:12b}. It achieves the highest balanced F1 (0.774),
-is numerically close to published paid-API scores, and has a reported
-artifact size of 7.6~GB. At 17.1~s per prediction, one million serial
-predictions require approximately 198~GPU-days on the measured
-workstation. Large archive processing would require independently
-measured batching or multiple GPUs; their speedup was not evaluated.
-
-\textbf{Real-time deployment ($<$1\,s latency required):}
-Use \texttt{phi4:14b}. It offers F1~0.706 at just 0.54~s per
-prediction, the highest F1 among saved configurations with mean latency below one second.
-The reciprocal of this serial mean is approximately 110 predictions
-per minute; concurrent throughput, queueing and tail latency were not measured.
-
-\textbf{Smaller model artifacts:}
-Consider \texttt{qwen3:8b} (5.2~GB artifact, F1~0.717, 5.19~s);
-peak runtime VRAM must be checked separately. It produces zero
-invalid predictions in the balanced 500-character tests and outperforms all other sub-6\,GB models.
-
-\textbf{Avoid} \texttt{mistral:7b} and \texttt{llama3.1:8b} in
-zero-shot settings: both produce $>$50 off-label predictions per
-1,000 samples on average, making them operationally unreliable
-without post-processing.
-\texttt{mistral-nemo:12b} is also not recommended for this task
-despite its size advantage.
-
-Taken together, these recommendations translate into a concrete cost
-advantage. At moderate scale (one million complaints per year),
-deploying \texttt{gemma4:12b} instead of the best-performing paid API
-model (o1) would avoid approximately \$24,240 in API fees at the
-historical reference rate. This is an API-fee comparison, not a total
-cost-of-ownership estimate or proof of equal quality. \texttt{qwen3:14b} and \texttt{gpt-oss:20b} similarly
-have point estimates above the published GPT-4o baseline (F1~0.7358)
-without API fees. This
-should not be read as computation being free: local inference still
-consumes GPU time, electricity, and local hardware resources. The
-practical gain is the elimination of recurring third-party API charges
-and the need to transfer sensitive complaint text to external services.
-
-Equal-prior reweighting in Section~\ref{sec:audit} shows that most of
-the observed Experiment~B gains reflect class proportions. Model
-quality should be assessed with macro-F1 and class-specific metrics;
-partly shared test records preclude treating A and B as independent
-replications.
+Local inference avoids third-party model-API fees and keeps new
+complaint text on local infrastructure. The cross-study commercial
+comparison supplies context rather than proof of equal quality or
+total cost savings. Macro-F1 and class scores remain necessary under
+imbalance: equal-prior reweighting explains much of Experiment~B's
+aggregate gain, and adaptation retains minority-class weaknesses.
 
 \subsection{Limitations}
 
-This study has several limitations. First, the balanced comparison
-matches the reference protocol but not necessarily the exact sampled
-instances, since the original sample identifiers are unavailable.
-Second, the 500-character length filter reduces inference cost but
-also shifts the class distribution, especially increasing the share of
-\texttt{credit\_reporting}; future work should test whether the same
-patterns hold for longer narratives. Third, lowercasing and special-
-character removal may discard useful cues such as account-number
-patterns, capitalization, dates, or punctuation; the effect of less
-aggressive LLM-oriented preprocessing remains untested. Fourth, all experiments use $N{=}1{,}000$ examples per seed,
-evaluated at two narrative character-length limits (250 and 500
-characters) across a five-class taxonomy; larger sample sizes,
-longer narratives, and richer taxonomies may reveal additional
-drift and rarer category confusions.
-Fifth, all local models are evaluated with a single zero-shot prompt.
-Prompt wording, output-format instructions, few-shot examples, or
-self-consistency decoding may change the relative ranking of models,
-particularly for smaller standard models with weaker instruction
-following. Sixth, the zero-shot models use compressed Ollama builds,
-including differing quantisation formats, so scores conflate model family, model
-size, and quantisation effects. Seventh, we cannot rule out pre-training
-contamination: open-weight models may have encountered CFPB complaints
-or derivative datasets during pre-training, although no task-specific
-fine-tuning is used in the LLM zero-shot runs. Eighth, LLM adaptation uses
-only 500 training records and one training seed. Its three test subsets
-and bootstrap intervals do not measure variation across independent
-adapter fits; larger training budgets and additional training seeds remain
-unevaluated for LLMs. The common validation set adds 2,000 labelled records
-to each reported supervised training budget. Serial latency is measured on
-100 deterministic, class-balanced examples per mode after warmup, excluding
-response decoding and network serving overhead. Batch and serial outputs
-differ on three of 600 benchmark predictions; the full-test F1 estimates
-describe the saved batched outputs. Ninth, the reported \$0 cost
-refers to API expenditure, not to the full economic cost of GPU
-hardware, electricity, or local workstation operation. Finally, the main tables
-report weighted aggregate metrics; for operational deployment,
-macro-F1 and per-class precision/recall should be inspected to avoid
-masking poor minority-class performance.
+\textbf{Data and generalisation.} The 500-character filter and
+normalisation change the evaluated population and may remove useful
+cues. The paired 250/500-character tests address truncation within
+short complaints, not performance on naturally longer narratives.
+Partly overlapping test conditions are not independent replications.
+English narratives, the five-category taxonomy and single instruction
+template further limit generalisation;
+pre-training contamination cannot be ruled out.
+
+\textbf{Model and training scope.} The eleven-model benchmark lacks
+complete artifact digests and thinking logs; differing quantisation,
+architectures and training recipes confound broad family comparisons.
+The thinking
+control pins current artifacts but uses one fixed 500-record subset
+and a finite output budget. LLM adaptation uses only 500 training
+records and three seeds on fixed training/validation records; LoRA rank
+and target-module choices are not ablated. Within-fit test intervals and between-fit
+standard deviations do not establish robustness across new training
+corpora, prompts or larger label budgets. Every supervised budget
+also requires 2,000 validation labels.
+
+\textbf{Operational scope.} HF serial timing uses 100 fixed balanced
+examples after warmup and excludes output decoding and network
+serving; thinking-control timing includes the full HTTP response.
+They are not interchangeable timing boundaries. Full-test HF scores
+use batched outputs, which differ from serial predictions in 11 of
+1,800 benchmark cases. Concurrent serving and total ownership cost
+were not measured. Zero model-API expenditure does not imply free
+local computation. Abstention, human escalation and asymmetric
+misrouting costs are outside the evaluated routing task.
 
 % =============================================================
 \section{Conclusion}
 \label{sec:conclusion}
 
-We compared archived zero-shot LLM configurations, controlled QLoRA
-adaptation and direct supervised classifiers on preserved CFPB tests.
-Using 500 balanced training labels and a common 2,000-label validation
-set, Gemma~4, Qwen3 and Phi-4 improve pooled balanced weighted F1 by
-2.83, 7.92 and 9.62 percentage points under matched HF inference.
-Improvements remain positive in all twelve model--condition--length
-comparisons, with no invalid adapted output. Training fits a 16~GB GPU
-and takes approximately 35--41 minutes. Adapted serial mean latency
-remains below 0.65~s in the measured benchmark, but adaptation does not
-uniformly accelerate inference.
+We compared local zero-shot configurations, three-seed QLoRA
+adaptation, direct classifiers and controlled thinking policies on
+preserved CFPB tests. At 500 training plus 2,000 validation labels,
+adapted balanced weighted F1 averages 0.7833--0.7857, improving matched
+bases by 3.21--9.72 percentage points. These means exceed the
+label-matched SVM point estimate, with higher serial serving latency.
+Direct classifiers improve at larger observed budgets; LLM adaptation
+beyond 500 records was not evaluated, so the equal-budget crossover
+remains unknown.
 
-The 20,000-training-label SVM and DistilBERT baselines achieve higher
-F1 point estimates with much lower classifier latency, so available
-labels and serving constraints determine which local approach is useful.
-Weighted scores under reduced imbalance must be interpreted alongside
-macro-F1 and class-specific results. The historical Ollama/API comparison
-provides zero-shot context, without establishing statistical equivalence
-or isolating reasoning effects. Future work should repeat LLM adaptation
-across training seeds and larger label budgets, evaluate longer narratives
-and temporal shifts, and measure alternative serving configurations.
+Thinking improves Qwen3 under the controlled budget, but Gemma's
+change is inconclusive and both incur substantial latency increases.
+The practical choice depends on label availability, completion
+reliability and serving requirements. Minority-class performance
+requires separate inspection even after adaptation. Findings remain
+conditional on this short-narrative corpus, fixed prompts and measured
+serial settings; longer narratives, temporal shift, concurrent throughput,
+tail latency and total ownership cost remain unevaluated.
 
 \section*{Declarations}
 
@@ -1011,7 +832,9 @@ The authors declare that they have no conflict of interest.
 
 % ---- Ethics Approval -----------------------------------------
 \bmhead{Ethics approval and consent to participate}
-Not applicable.
+Not applicable: analysis of an existing public corpus involves no participant
+recruitment or intervention. Public narratives may retain identifying or
+financial information; local processing alone does not ensure privacy.
 
 % ---- Consent for Publication ---------------------------------
 \bmhead{Consent for publication}

@@ -1,0 +1,78 @@
+{
+  "checked_local": "2026-10-09T12:05:35.382241+03:00",
+  "phase": "pass",
+  "raw_predictions": 2000,
+  "unique_keys": 2000,
+  "paired_comparisons": 1000,
+  "unique_inputs": 500,
+  "pilot_overlap": 0,
+  "input_limit_characters": 500,
+  "common_output_cap_tokens": 4096,
+  "source_selection_prediction_hashes": "pass",
+  "request_pairing_and_final_response_reparse": "pass",
+  "independent_sklearn_metrics": "pass",
+  "independent_exact_mcnemar_and_holm": "pass",
+  "metrics": [
+    {
+      "model": "gemma4",
+      "think": false,
+      "n": 500,
+      "accuracy": 0.73,
+      "f1": 0.7297873479452558,
+      "invalid": 0,
+      "length": 0
+    },
+    {
+      "model": "gemma4",
+      "think": true,
+      "n": 500,
+      "accuracy": 0.736,
+      "f1": 0.7446798088854805,
+      "invalid": 14,
+      "length": 14
+    },
+    {
+      "model": "qwen3",
+      "think": false,
+      "n": 500,
+      "accuracy": 0.694,
+      "f1": 0.692554142713486,
+      "invalid": 0,
+      "length": 0
+    },
+    {
+      "model": "qwen3",
+      "think": true,
+      "n": 500,
+      "accuracy": 0.746,
+      "f1": 0.7448727640943323,
+      "invalid": 0,
+      "length": 0
+    }
+  ],
+  "manuscript_audit": {
+    "documents": {
+      "main.tex": {
+        "figure": 4,
+        "table": 10
+      },
+      "supplementary_material.tex": {
+        "figure": 8,
+        "table": 7
+      }
+    },
+    "uncited_objects": [],
+    "undefined_refs": [],
+    "undefined_citations": [],
+    "duplicate_labels": [],
+    "abstract_word_count_whitespace": 177,
+    "abstract_hardware_terms": [],
+    "bibliography_entry_count": 39
+  },
+  "artifact_sha256": {
+    "results/sadhana/thinking_control_20261009/summary.csv": "bdc5d9453cf1c980bdb4b2281f21fbc3b21a78f11c1ab4f6963e1b35db2cdc24",
+    "results/sadhana/thinking_control_20261009/paired_comparison.csv": "28c2cd7935c7ea910d71bd839ad5f884c7183ac5a0a79b513c5f350b3335727b",
+    "SPRINGER/main.pdf": "25dd2eba0e92ef680330b1f14a9073876d5e1bcd7bf7d35d673e9c156c9d305d",
+    "SPRINGER/supplementary_material.pdf": "7d65c2b9210823b160876d684ff3b827c29b153734508c5d4d86604139f8b32e"
+  }
+}

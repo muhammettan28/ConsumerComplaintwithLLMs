@@ -1,0 +1,9 @@
+{
+  "dataset": "1_subset_balanced_500",
+  "n": 100,
+  "selection": "first equal count per class, sorted back to original indices",
+  "mean_latency_s": 0.4213452576198688,
+  "median_latency_s": 0.41515452150088095,
+  "p95_latency_s": 0.48543211790183705,
+  "batch_prediction_agreement": 0.98
+}

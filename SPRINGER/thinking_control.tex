@@ -1,0 +1,49 @@
+\subsection{Controlled Thinking-On/Off Comparison}
+\label{sec:thinking_control}
+We evaluate current pinned Gemma~4~12B and Qwen3~14B GGUF artifacts
+on the same 500 unique inputs sampled from the first preserved balanced
+test subset (100 per class, at most 500 characters). An excluded
+ten-record pilot and a pre-evaluation
+amendment fix a common 4,096-token output cap, including reasoning.
+Within each model, only the thinking flag changes: prompts, artifact,
+temperature zero, context and runtime are fixed. Warm serial requests
+alternate mode order. Only final-answer JSON is scored; invalid and
+length-terminated outputs remain errors. Table~\ref{tab:thinking_control}
+reports this base-model control; it is separate from HF adaptation.
+\begin{table}[tb]\centering\small
+\caption{Thinking policies on the same 500 balanced inputs. Latency
+is warm serial HTTP wall time, including full-response transfer and
+excluding initial loading; it is separate from HF generation timing.
+F1 is weighted and equals macro-F1 under equal class support.
+Latency and generated tokens are means; tokens include reasoning.
+Invalid outputs remain in the denominator.}
+\label{tab:thinking_control}
+\begin{tabular}{llrrrr}\toprule
+Model & Thinking & F1 & Invalid & Latency (s) & Tokens \\\midrule
+Gemma 4 & Off & 0.7298 & 0 & 0.28 & 13.8 \\
+Gemma 4 & On & 0.7447 & 14 & 6.19 & 642.8 \\
+Qwen3 & Off & 0.6926 & 0 & 0.25 & 9.2 \\
+Qwen3 & On & 0.7449 & 0 & 8.43 & 360.1 \\
+\botrule\end{tabular}\end{table}
+Thinking increases Qwen3's weighted F1 by 5.23 percentage points
+(unadjusted paired 95\,\% interval [+1.91, +8.51]); Gemma's change is
+1.49 points ([-1.31, +4.19]), leaving its improvement inconclusive.
+Exact accuracy McNemar tests, Holm-adjusted across the two models,
+give $p=0.004372$ and $p=0.7798$, respectively. These accuracy tests
+are distinct from the unadjusted F1 intervals.
+
+Class-level point estimates in Supplementary
+Table~\ref{S-tab:thinking_class} increase for all five Qwen3 categories,
+whereas Gemma's F1 decreases for mortgages/loans (0.7527 to 0.7312)
+and credit cards (0.7400 to 0.7363), despite its positive overall
+change. These patterns are descriptive; no class-specific significance
+tests were performed.
+
+Mean latency increases from 0.25 to 8.43~s for Qwen3 and from 0.28
+to 6.19~s for Gemma. All 14 invalid Gemma thinking-on outputs
+(2.8\,\%) exhaust the shared output budget without a final answer;
+the other three configurations have none. The comparison therefore
+estimates thinking-policy performance under a finite total-token
+budget, conditional on this subset and these artifacts. Prompt and
+training-seed robustness are outside this comparison. Supplementary Section~\ref{S-sec:thinking_protocol}
+provides the protocol and class scores.

@@ -1,0 +1,35 @@
+{
+  "checked_local": "2026-10-09T13:03:04.419328+03:00",
+  "result": "pass",
+  "all_manifest_sha256_match": true,
+  "training_budget_overlaps": {
+    "500": {
+      "test_exact": 0,
+      "test_prefix": 0,
+      "validation_exact": 0,
+      "validation_prefix": 0
+    },
+    "2000": {
+      "test_exact": 0,
+      "test_prefix": 0,
+      "validation_exact": 0,
+      "validation_prefix": 0
+    },
+    "10000": {
+      "test_exact": 0,
+      "test_prefix": 0,
+      "validation_exact": 0,
+      "validation_prefix": 0
+    },
+    "20000": {
+      "test_exact": 0,
+      "test_prefix": 0,
+      "validation_exact": 0,
+      "validation_prefix": 0
+    }
+  },
+  "validation_test_overlap": 0,
+  "near_duplicate_screening": "Existing 128-permutation MinHash+exact Jaccard >=0.85; approximate retrieval not rerun",
+  "tfidf_fit_source": "run_classical_baseline.py: model.fit(train.narrative, train.true_label)",
+  "no_training_or_model_inference_started": true
+}

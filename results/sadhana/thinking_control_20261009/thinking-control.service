@@ -1,0 +1,23 @@
+[Unit]
+Description=Consumer complaints: Gemma/Qwen paired thinking control
+StartLimitIntervalSec=600
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs
+ExecStart=/home/tan/anaconda3/envs/ConsumerComplaint/bin/python -u /home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/run_thinking_control.py --resume
+Environment=PYTHONUNBUFFERED=1
+Environment=OMP_NUM_THREADS=4
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=MKL_NUM_THREADS=4
+Environment=PATH=/home/tan/anaconda3/envs/ConsumerComplaint/bin:/usr/local/bin:/usr/bin:/bin
+Restart=on-failure
+RestartSec=45
+TimeoutStopSec=30
+Nice=10
+StandardOutput=append:/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/thinking_control_20261009/service.log
+StandardError=append:/home/tan/Documents/GitHub/ConsumerComplaintwithLLMs/results/sadhana/thinking_control_20261009/service.log
+
+[Install]
+WantedBy=default.target

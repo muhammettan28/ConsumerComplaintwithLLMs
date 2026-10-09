@@ -1,0 +1,12 @@
+{
+  "verified_local": "2026-10-09T11:34:16.088496+03:00",
+  "predictions": 2000,
+  "unique_test_inputs": 500,
+  "source_sha256": "5b4c8bd3ca6bb6fad79482d496e3eca5d6bb27d5e2df1d1643c2f4e1aaa15e5d",
+  "selection_sha256": "2aa91ee3b09e7b5e179dc7af4191d262e1baa02e4604061420db0c87776cd7ad",
+  "prediction_sha256": "70e30feea8307cfdbd9aec8fc0d84863f936e37a697151543910278083e787ee",
+  "pairs": 1000,
+  "pilot_test_overlap": 0,
+  "strict_reparse_and_request_pairing": "pass",
+  "model_metadata": "digest/template/parameters/version unchanged"
+}
