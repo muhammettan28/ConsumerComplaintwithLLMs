@@ -16,9 +16,27 @@ __pycache__/
 !/SPRINGER/yol_haritasi_sadhana.md
 !/SPRINGER/sadhana_durum_raporu.md
 !/README.md
-/dataset/finetuning/
+# Keep dataset/finetuning/ CSV splits and manifest under version control.
 /checkpoints/
 /results/sadhana/*.joblib
+
+# Large generated experiment outputs; retain compact metrics and method JSON.
+/results/sadhana/**/*.jsonl
+/results/sadhana/**/preds_*.csv
+/results/sadhana/**/serial_benchmark.csv
+/results/sadhana/thinking_control_*/predictions.csv
+/results/sadhana/**/*.log
+
+# Disposable experiment previews, manuscript backups and audit workspaces.
+/results/sadhana/**/manuscript_preview/
+/results/sadhana/**/manuscript_before_*/
+/results/sadhana/reviewer_audit/**/
+
+# Retain compact evidence from the final split/manuscript verification.
+!/results/sadhana/reviewer_audit/perplexity_20261009/
+/results/sadhana/reviewer_audit/perplexity_20261009/*
+!/results/sadhana/reviewer_audit/perplexity_20261009/split_integrity.json
+!/results/sadhana/reviewer_audit/perplexity_20261009/verification.json
 /SPRINGER/supplementary_material.aux
 /SPRINGER/supplementary_material.bbl
 /SPRINGER/supplementary_material.blg
@@ -39,7 +57,13 @@ SPRINGER/references.bib
 !/SPRINGER/yol_haritasi_sadhana.md
 !/SPRINGER/sadhana_durum_raporu.md
 !/SPRINGER/hakem_degerlendirmesi_2026-10-08.md
+!/SPRINGER/hakem_degerlendirmesi_uc_seed_2026-10-08.md
+!/SPRINGER/claude_deepseek_feedback_degerlendirmesi.md
+!/SPRINGER/hakem_degerlendirmesi_editorial_2026-10-09.md
+!/SPRINGER/perplexity_feedback_degerlendirmesi_2026-10-09.md
 !/SPRINGER/figures/
 !/SPRINGER/figures/v2/
 !/SPRINGER/figures/v2/hf_qlora_f1_comparison.pdf
 !/SPRINGER/figures/v2/hf_qlora_multiseed_f1.pdf
+!/SPRINGER/figures/v2/label_budget_tradeoff.pdf
+!/SPRINGER/figures/v2/class_distribution.png
