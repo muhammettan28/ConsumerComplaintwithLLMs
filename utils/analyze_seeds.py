@@ -1,8 +1,8 @@
 """
 utils/analyze_seeds.py — Multi-seed analysis for the revised paper.
 
-Reads all 132 prediction files from preds/ (3 seeds × 2 sizes × 2 conditions × 11 models),
-computes per-run metrics, aggregates across seeds (mean ± std), and produces:
+Reads all 132 prediction files from preds/ (3 test subsets × 2 sizes × 2 conditions × 11 models),
+computes per-run metrics, aggregates across test subsets (mean ± std), and produces:
   - results/table_balanced.csv
   - results/table_imbalanced.csv
   - results/table_size_sensitivity.csv
@@ -61,6 +61,7 @@ FNAME_PAT = re.compile(
 REASONING = {"deepseek-r1_14b", "deepseek-r1_8b", "qwen3_8b", "qwen3_14b", "gpt-oss_20b"}
 COLOR_R = "#1565C0"
 COLOR_S = "#90CAF9"
+COLOR_U = "#9E9E9E"
 
 REFERENCE = {
     "o1 (paid API)":                {"acc": 0.777, "f1": 0.7764, "cost": "$24.24"},
@@ -109,6 +110,8 @@ def compute_metrics(df: pd.DataFrame) -> dict:
 
 
 def mcolor(model: str) -> str:
+    if model == "gemma4_12b":
+        return COLOR_U
     return COLOR_R if model in REASONING else COLOR_S
 
 
@@ -174,12 +177,13 @@ def plot_f1_errbar(agg: pd.DataFrame, title: str, fname: str) -> None:
                 list(df["model"]).index(row["model"]),
                 f'{row["f1_weighted_mean"]:.4f} ± {row["f1_weighted_std"]:.4f}',
                 va="center", fontsize=7.5)
-    ax.set_xlabel("Weighted F1-Score (mean ± std, 3 seeds)", fontsize=10)
+    ax.set_xlabel("Weighted F1-Score (mean ± sample std, 3 test subsets)", fontsize=10)
     ax.set_title(title, fontsize=11)
     ax.set_xlim(0.40, 1.02)
     ax.grid(axis="x", linestyle="--", alpha=0.4)
     leg = [mpatches.Patch(color=COLOR_R, label="Reasoning"),
-           mpatches.Patch(color=COLOR_S, label="Standard")]
+           mpatches.Patch(color=COLOR_S, label="Standard"),
+           mpatches.Patch(color=COLOR_U, label="Gemma 4: thinking mode unverified")]
     ax.legend(handles=leg, loc="lower right", fontsize=9)
     plt.tight_layout()
     fig.savefig(fname, dpi=150)
@@ -199,12 +203,12 @@ def plot_comparison_ab(agg_a: pd.DataFrame, agg_b: pd.DataFrame, fname: str) -> 
     fig, ax = plt.subplots(figsize=(12, 5))
     ax.bar(x - w/2, a_vals, w, yerr=a_std, label="Experiment A — Balanced",
            color="#42A5F5", edgecolor="white", capsize=4)
-    ax.bar(x + w/2, b_vals, w, yerr=b_std, label="Experiment B — Imbalanced",
+    ax.bar(x + w/2, b_vals, w, yerr=b_std, label="Experiment B — Reduced imbalance",
            color="#EF5350", edgecolor="white", capsize=4)
     ax.set_xticks(x)
     ax.set_xticklabels(models, rotation=25, ha="right", fontsize=8.5)
-    ax.set_ylabel("Accuracy (mean ± std, 3 seeds)", fontsize=10)
-    ax.set_title("Experiment A vs. B — Balanced vs. Imbalanced (500-char limit, N=1,000)", fontsize=11)
+    ax.set_ylabel("Accuracy (mean ± sample std, 3 test subsets)", fontsize=10)
+    ax.set_title("Experiment A vs. B — Balanced vs. Reduced imbalance (500-char limit, N=1,000)", fontsize=11)
     ax.axhline(0.777, color="gray", linestyle="--", linewidth=1.2,
                label="Reference best — o1 (0.777, paid API)")
     ax.set_ylim(0.40, 0.95)
@@ -229,8 +233,9 @@ def plot_size_sensitivity(raw: pd.DataFrame, condition: str, fname: str) -> None
                         fmt=marker, color=color, linestyle=ls,
                         capsize=4, markersize=7,
                         label=f"{size}-char" if model == MODELS[0] else "")
-    ax.set_ylabel("Accuracy (mean ± std)", fontsize=10)
-    ax.set_title(f"Narrative Length Sensitivity — {condition.capitalize()} Condition", fontsize=11)
+    ax.set_ylabel("Accuracy (mean ± sample std, 3 test subsets)", fontsize=10)
+    condition_label = "Reduced imbalance" if condition == "imbalanced" else "Balanced"
+    ax.set_title(f"Narrative Length Sensitivity — {condition_label}", fontsize=11)
     ax.tick_params(axis="x", rotation=25)
     ax.grid(axis="y", linestyle="--", alpha=0.4)
     leg_size = [
@@ -238,6 +243,7 @@ def plot_size_sensitivity(raw: pd.DataFrame, condition: str, fname: str) -> None
         mpatches.Patch(color="gray", label="500-char (■)"),
         mpatches.Patch(color=COLOR_R, label="Reasoning"),
         mpatches.Patch(color=COLOR_S, label="Standard"),
+        mpatches.Patch(color=COLOR_U, label="Gemma 4: thinking mode unverified"),
     ]
     ax.legend(handles=leg_size, fontsize=8.5)
     plt.tight_layout()
@@ -268,7 +274,7 @@ def plot_vs_reference(agg_a: pd.DataFrame, fname: str) -> None:
     palette = {
         "Reasoning (open-weight)": COLOR_R,
         "Standard (open-weight)":  COLOR_S,
-        "Unverified mode (open-weight)": "#999999",
+        "Unverified mode (open-weight)": COLOR_U,
         "Paid API":                "#E57373",
     }
     colors = [palette[t] for t in combined["type"]]
@@ -411,7 +417,7 @@ def main():
     raw = load_all()
     print(f"  {len(raw)} files loaded.")
     print(f"  Models:     {sorted(raw['model'].unique())}")
-    print(f"  Seeds:      {sorted(raw['seed'].unique())}")
+    print(f"  Test subsets: {sorted(raw['seed'].unique())}")
     print(f"  Conditions: {sorted(raw['condition'].unique())}")
     print(f"  Sizes:      {sorted(raw['size'].unique())}")
 
@@ -425,7 +431,7 @@ def main():
     tbl_a.to_csv(os.path.join(RESULTS_DIR, "table_balanced_500.csv"), index=False)
 
     print("\n" + "="*60)
-    print("  Experiment B — Imbalanced, 500-char limit")
+    print("  Experiment B — Reduced imbalance, 500-char limit")
     print("="*60)
     agg_b500 = aggregate(raw, "imbalanced", 500)
     tbl_b = build_summary_table(agg_b500)
@@ -457,12 +463,12 @@ def main():
     print("\nGenerating figures...")
     plot_f1_errbar(
         agg_a500,
-        title="Weighted F1-Score — Balanced Experiment (500-char limit, N=1,000, mean ± std, 3 seeds)",
+        title="Weighted F1-Score — Balanced (500-char limit, N=1,000, 3 test subsets)",
         fname=os.path.join(FIGS_DIR, "f1_balanced_errbar.png"),
     )
     plot_f1_errbar(
         agg_b500,
-        title="Weighted F1-Score — Imbalanced Experiment (500-char limit, N=1,000, mean ± std, 3 seeds)",
+        title="Weighted F1-Score — Reduced imbalance (500-char limit, N=1,000, 3 test subsets)",
         fname=os.path.join(FIGS_DIR, "f1_imbalanced_errbar.png"),
     )
     plot_comparison_ab(
