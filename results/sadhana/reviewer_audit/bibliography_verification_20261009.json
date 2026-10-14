@@ -1,0 +1,143 @@
+{
+  "date": "2026-10-09",
+  "input_report": "kaynakca-raporu.doc",
+  "modified_bibliography_entries": [
+    "bulgakov2026deepseek",
+    "shin2025llmwritten",
+    "liang2025cfpb",
+    "raju2022bertopic",
+    "devlin2019bert",
+    "zhao2023survey",
+    "guo2025deepseekr1",
+    "grootendorst2022bertopic",
+    "wei2022chainofthought",
+    "kojima2022zeroshotcot",
+    "jiang2023mistral",
+    "team2024gemma2",
+    "abdin2024phi4",
+    "qwen2025qwen3",
+    "liu2024framework",
+    "deepseekllm2024",
+    "google2026gemma4card",
+    "ollama2026deepseekregistry",
+    "sanh2019distilbert",
+    "hu2021lora",
+    "dettmers2023qlora",
+    "grattafiori2024llama3",
+    "ollama2026docs",
+    "openai2025gptoss"
+  ],
+  "bibliography_key_set_unchanged": true,
+  "main_citation_number_order_unchanged": true,
+  "main_manuscript_prose_unchanged": true,
+  "supplementary_changes": [
+    "Yazar adları Yuan et al. ve Vasudeva Raju et al. olarak yayıncı künyeleriyle eşleştirildi.",
+    "DOI ve URL basmayan unsrt yerine aynı atıf sırasını koruyan unsrturl kullanıldı."
+  ],
+  "important_decisions": [
+    {
+      "key": "qwen2025qwen3",
+      "decision": "Kaynak gerçektir; Qwen Team yerine Yang, An; Li, Anfeng; Yang, Baosong; et al. ve DOI kullanıldı.",
+      "source": "https://arxiv.org/abs/2505.09388"
+    },
+    {
+      "key": "zhao2023survey",
+      "decision": "Raporun farklı bir Wu öneri sistemleri taramasıyla eşleştirmesi reddedildi. Aynı Zhao çalışmasının 9 Mayıs 2026 tarihinde çevrimiçi yayımlanmış Frontiers of Computer Science sürümü kullanıldı.",
+      "source": "https://link.springer.com/article/10.1007/s11704-026-60308-3"
+    },
+    {
+      "key": "guo2025deepseekr1",
+      "decision": "Nature sürümünün doğru başlığı, Guo ilk yazarı, 645(8081), 633--638 (2025) bilgileri ve DOI kullanıldı. Rapordaki DeepSeek-AI ilk yazar önerisi Nature künyesiyle uyuşmuyor.",
+      "source": "https://www.nature.com/articles/s41586-025-09422-z"
+    },
+    {
+      "key": "liang2025cfpb",
+      "decision": "Patterns 6(12), 101366 (2025) yayımlanmış sürümü ve DOI kullanıldı.",
+      "source": "https://api.crossref.org/works/10.1016/j.patter.2025.101366"
+    },
+    {
+      "key": "liu2024framework",
+      "decision": "İlk yazar Yuan, Liu olarak IEEE tarafından verilen Crossref yazar alanına göre düzeltildi; özgün yerel PDF de kontrol edildi.",
+      "source": "https://api.crossref.org/works/10.1109/ICAACE61206.2024.10549750"
+    },
+    {
+      "key": "raju2022bertopic",
+      "decision": "İlk iki yazar Vasudeva Raju, S. ve Kumar Bolla, Bharath olarak yayıncı alanlarına göre düzeltildi. PDF yalnızca S. verdiği için Sangaraju açılımı kullanılmadı.",
+      "source": "https://api.crossref.org/works/10.1109/I2CT54291.2022.9824873"
+    },
+    {
+      "key": "shin2025llmwritten",
+      "decision": "Gerçek arXiv v4 kaydı korundu; OSF kaydına geçilmedi.",
+      "source": "https://arxiv.org/abs/2311.16466v4"
+    },
+    {
+      "key": "grattafiori2024llama3",
+      "decision": "Gerçek 2024 arXiv kaydı korundu; HAL kaydının 2025 yılı bu ön baskıya taşınmadı.",
+      "source": "https://arxiv.org/abs/2407.21783"
+    },
+    {
+      "key": "openai2025gptoss",
+      "decision": "Resmî model deposunun önerdiği gpt-oss-120b & gpt-oss-20b Model Card, arXiv:2508.10925 ve DOI kullanıldı.",
+      "source": "https://arxiv.org/abs/2508.10925"
+    },
+    {
+      "key": "ollama2026docs,ollama2026deepseekregistry",
+      "decision": "Resmî sayfalar çalışıyor. Doğrulanmış yayın tarihi bulunmadığından yayın yılı kaldırıldı, mevcut erişim tarihi korundu; raporun 2021 eşleştirmesi benimsenmedi.",
+      "sources": [
+        "https://docs.ollama.com/",
+        "https://ollama.com/library/deepseek-r1"
+      ]
+    }
+  ],
+  "primary_metadata_cache": "results/sadhana/reviewer_audit/bibliography_report_20261009/",
+  "validation": {
+    "documents": {
+      "main.tex": {
+        "figure": 4,
+        "table": 10
+      },
+      "supplementary_material.tex": {
+        "figure": 8,
+        "table": 8
+      }
+    },
+    "uncited_objects": [],
+    "undefined_refs": [],
+    "undefined_citations": [],
+    "duplicate_labels": [],
+    "abstract_word_count_whitespace": 187,
+    "abstract_hardware_terms": [],
+    "bibliography_entry_count": 39
+  },
+  "pdfs": {
+    "main": {
+      "pages": 25,
+      "reference_count": 37,
+      "sha256": "cf71dc81592901bb613cde5c63752df90ef5c8eb3390bbb648f83caa3a19a75b",
+      "critical_latex_warnings": [],
+      "bibliography_doi_and_url_annotations": "passed",
+      "no_bibliography_placeholders": true
+    },
+    "supplementary_material": {
+      "pages": 16,
+      "reference_count": 15,
+      "sha256": "8ec0970399d153a9b12eb3869f7342e06a2ee734a8ee1792570b27954fad76fb",
+      "critical_latex_warnings": [],
+      "bibliography_doi_and_url_annotations": "passed",
+      "no_bibliography_placeholders": true
+    }
+  },
+  "followup_publisher_location_correction": {
+    "reason": "Adding publisher fields without locations caused the Springer bibliography style to print ???. Added the official ACL BibTeX address and Curran publisher location.",
+    "keys": [
+      "devlin2019bert",
+      "wei2022chainofthought",
+      "kojima2022zeroshotcot",
+      "dettmers2023qlora"
+    ],
+    "sources": [
+      "https://aclanthology.org/N19-1423.bib",
+      "https://www.proceedings.com/content/catalog/CatNewApr26.pdf"
+    ]
+  }
+}
