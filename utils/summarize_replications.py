@@ -77,7 +77,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--allow-partial', action='store_true')
     parser.add_argument('--bootstrap', type=int, default=5000)
+    parser.add_argument('--export-manuscript', action='store_true',
+                        help='Also export to locally available manuscript sources')
     args = parser.parse_args()
+    if args.export_manuscript and not all(path.exists() for path in [
+            ROOT/'SPRINGER/main.tex', ROOT/'utils/export_replication_manuscript.py']):
+        parser.error('--export-manuscript requires the local manuscript files and export utility')
     if not args.allow_partial and args.bootstrap < 100:
         parser.error('Full reports require at least 100 bootstrap replicates')
     RUN.mkdir(parents=True, exist_ok=True)
@@ -193,7 +198,7 @@ def main():
         'label_budget':'All n500 methods use the same 500 training and 2,000 validation records',
         'temporal_limit':'Processed CSV has no timestamps or original complaint IDs; this is not temporal validation'}
     (RUN/'replication_method.json').write_text(json.dumps(method,indent=2))
-    report = ['# Reviewer-requested replications', '', f"Status: **{method['phase']}**. Updated: {method['updated_local']}.", '',
+    report = ['# Training-seed replication summary', '', f"Status: **{method['phase']}**. Updated: {method['updated_local']}.", '',
               '500 fixed training records + the same 2,000 validation records; pinned HF weights; original tests unchanged.', '',
               'Each fit is evaluated on the same 3,000 records. Means and sample standard deviations describe training seeds, not 9,000 independent test records.', '']
     if len(encoder):
@@ -215,7 +220,7 @@ def main():
     print(json.dumps(method,indent=2),flush=True)
     if not args.allow_partial and not complete:
         raise SystemExit('Incomplete replication study')
-    if complete and not args.allow_partial:
+    if complete and not args.allow_partial and args.export_manuscript:
         subprocess.run([sys.executable, str(ROOT/'utils/export_replication_manuscript.py')], cwd=ROOT, check=True)
 
 

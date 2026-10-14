@@ -38,7 +38,7 @@ def show_replication_status():
     status = json.loads(path.read_text())
     jobs = status['jobs']
     complete = sum(j.get('phase') == 'complete' for j in jobs.values())
-    print(f"Reviewer replications: {status['phase']} | {complete}/{status['n_jobs']} jobs complete")
+    print(f"Training-seed replications: {status['phase']} | {complete}/{status['n_jobs']} jobs complete")
     print('  Training: 500 fixed records; validation: 2,000; training seeds: 1, 2, 3')
     print('  DistilBERT: three-epoch and validation-stopped controls; LLMs: two additional fits each')
     if status.get('active_job'):

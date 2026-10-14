@@ -471,13 +471,18 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--prepare-only', action='store_true')
     parser.add_argument('--resume', action='store_true')
+    parser.add_argument('--export-manuscript', action='store_true',
+                        help='Also export to locally available manuscript sources')
     args = parser.parse_args()
+    if args.export_manuscript and not all(path.exists() for path in [
+            ROOT/'SPRINGER/main.tex', ROOT/'utils/audit_manuscript.py']):
+        parser.error('--export-manuscript requires the local manuscript files and audit utility')
     (ROOT/'checkpoints').mkdir(exist_ok=True)
     with (ROOT/'checkpoints/.qlora_queue.lock').open('a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         global PLAN
         if not args.prepare_only and (RUN/'status.json').exists() and json.loads((RUN/'status.json').read_text()).get('phase')=='complete':
-            print('Thinking control already complete; preserving current manuscript.', flush=True)
+            print('Thinking control already complete.', flush=True)
             return
         PLAN=prepare()
         if args.prepare_only:
@@ -485,7 +490,7 @@ def main():
             print('Frozen inputs and model metadata prepared.', flush=True)
             return
         if (RUN/'status.json').exists() and json.loads((RUN/'status.json').read_text()).get('phase')=='complete':
-            print('Thinking control already complete; preserving current manuscript.', flush=True)
+            print('Thinking control already complete.', flush=True)
             return
         if not args.resume:
             assert not (RUN/'predictions.jsonl').exists(), 'Use --resume for existing outputs'
@@ -494,10 +499,11 @@ def main():
             records=evaluate(PLAN,cap)
             progress('analysis',done_predictions=2000,total_predictions=2000)
             summary,comparison=summarize(records)
-            progress('manuscript_export',done_predictions=2000,total_predictions=2000)
-            export(summary,comparison)
+            if args.export_manuscript:
+                progress('manuscript_export',done_predictions=2000,total_predictions=2000)
+                export(summary,comparison)
             progress('complete',active_model=None,done_predictions=2000,total_predictions=2000,
-                     manuscript_updated=True,completed_local=stamp())
+                     manuscript_updated=args.export_manuscript,completed_local=stamp())
             print(summary.to_string(index=False),flush=True)
             subprocess.run(['systemctl','--user','disable','consumercomplaint-thinking-control.service'],
                            capture_output=True, check=False)

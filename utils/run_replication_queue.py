@@ -1,4 +1,4 @@
-"""Persistent, cached, sequential GPU jobs for reviewer-requested replications."""
+"""Persistent, cached, sequential GPU jobs for training-seed replications."""
 import argparse
 from datetime import datetime
 import fcntl

@@ -1,70 +1,44 @@
-data/results.csv
-data/confusion_matrices.png
+# Local models, caches and generated outputs.
 ollama-models/
 __pycache__/
 .ipynb_checkpoints/
-/literature/*
+/checkpoints/
+/tmp/
+/archive_v1/
+data/results.csv
+data/confusion_matrices.png
 *.slurm
 *.sh
-*.md
-/archive_v1/*
 *.lzma
 *.zip
 *.exe
 *.cab
-/tmp
-!/SPRINGER/yol_haritasi_sadhana.md
-!/SPRINGER/sadhana_durum_raporu.md
-!/README.md
-# Keep dataset/finetuning/ CSV splits and manifest under version control.
-/checkpoints/
-/results/sadhana/*.joblib
 
-# Large generated experiment outputs; retain compact metrics and method JSON.
+# Local manuscript sources, reference papers and working notes.
+/SPRINGER/
+/literature/
+/kaynakca-raporu.doc
+*.md
+!/README.md
+
+# Local manuscript utilities; experiment and analysis scripts remain versioned.
+/utils/audit_manuscript.py
+/utils/build_feedback_figures.py
+/utils/export_legacy_manuscript.py
+/utils/export_qlora_manuscript.py
+/utils/export_replication_manuscript.py
+
+# Keep training/validation CSVs, manifests, compact metrics and method records.
+/results/sadhana/*.joblib
 /results/sadhana/**/*.jsonl
 /results/sadhana/**/preds_*.csv
 /results/sadhana/**/serial_benchmark.csv
 /results/sadhana/thinking_control_*/predictions.csv
 /results/sadhana/**/*.log
 
-# Disposable experiment previews, manuscript backups and audit workspaces.
+# Local publication checks and disposable build workspaces.
+/results/sadhana/reviewer_audit/
 /results/sadhana/**/manuscript_preview/
 /results/sadhana/**/manuscript_before_*/
-/results/sadhana/reviewer_audit/**/
-
-# Retain compact evidence from the final split/manuscript verification.
-!/results/sadhana/reviewer_audit/perplexity_20261009/
-/results/sadhana/reviewer_audit/perplexity_20261009/*
-!/results/sadhana/reviewer_audit/perplexity_20261009/split_integrity.json
-!/results/sadhana/reviewer_audit/perplexity_20261009/verification.json
-/SPRINGER/supplementary_material.aux
-/SPRINGER/supplementary_material.bbl
-/SPRINGER/supplementary_material.blg
-/SPRINGER/supplementary_material.log
-/SPRINGER/supplementary_material.out
-SPRINGER/*
-/SPRINGER/*
-SPRINGER/main.pdf
-SPRINGER/main.tex
-SPRINGER/main.aux
-SPRINGER/main.bbl
-SPRINGER/main.blg
-SPRINGER/main.fls
-SPRINGER/main.log
-SPRINGER/main.out
-SPRINGER/references.bib
-!/SPRINGER/*.tex
-!/SPRINGER/yol_haritasi_sadhana.md
-!/SPRINGER/sadhana_durum_raporu.md
-!/SPRINGER/hakem_degerlendirmesi_2026-10-08.md
-!/SPRINGER/hakem_degerlendirmesi_uc_seed_2026-10-08.md
-!/SPRINGER/claude_deepseek_feedback_degerlendirmesi.md
-!/SPRINGER/hakem_degerlendirmesi_editorial_2026-10-09.md
-!/SPRINGER/perplexity_feedback_degerlendirmesi_2026-10-09.md
-!/SPRINGER/figures/
-!/SPRINGER/figures/v2/
-!/SPRINGER/figures/v2/hf_qlora_f1_comparison.pdf
-!/SPRINGER/figures/v2/hf_qlora_multiseed_f1.pdf
-!/SPRINGER/figures/v2/label_budget_tradeoff.pdf
-!/SPRINGER/figures/v2/class_distribution.png
-kaynakca-raporu.doc
+/results/sadhana/**/manuscript_*.json
+/results/sadhana/replication_20261008/pipeline_verification.json
